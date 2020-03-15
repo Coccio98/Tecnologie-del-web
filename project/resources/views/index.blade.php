@@ -26,20 +26,20 @@
 <!-- HEADER -->
 <header>
 
-    @include('partials.top-header')
+    @include('partials.default.top-header')
 
-    @include('partials.main-header')
+    @include('partials.default.main-header')
 
 </header>
 <!-- /HEADER -->
 
-@include('partials.navigation')
+@include('partials.default.navigation')
 
 @yield('content')
 
-@include('partials.newsletter')
+@include('partials.default.newsletter')
 
-@include('partials.footer')
+@include('partials.default.footer')
 
 <!-- jQuery Plugins -->
 <script src="{{mix('/js/app.js')}}"></script>
