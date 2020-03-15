@@ -40,75 +40,63 @@
                         <div id="rating">
                             <div class="rating-avg">
                                 <span>4.5</span>
-                                <div class="rating-stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
+                                @component('partials.stars')
+                                    @slot('s')
+                                        4
+                                    @endslot
+                                @endcomponent
                             </div>
                             <ul class="rating">
                                 <li>
-                                    <div class="rating-stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
+                                    @component('partials.stars')
+                                        @slot('s')
+                                            5
+                                        @endslot
+                                    @endcomponent
                                     <div class="rating-progress">
                                         <div style="width: 80%;"></div>
                                     </div>
                                     <span class="sum">3</span>
                                 </li>
                                 <li>
-                                    <div class="rating-stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
+                                    @component('partials.stars')
+                                        @slot('s')
+                                            4
+                                        @endslot
+                                    @endcomponent
                                     <div class="rating-progress">
                                         <div style="width: 60%;"></div>
                                     </div>
                                     <span class="sum">2</span>
                                 </li>
                                 <li>
-                                    <div class="rating-stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
+                                    @component('partials.stars')
+                                        @slot('s')
+                                            3
+                                        @endslot
+                                    @endcomponent
                                     <div class="rating-progress">
                                         <div></div>
                                     </div>
                                     <span class="sum">0</span>
                                 </li>
                                 <li>
-                                    <div class="rating-stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
+                                    @component('partials.stars')
+                                        @slot('s')
+                                            2
+                                        @endslot
+                                    @endcomponent
                                     <div class="rating-progress">
                                         <div></div>
                                     </div>
                                     <span class="sum">0</span>
                                 </li>
                                 <li>
-                                    <div class="rating-stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
+                                    @component('partials.stars')
+                                        @slot('s')
+                                            1
+                                        @endslot
+                                    @endcomponent
                                     <div class="rating-progress">
                                         <div></div>
                                     </div>
@@ -127,13 +115,11 @@
                                     <div class="review-heading">
                                         <h5 class="name">John</h5>
                                         <p class="date">27 DEC 2018, 8:0 PM</p>
-                                        <div class="review-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o empty"></i>
-                                        </div>
+                                        @component('partials.stars')
+                                            @slot('s')
+                                                4
+                                            @endslot
+                                        @endcomponent
                                     </div>
                                     <div class="review-body">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
@@ -143,13 +129,11 @@
                                     <div class="review-heading">
                                         <h5 class="name">John</h5>
                                         <p class="date">27 DEC 2018, 8:0 PM</p>
-                                        <div class="review-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o empty"></i>
-                                        </div>
+                                        @component('partials.stars')
+                                            @slot('s')
+                                                4
+                                            @endslot
+                                        @endcomponent
                                     </div>
                                     <div class="review-body">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
@@ -159,13 +143,11 @@
                                     <div class="review-heading">
                                         <h5 class="name">John</h5>
                                         <p class="date">27 DEC 2018, 8:0 PM</p>
-                                        <div class="review-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o empty"></i>
-                                        </div>
+                                        @component('partials.stars')
+                                            @slot('s')
+                                                4
+                                            @endslot
+                                        @endcomponent
                                     </div>
                                     <div class="review-body">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
@@ -212,7 +194,7 @@
             <div id="tab4" class="tab-pane fade in">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        {{$questions}}
                     </div>
                 </div>
             </div>
