@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @component('partials.home.section')
+    @component('partials.section')
 
         @component('partials.home.collection')
             @slot('image')
@@ -28,12 +28,15 @@
     @endcomponent
 
 
-    @component('partials.home.section')
+    @component('partials.section')
 
         @component('partials.home.tab')
             New Products
+            @slot('n')
+                1
+            @endslot
             @slot('products')
-                @component('partials.product')
+                @component('partials.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product01.png')}}" alt="">
                         <div class="product-label">
@@ -53,9 +56,12 @@
                     @slot('old_price')
                         $990.00
                     @endslot
+                    @slot('s')
+                        4
+                    @endslot
                 @endcomponent
 
-                @component('partials.product')
+                @component('partials.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product02.png')}}" alt="">
                         <div class="product-label">
@@ -74,9 +80,12 @@
                     @slot('old_price')
                         $990.00
                     @endslot
+                    @slot('s')
+                        5
+                    @endslot
                 @endcomponent
 
-                @component('partials.product')
+                @component('partials.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product03.png')}}" alt="">
                         <div class="product-label">
@@ -95,9 +104,12 @@
                     @slot('old_price')
                         $990.00
                     @endslot
+                    @slot('s')
+                        1
+                    @endslot
                 @endcomponent
 
-                @component('partials.product')
+                @component('partials.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product04.png')}}" alt="">
                     @endslot
@@ -113,9 +125,12 @@
                     @slot('old_price')
                         $990.00
                     @endslot
+                    @slot('s')
+                        2
+                    @endslot
                 @endcomponent
 
-                @component('partials.product')
+                @component('partials.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product05.png')}}" alt="">
                     @endslot
@@ -131,6 +146,9 @@
                     @slot('old_price')
                         $990.00
                     @endslot
+                    @slot('s')
+                        3
+                    @endslot
                 @endcomponent
             @endslot
         @endcomponent
@@ -138,12 +156,15 @@
 
     @include('partials.home.hot-deal')
 
-    @component('partials.home.section')
+    @component('partials.section')
 
         @component('partials.home.tab')
             Top Selling
+            @slot('n')
+                2
+            @endslot
             @slot('products')
-                @component('partials.product')
+                @component('partials.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product06.png')}}" alt="">
                         <div class="product-label">
@@ -163,9 +184,12 @@
                     @slot('old_price')
                         $990.00
                     @endslot
+                    @slot('s')
+                        5
+                    @endslot
                 @endcomponent
 
-                @component('partials.product')
+                @component('partials.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product07.png')}}" alt="">
                         <div class="product-label">
@@ -184,9 +208,12 @@
                     @slot('old_price')
                         $990.00
                     @endslot
+                    @slot('s')
+                        3
+                    @endslot
                 @endcomponent
 
-                @component('partials.product')
+                @component('partials.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product08.png')}}" alt="">
                         <div class="product-label">
@@ -205,9 +232,12 @@
                     @slot('old_price')
                         $990.00
                     @endslot
+                    @slot('s')
+                        4
+                    @endslot
                 @endcomponent
 
-                @component('partials.product')
+                @component('partials.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product09.png')}}" alt="">
                     @endslot
@@ -223,9 +253,12 @@
                     @slot('old_price')
                         $990.00
                     @endslot
+                    @slot('s')
+                        3
+                    @endslot
                 @endcomponent
 
-                @component('partials.product')
+                @component('partials.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product01.png')}}" alt="">
                     @endslot
@@ -241,14 +274,20 @@
                     @slot('old_price')
                         $990.00
                     @endslot
+                    @slot('s')
+                        2
+                    @endslot
                 @endcomponent
             @endslot
         @endcomponent
     @endcomponent
 
-    @component('partials.home.section')
+    @component('partials.section')
         @component('partials.list')
             Top Selling
+            @slot('n')
+                3
+            @endslot
             @slot('widgets')
                 <div>
                     @component('partials.widget')
@@ -353,6 +392,9 @@
         @endcomponent
         @component('partials.list')
             Top Selling
+            @slot('n')
+                4
+            @endslot
             @slot('widgets')
                 <div>
                     @component('partials.widget')
@@ -460,6 +502,9 @@
 
         @component('partials.list')
             Top Selling
+            @slot('n')
+                5
+            @endslot
             @slot('widgets')
                 <div>
                     @component('partials.widget')

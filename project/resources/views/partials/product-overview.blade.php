@@ -7,13 +7,11 @@
         <p class="product-category">{{$category}}</p>
         <h3 class="product-name"><a href="#">{{$name}}</a></h3>
         <h4 class="product-price">{{$price}} <del class="product-old-price">{{$old_price}}</del></h4>
-        <div class="product-rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-        </div>
+        @component('partials.stars')
+            @slot('s')
+                {{$s}}
+            @endslot
+        @endcomponent
         <div class="product-btns">
             <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
             <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
