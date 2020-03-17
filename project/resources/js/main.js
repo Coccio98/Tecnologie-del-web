@@ -1,11 +1,11 @@
 (function($) {
-	"use strict"
+	"use strict";
 
 	// Mobile Nav toggle
 	$('.menu-toggle > a').on('click', function (e) {
 		e.preventDefault();
 		$('#responsive-nav').toggleClass('active');
-	})
+	});
 
 	// Fix cart dropdown from closing
 	$('.cart-dropdown').on('click', function (e) {
@@ -115,7 +115,7 @@
 			$input.val(value);
 			$input.change();
 			updatePriceSlider($this , value)
-		})
+		});
 
 		up.on('click', function () {
 			var value = parseInt($input.val()) + 1;
@@ -138,10 +138,10 @@
 
 	function updatePriceSlider(elem , value) {
 		if ( elem.hasClass('price-min') ) {
-			console.log('min')
+			console.log('min');
 			priceSlider.noUiSlider.set([value, null]);
 		} else if ( elem.hasClass('price-max')) {
-			console.log('max')
+			console.log('max');
 			priceSlider.noUiSlider.set([null, value]);
 		}
 	}

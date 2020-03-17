@@ -32529,8 +32529,6 @@ __webpack_require__(/*! ./bootstrap.min */ "./resources/js/bootstrap.min.js");
 
 __webpack_require__(/*! ./slick.min */ "./resources/js/slick.min.js");
 
-__webpack_require__(/*! ./nouislider.min */ "./resources/js/nouislider.min.js");
-
 __webpack_require__(/*! ./jquery.zoom.min */ "./resources/js/jquery.zoom.min.js");
 
 __webpack_require__(/*! ./main */ "./resources/js/main.js");
@@ -32564,6 +32562,7 @@ try {
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.noUiSlider = __webpack_require__(/*! ./nouislider.min */ "./resources/js/nouislider.min.js");
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

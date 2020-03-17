@@ -40,7 +40,7 @@
                         <div id="rating">
                             <div class="rating-avg">
                                 <span>4.5</span>
-                                @component('partials.stars')
+                                @component('partials.reusable.stars')
                                     @slot('s')
                                         4
                                     @endslot
@@ -48,7 +48,7 @@
                             </div>
                             <ul class="rating">
                                 <li>
-                                    @component('partials.stars')
+                                    @component('partials.reusable.stars')
                                         @slot('s')
                                             5
                                         @endslot
@@ -59,7 +59,7 @@
                                     <span class="sum">3</span>
                                 </li>
                                 <li>
-                                    @component('partials.stars')
+                                    @component('partials.reusable.stars')
                                         @slot('s')
                                             4
                                         @endslot
@@ -70,7 +70,7 @@
                                     <span class="sum">2</span>
                                 </li>
                                 <li>
-                                    @component('partials.stars')
+                                    @component('partials.reusable.stars')
                                         @slot('s')
                                             3
                                         @endslot
@@ -81,7 +81,7 @@
                                     <span class="sum">0</span>
                                 </li>
                                 <li>
-                                    @component('partials.stars')
+                                    @component('partials.reusable.stars')
                                         @slot('s')
                                             2
                                         @endslot
@@ -92,7 +92,7 @@
                                     <span class="sum">0</span>
                                 </li>
                                 <li>
-                                    @component('partials.stars')
+                                    @component('partials.reusable.stars')
                                         @slot('s')
                                             1
                                         @endslot
@@ -115,7 +115,7 @@
                                     <div class="review-heading">
                                         <h5 class="name">John</h5>
                                         <p class="date">27 DEC 2018, 8:0 PM</p>
-                                        @component('partials.stars')
+                                        @component('partials.reusable.stars')
                                             @slot('s')
                                                 4
                                             @endslot
@@ -129,7 +129,7 @@
                                     <div class="review-heading">
                                         <h5 class="name">John</h5>
                                         <p class="date">27 DEC 2018, 8:0 PM</p>
-                                        @component('partials.stars')
+                                        @component('partials.reusable.stars')
                                             @slot('s')
                                                 4
                                             @endslot
@@ -143,7 +143,7 @@
                                     <div class="review-heading">
                                         <h5 class="name">John</h5>
                                         <p class="date">27 DEC 2018, 8:0 PM</p>
-                                        @component('partials.stars')
+                                        @component('partials.reusable.stars')
                                             @slot('s')
                                                 4
                                             @endslot

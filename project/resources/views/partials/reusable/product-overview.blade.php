@@ -7,7 +7,7 @@
         <p class="product-category">{{$category}}</p>
         <h3 class="product-name"><a href="#">{{$name}}</a></h3>
         <h4 class="product-price">{{$price}} <del class="product-old-price">{{$old_price}}</del></h4>
-        @component('partials.stars')
+        @component('partials.reusable.stars')
             @slot('s')
                 {{$s}}
             @endslot

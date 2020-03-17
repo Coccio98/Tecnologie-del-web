@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @component('partials.section')
+    @component('partials.reusable.section')
 
         @component('partials.home.collection')
             @slot('image')
@@ -28,7 +28,7 @@
     @endcomponent
 
 
-    @component('partials.section')
+    @component('partials.reusable.section')
 
         @component('partials.home.tab')
             New Products
@@ -36,7 +36,7 @@
                 1
             @endslot
             @slot('products')
-                @component('partials.product-overview')
+                @component('partials.reusable.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product01.png')}}" alt="">
                         <div class="product-label">
@@ -61,7 +61,7 @@
                     @endslot
                 @endcomponent
 
-                @component('partials.product-overview')
+                @component('partials.reusable.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product02.png')}}" alt="">
                         <div class="product-label">
@@ -85,7 +85,7 @@
                     @endslot
                 @endcomponent
 
-                @component('partials.product-overview')
+                @component('partials.reusable.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product03.png')}}" alt="">
                         <div class="product-label">
@@ -109,7 +109,7 @@
                     @endslot
                 @endcomponent
 
-                @component('partials.product-overview')
+                @component('partials.reusable.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product04.png')}}" alt="">
                     @endslot
@@ -130,7 +130,7 @@
                     @endslot
                 @endcomponent
 
-                @component('partials.product-overview')
+                @component('partials.reusable.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product05.png')}}" alt="">
                     @endslot
@@ -156,7 +156,7 @@
 
     @include('partials.home.hot-deal')
 
-    @component('partials.section')
+    @component('partials.reusable.section')
 
         @component('partials.home.tab')
             Top Selling
@@ -164,7 +164,7 @@
                 2
             @endslot
             @slot('products')
-                @component('partials.product-overview')
+                @component('partials.reusable.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product06.png')}}" alt="">
                         <div class="product-label">
@@ -189,7 +189,7 @@
                     @endslot
                 @endcomponent
 
-                @component('partials.product-overview')
+                @component('partials.reusable.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product07.png')}}" alt="">
                         <div class="product-label">
@@ -213,7 +213,7 @@
                     @endslot
                 @endcomponent
 
-                @component('partials.product-overview')
+                @component('partials.reusable.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product08.png')}}" alt="">
                         <div class="product-label">
@@ -237,7 +237,7 @@
                     @endslot
                 @endcomponent
 
-                @component('partials.product-overview')
+                @component('partials.reusable.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product09.png')}}" alt="">
                     @endslot
@@ -258,7 +258,7 @@
                     @endslot
                 @endcomponent
 
-                @component('partials.product-overview')
+                @component('partials.reusable.product-overview')
                     @slot('image')
                         <img src="{{ asset('images/product01.png')}}" alt="">
                     @endslot
@@ -282,15 +282,15 @@
         @endcomponent
     @endcomponent
 
-    @component('partials.section')
-        @component('partials.list')
+    @component('partials.reusable.section')
+        @component('partials.reusable.list')
             Top Selling
             @slot('n')
                 3
             @endslot
             @slot('widgets')
                 <div>
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product07.png')}}
                         @slot('category')
                             Category
@@ -306,7 +306,7 @@
                         @endslot
                     @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product08.png')}}
                         @slot('category')
                             Category
@@ -322,7 +322,7 @@
                         @endslot
                     @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product09.png')}}
                         @slot('category')
                             Category
@@ -340,7 +340,7 @@
                 </div>
 
                 <div>
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product01.png')}}
                         @slot('category')
                             Category
@@ -356,7 +356,7 @@
                         @endslot
                     @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product02.png')}}
                         @slot('category')
                             Category
@@ -372,7 +372,7 @@
                         @endslot
                     @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product03.png')}}
                         @slot('category')
                             Category
@@ -390,14 +390,14 @@
                 </div>
             @endslot
         @endcomponent
-        @component('partials.list')
+        @component('partials.reusable.list')
             Top Selling
             @slot('n')
                 4
             @endslot
             @slot('widgets')
                 <div>
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product04.png')}}
                         @slot('category')
                             Category
@@ -413,7 +413,7 @@
                         @endslot
                     @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product05.png')}}
                         @slot('category')
                             Category
@@ -429,7 +429,7 @@
                         @endslot
                     @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product06.png')}}
                         @slot('category')
                             Category
@@ -447,7 +447,7 @@
                 </div>
 
                 <div>
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product07.png')}}
                         @slot('category')
                             Category
@@ -463,7 +463,7 @@
                         @endslot
                     @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product08.png')}}
                         @slot('category')
                             Category
@@ -479,7 +479,7 @@
                         @endslot
                     @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product09.png')}}
                         @slot('category')
                             Category
@@ -500,14 +500,14 @@
 
         <div class="clearfix visible-sm visible-xs"></div>
 
-        @component('partials.list')
+        @component('partials.reusable.list')
             Top Selling
             @slot('n')
                 5
             @endslot
             @slot('widgets')
                 <div>
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product01.png')}}
                         @slot('category')
                             Category
@@ -523,7 +523,7 @@
                     @endslot
                 @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product02.png')}}
                         @slot('category')
                             Category
@@ -539,7 +539,7 @@
                         @endslot
                     @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product03.png')}}
                         @slot('category')
                             Category
@@ -557,7 +557,7 @@
                 </div>
 
                 <div>
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product04.png')}}
                         @slot('category')
                             Category
@@ -573,7 +573,7 @@
                         @endslot
                     @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product05.png')}}
                         @slot('category')
                             Category
@@ -589,7 +589,7 @@
                         @endslot
                     @endcomponent
 
-                    @component('partials.widget')
+                    @component('partials.reusable.widget')
                         {{asset('images/product06.png')}}
                         @slot('category')
                             Category

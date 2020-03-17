@@ -3,7 +3,7 @@
     <div class="product-details">
         <h2 class="product-name">{{$name}}</h2>
         <div>
-            @component('partials.stars')
+            @component('partials.reusable.stars')
                 @slot('s')
                     {{$s}}
                 @endslot

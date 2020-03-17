@@ -2,9 +2,9 @@
 
 @section('content')
 
-    @include('partials.product.breadcrumb')
+    @include('partials.reusable.breadcrumb')
 
-    @component('partials.section')
+    @component('partials.reusable.section')
 <!-- TODO rivedere immagini-->
         @component('partials.product.images')
             @slot('img1')
@@ -52,7 +52,7 @@
         @endcomponent
     @endcomponent
 
-    @component('partials.section')
+    @component('partials.reusable.section')
 
         <div class="col-md-12">
             <div class="section-title text-center">
@@ -62,7 +62,7 @@
 
         <!-- product -->
         <div class="col-md-3 col-xs-6">
-            @component('partials.product-overview')
+            @component('partials.reusable.product-overview')
                 @slot('image')
                     <img src="{{ asset('images/product01.png')}}" alt="">
                     <div class="product-label">
@@ -90,7 +90,7 @@
 
         <!-- product -->
         <div class="col-md-3 col-xs-6">
-            @component('partials.product-overview')
+            @component('partials.reusable.product-overview')
                 @slot('image')
                     <img src="{{ asset('images/product02.png')}}" alt="">
                     <div class="product-label">
@@ -120,7 +120,7 @@
 
         <!-- product -->
         <div class="col-md-3 col-xs-6">
-            @component('partials.product-overview')
+            @component('partials.reusable.product-overview')
                 @slot('image')
                     <img src="{{ asset('images/product03.png')}}" alt="">
                 @endslot
@@ -145,7 +145,7 @@
 
         <!-- product -->
         <div class="col-md-3 col-xs-6">
-            @component('partials.product-overview')
+            @component('partials.reusable.product-overview')
                 @slot('image')
                     <img src="{{ asset('images/product04.png')}}" alt="">
                 @endslot
