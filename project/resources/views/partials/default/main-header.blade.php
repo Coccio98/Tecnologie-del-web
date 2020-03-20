@@ -7,7 +7,7 @@
             <!-- LOGO -->
             <div class="col-md-3">
                 <div class="header-logo">
-                    <a href="#" class="logo">
+                    <a href="{{ route('home') }}" class="logo">
                         <img src="{{ asset('images/logo.png')}}" alt="">
                     </a>
                 </div>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="cart-btns">
                                 <a href="#">View Cart</a>
-                                <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('checkout') }}">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                     </div>
