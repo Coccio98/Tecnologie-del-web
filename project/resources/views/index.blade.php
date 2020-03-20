@@ -37,8 +37,6 @@
 
 @yield('content')
 
-@include('partials.default.newsletter')
-
 @include('partials.default.footer')
 
 <!-- jQuery Plugins -->
