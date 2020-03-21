@@ -5,7 +5,7 @@
         <!-- row -->
         <div class="row">
             <!-- LOGO -->
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="header-logo">
                     <a href="{{ route('home') }}" class="logo">
                         <img src="{{ asset('images/logo.png')}}" alt="">
@@ -31,7 +31,7 @@
             <!-- /SEARCH BAR -->
 
             <!-- ACCOUNT -->
-            <div class="col-md-3 clearfix">
+            <div class="col-md-4 clearfix">
                 <div class="header-ctn">
                     <!-- Wishlist -->
                     <div>
@@ -85,6 +85,16 @@
                         </div>
                     </div>
                     <!-- /Cart -->
+
+                    <!-- Wishlist -->
+                    <div>
+                        <a href="#">
+                            <i class="fa fa-user-o"></i>
+                            <span>My Account</span>
+                        </a>
+                    </div>
+                    <!-- /Wishlist -->
+
 
                     <!-- Menu Toogle -->
                     <div class="menu-toggle">

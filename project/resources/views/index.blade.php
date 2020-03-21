@@ -26,8 +26,6 @@
 <!-- HEADER -->
 <header>
 
-    @include('partials.default.top-header')
-
     @include('partials.default.main-header')
 
 </header>
