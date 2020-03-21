@@ -32527,6 +32527,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./bootstrap.min */ "./resources/js/bootstrap.min.js");
 
+__webpack_require__(/*! ./custom */ "./resources/js/custom.js");
+
 __webpack_require__(/*! ./slick.min */ "./resources/js/slick.min.js");
 
 __webpack_require__(/*! ./jquery.zoom.min */ "./resources/js/jquery.zoom.min.js");
@@ -33617,6 +33619,41 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
     });
   });
 }(jQuery);
+
+/***/ }),
+
+/***/ "./resources/js/custom.js":
+/*!********************************!*\
+  !*** ./resources/js/custom.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+//Get the button:
+var mybutton = document.getElementById("myBtn"); // When the user scrolls down 20px from the top of the document, show the button
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+window.topFunction = function () {
+  topFunction();
+}; // When the user clicks on the button, scroll to the top of the document
+
+
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 
 /***/ }),
 

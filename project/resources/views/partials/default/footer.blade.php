@@ -37,11 +37,10 @@
                     <div class="footer">
                         <h3 class="footer-title">Information</h3>
                         <ul class="footer-links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Orders and Returns</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="{{route('information')}}#about">About Us</a></li>
+                            <li><a href="{{route('information')}}#contact">Contact Us</a></li>
+                            <li><a href="{{route('information')}}#privacy">Privacy Policy</a></li>
+                            <li><a href="{{route('information')}}#terms">Terms & Conditions</a></li>
                         </ul>
                     </div>
                 </div>

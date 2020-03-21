@@ -22,3 +22,5 @@ Route::get('/store', 'FrontEndController@page')-> name('store');
 Route::get('/checkout', 'FrontEndController@page')-> name('checkout');
 
 Route::get('/wishlist', 'FrontEndController@page')-> name('wishlist');
+
+Route::get('/information', 'FrontEndController@page')-> name('information');
