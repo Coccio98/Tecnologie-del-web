@@ -30,3 +30,5 @@ Route::get('/myaccount', 'FrontEndController@page')-> name('myaccount');
 Route::get('/myorder', 'FrontEndController@page')-> name('myorder');
 
 Route::get('/address', 'FrontEndController@page')-> name('address');
+
+Route::get('/cart', 'FrontEndController@page')-> name('cart');
