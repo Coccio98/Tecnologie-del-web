@@ -34,7 +34,7 @@
         <h4 class="product-price">{{$price}} <del class="product-old-price">{{$old_price}}</del></h4>
 
         <div class="add-to-cart">
-            <button class="add-to-cart-btn">Track my order</button>
+            <button class="add-to-cart-btn" href="/trackMyOrder">Track my order</button>
         </div>
 
         <div class="del-to-cart">

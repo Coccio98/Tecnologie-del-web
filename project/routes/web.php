@@ -32,3 +32,5 @@ Route::get('/myorder', 'FrontEndController@page')-> name('myorder');
 Route::get('/address', 'FrontEndController@page')-> name('address');
 
 Route::get('/cart', 'FrontEndController@page')-> name('cart');
+
+Route::get('/trackMyOrder', 'FrontEndController@page')-> name('trackMyOrder');
