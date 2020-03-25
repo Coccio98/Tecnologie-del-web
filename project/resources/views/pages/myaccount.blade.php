@@ -12,6 +12,9 @@
 
 
         @component('partials.myaccount.account')
+            @slot('href')
+                {{route('myorder')}}
+            @endslot
             @slot('image')
                 {{ asset('images/box2.png')}}
             @endslot
@@ -19,6 +22,9 @@
         @endcomponent
 
         @component('partials.myaccount.account')
+            @slot('href')
+                {{route('address')}}
+            @endslot
             @slot('image')
                 {{ asset('images/posizione.png')}}
             @endslot
@@ -26,6 +32,9 @@
         @endcomponent
 
         @component('partials.myaccount.account')
+            @slot('href')
+                #
+            @endslot
             @slot('image')
                 {{ asset('images/pagamento.png')}}
             @endslot
@@ -35,10 +44,13 @@
     @component('partials.reusable.section')
 
         @component('partials.myaccount.account')
+            @slot('href')
+                #
+            @endslot
             @slot('image')
                 {{ asset('images/privacy.png')}}
             @endslot
-            Accesso e sicurezza
+            Access and security
         @endcomponent
     @endcomponent
 @endsection

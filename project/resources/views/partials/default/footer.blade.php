@@ -49,10 +49,10 @@
                     <div class="footer">
                         <h3 class="footer-title">Service</h3>
                         <ul class="footer-links">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">View Cart</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Track My Order</a></li>
+                            <li><a href="{{ route('myaccount') }}">My Account</a></li>
+                            <li><a href="{{ route('cart') }}">View Cart</a></li>
+                            <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
+                            <li><a href="{{ route('myorder') }}">Track My Order</a></li>
                         </ul>
                     </div>
                 </div>

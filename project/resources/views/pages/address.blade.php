@@ -8,13 +8,13 @@
             </div>
 
         @component('partials.reusable.address-order')
-            @endcomponent
+        @endcomponent
 
         @component('partials.reusable.address-order')
-            @endcomponent
+        @endcomponent
 
         @component('partials.reusable.address-order')
-            @endcomponent
+        @endcomponent
 
             <a href="#"><i class="fa fa-plus-square"></i>Aggiungi un nuovo indirizzo</a>
         </div>

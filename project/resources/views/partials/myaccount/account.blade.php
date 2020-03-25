@@ -1,5 +1,5 @@
 <!-- shop -->
-<a class="cta-btn">
+<a class="cta-btn" href="{{$href}}">
     <div class="col-md-4 col-xs-6">
         <div class="shop-account">
             <div class="shop-img">
