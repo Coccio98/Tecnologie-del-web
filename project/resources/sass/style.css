@@ -565,31 +565,18 @@ textarea.input {
 	Orders
 \*----------------------------*/
 .order-information {
-    background-color: #eaeaea;
-    border-bottom: solid 1px;
-    border-bottom-color: #9d9d9d;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    background-color: #E4E7ED;
+    border-bottom: solid #B9BABC 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .order-product {
     position: relative;
-    border: solid 1px;
-    border-color: #9d9d9d;
-    border-radius: 10px;
-}
-
-.order-product .order-information h4{
-    color: #000000;
-    text-transform: uppercase;
-    font-family: 'Nunito', sans-serif;
-    font-size: 15px;
-}
-
-.order-product .order-information h5{
-    color: #000000;
-    text-transform: uppercase;
-    font-family: 'Nunito', sans-serif;
+    border: solid #B9BABC 1px;
+    border-radius: 5px;
 }
 
 .order-product+.order-product {
@@ -599,7 +586,7 @@ textarea.input {
 .order-product .product-img {
     position: absolute;
     left: 0px;
-    top: 50px;
+    top: 60px;
     width: 130px;
 }
 
@@ -784,31 +771,17 @@ textarea.input {
 	Address
 \*----------------------------*/
 
-.order-details{
-    width: 300px;
-    position:relative;
+.address{
+    margin: 2px;
+    border: solid #B9BABC 1px;
+    padding: 10px 10px 10px 20px;
 }
 
-.order-details h5{
+.address h5{
     font-weight: bold;
 }
 
-.order-details .modifica {
-    position: absolute;
-    left: 1px;
-    right: 1px;
-    bottom: 5px;
-    padding: 15px;
-    text-align: right;
-    -webkit-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    transform: translateY(0%);
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all;
-    z-index: 2;
-}
-
-.order-details .modifica {
+.address .modifica {
     position: relative;
     border: 2px solid transparent;
     height: 30px;
@@ -823,28 +796,13 @@ textarea.input {
     transition: 0.2s all;
 }
 
-.order-product .modifica:hover {
+.address .modifica:hover {
     background-color: #FFF;
     color: #9d9d9d;
     border-color: #8D99AE;
 }
 
-.order-details .rimuovi {
-    position: absolute;
-    left: 1px;
-    right: 1px;
-    bottom: 5px;
-    padding: 15px;
-    text-align: right;
-    -webkit-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    transform: translateY(0%);
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all;
-    z-index: 2;
-}
-
-.order-details .rimuovi {
+.address .rimuovi {
     position: relative;
     border: 2px solid transparent;
     height: 30px;
@@ -859,7 +817,7 @@ textarea.input {
     transition: 0.2s all;
 }
 
-.order-product .rimuovi:hover {
+.address .rimuovi:hover {
     background-color: #FFF;
     color: #9d9d9d;
     border-color: #8D99AE;

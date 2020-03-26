@@ -8,7 +8,7 @@
 
         <div class=" col-md-9 col-md-push-1">
             <div class="section-title">
-                <h3 class="title">Your Wishlist</h3>
+                <h3 class="title">Your Order</h3>
             </div>
 
             @include('partials.myaccount.navigation-order')
