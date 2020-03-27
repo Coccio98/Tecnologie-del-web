@@ -7,7 +7,7 @@
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
                 <li class="active"><a href="#">Orders</a></li>
-                <li><a href="#">Buy again</a></li>
+                <li class="active"><a href="/buyAgain">Buy again</a></li>
                 <li><a href="#">Current orders</a></li>
                 <li><a href="#">Canceled orders</a></li>
             </ul>

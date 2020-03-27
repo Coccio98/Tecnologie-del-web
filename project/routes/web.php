@@ -34,3 +34,13 @@ Route::get('/address', 'FrontEndController@page')-> name('address');
 Route::get('/cart', 'FrontEndController@page')-> name('cart');
 
 Route::get('/trackMyOrder', 'FrontEndController@page')-> name('trackMyOrder');
+
+Route::get('/addAddress', 'FrontEndController@page')-> name('addAddress');
+
+Route::get('/paymentOptions', 'FrontEndController@page')-> name('paymentOptions');
+
+Route::get('/addCreditcard', 'FrontEndController@page')-> name('addCreditcard');
+
+Route::get('/security', 'FrontEndController@page')-> name('security');
+
+Route::get('/buyAgain', 'FrontEndController@page')-> name('buyAgain');
