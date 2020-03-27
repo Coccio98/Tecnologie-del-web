@@ -7,7 +7,7 @@
             <div class="col-sm-3">
                 <h4>Scadenza:</h4>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 col-sm-push-2 ">
                 <i class="fa fa-arrow-down"></i>
             </div>
         </div>

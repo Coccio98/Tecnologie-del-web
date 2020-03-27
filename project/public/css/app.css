@@ -11181,7 +11181,7 @@ textarea.input {
 }
 
 .order-product .product-img {
-  position: relative;
+  position: absolute;
   left: 0px;
   top: 60px;
   width: 130px;
@@ -11533,6 +11533,8 @@ textarea.input {
 .info-card {
   position: relative;
   width: 80%;
+  padding-left: 20px;
+  margin-bottom: 15px;
 }
 
 .info-card h4 {
