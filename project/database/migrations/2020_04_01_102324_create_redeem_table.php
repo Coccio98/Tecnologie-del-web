@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnswerTable extends Migration
+class CreateRedeemTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateAnswerTable extends Migration
      */
     public function up()
     {
-        Schema::create('answer', function (Blueprint $table) {
+        Schema::create('redeem', function (Blueprint $table) {
             $table->id();
-            $table->text('text');
-            $table->timestamp('timestamp');
             $table->timestamps();
+            $table->unsignedBigInteger('coupon_id');
             $table->unsignedBigInteger('user_id');
 
+            $table->foreign('coupon_id')->references('id')->on('coupons');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -31,6 +31,6 @@ class CreateAnswerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answer');
+        Schema::dropIfExists('redeem');
     }
 }
