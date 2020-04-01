@@ -38,7 +38,7 @@
         </div>
 
         <div class="del-to-cart">
-            <button class="del-to-cart-btn"> Order Details</button>
+            <a href="{{route('order-details')}}"><button class="del-to-cart-btn"> Order Details</button></a>
         </div>
     </div>
 </div>

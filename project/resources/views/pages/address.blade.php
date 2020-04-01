@@ -19,7 +19,7 @@
     @endcomponent
     @component('partials.reusable.section')
         <div class="text-center">
-            <h4><a href="#"><i class="fa fa-plus-square"></i>Add address</a></h4>
+            <h4><a href="/addAddress"><i class="fa fa-plus-square"></i>Add address</a></h4>
         </div>
     @endcomponent
     @endsection
