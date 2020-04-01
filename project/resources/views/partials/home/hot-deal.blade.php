@@ -35,7 +35,7 @@
                     <h2 class="text-uppercase">hot deal this week</h2>
                     <p>New Collection Up to 50% OFF</p>
 
-                    <a class="primary-btn cta-btn" href="{{route('hotdeals-shop')}}">>Shop now</a>
+                    <a class="primary-btn cta-btn" href="{{route('hotdeals-shop')}}">Shop now</a>
 
                 </div>
             </div>
