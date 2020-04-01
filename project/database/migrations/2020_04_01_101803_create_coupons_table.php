@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBelongTabe extends Migration
+class CreateCouponsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateBelongTabe extends Migration
      */
     public function up()
     {
-        Schema::create('belong', function (Blueprint $table) {
+        Schema::create('coupons', function (Blueprint $table) {
             $table->id();
+            $table->string('code',100);
+            $table->tinyInteger('discount');
             $table->timestamps();
-            $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('category_id');
-
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
@@ -31,6 +28,6 @@ class CreateBelongTabe extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('belong');
+        Schema::dropIfExists('coupons');
     }
 }
