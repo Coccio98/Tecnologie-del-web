@@ -1,5 +1,7 @@
 @extends('index')
 
+@extends('index')
+
 @section('content')
 
     @component('partials.reusable.section')
