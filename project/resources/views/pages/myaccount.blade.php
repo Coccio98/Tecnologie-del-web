@@ -33,7 +33,7 @@
 
         @component('partials.myaccount.account')
             @slot('href')
-                {{route('paymentOptions')}}
+                #
             @endslot
             @slot('image')
                 {{ asset('images/pagamento.png')}}
@@ -45,7 +45,7 @@
 
         @component('partials.myaccount.account')
             @slot('href')
-                {{route('security')}}
+                #
             @endslot
             @slot('image')
                 {{ asset('images/privacy.png')}}

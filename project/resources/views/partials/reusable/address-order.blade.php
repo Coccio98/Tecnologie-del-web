@@ -13,7 +13,7 @@
             Country
         </li>
         <li>
-            Phone Number
+            Number
         </li>
     </ul>
     <br>
