@@ -42,3 +42,7 @@ Route::get('/paymentOptions', 'FrontEndController@page')-> name('paymentOptions'
 Route::get('/addCreditcard', 'FrontEndController@page')-> name('addCreditcard');
 
 Route::get('/security', 'FrontEndController@page')-> name('security');
+
+Route::get('/order-details', 'FrontEndController@page')-> name('order-details');
+
+Route::get('/hotdeals-shop', 'FrontEndController@page')-> name('hotdeals-shop');
