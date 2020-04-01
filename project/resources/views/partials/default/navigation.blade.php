@@ -6,13 +6,13 @@
         <div id="responsive-nav">
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="{{route('hotdeals-shop')}}">Hot Deals</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Laptops</a></li>
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">Cameras</a></li>
-                <li><a href="#">Accessories</a></li>
+                    <li @if($path=='home') class="active"@endif><a href="{{route('home')}}">Home</a></li>
+                    <li @if($path=='hotdeals-shop') class="active"@endif><a href="{{route('hotdeals-shop')}}">Hot Deals</a></li>
+                    <li @if($path=='') class="active"@endif><a href="#">Categories</a></li>
+                    <li @if($path=='') class="active"@endif><a href="#">Laptops</a></li>
+                    <li @if($path=='') class="active"@endif><a href="#">Smartphones</a></li>
+                    <li @if($path=='') class="active"@endif><a href="#">Cameras</a></li>
+                    <li @if($path=='') class="active"@endif><a href="#">Accessories</a></li>
             </ul>
             <!-- /NAV -->
         </div>
