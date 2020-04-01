@@ -11,28 +11,9 @@
                 <h3 class="title">Your Order</h3>
             </div>
 
-            <!-- NAVIGATION -->
-            <nav>
-                <!-- container -->
-                <div class="container">
-                    <!-- responsive-nav -->
-                    <div id="responsive-nav">
-                        <!-- NAV -->
-                        <ul class="main-nav nav navbar-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab1">Orders</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Current orders</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Canceled orders</a></li>
-                        </ul>
-                        <!-- /NAV -->
-                    </div>
-                    <!-- /responsive-nav -->
-                </div>
-                <!-- /container -->
-            </nav>
-            <!-- /NAVIGATION -->
+            @include('partials.myaccount.navigation-order')
 
-
-        @component('partials.reusable.order-product')
+            @component('partials.reusable.order-product')
                 {{asset('images/product02.png')}}
                 @slot('category')
                     Category
