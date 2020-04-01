@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaymentmethodTable extends Migration
+class CreateWishlistTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreatePaymentmethodTable extends Migration
      */
     public function up()
     {
-        Schema::create('paymentmethod', function (Blueprint $table) {
+        Schema::create('wishlists', function (Blueprint $table) {
             $table->id();
-            $table->string('expiring');
-            $table->string('cardHolder');
-            $table->string('cardNumber');
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
 
@@ -32,6 +29,6 @@ class CreatePaymentmethodTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paymentmethod');
+        Schema::dropIfExists('wishlists');
     }
 }

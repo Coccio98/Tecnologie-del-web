@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCourierTable extends Migration
+class CreateShippingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateCourierTable extends Migration
      */
     public function up()
     {
-        Schema::create('courier', function (Blueprint $table) {
+        Schema::create('shippings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->enum('status', ['pending', 'dispatched', 'processed', 'shipped', 'delivered', 'cancelled']);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateCourierTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courier');
+        Schema::dropIfExists('shippings');
     }
 }
