@@ -15,9 +15,9 @@ class CreatePaymentmethodTable extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
-            $table->string('expiring');
-            $table->string('cardHolder');
-            $table->string('cardNumber');
+            $table->string('expiring', 100);
+            $table->string('cardHolder', 100);
+            $table->string('cardNumber', 100);
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
 

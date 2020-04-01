@@ -15,10 +15,10 @@ class CreateAddressTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->string('address');
-            $table->string('city');
-            $table->string('country');
-            $table->string('phoneNumber');
+            $table->string('address', 100);
+            $table->string('city', 100);
+            $table->string('country', 100);
+            $table->string('phoneNumber', 100);
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')->references('id')->on('users');
