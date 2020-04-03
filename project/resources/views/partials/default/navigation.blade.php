@@ -7,7 +7,7 @@
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
 
-                <li @if($path=='home') class="active"@endif><a href="{{route('home')}}">Home</a></li>
+                <li @if($path=='home') class="active"@endif><a href="/">Home</a></li>
                 <li @if($path=='hotdeals-shop') class="active"@endif><a href="{{route('hotdeals-shop')}}">Hot Deals</a></li>
                 <li @if($path=='') class="active"@endif><a href="#">Categories</a></li>
                 <li @if($path=='') class="active"@endif><a href="#">Laptops</a></li>
