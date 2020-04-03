@@ -19,8 +19,10 @@ class CreateBillingAddressTable extends Migration
             $table->unsignedBigInteger('address_id');
             $table->unsignedBigInteger('payment_methods_id');
 
-            $table->foreign('address_id')->references('id')->on('addresses');
-            $table->foreign('payment_methods_id')->references('id')->on('payment_methods');
+            $table->foreign('address_id')->references('id')->on('addresses')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('payment_methods_id')->references('id')->on('payment_methods')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

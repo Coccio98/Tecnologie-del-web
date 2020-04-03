@@ -15,12 +15,15 @@ class CreateRedeemTable extends Migration
     {
         Schema::create('redeem', function (Blueprint $table) {
             $table->id();
+            $table->boolean('used')->default(false);
             $table->timestamps();
             $table->unsignedBigInteger('coupon_id');
             $table->unsignedBigInteger('user_id');
 
-            $table->foreign('coupon_id')->references('id')->on('coupons');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('coupon_id')->references('id')->on('coupons')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

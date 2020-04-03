@@ -19,8 +19,10 @@ class CreateDisplayTable extends Migration
             $table->unsignedBigInteger('showcase_id');
             $table->unsignedBigInteger('product_id');
 
-            $table->foreign('showcase_id')->references('id')->on('showcases');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('showcase_id')->references('id')->on('showcases')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('product_id')->references('id')->on('products')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

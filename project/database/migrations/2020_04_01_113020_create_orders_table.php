@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('number', 100);
+            $table->string('number', 100)->unique();
             $table->string('total', 100);
             $table->timestamps();
             $table->unsignedBigInteger('user_id');

@@ -21,7 +21,8 @@ class CreateQuestionsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
 
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')
+                ->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

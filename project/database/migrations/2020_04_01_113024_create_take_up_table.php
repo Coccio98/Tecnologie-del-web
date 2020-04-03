@@ -19,8 +19,10 @@ class CreateTakeUpTable extends Migration
             $table->unsignedBigInteger('courier_id');
             $table->unsignedBigInteger('shipping_id');
 
-            $table->foreign('courier_id')->references('id')->on('couriers');
-            $table->foreign('shipping_id')->references('id')->on('shippings');
+            $table->foreign('courier_id')->references('id')->on('couriers')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('shipping_id')->references('id')->on('shippings')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

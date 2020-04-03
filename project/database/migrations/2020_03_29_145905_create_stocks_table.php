@@ -17,11 +17,12 @@ class CreateStocksTable extends Migration
             $table->id();
             $table->string('color', 100);
             $table->string('size', 100);
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->timestamps();
             $table->unsignedBigInteger('product_id');
 
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')
+                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

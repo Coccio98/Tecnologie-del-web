@@ -15,14 +15,16 @@ class CreateComposeTable extends Migration
     {
         Schema::create('compose', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->double('price-stamp', 10, 2);
             $table->timestamps();
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('order_id');
 
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('product_id')->references('id')->on('products')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('order_id')->references('id')->on('orders')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
