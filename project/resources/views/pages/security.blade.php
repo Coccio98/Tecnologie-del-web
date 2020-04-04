@@ -10,26 +10,19 @@
             <div class="profile-security">
                 <div class="row security-body">
                     <div class="col-sm-10">
-                        <h3>Name:</h3>
+                        <h3>Name:</h3> {{ Auth::user()->name }} {{ Auth::user()->surname }}
                     </div>
                 </div>
 
                 <div class="row security-body">
                     <div class="col-sm-10">
-                        <h3>Email:</h3>
+                        <h3>Email:</h3>{{ Auth::user()->email }}
                     </div>
                 </div>
 
                 <div class="row security-body">
                     <div class="col-sm-10">
                         <h3>Telephone number:</h3>
-                    </div>
-                </div>
-
-
-                <div class="row security-body">
-                    <div class="col-sm-10">
-                        <h3>Password:</h3>
                     </div>
                 </div>
 
