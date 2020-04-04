@@ -3,7 +3,7 @@
 @section('content')
 
     @component('partials.reusable.section')
-        <div class="col-md-12 col-md-push-1">
+        <div class="col-md-11 col-md-push-1">
             <div class="billing-details">
                 <div class="section-title">
                     <h3 class="title">Add credit card</h3>

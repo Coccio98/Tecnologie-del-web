@@ -1,38 +1,23 @@
-
 @extends('index')
 
 @section('content')
-
-
     @component('partials.reusable.section')
-
-        <div class=" col-md-9 col-md-push-1">
+        <div class=" col-md-10 col-md-push-1">
             <div class="section-title">
                 <h3 class="title">Your Order</h3>
+
+
+
+                <div class="section-nav">
+                    <ul class="section-tab-nav tab-nav">
+                        <li class="active"><a data-toggle="tab" href="#tab1">Orders</a></li>
+                        <li><a data-toggle="tab" href="#tab1">Current orders</a></li>
+                        <li><a data-toggle="tab" href="#tab1">Canceled orders</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- NAVIGATION -->
-            <nav>
-                <!-- container -->
-                <div class="container">
-                    <!-- responsive-nav -->
-                    <div id="responsive-nav">
-                        <!-- NAV -->
-                        <ul class="main-nav nav navbar-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab1">Orders</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Current orders</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Canceled orders</a></li>
-                        </ul>
-                        <!-- /NAV -->
-                    </div>
-                    <!-- /responsive-nav -->
-                </div>
-                <!-- /container -->
-            </nav>
-            <!-- /NAVIGATION -->
-
-
-        @component('partials.reusable.order-product')
+            @component('partials.reusable.order-product')
                 {{asset('images/product02.png')}}
                 @slot('category')
                     Category

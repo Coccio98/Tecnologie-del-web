@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('index')
 
 @section('content')
+    @component('partials.reusable.section')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 col-md-push-1">
             <div class="card">
-                <div class="card-header">{{ __('Confirm Password') }}</div>
+                <div class="card-header"><h3>{{ __('Confirm Password') }}</h3></div>
 
                 <div class="card-body">
                     {{ __('Please confirm your password before continuing.') }}
@@ -46,4 +47,5 @@
         </div>
     </div>
 </div>
+    @endcomponent
 @endsection

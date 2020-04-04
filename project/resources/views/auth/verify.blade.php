@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('index')
 
 @section('content')
+    @component('partials.reusable.section')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 col-md-push-1">
             <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                <div class="card-header"><h3>{{ __('Verify Your Email Address') }}</h3></div>
 
                 <div class="card-body">
                     @if (session('resent'))
@@ -25,4 +26,5 @@
         </div>
     </div>
 </div>
+    @endcomponent
 @endsection
