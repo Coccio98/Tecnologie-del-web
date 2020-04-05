@@ -46179,10 +46179,12 @@ window.onscroll = function () {
 };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
+  if (mybutton !== null) {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
   }
 }
 
@@ -46195,6 +46197,27 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
 
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+var second = 1000,
+    minute = second * 60,
+    hour = minute * 60,
+    day = hour * 24;
+var path = window.location.pathname;
+var slash = String("/");
+
+if (path === slash) {
+  var countDown = new Date('Apr 30, 2020 17:10:00').getTime(),
+      x = setInterval(function () {
+    var now = new Date().getTime(),
+        distance = countDown - now;
+    document.getElementById('days').innerText = Math.floor(distance / day), document.getElementById('hours').innerText = Math.floor(distance % day / hour), document.getElementById('minutes').innerText = Math.floor(distance % hour / minute), document.getElementById('seconds').innerText = Math.floor(distance % minute / second); //do something later when date is reached
+
+    if (distance < 0) {
+      document.getElementById('days').innerText = 0, document.getElementById('hours').innerText = 0, document.getElementById('minutes').innerText = 0, document.getElementById('seconds').innerText = 0;
+      clearInterval(x);
+    }
+  }, second);
 }
 
 /***/ }),
@@ -50355,12 +50378,15 @@ function topFunction() {
   });
   var priceInputMax = document.getElementById('price-max'),
       priceInputMin = document.getElementById('price-min');
-  priceInputMax.addEventListener('change', function () {
-    updatePriceSlider($(this).parent(), this.value);
-  });
-  priceInputMin.addEventListener('change', function () {
-    updatePriceSlider($(this).parent(), this.value);
-  });
+
+  if (priceInputMax !== null && priceInputMin !== null) {
+    priceInputMax.addEventListener('change', function () {
+      updatePriceSlider($(this).parent(), this.value);
+    });
+    priceInputMin.addEventListener('change', function () {
+      updatePriceSlider($(this).parent(), this.value);
+    });
+  }
 
   function updatePriceSlider(elem, value) {
     if (elem.hasClass('price-min')) {

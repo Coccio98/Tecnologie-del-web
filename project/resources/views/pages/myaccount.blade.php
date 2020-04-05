@@ -9,14 +9,12 @@
             <h3 class="title">Your Account</h3>
         </div>
 
-
-
         @component('partials.myaccount.account')
             @slot('href')
                 {{route('myorder')}}
             @endslot
             @slot('image')
-                {{ asset('images/box2.png')}}
+                {{ asset('images/box.png')}}
             @endslot
             Your Order
         @endcomponent
@@ -26,7 +24,7 @@
                 {{route('address')}}
             @endslot
             @slot('image')
-                {{ asset('images/posizione.png')}}
+                {{ asset('images/address.png')}}
             @endslot
             Address
         @endcomponent
@@ -36,19 +34,17 @@
                 {{route('paymentOptions')}}
             @endslot
             @slot('image')
-                {{ asset('images/pagamento.png')}}
+                {{ asset('images/payment.png')}}
             @endslot
             Payment Options
         @endcomponent
-    @endcomponent
-    @component('partials.reusable.section')
 
         @component('partials.myaccount.account')
             @slot('href')
                 {{route('security')}}
             @endslot
             @slot('image')
-                {{ asset('images/privacy.png')}}
+                {{ asset('images/lock.png')}}
             @endslot
             Access and security
         @endcomponent
