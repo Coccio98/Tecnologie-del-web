@@ -5,7 +5,7 @@
                 <h4>Credit card end with:</h4>
             </div>
             <div class="col-sm-3">
-                <h4>Scadenza:</h4>
+                <h4>Expiration date:</h4>
             </div>
             <div class="col-sm-3 col-sm-push-2 ">
                 <i class="fa fa-arrow-down"></i>

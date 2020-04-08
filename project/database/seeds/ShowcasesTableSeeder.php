@@ -15,23 +15,28 @@ class ShowcasesTableSeeder extends Seeder
         DB::table('showcases')->insert([
             [
                 'name'=>'Laptop',
-                'image'=>'img/produt03.png'
+                'image'=>'public/images/produt03.png',
+                'expire' => '2020-12-20 00:00:00'
             ],
             [
                 'name'=>'Samsung',
-                'image' => 'img/product02.png'
+                'image' => 'public/images/product02.png',
+                'expire' => '2020-12-20 00:00:00'
             ],
             [
                 'name'=>'Huawei',
-                'image'=>'img/product05.png'
+                'image'=>'public/images/product05.png',
+                'expire' => '2020-12-20 00:00:00'
             ],
             [
                 'name'=>'Acer',
-                'image'=>'img/product01.png'
+                'image'=>'public/images/product01.png',
+                'expire' => '2020-12-20 00:00:00'
             ],
             [
                 'name'=>'Xiaomi',
-                'image'=>'img/product08.png'
+                'image'=>'public/images/product08.png',
+                'expire' => '2020-12-20 00:00:00'
             ]
         ]);
     }
