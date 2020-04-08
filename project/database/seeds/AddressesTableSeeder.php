@@ -13,6 +13,7 @@ class AddressesTableSeeder extends Seeder
     {
         DB::table('addresses') ->insert([
             [
+                'name' => 'Alessia Rossi',
                 'address' => 'via Cona,198',
                 'city' => 'Teramo',
                 'country' => 'Italy',
@@ -20,6 +21,7 @@ class AddressesTableSeeder extends Seeder
                 'user_id' => '1'
             ],
             [
+                'name' => 'Alessia Rossi',
                 'address' => 'via Cavour,18',
                 'city' => 'L\'Aquila',
                 'country' => 'Italy',
@@ -27,6 +29,7 @@ class AddressesTableSeeder extends Seeder
                 'user_id' => '1'
             ],
             [
+                'name' => 'Francesco Di Giuseppe',
                 'address' => 'via Trasimeno,5',
                 'city' => 'Pescara',
                 'country' => 'Italy',
@@ -34,6 +37,7 @@ class AddressesTableSeeder extends Seeder
                 'user_id' => '2'
             ],
             [
+                'name' => 'Giulia Bianchi',
                 'address' => 'via Torino,72',
                 'city' => 'Roma',
                 'country' => 'Italy',
@@ -41,6 +45,7 @@ class AddressesTableSeeder extends Seeder
                 'user_id' => '3'
             ],
             [
+                'name' => 'Marta Di Renzo',
                 'address' => 'via Savoia,42',
                 'city' => 'Chieti',
                 'country' => 'Italy',

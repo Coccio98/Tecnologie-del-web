@@ -14,18 +14,18 @@ class ProductsTableSeeder extends Seeder
     {
         DB::table('products')->insert([[
                 'name'=>'Sony MDR-ZX310 Cuffie On-Ear',
-                'price' => '25,00 €',
+                'price' => '25.00',
                 'summary' =>'Sony MDR-ZX310 Cuffie, Blu',
                 'description'=>'Le cuffie hanno un design leggero e pieghevole per la ottima portabilità per la tua musica.
                                 I padiglioni auricolari sono imbottiti per la ottima comodità di ascolto. Il cavo ha la lunghezza di 1.2 m.',
                 'details'=>'Peso articolo	127 g
                             Dimensioni prodotto	15 x 5 x 20 cm',
-                'sale'=>'5,01€',
+                'sale'=>'10',
                 'brand_id' => '1',
             ],
             [
                 'name'=>'Samsung Auricolari',
-                'price' => '5,99 €',
+                'price' => '5.99',
                 'summary' =>'Samsung Originale Bianco EHS64AVFWE Auricolari/Cuffie/Vivavoce Kit/Cuffie Stereo 3.5 mm Microfono',
                 'description'=>'Se perde il vecchio cuffie o hanno semplicemente smesso di funzionare? Non temete perché ora è possibile acquistare da un marchio nuovo paio di cuffie supportato da un connettore jack 3.5 mm.
                                 Se si desidera utilizzare come vivavoce kit o come cuffie mentre siete in viaggio per lavorare sul Bus, per l\' allenamento in palestra o semplicemente parlare al telefono.
@@ -36,12 +36,12 @@ class ProductsTableSeeder extends Seeder
 
                 'details'=>'Peso articolo 18,1 g
                             Numero modello articolo: EHS64AVFWE',
-                'sale'=>'0,00€',
+                'sale'=>'0',
                 'brand_id' => '2',
             ],
             [
                 'name'=>'HUAWEI MateBook D 15.6" Laptop',
-                'price' => '649,00 €',
+                'price' => '649.00',
                 'summary' =>'HUAWEI MateBook D 15.6" Laptop, Processore AMD Ryzen 5 3500U, 8 GB RAM, 256 GB SSD, Schermo FullView 1080P FHD, Collaborazione multi-schermo, Sensore impronte digitali, Windows 10 Home, Argento',
                 'description'=>'Design estetico:display fullview, con un rapporto schermo-corpo dell\' 87%.esperienza di visione immersiva offerta da un display antiriflesso con proporzioni 16:9.
                                 Corpo metallico con un tocco futuristicouno spessore di 16.9 mmtecnologia innovativa：amd ryzen5 3500u, con scheda grafica radeon vega 8le ventole shark fin 2.0 rendono la dissipazione del calore più silenziosa ed efficace.
@@ -51,12 +51,12 @@ class ProductsTableSeeder extends Seeder
 
                 'details'=>'Peso articolo	2,3 Kg
                             Dimensioni del collo	47,2 x 27,8 x 7 cm',
-                'sale'=>'50,00€',
+                'sale'=>'30',
                 'brand_id' => '3',
             ],
             [
                 'name'=>'Notebook Acer pc portatile',
-                'price' => '749,77 €',
+                'price' => '749.77',
                 'summary' =>'Notebook Acer pc portatile SSD 512 Gb, Cpu Intel Quad Core i5 di 10Th Generazione fino a 4,2 Ghz, RAM 8GB, Display 15.6" Full HD, Svga UHD 620, 3 usb, wi-fi, hdmi, Win 10 Pro 64 Bit',
                 'description'=>'Notebook Acer pc portatile SSD 512 Gb, Cpu Intel Quad Core i5 di 10Th Generazione fino a 4,2 Ghz, RAM 8GB, Display 15.6" Full HD, Svga UHD 620, 3 usb, wi-fi, hdmi, Win 10 Pro 64 Bit, Pronto all\'uso.
                                 Pronto all\'utilizzo immediato con tutti i driver di sistema, NON NECESSITA DI NESSUNA CONSIGURAZIONE , GIA\' INIZIALIZZATO CON Windows 10 Pro 64bit, SUITE OFFICE OPEN SOURCE LIBRE OFFICE , teleassistenza con supporto Tecnico/antivirus Microsoft.
@@ -64,11 +64,11 @@ class ProductsTableSeeder extends Seeder
 
                 'details'=>'Peso articolo	191 g
                             Dimensioni del collo	49,8 x 31,8 x 6,6 cm',
-                'sale'=>'00,00€',
+                'sale'=>'6',
                 'brand_id' => '4',
             ],[
                 'name'=>'Xiaomi Redmi Note 8',
-                'price' => '175,00 €',
+                'price' => '175.00',
                 'summary' =>'Xiaomi Redmi Note 8 Smartphone,4GB 64GB Mobilephone,Schermo Intero Da 6,3",Processore Octa Core Snapdragon 665,Quad Camera(48mp + 8mp + 2mp + 2mp) Versione Globale (Nero)',
                 'description'=>'Processore a otto core Qualcomm Snapdragon 665
                                 Frequenza massima 2,0 GHz
@@ -76,7 +76,7 @@ class ProductsTableSeeder extends Seeder
                                 Motore di intelligenza artificiale AIE di terza generazione Qualcomm',
                 'details'=>'Peso articolo	458 g
                             Dimensioni del collo	17,2 x 9 x 5,4 cm',
-                'sale'=>'00,00€',
+                'sale'=>'5',
                 'brand_id' => '5',
             ]]);
     }

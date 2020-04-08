@@ -42,6 +42,7 @@ class User extends Authenticatable
     public static function userUpdate($request){
         return User::where('id', $request->user()->id)
             ->update(['name' => $request->name,
-                'surname' => $request->surname]);
+                'surname' => $request->surname,
+                'phone' => $request->phone]);
     }
 }

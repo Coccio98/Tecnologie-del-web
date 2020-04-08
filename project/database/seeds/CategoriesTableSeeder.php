@@ -19,13 +19,13 @@ class CategoriesTableSeeder extends Seeder
                 'name'=>'Smartphone'
             ],
             [
-                'name'=>'Cuffie'
+                'name'=>'Headphone'
             ],
             [
-                'name'=>'Auricolari'
+                'name'=>'Earphone'
             ],
             [
-                'name'=>'Fotocamera'
+                'name'=>'Camera'
             ]
         ]);
     }

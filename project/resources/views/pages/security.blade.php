@@ -57,9 +57,18 @@
 
                     <div class="form-group row security-body">
                         <div class="col-sm-10">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">Phone:</label>
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">Phone:</label>
                             <div class="col-md-6">
-
+                                @if(empty($modify))
+                                    {{ Auth::user()->phone }}
+                                @else
+                                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ Auth::user()->phone }}" required autocomplete="phone" autofocus>
+                                    @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                @endif
                             </div>
                         </div>
                     </div>

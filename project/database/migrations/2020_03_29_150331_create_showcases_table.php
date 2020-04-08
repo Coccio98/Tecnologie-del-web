@@ -17,6 +17,7 @@ class CreateShowcasesTable extends Migration
             $table->id();
             $table->string('name', 100);
             $table->mediumtext('image');
+            $table->dateTime('expire');
             $table->timestamps();
         });
     }
