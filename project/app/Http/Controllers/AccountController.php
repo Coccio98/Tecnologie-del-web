@@ -28,13 +28,15 @@ class AccountController extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255']
+            'surname' => ['required', 'string', 'max:255'],
+            'phone' => ['string', 'max:255']
         ]);
 
         User::userUpdate($request);
 
         $request->user()->name = $request->name;
         $request->user()->surname = $request->surname;
+        $request->user()->phone = $request->phone;
         return redirect('security');
     }
 

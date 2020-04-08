@@ -49,7 +49,7 @@
                         </span>
                         @enderror
                     </div>
-                    <button type="submit" name="saveAddress" class="primary-btn order-submit">Add address</button>
+                    <button type="submit" name="saveAddress" class="primary-btn order-submit">@if(!empty($address))Modify Address @else Add address @endif</button>
                 </form>
             </div>
         </div>

@@ -14,7 +14,7 @@ class ShowcasesTableSeeder extends Seeder
     {
         DB::table('showcases')->insert([
             [
-                'name'=>'Portatili',
+                'name'=>'Laptop',
                 'image'=>'img/produt03.png'
             ],
             [

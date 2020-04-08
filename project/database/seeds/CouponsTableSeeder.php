@@ -13,10 +13,6 @@ class CouponsTableSeeder extends Seeder
     {
         DB::table('coupons') ->insert([
             [
-                'code'=>'47D9Q008',
-                'discount'=>'10'
-            ],
-            [
                 'code'=>'74A2E785',
                 'discount'=>'50'
             ],[
