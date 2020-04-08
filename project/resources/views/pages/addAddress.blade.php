@@ -9,29 +9,49 @@
                 <div class="section-title">
                     <h3 class="title">Add address</h3>
                 </div>
-                <div class="form-group">
-                    <input class="input" type="text" name="first-name" placeholder="First Name">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="text" name="last-name" placeholder="Last Name">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="email" name="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="text" name="address" placeholder="Address">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="text" name="city" placeholder="City">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="text" name="country" placeholder="Country">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="tel" name="tel" placeholder="Telephone">
-                </div>
+                <form method="POST" action="{{ route('saveAddress', ['id' => $id])}}">
+                    @csrf
+                    <div class="form-group">
+                        <input class="input" type="text" name="first-name" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="text" name="last-name" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <input id="address" class="input form-control @error('address') is-invalid @enderror" type="text" name="address" @if(!empty($address)) value="{{$address->address}}" @endif placeholder="Address" required autocomplete="address" autofocus>
+                        @error('address')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <input id="city" class="input form-control @error('city') is-invalid @enderror" type="text" name="city" @if(!empty($address)) value="{{$address->city}}" @endif placeholder="City" required autocomplete="city" autofocus>
+                        @error('city')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <input id="country" class="input form-control @error('country') is-invalid @enderror" type="text" name="country" @if(!empty($address)) value="{{$address->country}}" @endif placeholder="Country" required autocomplete="country" autofocus>
+                        @error('country')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <input id="phone" class="input form-control @error('phone') is-invalid @enderror" type="tel" name="phone" placeholder="Telephone" @if(!empty($address)) value="{{$address->phoneNumber}}" @endif required autocomplete="phone" autofocus>
+                        @error('phone')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <button type="submit" name="saveAddress" class="primary-btn order-submit">Add address</button>
+                </form>
             </div>
-        <a href="#" class="primary-btn order-submit">Add address</a>
         </div>
         @endcomponent
     @endsection

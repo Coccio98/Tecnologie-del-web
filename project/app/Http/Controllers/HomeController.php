@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,7 +29,15 @@ class HomeController extends Controller
 
     public function page(Request $request){
         $path = 'pages.'.($request->path());
-        return view($path)->with('path', $request->path());
+        $data = null;
+        if($request->path() === 'address'){
+            $data =  $this->address($request);
+        }
+        return view($path)->with('path', $request->path())->with('data', $data);
+    }
+
+    private function address($request){
+        return $addresses = Address::addressesWhere($request->user()->id);
     }
 }
 

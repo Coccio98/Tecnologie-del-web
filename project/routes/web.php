@@ -38,8 +38,6 @@ Route::get('/cart', 'FrontEndController@page')-> name('cart');
 
 Route::get('/trackMyOrder', 'HomeController@page')-> name('trackMyOrder');
 
-Route::get('/addAddress', 'HomeController@page')-> name('addAddress');
-
 Route::get('/paymentOptions', 'HomeController@page')-> name('paymentOptions');
 
 Route::get('/addCreditcard', 'HomeController@page')-> name('addCreditcard');
@@ -50,3 +48,9 @@ Route::get('/order-details', 'HomeController@page')-> name('order-details');
 
 Route::get('/hotdeals-shop', 'FrontEndController@page')-> name('hotdeals-shop');
 
+Route::post('/security/modify', 'AccountController@modify')-> name('modify');
+Route::post('/security/save', 'AccountController@save')-> name('save');
+
+Route::get('/addAddress/{id}', 'AccountController@addAddress')-> name('addAddress');
+Route::post('/addAddress/{id}/save', 'AccountController@saveAddress')-> name('saveAddress');
+Route::get('/address/delete/{id}', 'AccountController@deleteAddress')-> name('deleteAddress');

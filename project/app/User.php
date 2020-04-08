@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+    public static function userUpdate($request){
+        return User::where('id', $request->user()->id)
+            ->update(['name' => $request->name,
+                'surname' => $request->surname]);
+    }
 }

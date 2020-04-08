@@ -4,25 +4,25 @@
             <h5>Name</h5>
         </li>
         <li>
-            Address
+            {{$address->address}}
         </li>
         <li>
-            City
+           {{$address->city}}
         </li>
         <li>
-            Country
+            {{$address->country}}
         </li>
         <li>
-            Phone Number
+            {{$address->phoneNumber}}
         </li>
     </ul>
     <br>
     <div class="row">
         <div class="col-sm-5">
-            <button class="modifica">Modify</button>
+            <a href="{{route('addAddress',['id' => $address->id]) }}"><button class="modifica">Modify</button></a>
         </div>
         <div class="col-sm-3">
-            <button class="rimuovi">Remove</button>
+            <a href="{{route('deleteAddress',['id' => $address->id]) }}"><button class="rimuovi">Remove</button></a>
         </div>
     </div>
 </div>

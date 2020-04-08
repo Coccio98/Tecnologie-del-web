@@ -7,19 +7,14 @@
                 <h3 class="title">Your Addresses</h3>
             </div>
 
-            @component('partials.reusable.address-order')
-            @endcomponent
-
-            @component('partials.reusable.address-order')
-            @endcomponent
-
-            @component('partials.reusable.address-order')
-            @endcomponent
+            @foreach($data as $address)
+                @include('partials.reusable.address-order')
+            @endforeach
         </div>
     @endcomponent
     @component('partials.reusable.section')
         <div class="text-center">
-            <h4><a href="/addAddress"><i class="fa fa-plus-square"></i>Add address</a></h4>
+            <h4><a href="{{route('addAddress',['id' => 0]) }}"><i class="fa fa-plus-square"></i>Add address</a></h4>
         </div>
     @endcomponent
     @endsection
