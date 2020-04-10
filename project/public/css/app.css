@@ -13754,3 +13754,20 @@ ol.progtrckr li.progtrckr-todo:before {
   bottom: -1.6em;
 }
 
+.address-selector[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.address-selector[type=radio] + div {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+
+.address-selector[type=radio]:checked + div {
+  outline: 2px solid #f00;
+}
+

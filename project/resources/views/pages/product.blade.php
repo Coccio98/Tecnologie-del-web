@@ -21,8 +21,7 @@
                 {{$product->summary}}
             @endslot
             @slot('s')
-                <!-- TODO -->
-                4
+                {{$score}}
             @endslot
         @endcomponent
 

@@ -21,22 +21,22 @@
                 <!-- TODO -->
                 <ul>
                     <li>
-                        <h5>Associated address</h5>
+                        <h5>{{$payment->name}}</h5>
                     </li>
                     <li>
-                        Address
+                        {{$payment->address}}
                     </li>
                     <li>
-                        City
+                        {{$payment->city}}
                     </li>
                     <li>
-                        Country
+                        {{$payment->country}}
                     </li>
                     <li>
-                        Number
+                        {{$payment->number}}
                     </li>
                     <li>
-                        Telephone number
+                        {{$payment->phoneNumber}}
                     </li>
                 </ul>
             </div>

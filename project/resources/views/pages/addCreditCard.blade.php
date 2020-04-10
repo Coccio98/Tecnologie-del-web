@@ -66,6 +66,21 @@
                             </span>
                         @enderror
                     </div>
+                    <div class="col-md-11">
+                        @foreach($addresses as $address)
+                            <label class="col-md-4 ">
+                                <input type="radio" id="address" name="address" value="{{$address->id}}" class=" @error('address') is-invalid @enderror address-selector" required autofocus @if(!empty($creditCard) && $creditCard->address_id === $address->id) checked @endif>
+                                <div class=" address address-selector">
+                                    @include('partials.reusable.address-order')
+                                </div>
+                            </label>
+                        @endforeach
+                        @error('address')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                     <button type="submit" name="saveAddress" class="primary-btn order-submit">@if(!empty($creditCard))Modify Credit Card @else Add Credit Card @endif</button>
                 </form>
             </div>

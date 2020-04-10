@@ -3136,7 +3136,7 @@ ol.progtrckr[data-progtrckr-steps="9"] li { width: 11%; }
 
 ol.progtrckr li.progtrckr-done {
     color: black;
-    border-bottom: 4px solid red;
+    border-bottom: 4px solid #D10024;
 }
 ol.progtrckr li.progtrckr-todo {
     color: silver;
@@ -3156,7 +3156,7 @@ ol.progtrckr li:before {
 ol.progtrckr li.progtrckr-done:before {
     content: "\2713";
     color: white;
-    background-color: red;
+    background-color: #D10024;
     height: 1.2em;
     width: 1.2em;
     line-height: 1.2em;
@@ -3169,4 +3169,20 @@ ol.progtrckr li.progtrckr-todo:before {
     background-color: white;
     font-size: 1.5em;
     bottom: -1.6em;
+}
+
+.address-selector[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.address-selector[type=radio] + div {
+    cursor: pointer;
+}
+
+/* CHECKED STYLES */
+.address-selector[type=radio]:checked + div {
+    border: 2px solid #D10024;
 }

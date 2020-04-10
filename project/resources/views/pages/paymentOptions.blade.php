@@ -3,13 +3,6 @@
 @section('content')
     @component('partials.reusable.section')
         <div class="col-md-11 col-md-push-1">
-            <div class="section-title">
-                <h3 class="title">
-                    Your predefined purchase preferences</h3>
-            </div>
-
-            @component('partials.reusable.payment')
-            @endcomponent
 
             <div class="section-title">
                 <h3 class="title">Your credit cards</h3>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Image;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Review;
 
 class FrontEndController extends Controller
 {
@@ -21,6 +22,14 @@ class FrontEndController extends Controller
         $path = 'pages.product';
         $product = Product::productWhere($id);
         $images = Image::imagesWhere($id);
-        return view($path)->with('path', $request->path())->with('product', $product)->with('images', $images);
+        $reviews = Review::reviewWhere($id);
+        $score = 0;
+        foreach ($reviews as $review){
+            $score += $review->rating;
+        }
+        $score /= sizeof($reviews);
+
+        return view($path)->with('path', $request->path())->with('product', $product)
+            ->with('images', $images)->with('review', $reviews)->with('score',$score);
     }
 }

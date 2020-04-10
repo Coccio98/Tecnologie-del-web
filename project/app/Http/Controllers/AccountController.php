@@ -71,11 +71,12 @@ class AccountController extends Controller
 
     public function addCreditCard(Request $request,$id){
         $path = 'pages.addCreditCard';
+        $addresses = Address::addressesWhere($request->user()->id);
         if ($id == 0){
-            return view($path)->with('id', $id);
+            return view($path)->with('id', $id)->with('addresses',$addresses);
         } else {
             $creditCard = PaymentMethod::paymentMethodWhere($id, $request->user()->id);
-            return view($path)->with('creditCard', $creditCard)->with('id',$id);
+            return view($path)->with('creditCard', $creditCard)->with('id',$id)->with('addresses',$addresses);
         }
     }
 
@@ -85,6 +86,7 @@ class AccountController extends Controller
             'cardNumber' => ['required', 'string', 'max:255'],
             'month' => ['required'],
             'year' => ['required'],
+            'address' => ['required'],
         ]);
 
         PaymentMethod::paymentMethodUpdateOrInsert($request, $id);

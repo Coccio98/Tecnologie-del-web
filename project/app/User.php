@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    public $timestamps = true;
 
     public static function userUpdate($request){
         return User::where('id', $request->user()->id)
