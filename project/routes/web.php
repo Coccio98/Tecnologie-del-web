@@ -16,9 +16,7 @@ Auth::routes();
 
 Route::get('/', 'FrontEndController@home')->name('home');
 
-//Route::get('/', 'HomeController@index')->name('home');
-
-Route::get('/product', 'FrontEndController@page')-> name('product');
+Route::get('/product/{id}', 'FrontEndController@product')-> name('product');
 
 Route::get('/store', 'FrontEndController@page')-> name('store');
 
@@ -40,8 +38,6 @@ Route::get('/trackMyOrder', 'HomeController@page')-> name('trackMyOrder');
 
 Route::get('/paymentOptions', 'HomeController@page')-> name('paymentOptions');
 
-Route::get('/addCreditcard', 'HomeController@page')-> name('addCreditcard');
-
 Route::get('/security', 'HomeController@page')-> name('security');
 
 Route::get('/order-details', 'HomeController@page')-> name('order-details');
@@ -54,3 +50,7 @@ Route::post('/security/save', 'AccountController@save')-> name('save');
 Route::get('/addAddress/{id}', 'AccountController@addAddress')-> name('addAddress');
 Route::post('/addAddress/{id}/save', 'AccountController@saveAddress')-> name('saveAddress');
 Route::get('/address/delete/{id}', 'AccountController@deleteAddress')-> name('deleteAddress');
+
+Route::get('/addCreditCard/{id}', 'AccountController@addCreditCard')-> name('addCreditCard');
+Route::post('/addCreditCard/{id}/save', 'AccountController@saveCreditCard')-> name('saveCreditCard');
+Route::get('/paymentOptions/delete/{id}', 'AccountController@deleteCreditCard')-> name('deleteCreditCard');

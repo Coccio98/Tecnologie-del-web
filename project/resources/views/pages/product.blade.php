@@ -5,46 +5,33 @@
     @include('partials.reusable.breadcrumb')
 
     @component('partials.reusable.section')
-<!-- TODO rivedere immagini-->
-        @component('partials.product.images')
-            @slot('img1')
-                {{ asset('images/product01.png')}}
-            @endslot
-            @slot('img2')
-                {{ asset('images/product03.png')}}
-            @endslot
-            @slot('img3')
-                {{ asset('images/product06.png')}}
-            @endslot
-            @slot('img4')
-                {{ asset('images/product08.png')}}
-            @endslot
-        @endcomponent
+        @include('partials.product.images')
 
         @component('partials.product.details')
             @slot('name')
-                PRODUCT NAME GOES HERE
+                {{$product->name}}
             @endslot
             @slot('price')
-                $980.00
+                ${{$product->price*(100-$product->sale)/100}}
             @endslot
             @slot('old_price')
-                $990.00
+                ${{$product->price}}
             @endslot
             @slot('description')
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                {{$product->summary}}
             @endslot
             @slot('s')
+                <!-- TODO -->
                 4
             @endslot
         @endcomponent
 
         @component('partials.product.product-tab')
             @slot('description')
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                {{$product->description}}
             @endslot
             @slot('details')
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                {{$product->details}}
             @endslot
             @slot('questions')
                 TODO
@@ -54,6 +41,7 @@
 
     @component('partials.reusable.section')
 
+        <!--TODO -->
         <div class="col-md-12">
             <div class="section-title text-center">
                 <h3 class="title">Related Products</h3>

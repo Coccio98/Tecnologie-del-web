@@ -14,10 +14,11 @@ class Address extends Model
         return Address::where('user_id', $userId)->where('id', $addressId)->first();
     }
 
-    public static function addressUpdateOrInsert($request, $address_id){
+    public static function addressUpdateOrInsert($request, $addressId){
         return Address::updateOrInsert(
-            ['id' => $address_id, 'user_id' => $request->user()->id],
-            ['address'=> $request->address,
+            ['id' => $addressId, 'user_id' => $request->user()->id],
+            ['name'=>$request->name,
+                'address'=> $request->address,
                 'city'=> $request->city,
                 'country'=> $request->country,
                 'phoneNumber'=> $request->phone]

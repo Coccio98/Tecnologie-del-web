@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PaymentMethod;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\User;
@@ -52,6 +53,7 @@ class AccountController extends Controller
 
     public function saveAddress(Request $request, $id){
         $request->validate([
+            'name' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
             'country' => ['required', 'string', 'max:255'],
@@ -65,5 +67,32 @@ class AccountController extends Controller
     public function deleteAddress(Request $request, $id){
         Address::addressDelete($id,$request->user()->id);
         return redirect('address');
+    }
+
+    public function addCreditCard(Request $request,$id){
+        $path = 'pages.addCreditCard';
+        if ($id == 0){
+            return view($path)->with('id', $id);
+        } else {
+            $creditCard = PaymentMethod::paymentMethodWhere($id, $request->user()->id);
+            return view($path)->with('creditCard', $creditCard)->with('id',$id);
+        }
+    }
+
+    public function saveCreditCard(Request $request, $id){
+        $request->validate([
+            'cardHolder' => ['required', 'string', 'max:255'],
+            'cardNumber' => ['required', 'string', 'max:255'],
+            'month' => ['required'],
+            'year' => ['required'],
+        ]);
+
+        PaymentMethod::paymentMethodUpdateOrInsert($request, $id);
+        return redirect('paymentOptions');
+    }
+
+    public function deleteCreditCard(Request $request, $id){
+        PaymentMethod::paymentMethodDelete($id,$request->user()->id);
+        return redirect('paymentOptions');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\PaymentMethod;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -32,12 +33,18 @@ class HomeController extends Controller
         $data = null;
         if($request->path() === 'address'){
             $data =  $this->address($request);
+        } elseif($request->path() === 'paymentOptions'){
+            $data =  $this->payment($request);
         }
         return view($path)->with('path', $request->path())->with('data', $data);
     }
 
     private function address($request){
         return $addresses = Address::addressesWhere($request->user()->id);
+    }
+
+    private function payment($request){
+        return $addresses = PaymentMethod::paymentMethodsWhere($request->user()->id);
     }
 }
 

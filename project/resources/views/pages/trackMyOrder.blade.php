@@ -26,8 +26,11 @@
                     <li class="progtrckr-todo">Delivered</li>
                 </ol>
 
-                @component('partials.reusable.address-order')
-                @endcomponent
+                <div class="col-md-3 address">
+                    <!--TODO sistemare appena aggiunte gli ordini nel db -->
+                    include('partials.reusable.address-order')
+
+                </div>
 
                 <!-- TODO agiungere metodo di pagamento-->
             </div>

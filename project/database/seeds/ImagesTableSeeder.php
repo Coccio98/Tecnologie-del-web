@@ -14,35 +14,35 @@ class ImagesTableSeeder extends Seeder
     {
         DB::table('images')->insert([
             [
-                'image'=>'public/images/produt01.png',
+                'image'=>'images/product01.png',
                 'product_id' => '1'
             ],
             [
-                'image' =>'public/images/product02.png',
+                'image' =>'images/product02.png',
                 'product_id' => '4'
             ],
             [
-                'image'=>'public/images/product03.png',
+                'image'=>'images/product03.png',
                 'product_id' => '1'
             ],
             [
-                'image'=>'public/images/product04.png',
+                'image'=>'images/product04.png',
                 'product_id' => '3'
             ],
             [
-                'image'=>'public/images/product05.png',
+                'image'=>'images/product05.png',
                 'product_id' => '2'
             ],
             [
-                'image'=>'public/images/product06.png',
+                'image'=>'images/product06.png',
                 'product_id' => '1'
             ],
             [
-                'image'=>'public/images/product07.png',
+                'image'=>'images/product07.png',
                 'product_id' => '2'
             ],
             [
-                'image'=>'public/images/product08.png',
+                'image'=>'images/product08.png',
                 'product_id' => '3'
             ]
         ]);

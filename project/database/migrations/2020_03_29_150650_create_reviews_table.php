@@ -18,7 +18,7 @@ class CreateReviewsTable extends Migration
             $table->string('title', 200);
             $table->text('text');
             $table->tinyInteger('rating');
-            $table->timestamp('timestamp');
+            $table->timestamp('timestamp')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
             $table->unsignedBigInteger('product_id');
 

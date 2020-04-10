@@ -20,18 +20,20 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductsTableSeeder::class);
         $this->call(StocksTableSeeder::class);
         $this->call(ImagesTableSeeder::class);
+        $this->call(QuestionsTableSeeder::class);
         $this->call(AnswersTableSeeder::class);
         $this->call(Billing_AddressTableSeeder::class);
         $this->call(CartTableSeeder::class);
-        $this->call(QuestionsTableSeeder::class);
         $this->call(RedeemTableSeeder::class);
         $this->call(ReviewsTableSeeder::class);
         $this->call(CouriersTableSeeder::class);
+        $this->call(ShowcasesTableSeeder::class);
         $this->call(ShippingsTableSeeder::class);
         $this->call(BelongTableSeeder::class);
         $this->call(DisplayTableSeeder::class);
         $this->call(OrdersTableSeeder::class);
         $this->call(ComposeTableSeeder::class);
         $this->call(TakeUpTableSeeder::class);
+        $this->call(WishlistTableSeeder::class);
     }
 }

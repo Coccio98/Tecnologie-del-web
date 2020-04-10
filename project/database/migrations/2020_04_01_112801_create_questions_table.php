@@ -16,7 +16,7 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->text('text');
-            $table->timestamp('timestamp');
+            $table->timestamp('timestamp')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');

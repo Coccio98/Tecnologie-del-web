@@ -15,19 +15,14 @@
                 <h3 class="title">Your credit cards</h3>
             </div>
 
-            @component('partials.reusable.credit-card')
-            @endcomponent
-
-            @component('partials.reusable.credit-card')
-            @endcomponent
-
-            @component('partials.reusable.credit-card')
-            @endcomponent
+            @foreach($data as $payment)
+                @include('partials.reusable.credit-card')
+            @endforeach
         </div>
     @endcomponent
     @component('partials.reusable.section')
         <div class="text-center">
-            <h4><a href="/addCreditcard"><i class="fa fa-plus-square"></i>Add credit card</a></h4>
+            <h4><a href="{{route('addCreditCard',['id' => 0]) }}"><i class="fa fa-plus-square"></i>Add credit card</a></h4>
         </div>
     @endcomponent
 @endsection

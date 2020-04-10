@@ -50322,6 +50322,8 @@ if (path === slash) {
   // Product Main img Slick
 
   $('#product-main-img').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
     infinite: true,
     speed: 300,
     dots: false,
@@ -50336,6 +50338,7 @@ if (path === slash) {
     arrows: true,
     centerMode: true,
     focusOnSelect: true,
+    infinite: true,
     centerPadding: 0,
     vertical: true,
     asNavFor: '#product-main-img',

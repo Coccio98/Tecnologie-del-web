@@ -12,10 +12,12 @@
                 <form method="POST" action="{{ route('saveAddress', ['id' => $id])}}">
                     @csrf
                     <div class="form-group">
-                        <input class="input" type="text" name="first-name" placeholder="First Name">
-                    </div>
-                    <div class="form-group">
-                        <input class="input" type="text" name="last-name" placeholder="Last Name">
+                        <input id="name" class="input form-control @error('name') is-invalid @enderror" type="text" name="name" @if(!empty($address)) value="{{$address->name}}" @endif placeholder="Full Name" required autocomplete="name" autofocus>
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <input id="address" class="input form-control @error('address') is-invalid @enderror" type="text" name="address" @if(!empty($address)) value="{{$address->address}}" @endif placeholder="Address" required autocomplete="address" autofocus>
