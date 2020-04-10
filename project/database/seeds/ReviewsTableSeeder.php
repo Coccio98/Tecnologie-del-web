@@ -18,7 +18,8 @@ class ReviewsTableSeeder extends Seeder
                            THE MAXIMUM VOLUME IS LOW!
                            Only points in favor are style and comfort. But it wasn\'t what I personally was looking for',
                 'rating' =>'3',
-                'product_id' => '1'
+                'product_id' => '1',
+                'user_id' => '1'
             ],
             [
                 'title' => 'Fantastic headphones',
@@ -28,14 +29,16 @@ class ReviewsTableSeeder extends Seeder
                 Recommended to several people and all were enthusiastic about this product
                 After 2 years they have not yet given me a problem and feels very good!',
                 'rating' =>'5',
-                'product_id' => '1'
+                'product_id' => '1',
+                'user_id' => '2'
             ],
             [
                 'title' => 'Excellent',
                 'text' => 'Very good audio quality compared to the price paid. they are insulating and
                 emit a very clean sound. the volume at most does not break the eardrums, it does not feel muffled.',
                 'rating' =>'5',
-                'product_id' => '2'
+                'product_id' => '2',
+                'user_id' => '3'
             ],
             [
                 'title' => 'Excellent',
@@ -44,7 +47,8 @@ class ReviewsTableSeeder extends Seeder
                 It tends to heat up when used when attached to the charge, but other than that it\'s great for anything
                 you want to do.',
                 'rating' =>'5',
-                'product_id' => '3'
+                'product_id' => '3',
+                'user_id' => '1'
             ],
             [
                 'title' => 'Good phone at an honest price!!',
@@ -53,7 +57,8 @@ class ReviewsTableSeeder extends Seeder
                 Upgrade to Android 10 expected. I recommend this phone to those who make common use and need a lot
                 of battery',
                 'rating' =>'5',
-                'product_id' => '5'
+                'product_id' => '5',
+                'user_id' => '1'
             ],
             [
                 'title' => 'I expected more',
@@ -63,7 +68,8 @@ class ReviewsTableSeeder extends Seeder
                 invisible and monochrome, in addition the front camera in low light conditions applies a horrible yellow
                 filter that you can not remove in any way.',
                 'rating' =>'2',
-                'product_id' => '5'
+                'product_id' => '5',
+                'user_id' => '1'
             ]
         ]);
     }

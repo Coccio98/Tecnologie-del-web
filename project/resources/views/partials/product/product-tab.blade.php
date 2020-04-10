@@ -5,7 +5,7 @@
         <ul class="tab-nav">
             <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
             <li><a data-toggle="tab" href="#tab2">Details</a></li>
-            <li><a data-toggle="tab" href="#tab3">Reviews (3)</a></li>
+            <li><a data-toggle="tab" href="#tab3">Reviews</a></li>
             <li><a data-toggle="tab" href="#tab4">Questions</a></li>
         </ul>
         <!-- /product tab nav -->
@@ -16,7 +16,7 @@
             <div id="tab1" class="tab-pane fade in active">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>{{$description}}</p>
+                        <p>{{$product->description}}</p>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div id="tab2" class="tab-pane fade in">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>{{$details}}</p>
+                        <p>{{$product->details}}</p>
                     </div>
                 </div>
             </div>
@@ -39,10 +39,10 @@
                     <div class="col-md-3">
                         <div id="rating">
                             <div class="rating-avg">
-                                <span>4.5</span>
+                                <span>{{$score}}</span>
                                 @component('partials.reusable.stars')
                                     @slot('s')
-                                        4
+                                        {{$score}}
                                     @endslot
                                 @endcomponent
                             </div>
@@ -54,9 +54,9 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: 80%;"></div>
+                                        <div style="width: {{$n[4]*100/sizeof($reviews)}}%;"></div>
                                     </div>
-                                    <span class="sum">3</span>
+                                    <span class="sum">{{$n[4]}}</span>
                                 </li>
                                 <li>
                                     @component('partials.reusable.stars')
@@ -65,9 +65,9 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: 60%;"></div>
+                                        <div style="width: {{$n[3]*100/sizeof($reviews)}}%;"></div>
                                     </div>
-                                    <span class="sum">2</span>
+                                    <span class="sum">{{$n[3]}}</span>
                                 </li>
                                 <li>
                                     @component('partials.reusable.stars')
@@ -76,9 +76,9 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div></div>
+                                        <div style="width: {{$n[2]*100/sizeof($reviews)}}%;"></div>
                                     </div>
-                                    <span class="sum">0</span>
+                                    <span class="sum">{{$n[2]}}</span>
                                 </li>
                                 <li>
                                     @component('partials.reusable.stars')
@@ -87,9 +87,9 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div></div>
+                                        <div style="width: {{$n[1]*100/sizeof($reviews)}}%;"></div>
                                     </div>
-                                    <span class="sum">0</span>
+                                    <span class="sum">{{$n[1]}}</span>
                                 </li>
                                 <li>
                                     @component('partials.reusable.stars')
@@ -98,9 +98,9 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div></div>
+                                        <div style="width: {{$n[0]*100/sizeof($reviews)}}%;"></div>
                                     </div>
-                                    <span class="sum">0</span>
+                                    <span class="sum">{{$n[0]}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -111,49 +111,24 @@
                     <div class="col-md-6">
                         <div id="reviews">
                             <ul class="reviews">
-                                <li>
-                                    <div class="review-heading">
-                                        <h5 class="name">John</h5>
-                                        <p class="date">27 DEC 2018, 8:0 PM</p>
-                                        @component('partials.reusable.stars')
-                                            @slot('s')
-                                                4
-                                            @endslot
-                                        @endcomponent
-                                    </div>
-                                    <div class="review-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="review-heading">
-                                        <h5 class="name">John</h5>
-                                        <p class="date">27 DEC 2018, 8:0 PM</p>
-                                        @component('partials.reusable.stars')
-                                            @slot('s')
-                                                4
-                                            @endslot
-                                        @endcomponent
-                                    </div>
-                                    <div class="review-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="review-heading">
-                                        <h5 class="name">John</h5>
-                                        <p class="date">27 DEC 2018, 8:0 PM</p>
-                                        @component('partials.reusable.stars')
-                                            @slot('s')
-                                                4
-                                            @endslot
-                                        @endcomponent
-                                    </div>
-                                    <div class="review-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                                    </div>
-                                </li>
+                                @foreach($reviews as $review)
+                                    <li>
+                                        <div class="review-heading">
+                                            <h5 class="name">{{$review->name}}</h5>
+                                            <p class="date">{{$review->timestamp}}</p>
+                                            @component('partials.reusable.stars')
+                                                @slot('s')
+                                                    {{$review->rating}}
+                                                @endslot
+                                            @endcomponent
+                                        </div>
+                                        <div class="review-body">
+                                            <p>{{$review->text}}</p>
+                                        </div>
+                                    </li>
+                                @endforeach
                             </ul>
+                            <!--TODO paginazione-->
                             <ul class="reviews-pagination">
                                 <li class="active">1</li>
                                 <li><a href="#">2</a></li>
@@ -169,6 +144,7 @@
                     <div class="col-md-3">
                         <div id="review-form">
                             <form class="review-form">
+                                <!--TODO recensione-->
                                 <input class="input" type="text" placeholder="Your Name">
                                 <input class="input" type="email" placeholder="Your Email">
                                 <textarea class="input" placeholder="Your Review"></textarea>
@@ -191,10 +167,25 @@
             </div>
             <!-- /tab3  -->
             <!-- tab4  -->
+            <!--TODO answer-->
             <div id="tab4" class="tab-pane fade in">
                 <div class="row">
-                    <div class="col-md-12">
-                        {{$questions}}
+                    <div class="col-md-11 col-md-push-2">
+                        <div id="reviews">
+                            <ul class="reviews">
+                                @foreach($questions as $question)
+                                    <li>
+                                        <div class="review-heading">
+                                            <h5 class="name">{{$question->name}}</h5>
+                                            <p class="date">{{$question->timestamp}}</p>
+                                        </div>
+                                        <div class="review-body">
+                                            <p>{{$question->text}}</p>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

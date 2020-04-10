@@ -25,17 +25,8 @@
             @endslot
         @endcomponent
 
-        @component('partials.product.product-tab')
-            @slot('description')
-                {{$product->description}}
-            @endslot
-            @slot('details')
-                {{$product->details}}
-            @endslot
-            @slot('questions')
-                TODO
-            @endslot
-        @endcomponent
+        @include('partials.product.product-tab')
+
     @endcomponent
 
     @component('partials.reusable.section')
