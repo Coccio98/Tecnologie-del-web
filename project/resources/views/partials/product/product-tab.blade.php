@@ -54,7 +54,7 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: {{$n[4]*100/sizeof($reviews)}}%;"></div>
+                                        <div style="width: @if(sizeof($reviews)!=0){{$n[4]*100/sizeof($reviews)}}%@endif;"></div>
                                     </div>
                                     <span class="sum">{{$n[4]}}</span>
                                 </li>
@@ -65,7 +65,7 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: {{$n[3]*100/sizeof($reviews)}}%;"></div>
+                                        <div style="width: @if(sizeof($reviews)!=0){{$n[3]*100/sizeof($reviews)}}%@endif;"></div>
                                     </div>
                                     <span class="sum">{{$n[3]}}</span>
                                 </li>
@@ -76,7 +76,7 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: {{$n[2]*100/sizeof($reviews)}}%;"></div>
+                                        <div style="width: @if(sizeof($reviews)!=0){{$n[2]*100/sizeof($reviews)}}%@endif;"></div>
                                     </div>
                                     <span class="sum">{{$n[2]}}</span>
                                 </li>
@@ -87,7 +87,7 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: {{$n[1]*100/sizeof($reviews)}}%;"></div>
+                                        <div style="width: @if(sizeof($reviews)!=0){{$n[1]*100/sizeof($reviews)}}%@endif;"></div>
                                     </div>
                                     <span class="sum">{{$n[1]}}</span>
                                 </li>
@@ -98,7 +98,7 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: {{$n[0]*100/sizeof($reviews)}}%;"></div>
+                                        <div style="width: @if(sizeof($reviews)!=0){{$n[0]*100/sizeof($reviews)}}%@endif;"></div>
                                     </div>
                                     <span class="sum">{{$n[0]}}</span>
                                 </li>

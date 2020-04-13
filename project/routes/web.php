@@ -54,3 +54,6 @@ Route::get('/address/delete/{id}', 'AccountController@deleteAddress')-> name('de
 Route::get('/addCreditCard/{id}', 'AccountController@addCreditCard')-> name('addCreditCard');
 Route::post('/addCreditCard/{id}/save', 'AccountController@saveCreditCard')-> name('saveCreditCard');
 Route::get('/paymentOptions/delete/{id}', 'AccountController@deleteCreditCard')-> name('deleteCreditCard');
+
+Route::get('wishlist/delete/{id}', 'HomeController@deleteWishlist')->name('deleteWishlist');
+Route::get('wishlist/add/{id}', 'HomeController@addWishlist')->name('addWishlist');

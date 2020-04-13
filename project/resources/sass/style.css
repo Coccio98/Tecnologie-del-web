@@ -1802,14 +1802,14 @@ textarea.input {
 }
 
 .product-wishlist+.product-wishlist {
-    margin: 30px 0px;
+    margin: 50px 0px;
 }
 
 .product-wishlist .product-img {
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 130px;
+    width: 110px;
 }
 
 .product-wishlist .product-img>img {
@@ -1818,7 +1818,7 @@ textarea.input {
 
 .product-wishlist .product-body {
     padding-left: 130px;
-    min-height: 100px;
+    min-height: 130px;
     border-bottom: solid #E4E7ED 1px;
 }
 
@@ -1931,6 +1931,7 @@ textarea.input {
     -webkit-transition: 0.2s all;
     transition: 0.2s all;
     z-index: 2;
+    margin-left: 70%;
 }
 
 .product-wishlist .add-to-cart .add-to-cart-btn {

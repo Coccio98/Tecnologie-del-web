@@ -1,20 +1,20 @@
 <!-- Product details -->
 <div class="col-md-5">
     <div class="product-details">
-        <h2 class="product-name">{{$name}}</h2>
+        <h2 class="product-name">{{$product->name}}</h2>
         <div>
             @component('partials.reusable.stars')
                 @slot('s')
-                    {{$s}}
+                    {{$score}}
                 @endslot
             @endcomponent
             <a class="review-link" href="#">10 Review(s) | Add your review</a>
         </div>
         <div>
-            <h3 class="product-price">{{$price}} <del class="product-old-price">{{$old_price}}</del></h3>
+            <h3 class="product-price"> ${{$product->price*(100-$product->sale)/100}} <del class="product-old-price">${{$product->price}}</del></h3>
             <span class="product-available">In Stock</span>
         </div>
-        <p>{{$description}}</p>
+        <p>{{$product->summary}}</p>
 
         <div class="product-options">
             <label>
@@ -44,7 +44,7 @@
         </div>
 
         <ul class="product-btns">
-            <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
+            <li><a href="{{ route('addWishlist',['id' => $product->id]) }}"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
             <li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
         </ul>
 

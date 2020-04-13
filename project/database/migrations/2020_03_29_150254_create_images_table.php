@@ -17,6 +17,7 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->text('image');
             $table->timestamps();
+            $table->boolean('main')->default(false);
             $table->unsignedBigInteger('product_id');
 
             $table->foreign('product_id')->references('id')->on('products')

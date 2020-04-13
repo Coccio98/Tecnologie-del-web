@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Address;
 use App\PaymentMethod;
+use App\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -35,6 +36,8 @@ class HomeController extends Controller
             $data =  $this->address($request);
         } elseif($request->path() === 'paymentOptions'){
             $data =  $this->payment($request);
+        } elseif($request->path() === 'wishlist'){
+            $data =  $this->wishlist($request);
         }
         return view($path)->with('path', $request->path())->with('data', $data);
     }
@@ -44,7 +47,20 @@ class HomeController extends Controller
     }
 
     private function payment($request){
-        return $addresses = PaymentMethod::paymentMethodsWhere($request->user()->id);
+        return $payment = PaymentMethod::paymentMethodsWhere($request->user()->id);
+    }
+    private function wishlist($request){
+        return $wishlist = Product::productsWishlistWhere($request->user()->id);
+    }
+
+    public function addWishlist(Request $request, $id){
+        Product::productWishlistUpdateOrInsert($request->user()->id, $id);
+        return redirect()->route('product', ['id'=> $id]);
+    }
+
+    public function deleteWishlist(Request $request, $id){
+         Product::productsWishlistDelete($request->user()->id, $id);
+         return redirect('wishlist');
     }
 }
 

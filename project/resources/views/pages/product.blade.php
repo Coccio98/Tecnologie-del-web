@@ -7,26 +7,9 @@
     @component('partials.reusable.section')
         @include('partials.product.images')
 
-        @component('partials.product.details')
-            @slot('name')
-                {{$product->name}}
-            @endslot
-            @slot('price')
-                ${{$product->price*(100-$product->sale)/100}}
-            @endslot
-            @slot('old_price')
-                ${{$product->price}}
-            @endslot
-            @slot('description')
-                {{$product->summary}}
-            @endslot
-            @slot('s')
-                {{$score}}
-            @endslot
-        @endcomponent
+        @include('partials.product.details')
 
         @include('partials.product.product-tab')
-
     @endcomponent
 
     @component('partials.reusable.section')

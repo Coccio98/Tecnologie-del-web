@@ -47,7 +47,9 @@ class FrontEndController extends Controller
             }
 
         }
-        $score /= sizeof($reviews);
+        if(sizeof($reviews)!=0) {
+            $score /= sizeof($reviews);
+        }
         $questions = Question::questionsWhere($id);
 
         return view($path)->with('path', $request->path())->with('product', $product)

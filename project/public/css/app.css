@@ -12361,14 +12361,14 @@ textarea.input {
 }
 
 .product-wishlist + .product-wishlist {
-  margin: 30px 0px;
+  margin: 50px 0px;
 }
 
 .product-wishlist .product-img {
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 130px;
+  width: 110px;
 }
 
 .product-wishlist .product-img > img {
@@ -12377,7 +12377,7 @@ textarea.input {
 
 .product-wishlist .product-body {
   padding-left: 130px;
-  min-height: 100px;
+  min-height: 130px;
   border-bottom: solid #E4E7ED 1px;
 }
 
@@ -12485,6 +12485,7 @@ textarea.input {
   transform: translateY(0%);
   transition: 0.2s all;
   z-index: 2;
+  margin-left: 70%;
 }
 
 .product-wishlist .add-to-cart .add-to-cart-btn {
@@ -13715,7 +13716,7 @@ ol.progtrckr[data-progtrckr-steps="9"] li {
 
 ol.progtrckr li.progtrckr-done {
   color: black;
-  border-bottom: 4px solid red;
+  border-bottom: 4px solid #D10024;
 }
 
 ol.progtrckr li.progtrckr-todo {
@@ -13738,7 +13739,7 @@ ol.progtrckr li:before {
 ol.progtrckr li.progtrckr-done:before {
   content: "\2713";
   color: white;
-  background-color: red;
+  background-color: #D10024;
   height: 1.2em;
   width: 1.2em;
   line-height: 1.2em;
@@ -13768,6 +13769,6 @@ ol.progtrckr li.progtrckr-todo:before {
 /* CHECKED STYLES */
 
 .address-selector[type=radio]:checked + div {
-  outline: 2px solid #f00;
+  border: 2px solid #D10024;
 }
 
