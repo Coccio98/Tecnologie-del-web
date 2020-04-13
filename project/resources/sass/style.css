@@ -1459,10 +1459,17 @@ textarea.input {
 
 .product .product-img {
   position: relative;
+    width: 100%;
+    padding-top: 100%;
 }
 
 .product .product-img>img {
-  width: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .product .product-img .product-label {
