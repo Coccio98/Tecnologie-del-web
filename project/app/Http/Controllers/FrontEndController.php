@@ -11,7 +11,8 @@ use App\Review;
 class FrontEndController extends Controller
 {
     public function home(){
-        return view('pages.home')->with('path', 'home');
+        $newLaptop = Product::newProductLaptop();
+        return view('pages.home')->with('path', 'home')->with('newLaptop', $newLaptop);
     }
 
     public function page(Request $request){

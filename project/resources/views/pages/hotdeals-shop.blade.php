@@ -238,6 +238,9 @@
                         @slot('name')
                             product name goes here
                         @endslot
+                        @slot('id')
+                            1
+                        @endslot
                         @slot('price')
                             $980.00
                         @endslot
@@ -265,6 +268,9 @@
                         @endslot
                         @slot('name')
                             product name goes here
+                        @endslot
+                        @slot('id')
+                            1
                         @endslot
                         @slot('price')
                             $980.00
@@ -296,6 +302,9 @@
                         @slot('name')
                             product name goes here
                         @endslot
+                        @slot('id')
+                            1
+                        @endslot
                         @slot('price')
                             $980.00
                         @endslot
@@ -325,6 +334,9 @@
                         @endslot
                         @slot('name')
                             product name goes here
+                        @endslot
+                        @slot('id')
+                            1
                         @endslot
                         @slot('price')
                             $980.00
@@ -356,6 +368,9 @@
                         @slot('name')
                             product name goes here
                         @endslot
+                        @slot('id')
+                            1
+                        @endslot
                         @slot('price')
                             $980.00
                         @endslot
@@ -383,6 +398,9 @@
                         @endslot
                         @slot('name')
                             product name goes here
+                        @endslot
+                        @slot('id')
+                            1
                         @endslot
                         @slot('price')
                             $980.00
@@ -414,6 +432,9 @@
                         @slot('name')
                             product name goes here
                         @endslot
+                        @slot('id')
+                            1
+                        @endslot
                         @slot('price')
                             $980.00
                         @endslot
@@ -441,6 +462,9 @@
                         @endslot
                         @slot('name')
                             product name goes here
+                        @endslot
+                        @slot('id')
+                            1
                         @endslot
                         @slot('price')
                             $980.00
@@ -471,6 +495,9 @@
                         @endslot
                         @slot('name')
                             product name goes here
+                        @endslot
+                        @slot('id')
+                            1
                         @endslot
                         @slot('price')
                             $980.00

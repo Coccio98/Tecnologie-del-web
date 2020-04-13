@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ProductsTableSeeder extends Seeder
 {
@@ -22,6 +23,7 @@ class ProductsTableSeeder extends Seeder
                             Dimensioni prodotto	15 x 5 x 20 cm',
                 'sale'=>'10',
                 'brand_id' => '1',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name'=>'Samsung Auricolari',
@@ -38,6 +40,7 @@ class ProductsTableSeeder extends Seeder
                             Numero modello articolo: EHS64AVFWE',
                 'sale'=>'0',
                 'brand_id' => '2',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name'=>'HUAWEI MateBook D 15.6" Laptop',
@@ -53,6 +56,7 @@ class ProductsTableSeeder extends Seeder
                             Dimensioni del collo	47,2 x 27,8 x 7 cm',
                 'sale'=>'30',
                 'brand_id' => '3',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name'=>'Notebook Acer pc portatile',
@@ -66,6 +70,7 @@ class ProductsTableSeeder extends Seeder
                             Dimensioni del collo	49,8 x 31,8 x 6,6 cm',
                 'sale'=>'6',
                 'brand_id' => '4',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],[
                 'name'=>'Xiaomi Redmi Note 8',
                 'price' => '175.00',
@@ -78,6 +83,65 @@ class ProductsTableSeeder extends Seeder
                             Dimensioni del collo	17,2 x 9 x 5,4 cm',
                 'sale'=>'5',
                 'brand_id' => '5',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+
+            [
+                'name'=>'Notebook Asus pc portatile',
+                'price' => '749.77',
+                'summary' =>'Notebook Acer pc portatile SSD 512 Gb, Cpu Intel Quad Core i5 di 10Th Generazione fino a 4,2 Ghz, RAM 8GB, Display 15.6" Full HD, Svga UHD 620, 3 usb, wi-fi, hdmi, Win 10 Pro 64 Bit',
+                'description'=>'Notebook Acer pc portatile SSD 512 Gb, Cpu Intel Quad Core i5 di 10Th Generazione fino a 4,2 Ghz, RAM 8GB, Display 15.6" Full HD, Svga UHD 620, 3 usb, wi-fi, hdmi, Win 10 Pro 64 Bit, Pronto all\'uso.
+                                Pronto all\'utilizzo immediato con tutti i driver di sistema, NON NECESSITA DI NESSUNA CONSIGURAZIONE , GIA\' INIZIALIZZATO CON Windows 10 Pro 64bit, SUITE OFFICE OPEN SOURCE LIBRE OFFICE , teleassistenza con supporto Tecnico/antivirus Microsoft.
+                                Ogni singolo prodotto viene testato presso il nostro centro assistenza per controllo qualità GARANZIA ITALIANA. 3 USB, 1 HDMI 1.4b, 1 Lan RJ-45, 1 bluetooth, connessione wi-fi integrata, 1 combo cuffie/microfono, 1 alimentatore CA, causa design ultra slim non è disponibile il lettore DVD/CD',
+
+                'details'=>'Peso articolo	191 g
+                            Dimensioni del collo	49,8 x 31,8 x 6,6 cm',
+                'sale'=>'6',
+                'brand_id' => '3',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'score'=>'3'
+            ],[
+                'name'=>'Notebook Jessica',
+                'price' => '749.77',
+                'summary' =>'Notebook Acer pc portatile SSD 512 Gb, Cpu Intel Quad Core i5 di 10Th Generazione fino a 4,2 Ghz, RAM 8GB, Display 15.6" Full HD, Svga UHD 620, 3 usb, wi-fi, hdmi, Win 10 Pro 64 Bit',
+                'description'=>'Notebook Acer pc portatile SSD 512 Gb, Cpu Intel Quad Core i5 di 10Th Generazione fino a 4,2 Ghz, RAM 8GB, Display 15.6" Full HD, Svga UHD 620, 3 usb, wi-fi, hdmi, Win 10 Pro 64 Bit, Pronto all\'uso.
+                                Pronto all\'utilizzo immediato con tutti i driver di sistema, NON NECESSITA DI NESSUNA CONSIGURAZIONE , GIA\' INIZIALIZZATO CON Windows 10 Pro 64bit, SUITE OFFICE OPEN SOURCE LIBRE OFFICE , teleassistenza con supporto Tecnico/antivirus Microsoft.
+                                Ogni singolo prodotto viene testato presso il nostro centro assistenza per controllo qualità GARANZIA ITALIANA. 3 USB, 1 HDMI 1.4b, 1 Lan RJ-45, 1 bluetooth, connessione wi-fi integrata, 1 combo cuffie/microfono, 1 alimentatore CA, causa design ultra slim non è disponibile il lettore DVD/CD',
+
+                'details'=>'Peso articolo	191 g
+                            Dimensioni del collo	49,8 x 31,8 x 6,6 cm',
+                'sale'=>'6',
+                'brand_id' => '3',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'score'=>'1'
+            ],[
+                'name'=>'Notebook Andrea',
+                'price' => '749.77',
+                'summary' =>'Notebook Acer pc portatile SSD 512 Gb, Cpu Intel Quad Core i5 di 10Th Generazione fino a 4,2 Ghz, RAM 8GB, Display 15.6" Full HD, Svga UHD 620, 3 usb, wi-fi, hdmi, Win 10 Pro 64 Bit',
+                'description'=>'Notebook Acer pc portatile SSD 512 Gb, Cpu Intel Quad Core i5 di 10Th Generazione fino a 4,2 Ghz, RAM 8GB, Display 15.6" Full HD, Svga UHD 620, 3 usb, wi-fi, hdmi, Win 10 Pro 64 Bit, Pronto all\'uso.
+                                Pronto all\'utilizzo immediato con tutti i driver di sistema, NON NECESSITA DI NESSUNA CONSIGURAZIONE , GIA\' INIZIALIZZATO CON Windows 10 Pro 64bit, SUITE OFFICE OPEN SOURCE LIBRE OFFICE , teleassistenza con supporto Tecnico/antivirus Microsoft.
+                                Ogni singolo prodotto viene testato presso il nostro centro assistenza per controllo qualità GARANZIA ITALIANA. 3 USB, 1 HDMI 1.4b, 1 Lan RJ-45, 1 bluetooth, connessione wi-fi integrata, 1 combo cuffie/microfono, 1 alimentatore CA, causa design ultra slim non è disponibile il lettore DVD/CD',
+
+                'details'=>'Peso articolo	191 g
+                            Dimensioni del collo	49,8 x 31,8 x 6,6 cm',
+                'sale'=>'6',
+                'brand_id' => '3',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'score'=>'0'
+            ],[
+                'name'=>'Notebook Federico',
+                'price' => '749.77',
+                'summary' =>'Notebook Acer pc portatile SSD 512 Gb, Cpu Intel Quad Core i5 di 10Th Generazione fino a 4,2 Ghz, RAM 8GB, Display 15.6" Full HD, Svga UHD 620, 3 usb, wi-fi, hdmi, Win 10 Pro 64 Bit',
+                'description'=>'Notebook Acer pc portatile SSD 512 Gb, Cpu Intel Quad Core i5 di 10Th Generazione fino a 4,2 Ghz, RAM 8GB, Display 15.6" Full HD, Svga UHD 620, 3 usb, wi-fi, hdmi, Win 10 Pro 64 Bit, Pronto all\'uso.
+                                Pronto all\'utilizzo immediato con tutti i driver di sistema, NON NECESSITA DI NESSUNA CONSIGURAZIONE , GIA\' INIZIALIZZATO CON Windows 10 Pro 64bit, SUITE OFFICE OPEN SOURCE LIBRE OFFICE , teleassistenza con supporto Tecnico/antivirus Microsoft.
+                                Ogni singolo prodotto viene testato presso il nostro centro assistenza per controllo qualità GARANZIA ITALIANA. 3 USB, 1 HDMI 1.4b, 1 Lan RJ-45, 1 bluetooth, connessione wi-fi integrata, 1 combo cuffie/microfono, 1 alimentatore CA, causa design ultra slim non è disponibile il lettore DVD/CD',
+
+                'details'=>'Peso articolo	191 g
+                            Dimensioni del collo	49,8 x 31,8 x 6,6 cm',
+                'sale'=>'6',
+                'brand_id' => '3',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'score'=>'0'
             ]]);
     }
 }

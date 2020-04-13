@@ -33,4 +33,18 @@ class Product extends Model
             ['user_id'=> $userId, 'product_id' =>$productId]
         );
     }
+
+    public static function newProductLaptop(){
+        return Product::join('belong', 'belong.product_id', '=', 'products.id')
+            ->join('categories', 'categories.id', '=', 'belong.category_id')
+            ->leftJoin('images','images.product_id','=','products.id')
+            ->where(function ($query) {
+                $query->where('images.main', true)
+                    ->orWhereNull('images.image');})
+            ->where('categories.name', 'Laptop')
+            ->orderByDesc('products.created_at')->orderByDesc('products.id')
+            ->select('products.*', 'images.image')
+            ->take(6)
+            ->get();
+    }
 }

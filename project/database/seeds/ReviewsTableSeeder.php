@@ -70,6 +70,28 @@ class ReviewsTableSeeder extends Seeder
                 'rating' =>'2',
                 'product_id' => '5',
                 'user_id' => '1'
+            ],
+            [
+                'title' => 'I expected more',
+                'text' => 'As for display and speed it is a fantastic cell phone, too bad that it has several flaws:
+                    first it really weighs a lot holding it, it has the headphone jack at the bottom which is very
+                    uncomfortable both to keep it in your pocket and to make video calls, the notification LED is almost
+                    invisible and monochrome, in addition the front camera in low light conditions applies a horrible yellow
+                    filter that you can not remove in any way.',
+                'rating' =>'3',
+                'product_id' => '6',
+                'user_id' => '1'
+            ],
+            [
+                'title' => 'I expected more',
+                'text' => 'As for display and speed it is a fantastic laptop, too bad that it has several flaws:
+                first it really weighs a lot holding it, it has the headphone jack at the bottom which is very
+                uncomfortable both to keep it in your pocket and to make video calls, the notification LED is almost
+                invisible and monochrome, in addition the front camera in low light conditions applies a horrible yellow
+                filter that you can not remove in any way.',
+                'rating' =>'1',
+                'product_id' => '7',
+                'user_id' => '1'
             ]
         ]);
     }

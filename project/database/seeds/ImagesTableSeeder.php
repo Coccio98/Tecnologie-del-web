@@ -49,9 +49,24 @@ class ImagesTableSeeder extends Seeder
                 'main' => false,
             ],
             [
-                'image'=>'images/product08.png',
-                'product_id' => '3',
-                'main' => false,
+                'image'=>'images/HuaweiLaptop2.png',
+                'product_id' => '9',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/HuaweiLaptop.png',
+                'product_id' => '8',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/AcerLaptop2.png',
+                'product_id' => '7',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/AcerLaptop.png',
+                'product_id' => '6',
+                'main' => true,
             ]
         ]);
     }
