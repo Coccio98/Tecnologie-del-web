@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\PaymentMethod;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\User;
 use App\Address;
+use App\Product;
+use ArrayObject;
 
 class AccountController extends Controller
 {
@@ -96,5 +99,15 @@ class AccountController extends Controller
     public function deleteCreditCard(Request $request, $id){
         PaymentMethod::paymentMethodDelete($id,$request->user()->id);
         return redirect('paymentOptions');
+    }
+
+    public function order(Request $request){
+        $path = 'pages.myorder';
+        $orders=Order::ordersWhere($request->user()->id);
+        $products = new ArrayObject();
+        foreach ($orders as $order){
+            $products->append(Product::orderProductWhere($order->id));
+        }
+        return view($path)->with('orders',$orders)->with('products',$products);
     }
 }

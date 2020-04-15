@@ -16,9 +16,9 @@
                     </ul>
                 </div>
             </div>
-            @foreach($data as $orders)
+            @for($i = 0; $i< sizeof($orders); $i++)
                 @include('partials.reusable.order-product')
-            @endforeach
+            @endfor
 
         </div>
     @endcomponent

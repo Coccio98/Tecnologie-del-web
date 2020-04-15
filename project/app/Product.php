@@ -55,4 +55,13 @@ class Product extends Model
             ->take(6)
             ->get();
     }
+    public static function orderProductWhere($orderId){
+        return Product::leftJoin('images','images.product_id','=','products.id')
+            ->where(function ($query) {
+                $query->where('images.main', true)
+                    ->orWhereNull('images.image');})
+            ->join('compose', 'products.id', '=', "compose.product_id")
+            ->where("compose.order_id",$orderId)
+            ->select('products.*','images.image','compose.price_stamp', 'compose.quantity')->get();
+    }
 }

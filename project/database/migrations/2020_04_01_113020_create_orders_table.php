@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('number', 100)->unique();
             $table->string('total', 100);
+            $table->date('delivery_date')->default('2030-12-31');
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('payment_method_id');

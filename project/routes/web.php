@@ -28,7 +28,7 @@ Route::get('/information', 'FrontEndController@page')-> name('information');
 
 Route::get('/myaccount', 'HomeController@page')-> name('myaccount');
 
-Route::get('/myorder', 'HomeController@page')-> name('myorder');
+Route::get('/myorder', 'AccountController@order')-> name('myorder');
 
 Route::get('/address', 'HomeController@page')-> name('address');
 

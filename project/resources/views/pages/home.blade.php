@@ -197,6 +197,9 @@
                     @slot('name')
                         product name goes here
                     @endslot
+                    @slot('id')
+                        1
+                    @endslot
                     @slot('price')
                         $980.00
                     @endslot
@@ -232,7 +235,7 @@
                                 {{$newLaptop[$i]->id}}
                             @endslot
                             @slot('price')
-                                ${{$newLaptop[$i]->price*(100-$product->sale)/100}}
+                                ${{$newLaptop[$i]->price*(100-$newLaptop[$i]->sale)/100}}
                             @endslot
                             @slot('old_price')
                                 ${{$newLaptop[$i]-> price}}
