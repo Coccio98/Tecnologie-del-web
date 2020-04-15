@@ -39,10 +39,10 @@
                     <div class="col-md-3">
                         <div id="rating">
                             <div class="rating-avg">
-                                <span>{{$score}}</span>
+                                <span>{{$product->score}}</span>
                                 @component('partials.reusable.stars')
                                     @slot('s')
-                                        {{$score}}
+                                        {{$product->score}}
                                     @endslot
                                 @endcomponent
                             </div>
@@ -173,17 +173,31 @@
                     <div class="col-md-11 col-md-push-2">
                         <div id="reviews">
                             <ul class="reviews">
-                                @foreach($questions as $question)
+                                @for($i=0; $i<sizeof($questions);$i++)
                                     <li>
                                         <div class="review-heading">
-                                            <h5 class="name">{{$question->name}}</h5>
-                                            <p class="date">{{$question->timestamp}}</p>
+                                            <h5 class="name">{{$questions[$i]->name}}</h5>
+                                            <p class="date">{{$questions[$i]->timestamp}}</p>
                                         </div>
                                         <div class="review-body">
-                                            <p>{{$question->text}}</p>
+                                            <p>{{$questions[$i]->text}}</p>
+                                            <br/>
+                                            <ul>
+                                                @foreach($answers[$i] as $answer)
+                                                    <li>
+                                                        <div class="review-heading">
+                                                            <h5 class="name">{{$answer->name}}</h5>
+                                                            <p class="date">{{$answer->timestamp}}</p>
+                                                        </div>
+                                                        <div class="review-body">
+                                                            <p>{{$answer->text}}</p>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
                                         </div>
                                     </li>
-                                @endforeach
+                                @endfor
                             </ul>
                         </div>
                     </div>

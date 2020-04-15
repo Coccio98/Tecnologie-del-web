@@ -12,65 +12,17 @@
                 <h3 class="aside-title">Categories</h3>
                 <div class="checkbox-filter">
 
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-1
-                        @endslot
-                        @slot('category')
-                            Laptops
-                        @endslot
-                        120
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-2
-                        @endslot
-                        @slot('category')
-                            Smartphones
-                        @endslot
-                        740
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-3
-                        @endslot
-                        @slot('category')
-                            Cameras
-                        @endslot
-                        1450
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-4
-                        @endslot
-                        @slot('category')
-                            Accessories
-                        @endslot
-                        578
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-5
-                        @endslot
-                        @slot('category')
-                            Laptops
-                        @endslot
-                        120
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-6
-                        @endslot
-                        @slot('category')
-                            Smartphones
-                        @endslot
-                        740
-                    @endcomponent
+                    @foreach($categories as $category)
+                        @component('partials.store.checkbox')
+                            @slot('n')
+                                category-{{$category->id}}
+                            @endslot
+                            @slot('category')
+                                {{$category->name}}
+                            @endslot
+                            120
+                        @endcomponent
+                    @endforeach
                 </div>
             </div>
             <!-- /aside Widget -->
@@ -99,65 +51,17 @@
             <div class="aside">
                 <h3 class="aside-title">Brand</h3>
                 <div class="checkbox-filter">
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-1
-                        @endslot
-                        @slot('category')
-                            SAMUNG
-                        @endslot
-                        578
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-2
-                        @endslot
-                        @slot('category')
-                            LG
-                        @endslot
-                        125
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-3
-                        @endslot
-                        @slot('category')
-                            SONY
-                        @endslot
-                        755
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-4
-                        @endslot
-                        @slot('category')
-                            SAMSUNG
-                        @endslot
-                        578
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-5
-                        @endslot
-                        @slot('category')
-                            LG
-                        @endslot
-                        125
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-6
-                        @endslot
-                        @slot('category')
-                            SONY
-                        @endslot
-                        755
-                    @endcomponent
+                    @foreach($brands as $brand)
+                        @component('partials.store.checkbox')
+                            @slot('n')
+                                brand-{{$brand->id}}
+                            @endslot
+                            @slot('category')
+                                {{$brand->name}}
+                            @endslot
+                            578
+                        @endcomponent
+                    @endforeach
                 </div>
             </div>
             <!-- /aside Widget -->
@@ -244,276 +148,49 @@
             <!-- store products -->
             <div class="row">
                 <!-- product -->
-                <div class="col-md-4 col-xs-6">
-                    @component('partials.reusable.product-overview')
-                        @slot('image')
-                            <img src="{{ asset('images/product01.png')}}" alt="">
-                            <div class="product-label">
-                                <span class="sale">-30%</span>
-                                <span class="new">NEW</span>
-                            </div>
-                        @endslot
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('id')
-                            1
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                        @slot('s')
-                            4
-                        @endslot
-                    @endcomponent
-                </div>
-                <!-- /product -->
-
-                <!-- product -->
-                <div class="col-md-4 col-xs-6">
-                    @component('partials.reusable.product-overview')
-                        @slot('image')
-                            <img src="{{ asset('images/product02.png')}}" alt="">
-                            <div class="product-label">
-                                <span class="new">NEW</span>
-                            </div>
-                        @endslot
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('id')
-                            1
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                        @slot('s')
-                            5
-                        @endslot
-                    @endcomponent
-                </div>
-                <!-- /product -->
-
-                <div class="clearfix visible-sm visible-xs"></div>
-
-                <!-- product -->
-                <div class="col-md-4 col-xs-6">
-                    @component('partials.reusable.product-overview')
-                        @slot('image')
-                            <img src="{{ asset('images/product03.png')}}" alt="">
-                            <div class="product-label">
-                                <span class="sale">-30%</span>
-                            </div>
-                        @endslot
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('id')
-                            1
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                        @slot('s')
-                            1
-                        @endslot
-                    @endcomponent
-                </div>
-                <!-- /product -->
-
-                <div class="clearfix visible-lg visible-md"></div>
-
-                <!-- product -->
-                <div class="col-md-4 col-xs-6">
-                    @component('partials.reusable.product-overview')
-                        @slot('image')
-                            <img src="{{ asset('images/product04.png')}}" alt="">
-                        @endslot
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('id')
-                            1
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                        @slot('s')
-                            2
-                        @endslot
-                    @endcomponent
-                </div>
-                <!-- /product -->
-
-                <div class="clearfix visible-sm visible-xs"></div>
-
-                <!-- product -->
-                <div class="col-md-4 col-xs-6">
-                    @component('partials.reusable.product-overview')
-                        @slot('image')
-                            <img src="{{ asset('images/product05.png')}}" alt="">
-                        @endslot
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('id')
-                            1
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                        @slot('s')
-                            3
-                        @endslot
-                    @endcomponent
-                </div>
-                <!-- /product -->
-
-                <!-- product -->
-                <div class="col-md-4 col-xs-6">
-                    @component('partials.reusable.product-overview')
-                        @slot('image')
-                            <img src="{{ asset('images/product06.png')}}" alt="">
-                        @endslot
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('id')
-                            1
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                        @slot('s')
-                            5
-                        @endslot
-                    @endcomponent
-                </div>
-                <!-- /product -->
-
-                <div class="clearfix visible-lg visible-md visible-sm visible-xs"></div>
-
-                <!-- product -->
-                <div class="col-md-4 col-xs-6">
-                    @component('partials.reusable.product-overview')
-                        @slot('image')
-                            <img src="{{ asset('images/product07.png')}}" alt="">
-                        @endslot
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('id')
-                            1
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                        @slot('s')
-                            3
-                        @endslot
-                    @endcomponent
-                </div>
-                <!-- /product -->
-
-                <!-- product -->
-                <div class="col-md-4 col-xs-6">
-                    @component('partials.reusable.product-overview')
-                        @slot('image')
-                            <img src="{{ asset('images/product08.png')}}" alt="">
-                        @endslot
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('id')
-                            1
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                        @slot('s')
-                            4
-                        @endslot
-                    @endcomponent
-                </div>
-                <!-- /product -->
-
-                <div class="clearfix visible-sm visible-xs"></div>
-
-                <!-- product -->
-                <div class="col-md-4 col-xs-6">
-                    @component('partials.reusable.product-overview')
-                        @slot('image')
-                            <img src="{{ asset('images/product09.png')}}" alt="">
-                        @endslot
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('id')
-                            1
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                        @slot('s')
-                            3
-                        @endslot
-                    @endcomponent
-                </div>
-                <!-- /product -->
+                @for($i=0; $i<sizeof($products); $i++)
+                    <div class="col-md-4 col-xs-6">
+                        @component('partials.reusable.product-overview')
+                            @slot('image')
+                                <img src="@if(!empty($products[$i]->image)){{$products[$i]->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                <div class="product-label">
+                                    @if($products[$i]->sale != 0)
+                                        <span class="sale">-{{$products[$i]->sale}}%</span>
+                                    @endif
+                                    @if($now->diffInDays($products[1]->created_at) <= 3)
+                                        <span class="new">NEW</span>
+                                    @endif
+                                </div>
+                            @endslot
+                            @slot('category')
+                                Category
+                            @endslot
+                            @slot('name')
+                                {{$products[$i]->name}}
+                            @endslot
+                            @slot('id')
+                                {{$products[$i]->id}}
+                            @endslot
+                            @slot('price')
+                                ${{$products[$i]->price*(100-$products[$i]->sale)/100}}
+                            @endslot
+                            @slot('old_price')
+                                ${{$products[$i]->price}}
+                            @endslot
+                            @slot('s')
+                                {{$products[$i]->score}}
+                            @endslot
+                        @endcomponent
+                    </div>
+                    @if(($i+1 % 3)==0 && ($i+1 % 2)==0)
+                        <div class="clearfix visible-lg visible-md visible-sm visible-xs"></div>
+                    @elseif(($i+1 % 2)==0)
+                        <div class="clearfix visible-sm visible-xs"></div>
+                    @elseif(($i+1 % 3)==0)
+                        <div class="clearfix visible-lg visible-md"></div>
+                @endif
+            @endfor
+            <!-- /product -->
             </div>
             <!-- /store products -->
 

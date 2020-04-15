@@ -6,6 +6,13 @@
     <div class="product-body">
         <p class="product-category">Category</p>
         <h3 class="product-name"><a href="{{route('product',['id' => ($product->id)])}}">{{$product->name}}</a></h3>
+
+        @component('partials.reusable.stars')
+            @slot('s')
+                {{$product->score}}
+            @endslot
+        @endcomponent
+
         <h4 class="product-price">${{$product->price*(100-$product->sale)/100}} <del class="product-old-price">{{$product->price}}</del></h4>
 
         <div class="add-to-cart">

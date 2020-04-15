@@ -58,8 +58,8 @@ class HomeController extends Controller
     }
 
     public function addWishlist(Request $request, $id){
-        Product::productWishlistUpdateOrInsert($request->user()->id, $id);
-        return redirect()->route('product', ['id'=> $id]);
+        Product::productWishlistUpdateOrInsert($id, $request->user()->id);
+        return redirect(url()->previous());
     }
 
     public function deleteWishlist(Request $request, $id){

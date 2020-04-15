@@ -51,6 +51,11 @@ class AnswersTableSeeder extends Seeder
                 'text' => 'Yes,you have the quick charge that lasts about an hour and a half',
                 'user_id' => '5',
                 'question_id' => '8'
+            ],
+            [
+                'text' => '10',
+                'user_id' => '2',
+                'question_id' => '3'
             ]
         ]);
     }

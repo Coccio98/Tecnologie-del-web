@@ -18,7 +18,7 @@ Route::get('/', 'FrontEndController@home')->name('home');
 
 Route::get('/product/{id}', 'FrontEndController@product')-> name('product');
 
-Route::get('/store', 'FrontEndController@page')-> name('store');
+Route::get('/store', 'FrontEndController@store')-> name('store');
 
 Route::get('/checkout', 'HomeController@page')-> name('checkout');
 

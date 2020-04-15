@@ -5,7 +5,7 @@
         <div>
             @component('partials.reusable.stars')
                 @slot('s')
-                    {{$score}}
+                    {{$product->score}}
                 @endslot
             @endcomponent
             <a class="review-link" href="#">10 Review(s) | Add your review</a>

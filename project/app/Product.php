@@ -9,6 +9,14 @@ class Product extends Model
 {
     public $timestamps = true;
 
+    public static function productsWhere(){
+        return Product::leftJoin('images','images.product_id','=','products.id')
+            ->where(function ($query) {
+                $query->where('images.main', true)
+                    ->orWhereNull('images.image');})
+            ->select('products.*', 'images.image')->get();
+    }
+
     public static function productWhere($productId){
         return Product::where('products.id', $productId)->first();
     }
@@ -19,8 +27,8 @@ class Product extends Model
             ->leftJoin('images','images.product_id','=','products.id')
             ->where(function ($query) {
                 $query->where('images.main', true)
-                ->orWhereNull('images.image');})
-                ->select('products.*', 'images.image')->orderBy('wishlist.id')->get();
+                    ->orWhereNull('images.image');})
+            ->select('products.*', 'images.image')->orderBy('wishlist.id')->get();
     }
 
     public static function productsWishlistDelete($userId,$productId){
