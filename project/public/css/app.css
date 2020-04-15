@@ -11156,6 +11156,10 @@ textarea.input {
   border-top-right-radius: 5px;
 }
 
+.order-information h5 {
+  font-weight: lighter;
+}
+
 .order-product {
   position: relative;
   border: solid #B9BABC 1px;
@@ -11169,7 +11173,7 @@ textarea.input {
 .order-product .product-img {
   position: absolute;
   left: 0px;
-  top: 60px;
+  top: 75px;
   width: 130px;
 }
 
@@ -11338,6 +11342,15 @@ textarea.input {
   background-color: #FFF;
   color: #9d9d9d;
   border-color: #8D99AE;
+}
+
+.dropdown-menu {
+  width: 220px;
+  padding-left: 20px;
+}
+
+.btn-dropdown {
+  background-color: #E4E7ED;
 }
 
 /*----------------------------*\

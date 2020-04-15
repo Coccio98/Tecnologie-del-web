@@ -16,82 +16,10 @@
                     </ul>
                 </div>
             </div>
+            @foreach($data as $orders)
+                @include('partials.reusable.order-product')
+            @endforeach
 
-            @component('partials.reusable.order-product')
-                {{asset('images/product02.png')}}
-                @slot('category')
-                    Category
-                @endslot
-                @slot('name')
-                    product name goes here
-                @endslot
-                @slot('price')
-                    $980.00
-                @endslot
-                @slot('old_price')
-                    $990.00
-                @endslot
-                @slot('s')
-                    4
-                @endslot
-            @endcomponent
-
-            @component('partials.reusable.order-product')
-                {{asset('images/product06.png')}}
-                @slot('category')
-                    Category
-                @endslot
-                @slot('name')
-                    product name goes here
-                @endslot
-                @slot('price')
-                    $980.00
-                @endslot
-                @slot('old_price')
-                    $990.00
-                @endslot
-                @slot('s')
-                    4
-                @endslot
-            @endcomponent
-
-            @component('partials.reusable.order-product')
-                {{asset('images/product05.png')}}
-                @slot('category')
-                    Category
-                @endslot
-                @slot('name')
-                    product name goes here
-                @endslot
-                @slot('price')
-                    $980.00
-                @endslot
-                @slot('old_price')
-                    $990.00
-                @endslot
-                @slot('s')
-                    4
-                @endslot
-            @endcomponent
-
-            @component('partials.reusable.order-product')
-                {{asset('images/product09.png')}}
-                @slot('category')
-                    Category
-                @endslot
-                @slot('name')
-                    product name goes here
-                @endslot
-                @slot('price')
-                    $980.00
-                @endslot
-                @slot('old_price')
-                    $990.00
-                @endslot
-                @slot('s')
-                    4
-                @endslot
-            @endcomponent
         </div>
     @endcomponent
 

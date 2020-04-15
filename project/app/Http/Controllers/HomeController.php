@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Order;
 use App\PaymentMethod;
 use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -38,6 +40,8 @@ class HomeController extends Controller
             $data =  $this->payment($request);
         } elseif($request->path() === 'wishlist'){
             $data =  $this->wishlist($request);
+        }elseif($request->path() === 'myorder'){
+            $data =  $this->order($request);
         }
         return view($path)->with('path', $request->path())->with('data', $data);
     }
@@ -61,6 +65,10 @@ class HomeController extends Controller
     public function deleteWishlist(Request $request, $id){
          Product::productsWishlistDelete($request->user()->id, $id);
          return redirect('wishlist');
+    }
+
+    private function order($request){
+        return Order::ordersWhere($request->user()->id);
     }
 }
 
