@@ -197,9 +197,6 @@
                     @slot('name')
                         product name goes here
                     @endslot
-                    @slot('id')
-                        1
-                    @endslot
                     @slot('price')
                         $980.00
                     @endslot
@@ -216,109 +213,36 @@
 
     @component('partials.reusable.section')
         @component('partials.reusable.list')
-            Top Selling
+            New Products
             @slot('n')
                 3
             @endslot
             @slot('widgets')
                 <div>
-                    @component('partials.reusable.widget')
-                        {{asset('images/product07.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
-
-                    @component('partials.reusable.widget')
-                        {{asset('images/product08.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
-
-                    @component('partials.reusable.widget')
-                        {{asset('images/product09.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
+                    @for($i = 0; $i < sizeof($newLaptop); $i++)
+                        @component('partials.reusable.widget')
+                            @if(!empty($newLaptop[$i]->image)){{$newLaptop[$i]->image}}@else {{asset('images/no_image.jpg')}} @endif
+                            @slot('category')
+                                Laptop
+                            @endslot
+                            @slot('name')
+                                {{$newLaptop[$i] -> name}}
+                            @endslot
+                            @slot('id')
+                                {{$newLaptop[$i]->id}}
+                            @endslot
+                            @slot('price')
+                                ${{$newLaptop[$i]->price*(100-$product->sale)/100}}
+                            @endslot
+                            @slot('old_price')
+                                ${{$newLaptop[$i]-> price}}
+                            @endslot
+                        @endcomponent
+                        @if($i+1 == 3)
                 </div>
-
                 <div>
-                    @component('partials.reusable.widget')
-                        {{asset('images/product01.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
-
-                    @component('partials.reusable.widget')
-                        {{asset('images/product02.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
-
-                    @component('partials.reusable.widget')
-                        {{asset('images/product03.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
+                    @endif
+                    @endfor
                 </div>
             @endslot
         @endcomponent
