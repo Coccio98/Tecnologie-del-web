@@ -62,20 +62,10 @@ $(document).ready(function() {
     $('.pippo').on('click', '.reviews-pagination a', function(event) {
         event.preventDefault();
         var page =$(this).attr('href');
-        $.get(page, function (reviews) {
-            $('body').html(reviews);
+        $.get(page, function (data) {
+            $('.pippo').html(data.review);
         })
     });
-
-    /*function fetch_data(page) {
-        var l = window.location;
-        $.ajax({
-            url: l.origin + l.pathname + "?page=" + page,
-            success: function(reviews) {
-                $('#table_data').html(reviews);
-            }
-        });
-    }*/
 
 });
 

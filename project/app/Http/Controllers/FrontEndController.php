@@ -31,12 +31,11 @@ class FrontEndController extends Controller
         $product = Product::productWhere($id);
         $images = Image::imagesWhere($id);
         $reviews = Review::reviewsWhere($id)->paginate(3);
-        /*if ($request->ajax()) {
+        if ($request->ajax()) {
             return[
-                'reviews'=> view('partials.product.product-tab')->with(compact('reviews'))->render(),
-                'next_page'=>$reviews->nextPageUrl()
+                'review'=> view('partials.product.review')->with(compact('reviews'))->render(),
             ];
-        }*/
+        }
         $ratings = Review::reviewsWhere($id)->get();
         $n = array(0,0,0,0,0);
         foreach ($ratings as $rating){
