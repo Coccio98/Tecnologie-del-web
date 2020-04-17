@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('brand_id');
             $table->tinyInteger('score')->default(0);
+            $table->unsignedBigInteger('selling_number')->default(0);
 
             $table->foreign('brand_id')->references('id')->on('brands')
                 ->onDelete('cascade')->onUpdate('cascade');

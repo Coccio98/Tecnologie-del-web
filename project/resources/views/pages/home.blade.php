@@ -90,135 +90,36 @@
                 2
             @endslot
             @slot('products')
-                @component('partials.reusable.product-overview')
-                    @slot('image')
-                        <img src="{{ asset('images/product06.png')}}" alt="">
-                        <div class="product-label">
-                            <span class="sale">-30%</span>
-                            <span class="new">NEW</span>
-                        </div>
-                    @endslot
-                    @slot('category')
-                        Category
-                    @endslot
-                    @slot('name')
-                        product name goes here
-                    @endslot
-                    @slot('id')
-                        1
-                    @endslot
-                    @slot('price')
-                        $980.00
-                    @endslot
-                    @slot('old_price')
-                        $990.00
-                    @endslot
-                    @slot('s')
-                        5
-                    @endslot
-                @endcomponent
-
-                @component('partials.reusable.product-overview')
-                    @slot('image')
-                        <img src="{{ asset('images/product07.png')}}" alt="">
-                        <div class="product-label">
-                            <span class="new">NEW</span>
-                        </div>
-                    @endslot
-                    @slot('category')
-                        Category
-                    @endslot
-                    @slot('name')
-                        product name goes here
-                    @endslot
-                    @slot('id')
-                        1
-                    @endslot
-                    @slot('price')
-                        $980.00
-                    @endslot
-                    @slot('old_price')
-                        $990.00
-                    @endslot
-                    @slot('s')
-                        3
-                    @endslot
-                @endcomponent
-
-                @component('partials.reusable.product-overview')
-                    @slot('image')
-                        <img src="{{ asset('images/product08.png')}}" alt="">
-                        <div class="product-label">
-                            <span class="sale">-30%</span>
-                        </div>
-                    @endslot
-                    @slot('category')
-                        Category
-                    @endslot
-                    @slot('name')
-                        product name goes here
-                    @endslot
-                    @slot('id')
-                        1
-                    @endslot
-                    @slot('price')
-                        $980.00
-                    @endslot
-                    @slot('old_price')
-                        $990.00
-                    @endslot
-                    @slot('s')
-                        4
-                    @endslot
-                @endcomponent
-
-                @component('partials.reusable.product-overview')
-                    @slot('image')
-                        <img src="{{ asset('images/product09.png')}}" alt="">
-                    @endslot
-                    @slot('category')
-                        Category
-                    @endslot
-                    @slot('name')
-                        product name goes here
-                    @endslot
-                    @slot('id')
-                        1
-                    @endslot
-                    @slot('price')
-                        $980.00
-                    @endslot
-                    @slot('old_price')
-                        $990.00
-                    @endslot
-                    @slot('s')
-                        3
-                    @endslot
-                @endcomponent
-
-                @component('partials.reusable.product-overview')
-                    @slot('image')
-                        <img src="{{ asset('images/product01.png')}}" alt="">
-                    @endslot
-                    @slot('category')
-                        Category
-                    @endslot
-                    @slot('name')
-                        product name goes here
-                    @endslot
-                    @slot('id')
-                        1
-                    @endslot
-                    @slot('price')
-                        $980.00
-                    @endslot
-                    @slot('old_price')
-                        $990.00
-                    @endslot
-                    @slot('s')
-                        2
-                    @endslot
-                @endcomponent
+                @foreach($topSelling as $product)
+                    @component('partials.reusable.product-overview')
+                        @slot('image')
+                            <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                            <div class="product-label">
+                                @if($product->sale != 0)
+                                    <span class="sale">-{{$product->sale}}%</span>
+                                @endif
+                            </div>
+                        @endslot
+                        @slot('category')
+                            Laptop
+                        @endslot
+                        @slot('name')
+                            {{$product->name}}
+                        @endslot
+                        @slot('id')
+                            {{$product->id}}
+                        @endslot
+                        @slot('price')
+                            ${{$product->price*(100-$product->sale)/100}}
+                        @endslot
+                        @slot('old_price')
+                            ${{$product->price}}
+                        @endslot
+                        @slot('s')
+                            {{$product->score}}
+                        @endslot
+                    @endcomponent
+                @endforeach
             @endslot
         @endcomponent
     @endcomponent
@@ -265,103 +166,30 @@
             @endslot
             @slot('widgets')
                 <div>
-                    @component('partials.reusable.widget')
-                        {{asset('images/product04.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
-
-                    @component('partials.reusable.widget')
-                        {{asset('images/product05.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
-
-                    @component('partials.reusable.widget')
-                        {{asset('images/product06.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
+                    @for($i = 0; $i < sizeof($topSelling); $i++)
+                        @component('partials.reusable.widget')
+                            @if(!empty($topSelling[$i]->image)){{$topSelling[$i]->image}}@else {{asset('images/no_image.jpg')}} @endif
+                            @slot('category')
+                                {{$topSelling[$i]->category}}
+                            @endslot
+                            @slot('name')
+                                {{$topSelling[$i]-> name}}
+                            @endslot
+                            @slot('id')
+                                {{$topSelling[$i]->id}}
+                            @endslot
+                            @slot('price')
+                                ${{$topSelling[$i]->price*(100-$product->sale)/100}}
+                            @endslot
+                            @slot('old_price')
+                                ${{$topSelling[$i]-> price}}
+                            @endslot
+                        @endcomponent
+                        @if($i+1 == 3)
                 </div>
-
                 <div>
-                    @component('partials.reusable.widget')
-                        {{asset('images/product07.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
-
-                    @component('partials.reusable.widget')
-                        {{asset('images/product08.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
-
-                    @component('partials.reusable.widget')
-                        {{asset('images/product09.png')}}
-                        @slot('category')
-                            Category
-                        @endslot
-                        @slot('name')
-                            product name goes here
-                        @endslot
-                        @slot('price')
-                            $980.00
-                        @endslot
-                        @slot('old_price')
-                            $990.00
-                        @endslot
-                    @endcomponent
+                    @endif
+                    @endfor
                 </div>
             @endslot
         @endcomponent

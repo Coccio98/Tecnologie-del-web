@@ -24,7 +24,8 @@ class ProductsTableSeeder extends Seeder
             'sale'=>'10',
             'brand_id' => '1',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'score'=>'4'
+            'score'=>'4',
+            'selling_number'=> '5'
         ],
             [
                 'name'=>'Samsung Auricolari',
@@ -42,7 +43,8 @@ class ProductsTableSeeder extends Seeder
                 'sale'=>'0',
                 'brand_id' => '2',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'score'=>'5'
+                'score'=>'5',
+                'selling_number'=> '12'
             ],
             [
                 'name'=>'HUAWEI MateBook D 15.6" Laptop',
@@ -59,7 +61,8 @@ class ProductsTableSeeder extends Seeder
                 'sale'=>'30',
                 'brand_id' => '3',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'score'=>'5'
+                'score'=>'5',
+                'selling_number'=> '23'
             ],
             [
                 'name'=>'Notebook Acer pc portatile',
@@ -88,7 +91,8 @@ class ProductsTableSeeder extends Seeder
                 'sale'=>'5',
                 'brand_id' => '5',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'score'=>'3.5'
+                'score'=>'3.5',
+                'selling_number'=> '7'
             ],
 
             [
@@ -104,7 +108,8 @@ class ProductsTableSeeder extends Seeder
                 'sale'=>'6',
                 'brand_id' => '3',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'score'=>'3'
+                'score'=>'3',
+                'selling_number'=> '24'
             ],[
                 'name'=>'Notebook Jessica',
                 'price' => '749.77',
@@ -118,7 +123,8 @@ class ProductsTableSeeder extends Seeder
                 'sale'=>'6',
                 'brand_id' => '3',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'score'=>'1'
+                'score'=>'1',
+                'selling_number'=> '1'
             ],[
                 'name'=>'Notebook Andrea',
                 'price' => '749.77',
@@ -132,7 +138,8 @@ class ProductsTableSeeder extends Seeder
                 'sale'=>'6',
                 'brand_id' => '3',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'score'=>'0'
+                'score'=>'0',
+                'selling_number'=> '1'
             ],[
                 'name'=>'Notebook Federico',
                 'price' => '749.77',
@@ -146,7 +153,8 @@ class ProductsTableSeeder extends Seeder
                 'sale'=>'6',
                 'brand_id' => '3',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'score'=>'0'
+                'score'=>'0',
+                'selling_number'=> '54'
             ]]);
     }
 }

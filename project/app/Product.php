@@ -74,4 +74,20 @@ class Product extends Model
             ->where("compose.order_id",$orderId)
             ->select('products.*','images.image','compose.price_stamp', 'compose.quantity')->get();
     }
+
+    public static function topSellingLaptop()
+    {
+        return Product::join('belong', 'belong.product_id', '=', 'products.id')
+            ->join('categories', 'categories.id', '=', 'belong.category_id')
+            ->leftJoin('images', 'images.product_id', '=', 'products.id')
+            ->where(function ($query) {
+                $query->where('images.main', true)
+                    ->orWhereNull('images.image');
+            })
+            ->orderByDesc('products.selling_number')
+            ->where('categories.name', 'Laptop')
+            ->select('products.*', 'images.image')
+            ->take(6)
+            ->get();
+    }
 }

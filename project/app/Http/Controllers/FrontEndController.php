@@ -18,7 +18,8 @@ class FrontEndController extends Controller
 
     public function home(){
         $newLaptop = Product::newProductLaptop();
-        return view('pages.home')->with('path', 'home')->with('newLaptop', $newLaptop);
+        $topSelling = Product::topSellingLaptop();
+        return view('pages.home')->with('path', 'home')->with('newLaptop', $newLaptop)->with('topSelling', $topSelling);
     }
 
     public function page(Request $request){
