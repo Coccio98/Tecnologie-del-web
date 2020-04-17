@@ -13,65 +13,20 @@
                 <h3 class="aside-title">Categories</h3>
                 <div class="checkbox-filter">
 
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-1
-                        @endslot
-                        @slot('category')
-                            Laptops
-                        @endslot
-                        120
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-2
-                        @endslot
-                        @slot('category')
-                            Smartphones
-                        @endslot
-                        740
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-3
-                        @endslot
-                        @slot('category')
-                            Cameras
-                        @endslot
-                        1450
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-4
-                        @endslot
-                        @slot('category')
-                            Accessories
-                        @endslot
-                        578
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-5
-                        @endslot
-                        @slot('category')
-                            Laptops
-                        @endslot
-                        120
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            category-6
-                        @endslot
-                        @slot('category')
-                            Smartphones
-                        @endslot
-                        740
-                    @endcomponent
+                    @foreach($categories as $category)
+                        @component('partials.store.checkbox')
+                            @slot('route')
+                                ?category={{$category->id}}
+                            @endslot
+                            @slot('n')
+                                category-{{$category->id}}
+                            @endslot
+                            @slot('category')
+                                {{$category->name}}
+                            @endslot
+                            120
+                        @endcomponent
+                    @endforeach
                 </div>
             </div>
             <!-- /aside Widget -->
@@ -100,65 +55,20 @@
             <div class="aside">
                 <h3 class="aside-title">Brand</h3>
                 <div class="checkbox-filter">
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-1
-                        @endslot
-                        @slot('category')
-                            SAMUNG
-                        @endslot
-                        578
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-2
-                        @endslot
-                        @slot('category')
-                            LG
-                        @endslot
-                        125
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-3
-                        @endslot
-                        @slot('category')
-                            SONY
-                        @endslot
-                        755
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-4
-                        @endslot
-                        @slot('category')
-                            SAMSUNG
-                        @endslot
-                        578
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-5
-                        @endslot
-                        @slot('category')
-                            LG
-                        @endslot
-                        125
-                    @endcomponent
-
-                    @component('partials.store.checkbox')
-                        @slot('n')
-                            brand-6
-                        @endslot
-                        @slot('category')
-                            SONY
-                        @endslot
-                        755
-                    @endcomponent
+                    @foreach($brands as $brand)
+                        @component('partials.store.checkbox')
+                            @slot('route')
+                                ?brand={{$brand->id}}
+                            @endslot
+                            @slot('n')
+                                brand-{{$brand->id}}
+                            @endslot
+                            @slot('category')
+                                {{$brand->name}}
+                            @endslot
+                            578
+                        @endcomponent
+                    @endforeach
                 </div>
             </div>
             <!-- /aside Widget -->

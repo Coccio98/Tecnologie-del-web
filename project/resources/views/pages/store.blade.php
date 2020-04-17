@@ -14,6 +14,9 @@
 
                     @foreach($categories as $category)
                         @component('partials.store.checkbox')
+                            @slot('route')
+                                ?category={{$category->id}}
+                            @endslot
                             @slot('n')
                                 category-{{$category->id}}
                             @endslot
@@ -53,6 +56,9 @@
                 <div class="checkbox-filter">
                     @foreach($brands as $brand)
                         @component('partials.store.checkbox')
+                            @slot('route')
+                                ?brand={{$brand->id}}
+                            @endslot
                             @slot('n')
                                 brand-{{$brand->id}}
                             @endslot
@@ -63,59 +69,6 @@
                         @endcomponent
                     @endforeach
                 </div>
-            </div>
-            <!-- /aside Widget -->
-
-            <!-- aside Widget -->
-            <div class="aside">
-                <h3 class="aside-title">Top selling</h3>
-                @component('partials.reusable.widget')
-                    {{asset('images/product01.png')}}
-                    @slot('category')
-                        Category
-                    @endslot
-                    @slot('name')
-                        product name goes here
-                    @endslot
-                    @slot('price')
-                        $980.00
-                    @endslot
-                    @slot('old_price')
-                        $990.00
-                    @endslot
-                @endcomponent
-
-                @component('partials.reusable.widget')
-                    {{asset('images/product02.png')}}
-                    @slot('category')
-                        Category
-                    @endslot
-                    @slot('name')
-                        product name goes here
-                    @endslot
-                    @slot('price')
-                        $980.00
-                    @endslot
-                    @slot('old_price')
-                        $990.00
-                    @endslot
-                @endcomponent
-
-                @component('partials.reusable.widget')
-                    {{asset('images/product03.png')}}
-                    @slot('category')
-                        Category
-                    @endslot
-                    @slot('name')
-                        product name goes here
-                    @endslot
-                    @slot('price')
-                        $980.00
-                    @endslot
-                    @slot('old_price')
-                        $990.00
-                    @endslot
-                @endcomponent
             </div>
             <!-- /aside Widget -->
         </div>
@@ -157,7 +110,7 @@
                                     @if($products[$i]->sale != 0)
                                         <span class="sale">-{{$products[$i]->sale}}%</span>
                                     @endif
-                                    @if($now->diffInDays($products[1]->created_at) <= 3)
+                                    @if($now->diffInDays($products[$i]->created_at) <= 3)
                                         <span class="new">NEW</span>
                                     @endif
                                 </div>
@@ -182,11 +135,11 @@
                             @endslot
                         @endcomponent
                     </div>
-                    @if(($i+1 % 3)==0 && ($i+1 % 2)==0)
+                    @if((($i+1) % 3)==0 && ($i+1 % 2)==0)
                         <div class="clearfix visible-lg visible-md visible-sm visible-xs"></div>
-                    @elseif(($i+1 % 2)==0)
+                    @elseif((($i+1) % 2)==0)
                         <div class="clearfix visible-sm visible-xs"></div>
-                    @elseif(($i+1 % 3)==0)
+                    @elseif((($i+1) % 3)==0)
                         <div class="clearfix visible-lg visible-md"></div>
                 @endif
             @endfor
@@ -196,14 +149,7 @@
 
             <!-- store bottom filter -->
             <div class="store-filter clearfix">
-                <span class="store-qty">Showing 20-100 products</span>
-                <ul class="store-pagination">
-                    <li class="active">1</li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                </ul>
+                {{$products->links('pagination.store-pagination')}}
             </div>
             <!-- /store bottom filter -->
         </div>

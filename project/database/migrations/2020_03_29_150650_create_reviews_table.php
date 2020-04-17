@@ -15,7 +15,6 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 200);
             $table->text('text');
             $table->tinyInteger('rating');
             $table->timestamp('timestamp')->default(DB::raw('CURRENT_TIMESTAMP'));

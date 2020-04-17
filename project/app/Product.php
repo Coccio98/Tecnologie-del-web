@@ -9,12 +9,22 @@ class Product extends Model
 {
     public $timestamps = true;
 
-    public static function productsWhere(){
-        return Product::leftJoin('images','images.product_id','=','products.id')
+    public static function productsWhere($request){
+        $products=Product::leftJoin('images','images.product_id','=','products.id')
             ->where(function ($query) {
                 $query->where('images.main', true)
                     ->orWhereNull('images.image');})
-            ->select('products.*', 'images.image')->get();
+            ->where('products.name','like','%'.$request->search.'%');
+        if(!empty($request->category) && $request->category != 0){
+            $products->join('belong', 'belong.product_id', '=', 'products.id')
+            ->join('categories', 'categories.id', '=', 'belong.category_id')
+            ->where('categories.id',$request->category);
+        }
+        if(!empty($request->brand) && $request->brand != 0){
+            $products->join('brands', 'brands.id', '=', 'products.brand_id')
+                ->where('brands.id',$request->brand);
+        }
+        return $products->select('products.*', 'images.image')->paginate(6);
     }
 
     public static function productWhere($productId){

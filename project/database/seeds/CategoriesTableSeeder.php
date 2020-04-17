@@ -26,6 +26,9 @@ class CategoriesTableSeeder extends Seeder
             ],
             [
                 'name'=>'Camera'
+            ],
+            [
+                'name'=>'Accessory'
             ]
         ]);
     }

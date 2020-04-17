@@ -54,7 +54,7 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: @if(sizeof($reviews)!=0){{$n[4]*100/sizeof($reviews)}}%@endif;"></div>
+                                        <div style="width: @if($totRating!=0){{$n[4]*100/$totRating}}%@endif;"></div>
                                     </div>
                                     <span class="sum">{{$n[4]}}</span>
                                 </li>
@@ -65,7 +65,7 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: @if(sizeof($reviews)!=0){{$n[3]*100/sizeof($reviews)}}%@endif;"></div>
+                                        <div style="width: @if($totRating!=0){{$n[3]*100/$totRating}}%@endif;"></div>
                                     </div>
                                     <span class="sum">{{$n[3]}}</span>
                                 </li>
@@ -76,7 +76,7 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: @if(sizeof($reviews)!=0){{$n[2]*100/sizeof($reviews)}}%@endif;"></div>
+                                        <div style="width: @if($totRating!=0){{$n[2]*100/$totRating}}%@endif;"></div>
                                     </div>
                                     <span class="sum">{{$n[2]}}</span>
                                 </li>
@@ -87,7 +87,7 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: @if(sizeof($reviews)!=0){{$n[1]*100/sizeof($reviews)}}%@endif;"></div>
+                                        <div style="width: @if($totRating!=0){{$n[1]*100/$totRating}}%@endif;"></div>
                                     </div>
                                     <span class="sum">{{$n[1]}}</span>
                                 </li>
@@ -98,7 +98,7 @@
                                         @endslot
                                     @endcomponent
                                     <div class="rating-progress">
-                                        <div style="width: @if(sizeof($reviews)!=0){{$n[0]*100/sizeof($reviews)}}%@endif;"></div>
+                                        <div style="width: @if($totRating!=0){{$n[0]*100/$totRating}}%@endif;"></div>
                                     </div>
                                     <span class="sum">{{$n[0]}}</span>
                                 </li>
@@ -110,6 +110,7 @@
                     <!-- Reviews -->
                     <div class="col-md-6">
                         <div id="reviews">
+                            <section class="pippo" data-next-page="{{$reviews->nextPageUrl()}}">
                             <ul class="reviews">
                                 @foreach($reviews as $review)
                                     <li>
@@ -128,14 +129,8 @@
                                     </li>
                                 @endforeach
                             </ul>
-                            <!--TODO paginazione-->
-                            <ul class="reviews-pagination">
-                                <li class="active">1</li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                            </ul>
+                            {!!  $reviews->render('pagination.reviews-pagination')  !!}
+                            </section>
                         </div>
                     </div>
                     <!-- /Reviews -->
@@ -143,23 +138,34 @@
                     <!-- Review Form -->
                     <div class="col-md-3">
                         <div id="review-form">
-                            <form class="review-form">
-                                <!--TODO recensione-->
-                                <input class="input" type="text" placeholder="Your Name">
-                                <input class="input" type="email" placeholder="Your Email">
-                                <textarea class="input" placeholder="Your Review"></textarea>
-                                <div class="input-rating">
-                                    <span>Your Rating: </span>
-                                    <div class="stars">
-                                        <input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
-                                        <input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
-                                        <input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
-                                        <input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
-                                        <input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
+                            @if(!empty(Auth::user()))
+                                <form class="review-form" method="POST" action="{{ route('addReview')}}">
+                                    @csrf
+                                    <input name="productId" type="hidden" value="{{$product->id}}">
+                                    <textarea class="input @error('name') is-invalid @enderror" placeholder="Your Review" id="review" name="review" required></textarea>
+                                    @error('review')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <div class="input-rating">
+                                        <span>Your Rating: </span>
+                                        <div class="stars">
+                                            <input id="star5" name="rating" value="5" type="radio" required class="@error('address') is-invalid @enderror"><label for="star5"></label>
+                                            <input id="star4" name="rating" value="4" type="radio" required class="@error('address') is-invalid @enderror"><label for="star4"></label>
+                                            <input id="star3" name="rating" value="3" type="radio" required class="@error('address') is-invalid @enderror"><label for="star3"></label>
+                                            <input id="star2" name="rating" value="2" type="radio" required class="@error('address') is-invalid @enderror"><label for="star2"></label>
+                                            <input id="star1" name="rating" value="1" type="radio" required class="@error('address') is-invalid @enderror"><label for="star1"></label>
+                                        </div>
+                                        @error('rating')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
-                                </div>
-                                <button class="primary-btn">Submit</button>
-                            </form>
+                                    <button class="primary-btn">Submit</button>
+                                </form>
+                            @endif
                         </div>
                     </div>
                     <!-- /Review Form -->

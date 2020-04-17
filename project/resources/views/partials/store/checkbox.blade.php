@@ -1,5 +1,5 @@
 <div class="input-checkbox">
-    <input type="checkbox" id="{{$n}}">
+    <input type="checkbox" id="{{$n}}" onclick="window.location='{{route("store")}}{{$route}}'">
     <label for="{{$n}}">
         <span></span>
         {{$category}}

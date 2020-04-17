@@ -17,13 +17,15 @@
             <!-- SEARCH BAR -->
             <div class="col-md-6">
                 <div class="header-search">
-                    <form>
-                        <select class="input-select">
+                    <form method="get" action="{{ route('store')}}">
+                        @csrf
+                        <select class="input-select" name="category">
                             <option value="0">All Categories</option>
-                            <option value="1">Category 01</option>
-                            <option value="1">Category 02</option>
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
                         </select>
-                        <input class="input" placeholder="Search here">
+                        <input class="input" name="search" placeholder="Search here">
                         <button class="search-btn">Search</button>
                     </form>
                 </div>

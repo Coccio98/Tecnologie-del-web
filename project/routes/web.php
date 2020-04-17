@@ -57,3 +57,5 @@ Route::get('/paymentOptions/delete/{id}', 'AccountController@deleteCreditCard')-
 
 Route::get('wishlist/delete/{id}', 'HomeController@deleteWishlist')->name('deleteWishlist');
 Route::get('wishlist/add/{id}', 'HomeController@addWishlist')->name('addWishlist');
+
+Route::post('/addReview', 'FrontEndController@addReview')-> name('addReview');

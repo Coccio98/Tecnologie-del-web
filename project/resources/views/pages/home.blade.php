@@ -8,6 +8,9 @@
             @slot('image')
                 {{ asset('images/shop01.png')}}
             @endslot
+            @slot('category')
+                1
+            @endslot
             Laptop
         @endcomponent
 
@@ -15,12 +18,18 @@
             @slot('image')
                 {{ asset('images/shop03.png')}}
             @endslot
+            @slot('category')
+                6
+            @endslot
             Accessories
         @endcomponent
 
         @component('partials.home.collection')
             @slot('image')
                 {{ asset('images/shop02.png')}}
+            @endslot
+            @slot('category')
+                5
             @endslot
             Cameras
         @endcomponent

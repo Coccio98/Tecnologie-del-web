@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\Brand;
-use App\Category;
 use App\Image;
 use App\Question;
 use Illuminate\Http\Request;
@@ -13,8 +12,10 @@ use App\Review;
 use ArrayObject;
 use Carbon\Carbon;
 
+
 class FrontEndController extends Controller
 {
+
     public function home(){
         $newLaptop = Product::newProductLaptop();
         return view('pages.home')->with('path', 'home')->with('newLaptop', $newLaptop);
@@ -29,10 +30,17 @@ class FrontEndController extends Controller
         $path = 'pages.product';
         $product = Product::productWhere($id);
         $images = Image::imagesWhere($id);
-        $reviews = Review::reviewsWhere($id);
+        $reviews = Review::reviewsWhere($id)->paginate(3);
+        /*if ($request->ajax()) {
+            return[
+                'reviews'=> view('partials.product.product-tab')->with(compact('reviews'))->render(),
+                'next_page'=>$reviews->nextPageUrl()
+            ];
+        }*/
+        $ratings = Review::reviewsWhere($id)->get();
         $n = array(0,0,0,0,0);
-        foreach ($reviews as $review){
-            switch ($review->rating){
+        foreach ($ratings as $rating){
+            switch ($rating->rating){
                 case 1:
                     $n[0] +=1;
                     break;
@@ -59,17 +67,26 @@ class FrontEndController extends Controller
         }
 
         return view($path)->with('path', $request->path())->with('product', $product)
-            ->with('images', $images)->with('reviews', $reviews)
-            ->with('questions',$questions)->with('answers',$answers)->with('n',$n);
+            ->with('images', $images)->with(compact('reviews'))
+            ->with('questions',$questions)->with('answers',$answers)->with('n',$n)->with('totRating', sizeof($ratings))->render();
     }
 
-    public static function store(){
+
+    public static function store(Request $request){
         $path = 'pages.store';
-        $categories = Category::all();
         $brands=Brand::all();
-        $products=Product::productsWhere();
+        $products=Product::productsWhere($request);
         $now=Carbon::now();
-        return view($path)->with('categories', $categories)->with('brands', $brands)
+        return view($path)->with('brands', $brands)
             ->with('products',$products)->with('now',$now);
+    }
+
+    public static function addReview(Request $request){
+        $request->validate([
+            'review' => ['required', 'string', 'max:2000'],
+            'rating' => ['required'],
+        ]);
+        Review::reviewInsert($request);
+        return redirect(url()->previous());
     }
 }
