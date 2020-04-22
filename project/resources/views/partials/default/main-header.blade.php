@@ -64,7 +64,6 @@
                                     </div>
                                     <button class="delete"><i class="fa fa-close"></i></button>
                                 </div>
-
                                 <div class="product-widget">
                                     <div class="product-img">
                                         <img src="{{ asset('images/product02.png')}}" alt="">

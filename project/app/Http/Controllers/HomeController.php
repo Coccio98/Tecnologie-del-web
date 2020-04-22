@@ -7,6 +7,7 @@ use App\Order;
 use App\PaymentMethod;
 use App\Product;
 use App\User;
+use ArrayObject;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -41,6 +42,10 @@ class HomeController extends Controller
             $data =  $this->payment($request);
         } elseif($request->path() === 'wishlist'){
             $data =  $this->wishlist($request);
+        }elseif($request->path() === 'cart'){
+            $data =  $this->cart($request);
+        }elseif($request->path() === 'checkout'){
+            $data =  $this->cart($request);
         }
         return view($path)->with('path', $request->path())->with('data', $data);
     }
@@ -65,5 +70,20 @@ class HomeController extends Controller
          Product::productsWishlistDelete($request->user()->id, $id);
          return redirect('wishlist');
     }
+
+    private function cart($request){
+        return $cart = Product::productsCartWhere($request->user()->id);
+    }
+
+    public function addToCart(Request $request, $id){
+        Product::productCartUpdateOrInsert($id, $request->user()->id);
+        return redirect(url()->previous());
+    }
+
+    public function deleteCart(Request $request, $id){
+        Product::productsCartDelete($request->user()->id, $id);
+        return redirect('cart');
+    }
+
 }
 

@@ -46228,21 +46228,6 @@ $(document).ready(function () {
       $('.pippo').html(data.review);
     });
   });
-  /*
-  $(document).on('click', '.reviews-pagination a', function(event) {
-      event.preventDefault();
-      var page = $(this).attr('href').split('page=')[1];
-      fetch_data(page);
-  });
-   function fetch_data(page) {
-      var l = window.location;
-      $.ajax({
-          url: l.origin + l.pathname + "?page=" + page,
-          success: function(reviews) {
-              $('.pippo').html(reviews);
-          }
-      });
-  }*/
 });
 
 /***/ }),
@@ -52354,8 +52339,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Pagliarini Alberto\Desktop\Tecnologie-del-web\project\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Pagliarini Alberto\Desktop\Tecnologie-del-web\project\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\jessica\Desktop\Tecnologie-del-web\project\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\jessica\Desktop\Tecnologie-del-web\project\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -2739,6 +2739,11 @@ textarea.input {
   margin: 15px 0px;
 }
 
+.order-summary .btn-primary{
+    background-color: #D10024;
+    border-color: #D10024;
+}
+
 .order-summary .order-col {
   display: table;
   width: 100%;

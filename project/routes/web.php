@@ -32,7 +32,7 @@ Route::get('/myorder', 'AccountController@order')-> name('myorder');
 
 Route::get('/address', 'HomeController@page')-> name('address');
 
-Route::get('/cart', 'FrontEndController@page')-> name('cart');
+Route::get('/cart', 'HomeController@page')-> name('cart');
 
 Route::get('/trackMyOrder', 'HomeController@page')-> name('trackMyOrder');
 
@@ -55,7 +55,12 @@ Route::get('/addCreditCard/{id}', 'AccountController@addCreditCard')-> name('add
 Route::post('/addCreditCard/{id}/save', 'AccountController@saveCreditCard')-> name('saveCreditCard');
 Route::get('/paymentOptions/delete/{id}', 'AccountController@deleteCreditCard')-> name('deleteCreditCard');
 
+Route::post('/checkout/{id}/save', 'HomeController@saveCart')-> name('saveCart');
+
 Route::get('wishlist/delete/{id}', 'HomeController@deleteWishlist')->name('deleteWishlist');
 Route::get('wishlist/add/{id}', 'HomeController@addWishlist')->name('addWishlist');
+
+Route::get('cart/delete/{id}', 'HomeController@deleteCart')->name('deleteCart');
+Route::get('cart/add/{id}', 'HomeController@addToCart')->name('addToCart');
 
 Route::post('/addReview', 'FrontEndController@addReview')-> name('addReview');

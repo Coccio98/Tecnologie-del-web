@@ -2,7 +2,10 @@
 
 namespace App;
 
+use ArrayObject;
+use http\Client\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Product extends Model
@@ -52,6 +55,27 @@ class Product extends Model
         );
     }
 
+    public static function productsCartWhere($userId){
+        return Product::join('cart', 'cart.product_id', '=', 'products.id')
+            ->join('users','users.id','=','cart.user_id')->where('users.id',$userId)
+            ->leftJoin('images','images.product_id','=','products.id')
+            ->where(function ($query) {
+                $query->where('images.main', true)
+                    ->orWhereNull('images.image');})
+            ->select('products.*', 'images.image','cart.quantity')->orderBy('cart.id')->get();
+    }
+
+    public static function productsCartDelete($userId,$productId){
+        return DB::table('cart')->where('user_id',$userId)
+            ->where('product_id',$productId)->delete();
+    }
+
+    public static function productCartUpdateOrInsert($productId,$userId){
+        return DB::table('cart')->updateOrInsert(
+            ['user_id'=> $userId, 'product_id' =>$productId]
+        );
+    }
+
     public static function newProductLaptop(){
         return Product::join('belong', 'belong.product_id', '=', 'products.id')
             ->join('categories', 'categories.id', '=', 'belong.category_id')
@@ -90,4 +114,18 @@ class Product extends Model
             ->take(6)
             ->get();
     }
+
+    public function subtotal(){
+        $cart = Product::productsCartWhere(Auth::user()->id);
+        $prices = new arrayObject;
+        foreach ($cart as $item){
+            $prices->append($item->price*((100-$item->sale)/100));
+        }
+        $total =0;
+        foreach ($prices as $price){
+            $total+=$price;
+        }
+        return $total;
+    }
+
 }
