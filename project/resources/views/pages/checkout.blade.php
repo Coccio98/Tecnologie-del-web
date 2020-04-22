@@ -124,7 +124,7 @@
                     <div><strong>PRODUCT</strong></div>
                     <div><strong>TOTAL</strong></div>
                 </div>
-                @foreach($data as $product)
+                @foreach($cart as $product)
                 <div class="order-products">
                     <div class="order-col">
                         <div>{{$product->quantity}}x {{$product->name}}</div>

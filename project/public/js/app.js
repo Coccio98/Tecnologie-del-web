@@ -46221,12 +46221,22 @@ if (path === slash) {
 }
 
 $(document).ready(function () {
-  $('.pippo').on('click', '.reviews-pagination a', function (event) {
+  $('.review-section').on('click', '.reviews-pagination a', function (event) {
     event.preventDefault();
     var page = $(this).attr('href');
     $.get(page, function (data) {
-      $('.pippo').html(data.review);
+      $('.review-section').html(data.review);
     });
+  });
+  $('.store-section').on('click', '.store-pagination a', function (event) {
+    event.preventDefault();
+    var page = $(this).attr('href');
+    $.get(page, function (data) {
+      $('.store-section').html(data.store);
+    });
+  });
+  $('#aside').on('click', '.category', function (event) {
+    $('#myForm').submit();
   });
 });
 
@@ -50416,12 +50426,12 @@ $(document).ready(function () {
 
   if (priceSlider) {
     noUiSlider.create(priceSlider, {
-      start: [1, 999],
+      start: [0, 5999],
       connect: true,
       step: 1,
       range: {
-        'min': 1,
-        'max': 999
+        'min': 0,
+        'max': 5999
       }
     });
     priceSlider.noUiSlider.on('update', function (values, handle) {
@@ -52339,8 +52349,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\jessica\Desktop\Tecnologie-del-web\project\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\jessica\Desktop\Tecnologie-del-web\project\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Pagliarini Alberto\Desktop\Tecnologie-del-web\project\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Pagliarini Alberto\Desktop\Tecnologie-del-web\project\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

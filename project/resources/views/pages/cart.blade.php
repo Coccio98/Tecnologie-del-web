@@ -6,7 +6,7 @@
 
         <div class="col-md-7">
             <h3>Your Cart</h3>
-            @foreach($data as $product)
+            @foreach($cart as $product)
             <div class="cart">
                 <div class="col-md-7">
                     <div class="product-wishlist">
@@ -27,7 +27,7 @@
                     <div class="qty-label col-md-6">
                         Qty
                         <div class="input-number">
-                            <input type="number" value="1">
+                            <input type="number" value="{{$product->quantity}}">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>
                         </div>

@@ -82,19 +82,7 @@ class Product extends Model
         );
     }
 
-    public static function newProductLaptop(){
-        return Product::join('belong', 'belong.product_id', '=', 'products.id')
-            ->join('categories', 'categories.id', '=', 'belong.category_id')
-            ->leftJoin('images','images.product_id','=','products.id')
-            ->where(function ($query) {
-                $query->where('images.main', true)
-                    ->orWhereNull('images.image');})
-            ->where('categories.name', 'Laptop')
-            ->orderByDesc('products.created_at')->orderByDesc('products.id')
-            ->select('products.*', 'images.image')
-            ->take(6)
-            ->get();
-    }
+
     public static function orderProductWhere($orderId){
         return Product::leftJoin('images','images.product_id','=','products.id')
             ->where(function ($query) {
@@ -105,17 +93,34 @@ class Product extends Model
             ->select('products.*','images.image','compose.price_stamp', 'compose.quantity')->get();
     }
 
-    public static function topSellingLaptop()
+    public static function topSelling($category)
     {
-        return Product::join('belong', 'belong.product_id', '=', 'products.id')
+        $products= Product::join('belong', 'belong.product_id', '=', 'products.id')
             ->join('categories', 'categories.id', '=', 'belong.category_id')
             ->leftJoin('images', 'images.product_id', '=', 'products.id')
             ->where(function ($query) {
                 $query->where('images.main', true)
                     ->orWhereNull('images.image');
             })
-            ->orderByDesc('products.selling_number')
-            ->where('categories.name', 'Laptop')
+            ->orderByDesc('products.selling_number');
+        if(!empty($category) && $category !=0) {
+            $products->where('categories.id', $category);
+        }
+        return $products->select('products.*', 'images.image')
+            ->take(6)
+            ->get();
+    }
+    public static function newProducts($category){
+        $products= Product::join('belong', 'belong.product_id', '=', 'products.id')
+            ->join('categories', 'categories.id', '=', 'belong.category_id')
+            ->leftJoin('images','images.product_id','=','products.id')
+            ->where(function ($query) {
+                $query->where('images.main', true)
+                    ->orWhereNull('images.image');});
+            if(!empty($category) && $category !=0) {
+                $products->where('categories.id', $category);
+            }
+           return $products->orderByDesc('products.created_at')->orderByDesc('products.id')
             ->select('products.*', 'images.image')
             ->take(6)
             ->get();

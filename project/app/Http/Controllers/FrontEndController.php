@@ -18,9 +18,19 @@ class FrontEndController extends Controller
 {
 
     public function home(){
-        $newLaptop = Product::newProductLaptop();
-        $topSelling = Product::topSellingLaptop();
-        return view('pages.home')->with('path', 'home')->with('newLaptop', $newLaptop)->with('topSelling', $topSelling);
+        $newProducts = new ArrayObject();
+        $newProducts->append(Product::newProducts(0));
+        $newProducts->append(Product::newProducts(1));
+        $newProducts->append(Product::newProducts(2));
+        $newProducts->append(Product::newProducts(5));
+        $newProducts->append(Product::newProducts(6));
+        $topSelling = new ArrayObject();
+        $topSelling->append(Product::topSelling(0));
+        $topSelling->append(Product::topSelling(1));
+        $topSelling->append(Product::topSelling(2));
+        $topSelling->append(Product::topSelling(5));
+        $topSelling->append(Product::topSelling(6));
+        return view('pages.home')->with('path', 'home')->with('newProducts', $newProducts)->with('topSelling', $topSelling);
     }
 
     public function page(Request $request){

@@ -47,7 +47,7 @@
             @slot('products')
                 <div id="tab1-1" class="tab-pane active">
                     <div class="products-slick" data-nav="#slick-nav-1-1">
-                        @foreach($newLaptop as $product)
+                        @foreach($newProducts[1] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
@@ -83,7 +83,7 @@
                 </div>
                 <div id="tab2-1" class="tab-pane">
                     <div class="products-slick" data-nav="#slick-nav-2-1">
-                        @foreach($topSelling as $product)
+                        @foreach($newProducts[2] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
@@ -119,7 +119,7 @@
                 </div>
                 <div id="tab3-1" class="tab-pane">
                     <div class="products-slick" data-nav="#slick-nav-3-1">
-                        @foreach($newLaptop as $product)
+                        @foreach($newProducts[3] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
@@ -155,7 +155,7 @@
                 </div>
                 <div id="tab4-1" class="tab-pane">
                     <div class="products-slick" data-nav="#slick-nav-4-1">
-                        @foreach($topSelling as $product)
+                        @foreach($newProducts[4] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
@@ -205,7 +205,7 @@
             @slot('products')
                 <div id="tab1-2" class="tab-pane active">
                     <div class="products-slick" data-nav="#slick-nav-1-2">
-                        @foreach($topSelling as $product)
+                        @foreach($topSelling[1] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
@@ -241,7 +241,7 @@
                 </div>
                 <div id="tab2-2" class="tab-pane">
                     <div class="products-slick" data-nav="#slick-nav-2-2">
-                        @foreach($topSelling as $product)
+                        @foreach($topSelling[2] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
@@ -277,7 +277,7 @@
                 </div>
                 <div id="tab3-2" class="tab-pane">
                     <div class="products-slick" data-nav="#slick-nav-3-2">
-                        @foreach($newLaptop as $product)
+                        @foreach($topSelling[3] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
@@ -313,7 +313,7 @@
                 </div>
                 <div id="tab4-2" class="tab-pane">
                     <div class="products-slick" data-nav="#slick-nav-4-2">
-                        @foreach($topSelling as $product)
+                        @foreach($topSelling[4] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
@@ -359,23 +359,23 @@
             @endslot
             @slot('widgets')
                 <div>
-                    @for($i = 0; $i < sizeof($newLaptop); $i++)
+                    @for($i = 0; $i < sizeof($newProducts[0]); $i++)
                         @component('partials.reusable.widget')
-                            @if(!empty($newLaptop[$i]->image)){{$newLaptop[$i]->image}}@else {{asset('images/no_image.jpg')}} @endif
+                            @if(!empty($newProducts[0][$i]->image)){{$newProducts[0][$i]->image}}@else {{asset('images/no_image.jpg')}} @endif
                             @slot('category')
                                 Laptop
                             @endslot
                             @slot('name')
-                                {{$newLaptop[$i] -> name}}
+                                {{$newProducts[0][$i] -> name}}
                             @endslot
                             @slot('id')
-                                {{$newLaptop[$i]->id}}
+                                {{$newProducts[0][$i]->id}}
                             @endslot
                             @slot('price')
-                                ${{$newLaptop[$i]->price*(100-$newLaptop[$i]->sale)/100}}
+                                ${{$newProducts[0][$i]->price*(100-$newProducts[0][$i]->sale)/100}}
                             @endslot
                             @slot('old_price')
-                                ${{$newLaptop[$i]-> price}}
+                                ${{$newProducts[0][$i]-> price}}
                             @endslot
                         @endcomponent
                         @if($i+1 == 3)
@@ -393,29 +393,29 @@
             @endslot
             @slot('widgets')
                 <div>
-                    @for($i = 0; $i < sizeof($topSelling); $i++)
+                    @for($i = 0; $i < sizeof($topSelling[0]); $i++)
                         @component('partials.reusable.widget')
-                            @if(!empty($topSelling[$i]->image)){{$topSelling[$i]->image}}@else {{asset('images/no_image.jpg')}} @endif
+                            @if(!empty($topSelling[0][$i]->image)){{$topSelling[0][$i]->image}}@else {{asset('images/no_image.jpg')}} @endif
                             @slot('category')
-                                {{$topSelling[$i]->category}}
+                                {{$topSelling[0][$i]->category}}
                             @endslot
                             @slot('name')
-                                {{$topSelling[$i]-> name}}
+                                {{$topSelling[0][$i]-> name}}
                             @endslot
                             @slot('id')
-                                {{$topSelling[$i]->id}}
+                                {{$topSelling[0][$i]->id}}
                             @endslot
                             @slot('price')
-                                ${{$topSelling[$i]->price*(100-$product->sale)/100}}
+                                ${{$topSelling[0][$i]->price*(100-$topSelling[0][$i]->sale)/100}}
                             @endslot
                             @slot('old_price')
-                                ${{$topSelling[$i]-> price}}
+                                ${{$topSelling[0][$i]-> price}}
                             @endslot
                         @endcomponent
                         @if($i+1 == 3)
-                </div>
-                <div>
-                    @endif
+                            </div>
+                            <div>
+                        @endif
                     @endfor
                 </div>
             @endslot
