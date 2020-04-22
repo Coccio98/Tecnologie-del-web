@@ -59,13 +59,23 @@ if (path === slash) {
 
 $(document).ready(function() {
 
-    $('.pippo').on('click', '.reviews-pagination a', function(event) {
+    $('.review-section').on('click', '.reviews-pagination a', function(event) {
         event.preventDefault();
         var page =$(this).attr('href');
         $.get(page, function (data) {
-            $('.pippo').html(data.review);
+            $('.review-section').html(data.review);
         })
     });
 
-});
+    $('.store-section').on('click', '.store-pagination a', function(event) {
+        event.preventDefault();
+        var page =$(this).attr('href');
+        $.get(page, function (data) {
+            $('.store-section').html(data.store);
+        })
+    });
 
+    $('#aside').on('click', '.category', function(event) {
+        $('#myForm').submit();
+    });
+});

@@ -20,12 +20,18 @@ class Product extends Model
             ->where('products.name','like','%'.$request->search.'%');
         if(!empty($request->category) && $request->category != 0){
             $products->join('belong', 'belong.product_id', '=', 'products.id')
-            ->join('categories', 'categories.id', '=', 'belong.category_id')
-            ->where('categories.id',$request->category);
+                ->where('belong.category_id',$request->category);
+
         }
         if(!empty($request->brand) && $request->brand != 0){
             $products->join('brands', 'brands.id', '=', 'products.brand_id')
                 ->where('brands.id',$request->brand);
+        }
+        if(!empty($request->max) && $request->max != 0){
+            $products->whereRaw('(products.price*(100-products.sale)/100) <= ?',$request->max);
+        }
+        if(!empty($request->min) && $request->min != 0){
+            $products->whereRaw('(products.price*(100-products.sale)/100) >= ?',$request->min);
         }
         return $products->select('products.*', 'images.image')->paginate(6);
     }

@@ -48,6 +48,10 @@ class BelongTableSeeder extends Seeder
             [
                 'product_id'=>'9',
                 'category_id'=>'1'
+            ],
+            [
+                'product_id'=>'1',
+                'category_id'=>'6'
             ]
         ]);
     }

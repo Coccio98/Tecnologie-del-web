@@ -18,7 +18,6 @@
                 <h4>{{$payment->cardHolder}}</h4>
             </div>
             <div class="col-sm-5">
-                <!-- TODO -->
                 <ul>
                     <li>
                         <h5>{{$payment->name}}</h5>

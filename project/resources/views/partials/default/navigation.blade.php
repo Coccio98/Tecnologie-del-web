@@ -9,12 +9,11 @@
 
                 <li @if(!empty($path) && $path=='home') class="active"@endif><a href="/">Home</a></li>
                 <li @if(!empty($path) && $path=='hotdeals-shop') class="active"@endif><a href="{{route('hotdeals-shop')}}">Hot Deals</a></li>
-                <li @if(!empty($path) && $path=='') class="active"@endif><a href="#">Categories</a></li>
-                <li @if(!empty($path) && $path=='') class="active"@endif><a href="#">Laptops</a></li>
-                <li @if(!empty($path) && $path=='') class="active"@endif><a href="#">Smartphones</a></li>
-                <li @if(!empty($path) && $path=='') class="active"@endif><a href="#">Cameras</a></li>
-                <li @if(!empty($path) && $path=='') class="active"@endif><a href="#">Accessories</a></li>
-
+                <li @if(!empty($path) && $path=='store') class="active"@endif><a href="{{route('store')}}">Categories</a></li>
+                @foreach($categories as $category)
+                    <li @if(!empty($path) && $path=='store' && !empty(request()->get('category')) && request()->get('category') == $category->id) class="active"@endif>
+                        <a href="{{route('store')}}?category={{$category->id}}">{{$category->name}}</a></li>
+                @endforeach
             </ul>
             <!-- /NAV -->
         </div>

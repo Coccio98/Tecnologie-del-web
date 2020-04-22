@@ -45,37 +45,150 @@
                 1
             @endslot
             @slot('products')
-                @foreach($newLaptop as $product)
-                    @component('partials.reusable.product-overview')
-                        @slot('image')
-                            <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
-                            <div class="product-label">
-                                @if($product->sale != 0)
-                                    <span class="sale">-{{$product->sale}}%</span>
-                                @endif
-                                <span class="new">NEW</span>
-                            </div>
-                        @endslot
-                        @slot('category')
-                            Laptop
-                        @endslot
-                        @slot('name')
-                            {{$product->name}}
-                        @endslot
-                        @slot('id')
-                            {{$product->id}}
-                        @endslot
-                        @slot('price')
-                            ${{$product->price*(100-$product->sale)/100}}
-                        @endslot
-                        @slot('old_price')
-                            ${{$product->price}}
-                        @endslot
-                        @slot('s')
-                            {{$product->score}}
-                        @endslot
-                    @endcomponent
-                @endforeach
+                <div id="tab1-1" class="tab-pane active">
+                    <div class="products-slick" data-nav="#slick-nav-1-1">
+                        @foreach($newLaptop as $product)
+                            @component('partials.reusable.product-overview')
+                                @slot('image')
+                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <div class="product-label">
+                                        @if($product->sale != 0)
+                                            <span class="sale">-{{$product->sale}}%</span>
+                                        @endif
+                                        <span class="new">NEW</span>
+                                    </div>
+                                @endslot
+                                @slot('category')
+                                    Laptop
+                                @endslot
+                                @slot('name')
+                                    {{$product->name}}
+                                @endslot
+                                @slot('id')
+                                    {{$product->id}}
+                                @endslot
+                                @slot('price')
+                                    ${{$product->price*(100-$product->sale)/100}}
+                                @endslot
+                                @slot('old_price')
+                                    ${{$product->price}}
+                                @endslot
+                                @slot('s')
+                                    {{$product->score}}
+                                @endslot
+                            @endcomponent
+                        @endforeach
+                    </div>
+                <div id="slick-nav-1-1" class="products-slick-nav"></div>
+                </div>
+                <div id="tab2-1" class="tab-pane">
+                    <div class="products-slick" data-nav="#slick-nav-2-1">
+                        @foreach($topSelling as $product)
+                            @component('partials.reusable.product-overview')
+                                @slot('image')
+                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <div class="product-label">
+                                        @if($product->sale != 0)
+                                            <span class="sale">-{{$product->sale}}%</span>
+                                        @endif
+                                        <span class="new">NEW</span>
+                                    </div>
+                                @endslot
+                                @slot('category')
+                                    Laptop
+                                @endslot
+                                @slot('name')
+                                    {{$product->name}}
+                                @endslot
+                                @slot('id')
+                                    {{$product->id}}
+                                @endslot
+                                @slot('price')
+                                    ${{$product->price*(100-$product->sale)/100}}
+                                @endslot
+                                @slot('old_price')
+                                    ${{$product->price}}
+                                @endslot
+                                @slot('s')
+                                    {{$product->score}}
+                                @endslot
+                            @endcomponent
+                        @endforeach
+                    </div>
+                    <div id="slick-nav-2-1" class="products-slick-nav"></div>
+                </div>
+                <div id="tab3-1" class="tab-pane">
+                    <div class="products-slick" data-nav="#slick-nav-3-1">
+                        @foreach($newLaptop as $product)
+                            @component('partials.reusable.product-overview')
+                                @slot('image')
+                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <div class="product-label">
+                                        @if($product->sale != 0)
+                                            <span class="sale">-{{$product->sale}}%</span>
+                                        @endif
+                                        <span class="new">NEW</span>
+                                    </div>
+                                @endslot
+                                @slot('category')
+                                    Laptop
+                                @endslot
+                                @slot('name')
+                                    {{$product->name}}
+                                @endslot
+                                @slot('id')
+                                    {{$product->id}}
+                                @endslot
+                                @slot('price')
+                                    ${{$product->price*(100-$product->sale)/100}}
+                                @endslot
+                                @slot('old_price')
+                                    ${{$product->price}}
+                                @endslot
+                                @slot('s')
+                                    {{$product->score}}
+                                @endslot
+                            @endcomponent
+                        @endforeach
+                    </div>
+                    <div id="slick-nav-3-1" class="products-slick-nav"></div>
+                </div>
+                <div id="tab4-1" class="tab-pane">
+                    <div class="products-slick" data-nav="#slick-nav-4-1">
+                        @foreach($topSelling as $product)
+                            @component('partials.reusable.product-overview')
+                                @slot('image')
+                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <div class="product-label">
+                                        @if($product->sale != 0)
+                                            <span class="sale">-{{$product->sale}}%</span>
+                                        @endif
+                                        <span class="new">NEW</span>
+                                    </div>
+                                @endslot
+                                @slot('category')
+                                    Laptop
+                                @endslot
+                                @slot('name')
+                                    {{$product->name}}
+                                @endslot
+                                @slot('id')
+                                    {{$product->id}}
+                                @endslot
+                                @slot('price')
+                                    ${{$product->price*(100-$product->sale)/100}}
+                                @endslot
+                                @slot('old_price')
+                                    ${{$product->price}}
+                                @endslot
+                                @slot('s')
+                                    {{$product->score}}
+                                @endslot
+                            @endcomponent
+                        @endforeach
+                    </div>
+                    <div id="slick-nav-4-1" class="products-slick-nav"></div>
+                </div>
             @endslot
         @endcomponent
     @endcomponent
@@ -90,36 +203,150 @@
                 2
             @endslot
             @slot('products')
-                @foreach($topSelling as $product)
-                    @component('partials.reusable.product-overview')
-                        @slot('image')
-                            <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
-                            <div class="product-label">
-                                @if($product->sale != 0)
-                                    <span class="sale">-{{$product->sale}}%</span>
-                                @endif
-                            </div>
-                        @endslot
-                        @slot('category')
-                            Laptop
-                        @endslot
-                        @slot('name')
-                            {{$product->name}}
-                        @endslot
-                        @slot('id')
-                            {{$product->id}}
-                        @endslot
-                        @slot('price')
-                            ${{$product->price*(100-$product->sale)/100}}
-                        @endslot
-                        @slot('old_price')
-                            ${{$product->price}}
-                        @endslot
-                        @slot('s')
-                            {{$product->score}}
-                        @endslot
-                    @endcomponent
-                @endforeach
+                <div id="tab1-2" class="tab-pane active">
+                    <div class="products-slick" data-nav="#slick-nav-1-2">
+                        @foreach($topSelling as $product)
+                            @component('partials.reusable.product-overview')
+                                @slot('image')
+                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <div class="product-label">
+                                        @if($product->sale != 0)
+                                            <span class="sale">-{{$product->sale}}%</span>
+                                        @endif
+                                        <span class="new">NEW</span>
+                                    </div>
+                                @endslot
+                                @slot('category')
+                                    Laptop
+                                @endslot
+                                @slot('name')
+                                    {{$product->name}}
+                                @endslot
+                                @slot('id')
+                                    {{$product->id}}
+                                @endslot
+                                @slot('price')
+                                    ${{$product->price*(100-$product->sale)/100}}
+                                @endslot
+                                @slot('old_price')
+                                    ${{$product->price}}
+                                @endslot
+                                @slot('s')
+                                    {{$product->score}}
+                                @endslot
+                            @endcomponent
+                        @endforeach
+                    </div>
+                    <div id="slick-nav-1-2" class="products-slick-nav"></div>
+                </div>
+                <div id="tab2-2" class="tab-pane">
+                    <div class="products-slick" data-nav="#slick-nav-2-2">
+                        @foreach($topSelling as $product)
+                            @component('partials.reusable.product-overview')
+                                @slot('image')
+                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <div class="product-label">
+                                        @if($product->sale != 0)
+                                            <span class="sale">-{{$product->sale}}%</span>
+                                        @endif
+                                        <span class="new">NEW</span>
+                                    </div>
+                                @endslot
+                                @slot('category')
+                                    Laptop
+                                @endslot
+                                @slot('name')
+                                    {{$product->name}}
+                                @endslot
+                                @slot('id')
+                                    {{$product->id}}
+                                @endslot
+                                @slot('price')
+                                    ${{$product->price*(100-$product->sale)/100}}
+                                @endslot
+                                @slot('old_price')
+                                    ${{$product->price}}
+                                @endslot
+                                @slot('s')
+                                    {{$product->score}}
+                                @endslot
+                            @endcomponent
+                        @endforeach
+                    </div>
+                    <div id="slick-nav-2-2" class="products-slick-nav"></div>
+                </div>
+                <div id="tab3-2" class="tab-pane">
+                    <div class="products-slick" data-nav="#slick-nav-3-2">
+                        @foreach($newLaptop as $product)
+                            @component('partials.reusable.product-overview')
+                                @slot('image')
+                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <div class="product-label">
+                                        @if($product->sale != 0)
+                                            <span class="sale">-{{$product->sale}}%</span>
+                                        @endif
+                                        <span class="new">NEW</span>
+                                    </div>
+                                @endslot
+                                @slot('category')
+                                    Laptop
+                                @endslot
+                                @slot('name')
+                                    {{$product->name}}
+                                @endslot
+                                @slot('id')
+                                    {{$product->id}}
+                                @endslot
+                                @slot('price')
+                                    ${{$product->price*(100-$product->sale)/100}}
+                                @endslot
+                                @slot('old_price')
+                                    ${{$product->price}}
+                                @endslot
+                                @slot('s')
+                                    {{$product->score}}
+                                @endslot
+                            @endcomponent
+                        @endforeach
+                    </div>
+                    <div id="slick-nav-3-2" class="products-slick-nav"></div>
+                </div>
+                <div id="tab4-2" class="tab-pane">
+                    <div class="products-slick" data-nav="#slick-nav-4-2">
+                        @foreach($topSelling as $product)
+                            @component('partials.reusable.product-overview')
+                                @slot('image')
+                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <div class="product-label">
+                                        @if($product->sale != 0)
+                                            <span class="sale">-{{$product->sale}}%</span>
+                                        @endif
+                                        <span class="new">NEW</span>
+                                    </div>
+                                @endslot
+                                @slot('category')
+                                    Laptop
+                                @endslot
+                                @slot('name')
+                                    {{$product->name}}
+                                @endslot
+                                @slot('id')
+                                    {{$product->id}}
+                                @endslot
+                                @slot('price')
+                                    ${{$product->price*(100-$product->sale)/100}}
+                                @endslot
+                                @slot('old_price')
+                                    ${{$product->price}}
+                                @endslot
+                                @slot('s')
+                                    {{$product->score}}
+                                @endslot
+                            @endcomponent
+                        @endforeach
+                    </div>
+                    <div id="slick-nav-4-2" class="products-slick-nav"></div>
+                </div>
             @endslot
         @endcomponent
     @endcomponent

@@ -2,7 +2,14 @@
 
 @section('content')
 
-    @include('partials.reusable.breadcrumb')
+    @component('partials.reusable.breadcrumb')
+        <li><a href="{{route('home')}}">Home</a></li>
+        <li><a href="{{route('store')}}">All Categories</a></li>
+        @foreach($productCategories as $productCategory)
+            <li><a href="{{ route('store') }}?category={{$productCategory->id}}">{{$productCategory->name}}</a></li>
+        @endforeach
+        <li class="active">{{$product->name}}</li>
+    @endcomponent
 
     @component('partials.reusable.section')
         @include('partials.product.images')
