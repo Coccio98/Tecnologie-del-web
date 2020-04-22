@@ -49,8 +49,9 @@
 
         <ul class="product-links">
             <li>Category:</li>
-            <li><a href="#">Headphones</a></li>
-            <li><a href="#">Accessories</a></li>
+            @foreach($productCategories as $productCategory)
+                <li><a href="{{ route('store') }}?category={{$productCategory->id}}">{{$productCategory->name}}</a></li>
+            @endforeach
         </ul>
 
         <ul class="product-links">

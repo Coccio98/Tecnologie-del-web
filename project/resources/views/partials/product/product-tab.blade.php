@@ -110,7 +110,7 @@
                     <!-- Reviews -->
                     <div class="col-md-6">
                         <div id="reviews">
-                            <section class="pippo" data-next-page="{{$reviews->nextPageUrl()}}">
+                            <section class="review-section">
                             <ul class="reviews">
                                 @foreach($reviews as $review)
                                     <li>
@@ -176,7 +176,7 @@
             <!--TODO answer-->
             <div id="tab4" class="tab-pane fade in">
                 <div class="row">
-                    <div class="col-md-11 col-md-push-2">
+                    <div class="col-md-8 col-md-push-1">
                         <div id="reviews">
                             <ul class="reviews">
                                 @for($i=0; $i<sizeof($questions);$i++)
@@ -205,6 +205,23 @@
                                     </li>
                                 @endfor
                             </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="question-form">
+                            @if(!empty(Auth::user()))
+                                <form class="question-form" method="POST" action="{{--{{ route('addQuestion')}}--}}">
+                                    @csrf
+                                    <input name="productId" type="hidden" value="{{$product->id}}">
+                                    <textarea class="input @error('name') is-invalid @enderror" placeholder="Your Question" id="question" name="question" required></textarea>
+                                    @error('review')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <button class="primary-btn">Submit</button>
+                                </form>
+                            @endif
                         </div>
                     </div>
                 </div>

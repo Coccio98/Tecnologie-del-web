@@ -46221,28 +46221,23 @@ if (path === slash) {
 }
 
 $(document).ready(function () {
-  $('.pippo').on('click', '.reviews-pagination a', function (event) {
+  $('.review-section').on('click', '.reviews-pagination a', function (event) {
     event.preventDefault();
     var page = $(this).attr('href');
     $.get(page, function (data) {
-      $('.pippo').html(data.review);
+      $('.review-section').html(data.review);
     });
   });
-  /*
-  $(document).on('click', '.reviews-pagination a', function(event) {
-      event.preventDefault();
-      var page = $(this).attr('href').split('page=')[1];
-      fetch_data(page);
+  $('.store-section').on('click', '.store-pagination a', function (event) {
+    event.preventDefault();
+    var page = $(this).attr('href');
+    $.get(page, function (data) {
+      $('.store-section').html(data.store);
+    });
   });
-   function fetch_data(page) {
-      var l = window.location;
-      $.ajax({
-          url: l.origin + l.pathname + "?page=" + page,
-          success: function(reviews) {
-              $('.pippo').html(reviews);
-          }
-      });
-  }*/
+  $('#aside').on('click', '.category', function (event) {
+    $('#myForm').submit();
+  });
 });
 
 /***/ }),
@@ -50431,12 +50426,12 @@ $(document).ready(function () {
 
   if (priceSlider) {
     noUiSlider.create(priceSlider, {
-      start: [1, 999],
+      start: [0, 5999],
       connect: true,
       step: 1,
       range: {
-        'min': 1,
-        'max': 999
+        'min': 0,
+        'max': 5999
       }
     });
     priceSlider.noUiSlider.on('update', function (values, handle) {

@@ -2,7 +2,10 @@
 
 @section('content')
 
-    @include('partials.reusable.breadcrumb')
+    @component('partials.reusable.breadcrumb')
+        <li><a href="{{route('home')}}">Home</a></li>
+        <li class="active">Checkout</li>
+    @endcomponent
 
     @component('partials.reusable.section')
         <div class="col-md-7">

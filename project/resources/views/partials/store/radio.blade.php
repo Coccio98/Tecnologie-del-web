@@ -1,5 +1,5 @@
-<div class="input-checkbox">
-    <input type="checkbox" id="{{$n}}" name="{{$name}}" value="{{$id}}">
+<div class="input-radio">
+    <input type="radio" id="{{$n}}" name="{{$name}}" value="{{$id}}" class="category">
     <label for="{{$n}}">
         <span></span>
         {{$category}}

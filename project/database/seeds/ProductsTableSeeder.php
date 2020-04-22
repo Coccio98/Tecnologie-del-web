@@ -77,7 +77,8 @@ class ProductsTableSeeder extends Seeder
                 'sale'=>'6',
                 'brand_id' => '4',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'score'=>'0'
+                'score'=>'0',
+                'selling_number'=> '25'
             ],[
                 'name'=>'Xiaomi Redmi Note 8',
                 'price' => '175.00',
