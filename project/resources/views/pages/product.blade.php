@@ -20,132 +20,51 @@
     @endcomponent
 
     @component('partials.reusable.section')
-
-        <!--TODO -->
         <div class="col-md-12">
             <div class="section-title text-center">
                 <h3 class="title">Related Products</h3>
             </div>
         </div>
 
-        <!-- product -->
-        <div class="col-md-3 col-xs-6">
-            @component('partials.reusable.product-overview')
-                @slot('image')
-                    <img src="{{ asset('images/product01.png')}}" alt="">
-                    <div class="product-label">
-                        <span class="sale">-30%</span>
-                    </div>
-                @endslot
-                @slot('category')
-                    Category
-                @endslot
-                @slot('name')
-                    product name goes here
-                @endslot
-                @slot('id')
-                    1
-                @endslot
-                @slot('price')
-                    $980.00
-                @endslot
-                @slot('old_price')
-                    $990.00
-                @endslot
-                @slot('s')
-                    1
-                @endslot
-            @endcomponent
-        </div>
-        <!-- /product -->
+        @for($i=0; ($i<sizeof($related)&&$i<4); $i++)
+            <!-- product -->
+            <div class="col-md-3 col-xs-6">
+                @component('partials.reusable.product-overview')
+                    @slot('image')
+                        <img src="@if(!empty($related[$i]->image)){{ asset($related[$i]->image)}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                        <div class="product-label">
+                            @if($related[$i]->sale != 0)
+                                <span class="sale">-{{$related[$i]->sale}}%</span>
+                            @endif
+                            @if($now->diffInDays($related[$i]->created_at) <= 3)
+                                <span class="new">NEW</span>
+                            @endif
+                        </div>
+                    @endslot
+                    @slot('category')
+                        {{$productCategories[0]->name}}
+                    @endslot
+                    @slot('name')
+                        {{$related[$i]->name}}
+                    @endslot
+                    @slot('id')
+                        {{$related[$i]->id}}
+                    @endslot
+                    @slot('price')
+                        ${{$related[$i]->price*(100-$related[$i]->sale)/100}}
+                    @endslot
+                    @slot('old_price')
+                        ${{$related[$i]->price}}
+                    @endslot
+                    @slot('s')
+                        {{$related[$i]->score}}
+                    @endslot
+                @endcomponent
+            </div>
 
-        <!-- product -->
-        <div class="col-md-3 col-xs-6">
-            @component('partials.reusable.product-overview')
-                @slot('image')
-                    <img src="{{ asset('images/product02.png')}}" alt="">
-                    <div class="product-label">
-                        <span class="new">NEW</span>
-                    </div>
-                @endslot
-                @slot('category')
-                    Category
-                @endslot
-                @slot('name')
-                    product name goes here
-                @endslot
-                @slot('id')
-                    1
-                @endslot
-                @slot('price')
-                    $980.00
-                @endslot
-                @slot('old_price')
-                    $990.00
-                @endslot
-                @slot('s')
-                    5
-                @endslot
-            @endcomponent
-        </div>
-        <!-- /product -->
-
-        <div class="clearfix visible-sm visible-xs"></div>
-
-        <!-- product -->
-        <div class="col-md-3 col-xs-6">
-            @component('partials.reusable.product-overview')
-                @slot('image')
-                    <img src="{{ asset('images/product03.png')}}" alt="">
-                @endslot
-                @slot('category')
-                    Category
-                @endslot
-                @slot('name')
-                    product name goes here
-                @endslot
-                @slot('id')
-                    1
-                @endslot
-                @slot('price')
-                    $980.00
-                @endslot
-                @slot('old_price')
-                    $990.00
-                @endslot
-                @slot('s')
-                    2
-                @endslot
-            @endcomponent
-        </div>
-        <!-- /product -->
-
-        <!-- product -->
-        <div class="col-md-3 col-xs-6">
-            @component('partials.reusable.product-overview')
-                @slot('image')
-                    <img src="{{ asset('images/product04.png')}}" alt="">
-                @endslot
-                @slot('category')
-                    Category
-                @endslot
-                @slot('name')
-                    product name goes here
-                @endslot
-                @slot('id')
-                    1
-                @endslot
-                @slot('price')
-                    $980.00
-                @endslot
-                @slot('old_price')
-                    $990.00
-                @endslot
-                @slot('s')
-                    2
-                @endslot
-            @endcomponent
-        </div>
-        <!-- /product -->
+            @if(($i+1) == 2)
+                <div class="clearfix visible-sm visible-xs"></div>
+            @endif
+        @endfor
     @endcomponent
 @endsection

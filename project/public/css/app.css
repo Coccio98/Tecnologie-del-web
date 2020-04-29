@@ -262,11 +262,10 @@ td, th {
 
 @font-face {
     font-family: 'Glyphicons Halflings';
-    /* TODO
-    src: url(../fonts/glyphicons-halflings-regular.eot);
-    src: url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(../fonts/glyphicons-halflings-regular.woff2) format('woff2'), url(../fonts/glyphicons-halflings-regular.woff) format('woff'), url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
 
-     */
+    src: url(/fonts/glyphicons-halflings-regular.eot?f4769f9bdb7466be65088239c12046d1);
+    src: url(/fonts/glyphicons-halflings-regular.eot?f4769f9bdb7466be65088239c12046d1?#iefix) format('embedded-opentype'), url(/fonts/glyphicons-halflings-regular.woff2?448c34a56d699c29117adc64c43affeb) format('woff2'), url(/fonts/glyphicons-halflings-regular.woff?fa2772327f55d8198301fdb8bcfc8158) format('woff'), url(/fonts/glyphicons-halflings-regular.ttf?e18bbf611f2a2e43afc071aa2f4e1512) format('truetype'), url(/fonts/glyphicons-halflings-regular.svg?89889688147bd7575d6327160d64e760#glyphicons_halflingsregular) format('svg')
+
 }
 
 .glyphicon {
@@ -7227,7 +7226,7 @@ button.close {
 /* Slider */
 .slick-loading .slick-list
 {
-   /*TODO background: #fff url('./ajax-loader.gif') center center no-repeat; */
+   background: #fff url(/images/ajax-loader.gif?8d42c9570c1e53e2cb1ba7968086ae3f) center center no-repeat;
 }
 
 /* Icons */
@@ -11966,7 +11965,6 @@ textarea.input {
   padding: 60px 0px;
   margin: 30px 0px;
   background-color: #E4E7ED;
-  background-image: url(/images/hotdeal.png?56b287dc90ecb0a78c852d187af88b84);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -12095,6 +12093,10 @@ textarea.input {
 .product .product-body .product-name {
   text-transform: uppercase;
   font-size: 14px;
+  line-height: 1.5em;
+  height: 3em;
+  /* height is 2x line-height, so two lines will display */
+  overflow: hidden;
 }
 
 .product .product-body .product-name > a {
@@ -13274,7 +13276,8 @@ textarea.input {
   margin: 15px 0px;
 }
 
-.order-summary .btn-primary {
+.order-summary .btn-primary,
+.review-body .btn-primary {
   background-color: #D10024;
   border-color: #D10024;
 }
@@ -13793,5 +13796,9 @@ ol.progtrckr li.progtrckr-todo:before {
 
 .address-selector[type=radio]:checked + div {
   border: 2px solid #D10024;
+}
+
+.pointer {
+  cursor: pointer;
 }
 

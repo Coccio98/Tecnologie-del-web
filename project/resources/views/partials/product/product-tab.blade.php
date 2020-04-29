@@ -111,25 +111,7 @@
                     <div class="col-md-6">
                         <div id="reviews">
                             <section class="review-section">
-                            <ul class="reviews">
-                                @foreach($reviews as $review)
-                                    <li>
-                                        <div class="review-heading">
-                                            <h5 class="name">{{$review->name}}</h5>
-                                            <p class="date">{{$review->timestamp}}</p>
-                                            @component('partials.reusable.stars')
-                                                @slot('s')
-                                                    {{$review->rating}}
-                                                @endslot
-                                            @endcomponent
-                                        </div>
-                                        <div class="review-body">
-                                            <p>{{$review->text}}</p>
-                                        </div>
-                                    </li>
-                                @endforeach
-                            </ul>
-                            {!!  $reviews->render('pagination.reviews-pagination')  !!}
+                                @include('partials.product.review')
                             </section>
                         </div>
                     </div>
@@ -142,7 +124,7 @@
                                 <form class="review-form" method="POST" action="{{ route('addReview')}}">
                                     @csrf
                                     <input name="productId" type="hidden" value="{{$product->id}}">
-                                    <textarea class="input @error('name') is-invalid @enderror" placeholder="Your Review" id="review" name="review" required></textarea>
+                                    <textarea class="input @error('review') is-invalid @enderror" placeholder="Your Review" id="review" name="review" required></textarea>
                                     @error('review')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -151,11 +133,11 @@
                                     <div class="input-rating">
                                         <span>Your Rating: </span>
                                         <div class="stars">
-                                            <input id="star5" name="rating" value="5" type="radio" required class="@error('address') is-invalid @enderror"><label for="star5"></label>
-                                            <input id="star4" name="rating" value="4" type="radio" required class="@error('address') is-invalid @enderror"><label for="star4"></label>
-                                            <input id="star3" name="rating" value="3" type="radio" required class="@error('address') is-invalid @enderror"><label for="star3"></label>
-                                            <input id="star2" name="rating" value="2" type="radio" required class="@error('address') is-invalid @enderror"><label for="star2"></label>
-                                            <input id="star1" name="rating" value="1" type="radio" required class="@error('address') is-invalid @enderror"><label for="star1"></label>
+                                            <input id="star5" name="rating" value="5" type="radio" required class="@error('rating') is-invalid @enderror"><label for="star5"></label>
+                                            <input id="star4" name="rating" value="4" type="radio" required class="@error('rating') is-invalid @enderror"><label for="star4"></label>
+                                            <input id="star3" name="rating" value="3" type="radio" required class="@error('rating') is-invalid @enderror"><label for="star3"></label>
+                                            <input id="star2" name="rating" value="2" type="radio" required class="@error('rating') is-invalid @enderror"><label for="star2"></label>
+                                            <input id="star1" name="rating" value="1" type="radio" required class="@error('rating') is-invalid @enderror"><label for="star1"></label>
                                         </div>
                                         @error('rating')
                                             <span class="invalid-feedback" role="alert">
@@ -173,48 +155,23 @@
             </div>
             <!-- /tab3  -->
             <!-- tab4  -->
-            <!--TODO answer-->
             <div id="tab4" class="tab-pane fade in">
                 <div class="row">
                     <div class="col-md-8 col-md-push-1">
                         <div id="reviews">
-                            <ul class="reviews">
-                                @for($i=0; $i<sizeof($questions);$i++)
-                                    <li>
-                                        <div class="review-heading">
-                                            <h5 class="name">{{$questions[$i]->name}}</h5>
-                                            <p class="date">{{$questions[$i]->timestamp}}</p>
-                                        </div>
-                                        <div class="review-body">
-                                            <p>{{$questions[$i]->text}}</p>
-                                            <br/>
-                                            <ul>
-                                                @foreach($answers[$i] as $answer)
-                                                    <li>
-                                                        <div class="review-heading">
-                                                            <h5 class="name">{{$answer->name}}</h5>
-                                                            <p class="date">{{$answer->timestamp}}</p>
-                                                        </div>
-                                                        <div class="review-body">
-                                                            <p>{{$answer->text}}</p>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </li>
-                                @endfor
-                            </ul>
+                            <section class="question-section">
+                                @include('partials.product.question')
+                            </section>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div id="question-form">
                             @if(!empty(Auth::user()))
-                                <form class="question-form" method="POST" action="{{--{{ route('addQuestion')}}--}}">
+                                <form class="question-form" method="POST" action="{{ route('addQuestion')}}">
                                     @csrf
                                     <input name="productId" type="hidden" value="{{$product->id}}">
-                                    <textarea class="input @error('name') is-invalid @enderror" placeholder="Your Question" id="question" name="question" required></textarea>
-                                    @error('review')
+                                    <textarea class="input @error('question') is-invalid @enderror" placeholder="Your Question" id="question" name="question" required></textarea>
+                                    @error('question')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

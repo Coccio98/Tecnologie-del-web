@@ -2,20 +2,14 @@
 
 @section('content')
 
-    @component('partials.reusable.breadcrumb')
-        <li><a href="{{route('home')}}">Home</a></li>
-        <li><a href="{{route('store')}}">All Categories</a></li>
-        @if(!empty(request()->get('category')))
-            <li><a href="{{ route('store') }}?category={{request()->get('category')}}">{{$categories[request()->get('category')-1]->name}}</a></li>
-        @endif
-    @endcomponent
+    @include('partials.home.hot-deal')
 
     @component('partials.reusable.section')
-        <form method="get" action="{{route('store')}}" id="myForm">
-            @csrf
-            <!-- ASIDE -->
+        <form method="get" action="{{route('hotDeal-shop',['id' => $showcase->id])}}" id="myForm">
+        @csrf
+        <!-- ASIDE -->
             <div id="aside" class="col-md-3">
-                    <input type="hidden" value="@if(!empty(request()->get('search'))) {{request()->get('search')}} @endif" name="search">
+                <input type="hidden" value="@if(!empty(request()->get('search'))) {{request()->get('search')}} @endif" name="search">
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Categories</h3>
@@ -27,7 +21,7 @@
                                 <label for="category-{{$category->id}}">
                                     <span></span>
                                     {{$category->name}}
-                                    <small>({{$category->countByCategory(request())}})</small>
+                                    <small>({{$category->countByCategoryHotDeal(request(),$showcase->id)}})</small>
                                 </label>
                                 @if(request()->get('category') == $category->id)<i class="fa fa-times pointer" onclick="uncheckCategory()"></i> @endif
                             </div>
@@ -69,7 +63,7 @@
                                 <label for="brand-{{$brand->id}}">
                                     <span></span>
                                     {{$brand->name}}
-                                    <small>({{$brand->countByBrand(request())}})</small>
+                                    <small>({{$brand->countByBrandHotDeal(request(),$showcase->id)}})</small>
                                 </label>
                                 @if(request()->get('brand') == $brand->id)<i class="fa fa-times pointer" onclick="uncheckBrand()"></i> @endif
                             </div>
@@ -108,11 +102,11 @@
 
                 <section class="store-section">
                     <!-- store products -->
-                    @include('partials.store.store-section')
+                @include('partials.store.store-section')
                 <!-- /store bottom filter -->
                 </section>
             </div>
-        <!-- /STORE -->
+            <!-- /STORE -->
         </form>
     @endcomponent
 

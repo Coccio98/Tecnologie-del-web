@@ -193,8 +193,9 @@
         @endcomponent
     @endcomponent
 
-    @include('partials.home.hot-deal')
-
+    @foreach($showcases as $key=>$showcase)
+        @include('partials.home.hot-deal')
+    @endforeach
     @component('partials.reusable.section')
 
         @component('partials.home.tab')

@@ -2,7 +2,7 @@
 /* Slider */
 .slick-loading .slick-list
 {
-   /*TODO background: #fff url('./ajax-loader.gif') center center no-repeat; */
+   background: #fff url('../../public/images/ajax-loader.gif') center center no-repeat;
 }
 
 /* Icons */

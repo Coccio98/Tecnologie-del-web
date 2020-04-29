@@ -1,5 +1,6 @@
 <!-- HOT DEAL SECTION -->
-<div id="hot-deal" class="section">
+<div id="hot-deal" class="section" style="background-image: url({{asset($showcase->banner)}})">
+    <input id="hot-deal-date-{{$key}}" type="hidden" value="{{$showcase->expire}}">
     <!-- container -->
     <div class="container">
         <!-- row -->
@@ -9,33 +10,32 @@
                     <ul class="hot-deal-countdown">
                         <li>
                             <div>
-                                <h3 id="days"></h3>
+                                <h3 id="days-{{$key}}"></h3>
                                 <span>Days</span>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <h3 id="hours"></h3>
+                                <h3 id="hours-{{$key}}"></h3>
                                 <span>Hours</span>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <h3 id="minutes"></h3>
+                                <h3 id="minutes-{{$key}}"></h3>
                                 <span>Mins</span>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <h3 id="seconds"></h3>
+                                <h3 id="seconds-{{$key}}"></h3>
                                 <span>Secs</span>
                             </div>
                         </li>
                     </ul>
-                    <h2 class="text-uppercase">hot deal this week</h2>
-                    <p>New Collection Up to 50% OFF</p>
-
-                    <a class="primary-btn cta-btn" href="{{route('hotdeals-shop')}}">Shop now</a>
+                    <h2 class="text-uppercase">{{$showcase->title}}</h2>
+                    <p>{{$showcase->subtitle}}</p>
+                    <a class="primary-btn cta-btn" href="{{route('hotDeal-shop',['id' => $showcase->id])}}">Shop now</a>
 
                 </div>
             </div>

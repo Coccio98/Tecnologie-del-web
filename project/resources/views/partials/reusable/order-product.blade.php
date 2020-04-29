@@ -36,7 +36,7 @@
         </div>
         <div class="col-md-4">
             <div class="add-to-cart">
-                <a href="{{route('trackMyOrder')}}"><button class="add-to-cart-btn">Track my order</button></a>
+                <a href="{{route('trackMyOrder',['id'=>$orders[$i]->id])}}"><button class="add-to-cart-btn">Track my order</button></a>
             </div>
 
             <div class="del-to-cart">

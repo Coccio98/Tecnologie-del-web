@@ -34,7 +34,7 @@ Route::get('/address', 'HomeController@page')-> name('address');
 
 Route::get('/cart', 'HomeController@page')-> name('cart');
 
-Route::get('/trackMyOrder', 'HomeController@page')-> name('trackMyOrder');
+Route::get('/trackMyOrder/{id}', 'HomeController@page')-> name('trackMyOrder');
 
 Route::get('/paymentOptions', 'HomeController@page')-> name('paymentOptions');
 
@@ -42,7 +42,7 @@ Route::get('/security', 'HomeController@page')-> name('security');
 
 Route::get('/order-details', 'HomeController@page')-> name('order-details');
 
-Route::get('/hotdeals-shop', 'FrontEndController@page')-> name('hotdeals-shop');
+Route::get('/hotDeal-shop/{id}', 'FrontEndController@hotDeal')-> name('hotDeal-shop');
 
 Route::post('/security/modify', 'AccountController@modify')-> name('modify');
 Route::post('/security/save', 'AccountController@save')-> name('save');
@@ -64,3 +64,7 @@ Route::get('cart/delete/{id}', 'HomeController@deleteCart')->name('deleteCart');
 Route::get('cart/add/{id}', 'HomeController@addToCart')->name('addToCart');
 
 Route::post('/addReview', 'FrontEndController@addReview')-> name('addReview');
+Route::post('/addQuestion', 'FrontEndController@addQuestion')-> name('addQuestion');
+Route::post('/addAnswer', 'FrontEndController@addAnswer')-> name('addAnswer');
+
+Route::get('/sizeColor', 'FrontEndController@sizeColor')-> name('sizeColor');

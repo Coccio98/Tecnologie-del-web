@@ -15,8 +15,9 @@ class CreateShowcasesTable extends Migration
     {
         Schema::create('showcases', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
-            $table->mediumtext('image');
+            $table->string('title', 100);
+            $table->string('subtitle', 200);
+            $table->text('banner');
             $table->dateTime('expire');
             $table->timestamps();
         });

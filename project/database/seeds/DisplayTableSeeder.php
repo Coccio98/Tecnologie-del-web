@@ -31,12 +31,20 @@ class DisplayTableSeeder extends Seeder
             ],
             [
                 'product_id'=>'4',
-                'showcase_id'=>'4'
+                'showcase_id'=>'2'
             ],
             [
                 'product_id'=>'5',
-                'showcase_id'=>'5'
-            ]
+                'showcase_id'=>'1'
+            ],
+            [
+                'product_id'=>'6',
+                'showcase_id'=>'1'
+            ],
+            [
+                'product_id'=>'1',
+                'showcase_id'=>'1'
+            ],
         ]);
     }
 }

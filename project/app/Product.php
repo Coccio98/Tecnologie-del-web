@@ -13,6 +13,30 @@ class Product extends Model
     public $timestamps = true;
 
     public static function productsWhere($request){
+        $products = Product::productsWhereStandard($request);
+        if(empty($request->show) || $request->show == 0) {
+            return $products->select('products.*', 'images.image')->paginate(9);
+        } elseif ($request->show == 1){
+            return $products->select('products.*', 'images.image')->paginate(18);
+        } else{
+            return $products->select('products.*', 'images.image')->paginate(27);
+        }
+    }
+    public static function productsWhereHotDeal($request, $id){
+        $products = Product::productsWhereStandard($request);
+        $products->join('display','display.product_id','=','products.id')
+            ->join('showcases','display.showcase_id','=','showcases.id')
+            ->where('showcases.id',$id);
+        if(empty($request->show) || $request->show == 0) {
+            return $products->select('products.*', 'images.image')->paginate(9);
+        } elseif ($request->show == 1){
+            return $products->select('products.*', 'images.image')->paginate(18);
+        } else{
+            return $products->select('products.*', 'images.image')->paginate(27);
+        }
+    }
+
+    public static function productsWhereStandard($request){
         $products=Product::leftJoin('images','images.product_id','=','products.id')
             ->where(function ($query) {
                 $query->where('images.main', true)
@@ -24,8 +48,7 @@ class Product extends Model
 
         }
         if(!empty($request->brand) && $request->brand != 0){
-            $products->join('brands', 'brands.id', '=', 'products.brand_id')
-                ->where('brands.id',$request->brand);
+            $products->where('products.brand_id',$request->brand);
         }
         if(!empty($request->max) && $request->max != 0){
             $products->whereRaw('(products.price*(100-products.sale)/100) <= ?',$request->max);
@@ -33,7 +56,12 @@ class Product extends Model
         if(!empty($request->min) && $request->min != 0){
             $products->whereRaw('(products.price*(100-products.sale)/100) >= ?',$request->min);
         }
-        return $products->select('products.*', 'images.image')->paginate(6);
+        if(empty($request->sort) || $request->sort == 0){
+            $products->orderByDesc('products.selling_number');
+        } else {
+            $products->orderBy('products.id');
+        }
+        return $products;
     }
 
     public static function productWhere($productId){

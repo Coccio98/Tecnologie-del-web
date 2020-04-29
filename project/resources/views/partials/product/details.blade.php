@@ -8,7 +8,7 @@
                     {{$product->score}}
                 @endslot
             @endcomponent
-            <a class="review-link" href="#">10 Review(s) | Add your review</a>
+            <a class="review-link" href="#product-tab">{{$totRating}} Review(s) | Add your review</a>
         </div>
         <div>
             <h3 class="product-price"> ${{$product->price*(100-$product->sale)/100}} <del class="product-old-price">${{$product->price}}</del></h3>
@@ -17,16 +17,19 @@
         <p>{{$product->summary}}</p>
 
         <div class="product-options">
+            <input id="product_id" type="hidden" value="{{$product->id}}">
             <label>
                 Size
-                <select class="input-select">
-                    <option value="0">X</option>
+                <select id='size-select' class="input-select" onchange="test()">
+                    @foreach($productSizes as $size)
+                        <option value="{{$size->size}}">{{$size->size}}</option>
+                    @endforeach
                 </select>
             </label>
             <label>
                 Color
-                <select class="input-select">
-                    <option value="0">Red</option>
+                <select id='color-select' class="input-select">
+                    @include('partials.product.color')
                 </select>
             </label>
         </div>
@@ -35,7 +38,7 @@
             <div class="qty-label">
                 Qty
                 <div class="input-number">
-                    <input type="number">
+                    <input type="number" value="1">
                     <span class="qty-up">+</span>
                     <span class="qty-down">-</span>
                 </div>

@@ -46205,17 +46205,27 @@ var second = 1000,
     day = hour * 24;
 var path = window.location.pathname;
 var slash = String("/");
+var hotDeal = String("/hotDeal-shop");
 
-if (path === slash) {
-  var countDown = new Date('Apr 30, 2020 17:10:00').getTime(),
-      x = setInterval(function () {
-    var now = new Date().getTime(),
-        distance = countDown - now;
-    document.getElementById('days').innerText = Math.floor(distance / day), document.getElementById('hours').innerText = Math.floor(distance % day / hour), document.getElementById('minutes').innerText = Math.floor(distance % hour / minute), document.getElementById('seconds').innerText = Math.floor(distance % minute / second); //do something later when date is reached
+if (path === slash || path.includes(hotDeal)) {
+  var date = $('input[id^="hot-deal-date"]');
+  var countDown = [];
 
-    if (distance < 0) {
-      document.getElementById('days').innerText = 0, document.getElementById('hours').innerText = 0, document.getElementById('minutes').innerText = 0, document.getElementById('seconds').innerText = 0;
-      clearInterval(x);
+  for (var i = 0; i < date.length; i++) {
+    countDown.push(new Date(date[i].value).getTime());
+  }
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+
+    for (var i = 0; i < date.length; i++) {
+      var distance = countDown[i] - now;
+
+      if (distance > 0) {
+        document.getElementById('days-'.concat(i.toString())).innerText = Math.floor(distance / day), document.getElementById('hours-'.concat(i.toString())).innerText = Math.floor(distance % day / hour), document.getElementById('minutes-'.concat(i.toString())).innerText = Math.floor(distance % hour / minute), document.getElementById('seconds-'.concat(i.toString())).innerText = Math.floor(distance % minute / second);
+      } else {
+        document.getElementById('days-'.concat(i.toString())).innerText = 0, document.getElementById('hours-'.concat(i.toString())).innerText = 0, document.getElementById('minutes-'.concat(i.toString())).innerText = 0, document.getElementById('seconds-'.concat(i.toString())).innerText = 0;
+      }
     }
   }, second);
 }
@@ -46228,6 +46238,13 @@ $(document).ready(function () {
       $('.review-section').html(data.review);
     });
   });
+  $('.question-section').on('click', '.reviews-pagination a', function (event) {
+    event.preventDefault();
+    var page = $(this).attr('href');
+    $.get(page, function (data) {
+      $('.question-section').html(data.question);
+    });
+  });
   $('.store-section').on('click', '.store-pagination a', function (event) {
     event.preventDefault();
     var page = $(this).attr('href');
@@ -46235,10 +46252,54 @@ $(document).ready(function () {
       $('.store-section').html(data.store);
     });
   });
-  $('#aside').on('click', '.category', function (event) {
+  $('#aside').on('click', '.category', function () {
+    $('#myForm').submit();
+  });
+  $('#store').on('change', '.input-select', function () {
     $('#myForm').submit();
   });
 });
+
+function test() {
+  $.ajax({
+    url: "/sizeColor?s=".concat($('#size-select option:selected').val()).concat('&p=').concat($('#product_id').val()),
+    success: function success(data) {
+      $("#color-select").html(data);
+    }
+  });
+}
+
+window.test = function () {
+  test();
+};
+
+window.uncheckCategory = function () {
+  uncheckCategory();
+};
+
+function uncheckCategory() {
+  var category = $('input[name ="category"]');
+
+  for (var i = 0; i < category.length; i++) {
+    category[i].checked = false;
+  }
+
+  $('#myForm').submit();
+}
+
+window.uncheckBrand = function () {
+  uncheckBrand();
+};
+
+function uncheckBrand() {
+  var brand = $('input[name ="brand"]');
+
+  for (var i = 0; i < brand.length; i++) {
+    brand[i].checked = false;
+  }
+
+  $('#myForm').submit();
+}
 
 /***/ }),
 

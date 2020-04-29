@@ -8,7 +8,7 @@
             <ul class="main-nav nav navbar-nav">
 
                 <li @if(!empty($path) && $path=='home') class="active"@endif><a href="/">Home</a></li>
-                <li @if(!empty($path) && $path=='hotdeals-shop') class="active"@endif><a href="{{route('hotdeals-shop')}}">Hot Deals</a></li>
+                <li @if(!empty($path) && $path=='hotDeal-shop') class="active"@endif><a href="{{route('hotDeal-shop',['id'=> 1])}}">Hot Deals</a></li>
                 <li @if(!empty($path) && $path=='store') class="active"@endif><a href="{{route('store')}}">Categories</a></li>
                 @foreach($categories as $category)
                     <li @if(!empty($path) && $path=='store' && !empty(request()->get('category')) && request()->get('category') == $category->id) class="active"@endif>
