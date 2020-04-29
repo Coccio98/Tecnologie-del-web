@@ -78,17 +78,20 @@ class HomeController extends Controller
         return redirect('cart');
     }
 
-    public function addOrder(Request $request, $id){
-        Order::orderUpdateOrInsert($id, $request->user()->id);
-        return redirect(url()->previous());
+    public function addOrder(Request $request){
+        $request->validate([
+            'address' => ['required'],
+            'payment' => ['required'],
+        ]);
+        Order::orderUpdateOrInsert($request);
+        return redirect('myorder');
     }
 
     public function checkout(Request $request){
         $path = 'pages.checkout';
-        $product = Product::productsCartWhere($request->user()->id);
         $address = Address::addressesWhere($request->user()->id);
         $payment = PaymentMethod::paymentMethodsWhere($request->user()->id);
-        return view($path)->with('addresses',$address)->with('payments',$payment)->with('products',$product);
+        return view($path)->with('addresses',$address)->with('payments',$payment);
     }
 
     public function updateCartQuantity($productId,$quantity){

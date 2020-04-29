@@ -27,9 +27,6 @@
                     <div class="qty-label col-md-6">
                         Qty
                         <div class="input-number">
-                            <input type="number" value="{{$product->quantity}}">
-                            <span class="qty-up">+</span>
-                            <span class="qty-down">-</span>
                             <a class="qty-up" href="{{url ('/cart/update-quantity/'.$product->id.'/1')}}">+</a>
                             <input id="qty" class="input form-control" type="number" name="name" value="{{$product->quantity}}" >
                             <a class="qty-down" href="{{url ('/cart/update-quantity/'.$product->id.'/-1')}}">-</a>
@@ -41,7 +38,7 @@
         </div>
         <div class="col-md-5">
             <h3>Subtotal:</h3>
-                <p>${{$product->subtotal()}}</p>
+                <p>$@if(sizeof($cart)!=0){{$cart[0]->subtotal()}} @else 0 @endif</p>
             <a href="{{route('checkout')}}" class="primary-btn order-submit">Proceed to Checkout</a>
         </div>
 

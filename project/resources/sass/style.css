@@ -3211,7 +3211,7 @@ ol.progtrckr li.progtrckr-todo:before {
 
 /* CHECKED STYLES */
 .address-selector[type=radio]:checked + div {
-    border: 2px solid #D10024;
+    border: 1px solid #D10024;
 }
 
 .payment-selector[type=radio] {
@@ -3227,7 +3227,7 @@ ol.progtrckr li.progtrckr-todo:before {
 
 /* CHECKED STYLES */
 .payment-selector[type=radio]:checked + div {
-    border: 2px solid #D10024;
+    border: 1px solid #D10024;
 }
 
 .pointer {cursor: pointer;}

@@ -71,4 +71,4 @@ Route::get('/sizeColor', 'FrontEndController@sizeColor')-> name('sizeColor');
 
 Route::get('/cart/update-quantity/{id}/{quantity}','HomeController@updateCartQuantity');
 
-Route::get('checkout/add/{id}', 'HomeController@addOrder')->name('addOrder');
+Route::post('checkout/addOrder', 'HomeController@addOrder')->name('addOrder');

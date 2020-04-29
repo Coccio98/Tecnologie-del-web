@@ -62,7 +62,7 @@
                                     @foreach($cart as $product)
                                         <div class="product-widget">
                                             <div class="product-img">
-                                                <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                                <img src="@if(!empty($product->image)){{asset($product->image)}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
                                             </div>
                                             <div class="product-body">
                                                 <h3 class="product-name"><a href="{{ route('product',['id' => 1]) }}">{{$product->name}}</a></h3>
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="cart-summary">
                                     <small>{{$cartCount}} Item(s) selected</small>
-                                    <h5>SUBTOTAL: $2940.00</h5>
+                                    <h5>SUBTOTAL: $@if(sizeof($cart)!=0){{$cart[0]->subtotal()}} @else 0 @endif</h5>
                                 </div>
                             @endif
                             <div class="cart-btns">

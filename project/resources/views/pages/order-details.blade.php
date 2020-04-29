@@ -82,7 +82,7 @@
             @endcomponent
 
             <div class="add-to-cart">
-                <a href="{{route('trackMyOrder')}}"><button class="add-to-cart-btn"><i class="fa fa-truck"></i>Track my order</button></a>
+                <a href="{{route('trackMyOrder',['id'=> 1])}}"><button class="add-to-cart-btn"><i class="fa fa-truck"></i>Track my order</button></a>
             </div>
     @endcomponent
         </div>

@@ -156,13 +156,9 @@ class Product extends Model
 
     public function subtotal(){
         $cart = Product::productsCartWhere(Auth::user()->id);
-        $prices = new arrayObject;
-        foreach ($cart as $item){
-            $prices->append($item->price*((100-$item->sale)/100));
-        }
         $total =0;
-        foreach ($prices as $price){
-            $total+=$price;
+        foreach ($cart as $item){
+            $total+=($item->price*((100-$item->sale)/100) * $item->quantity);
         }
         return $total;
     }

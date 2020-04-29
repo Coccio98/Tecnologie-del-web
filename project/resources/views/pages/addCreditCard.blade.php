@@ -70,7 +70,7 @@
                         @foreach($addresses as $address)
                             <label class="col-md-4 ">
                                 <input type="radio" id="address" name="address" value="{{$address->id}}" class=" @error('address') is-invalid @enderror address-selector" required autofocus @if(!empty($creditCard) && $creditCard->address_id === $address->id) checked @endif>
-                                <div class=" address address-selector">
+                                <div class="address">
                                     @include('partials.reusable.address-order')
                                 </div>
                             </label>
