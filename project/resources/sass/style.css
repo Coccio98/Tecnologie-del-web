@@ -3214,4 +3214,20 @@ ol.progtrckr li.progtrckr-todo:before {
     border: 2px solid #D10024;
 }
 
+.payment-selector[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.payment-selector[type=radio] + div {
+    cursor: pointer;
+}
+
+/* CHECKED STYLES */
+.payment-selector[type=radio]:checked + div {
+    border: 2px solid #D10024;
+}
+
 .pointer {cursor: pointer;}

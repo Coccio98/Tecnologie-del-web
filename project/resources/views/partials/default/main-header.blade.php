@@ -68,12 +68,12 @@
                                                 <h3 class="product-name"><a href="{{ route('product',['id' => 1]) }}">{{$product->name}}</a></h3>
                                                 <h4 class="product-price"><span class="qty">{{$product->quantity}}x</span>${{$product->price*(100-$product->sale)/100}}</h4>
                                             </div>
-                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                            <a href="{{route('deleteCart',['id' => ($product->id)])}}"><button class="delete"><i class="fa fa-close"></i></button></a>
                                         </div>
                                     @endforeach
                                 </div>
                                 <div class="cart-summary">
-                                    <small>3 Item(s) selected</small>
+                                    <small>{{$cartCount}} Item(s) selected</small>
                                     <h5>SUBTOTAL: $2940.00</h5>
                                 </div>
                             @endif

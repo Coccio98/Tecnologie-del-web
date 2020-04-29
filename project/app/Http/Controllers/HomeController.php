@@ -9,6 +9,7 @@ use App\Product;
 use App\User;
 use ArrayObject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -75,6 +76,24 @@ class HomeController extends Controller
     public function deleteCart(Request $request, $id){
         Product::productsCartDelete($request->user()->id, $id);
         return redirect('cart');
+    }
+
+    public function addOrder(Request $request, $id){
+        Order::orderUpdateOrInsert($id, $request->user()->id);
+        return redirect(url()->previous());
+    }
+
+    public function checkout(Request $request){
+        $path = 'pages.checkout';
+        $product = Product::productsCartWhere($request->user()->id);
+        $address = Address::addressesWhere($request->user()->id);
+        $payment = PaymentMethod::paymentMethodsWhere($request->user()->id);
+        return view($path)->with('addresses',$address)->with('payments',$payment)->with('products',$product);
+    }
+
+    public function updateCartQuantity($productId,$quantity){
+        DB::table('cart')->where('product_id',$productId)->increment('quantity',$quantity);
+        return redirect('cart')->with('flash_message_success','Quantity update');
     }
 
 }

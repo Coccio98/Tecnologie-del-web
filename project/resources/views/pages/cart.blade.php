@@ -30,6 +30,9 @@
                             <input type="number" value="{{$product->quantity}}">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>
+                            <a class="qty-up" href="{{url ('/cart/update-quantity/'.$product->id.'/1')}}">+</a>
+                            <input id="qty" class="input form-control" type="number" name="name" value="{{$product->quantity}}" >
+                            <a class="qty-down" href="{{url ('/cart/update-quantity/'.$product->id.'/-1')}}">-</a>
                         </div>
                     </div>
                 </div>

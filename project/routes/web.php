@@ -20,7 +20,7 @@ Route::get('/product/{id}', 'FrontEndController@product')-> name('product');
 
 Route::get('/store', 'FrontEndController@store')-> name('store');
 
-Route::get('/checkout', 'HomeController@page')-> name('checkout');
+Route::get('/checkout', 'HomeController@checkout')-> name('checkout');
 
 Route::get('/wishlist', 'HomeController@page')-> name('wishlist');
 
@@ -68,3 +68,7 @@ Route::post('/addQuestion', 'FrontEndController@addQuestion')-> name('addQuestio
 Route::post('/addAnswer', 'FrontEndController@addAnswer')-> name('addAnswer');
 
 Route::get('/sizeColor', 'FrontEndController@sizeColor')-> name('sizeColor');
+
+Route::get('/cart/update-quantity/{id}/{quantity}','HomeController@updateCartQuantity');
+
+Route::get('checkout/add/{id}', 'HomeController@addOrder')->name('addOrder');
