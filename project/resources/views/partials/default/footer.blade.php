@@ -22,11 +22,10 @@
                     <div class="footer">
                         <h3 class="footer-title">Categories</h3>
                         <ul class="footer-links">
-                            <li><a href="#">Hot deals</a></li>
-                            <li><a href="#">Laptops</a></li>
-                            <li><a href="#">Smartphones</a></li>
-                            <li><a href="#">Cameras</a></li>
-                            <li><a href="#">Accessories</a></li>
+                            <li><a href="{{route('hotDeal-shop',['id'=> 1])}}">Hot deals</a></li>
+                            @foreach($categories as $category)
+                                <li><a href="{{route('store')}}?category={{$category->id}}">{{$category->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -52,7 +51,7 @@
                             <li><a href="{{ route('myaccount') }}">My Account</a></li>
                             <li><a href="{{ route('cart') }}">View Cart</a></li>
                             <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
-                            <li><a href="{{ route('myorder') }}">Track My Order</a></li>
+                            <li><a href="{{ route('myorder') }}">My Order</a></li>
                         </ul>
                     </div>
                 </div>

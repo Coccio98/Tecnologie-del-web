@@ -147,7 +147,7 @@ class FrontEndController extends Controller
             ];
         }
         return view($path)->with('brands', $brands)->with(compact('productsCategories'))
-            ->with(compact('products'))->with('path', $request->path())->with('showcase',$showcase)
+            ->with(compact('products'))->with('path', 'hotDeal-shop')->with('showcase',$showcase)
             ->with('key',0)->with('now',$now)->render();
     }
 
