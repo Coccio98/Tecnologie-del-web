@@ -34,4 +34,8 @@ class Address extends Model
     public static function addressDelete($addressId, $userId){
         return Address::where('user_id', $userId)->where('id', $addressId)->delete();
     }
+    public static function addressesWhereOrder($orderId){
+        return Address::join('orders', 'orders.address_id', '=', 'addresses.id')
+            ->where('orders.id', $orderId)->first();
+    }
 }

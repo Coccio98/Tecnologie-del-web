@@ -13,15 +13,18 @@
             <div class="payment-details">
                 <div class="product-body">
                     <p>Address</p>
-                    <h3 class="payment-name">Address</h3>
+                    <h3 class="payment-name">
+                        {{$address->address}}
+                        {{$address->city}}
+                        {{$address->country}}</h3>
                     <div class="row">
                         <div class="col-sm-5">
                             <p>Name</p>
-                            <h3 class="payment-name">Name</h3>
+                            <h3 class="payment-name">{{$address->name}}</h3>
                         </div>
                         <div class="col-sm-5">
                             <p class="payment-method">Payment Method</p>
-                            <h3 class="payment-name">Credit card end with:</h3>
+                            <h3 class="payment-name">Credit card end with: {{substr($order->cardNumber,-4)}}</h3>
                         </div>
                     </div>
                 </div>
@@ -31,59 +34,42 @@
                 <div class="row">
                     <div class="col-sm-5">
                         <h4>Delivery date:</h4>
-                        <h5>Date</h5>
+                        <h5>{{$order->delivery_date}}</h5>
                     </div>
                     <div class="col-sm-3">
                         <h4>Total:</h4>
-                        <h5>$</h5>
-                    </div>
-                    <div class="col-sm-4">
-                        <h4>Send to:</h4>
-                        <h5>Name</h5>
+                        <h5>${{$order->total}}</h5>
                     </div>
                 </div>
             </div>
-            @component('partials.reusable.order-product-details')
-                {{asset('images/product02.png')}}
-                @slot('category')
-                    Category
-                @endslot
-                @slot('name')
-                    product name goes here
-                @endslot
-                @slot('price')
-                    $980.00
-                @endslot
-                @slot('old_price')
-                    $990.00
-                @endslot
-                @slot('s')
-                    4
-                @endslot
-             @endcomponent
-
-            @component('partials.reusable.order-product-details')
-                {{asset('images/product06.png')}}
-                @slot('category')
-                    Category
-                @endslot
-                @slot('name')
-                    product name goes here
-                @endslot
-                @slot('price')
-                    $980.00
-                @endslot
-                @slot('old_price')
-                    $990.00
-                @endslot
-                @slot('s')
-                    3
-                 @endslot
-            @endcomponent
-
+            @foreach($products as $product)
+                @component('partials.reusable.order-product-details')
+                    @slot('image')
+                        <img src="@if(!empty($product->image)){{asset($product->image)}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                    @endslot
+                    @slot('category')
+                        Category
+                    @endslot
+                    @slot('name')
+                        {{$product->name}}
+                    @endslot
+                    @slot('id')
+                        {{$product->id}}
+                    @endslot
+                    @slot('price')
+                        ${{$product->price_stamp}}
+                    @endslot
+                    @slot('old_price')
+                        ${{$product->price}}
+                    @endslot
+                    @slot('s')
+                        {{$product->score}}
+                    @endslot
+                @endcomponent
+            @endforeach
             <div class="add-to-cart">
-                <a href="{{route('trackMyOrder',['id'=> 1])}}"><button class="add-to-cart-btn"><i class="fa fa-truck"></i>Track my order</button></a>
+                <a href="{{route('trackMyOrder',['id'=>$order->id])}}"><button class="add-to-cart-btn"><i class="fa fa-truck"></i>Track my order</button></a>
             </div>
-    @endcomponent
+            @endcomponent
         </div>
-    @endsection
+@endsection

@@ -13,26 +13,27 @@
 
             <div>
                 <div class="row text-center">
-                    <div class="col-md-4"><h3>Order No:  1</h3> </div>
-                    <div class="col-md-4"><h3>Total: 32$</h3> </div>
-                    <div class="col-md-4"><h3> Status: shipped</h3></div>
+                    <div class="col-md-4"><h3>Order No: {{$order -> number}}</h3> </div>
+                    <div class="col-md-4"><h3>Total: {{$order -> total}}</h3> </div>
+                    <div class="col-md-4"><h3> Status: {{$order -> status}}</h3></div>
                 </div>
 
                 <ol class="progtrckr" data-progtrckr-steps="5">
-                    <li class="progtrckr-done">Pending</li>
-                    <li class="progtrckr-done">Dispatched </li>
-                    <li class="progtrckr-done">Processed</li>
-                    <li class="progtrckr-done">Shipped</li>
-                    <li class="progtrckr-todo">Delivered</li>
+                    <li class=" @if($order -> shipping_id>='1')progtrckr-done @else progtrckr-todo @endif">Pending</li>
+                    <li class=" @if($order -> shipping_id>='2')progtrckr-done @else progtrckr-todo @endif">Dispatched</li>
+                    <li class=" @if($order -> shipping_id>='3')progtrckr-done @else progtrckr-todo @endif">Processed</li>
+                    <li class=" @if($order -> shipping_id>='4')progtrckr-done @else progtrckr-todo @endif">Shipped</li>
+                    <li class=" @if($order -> shipping_id>='5')progtrckr-done @else progtrckr-todo @endif">Delivered</li>
                 </ol>
 
                 <div class="col-md-3 address">
-                    <!--TODO sistemare appena aggiunte gli ordini nel db -->
-                    include('partials.reusable.address-order')
+                    @include('partials.reusable.address-order')
 
                 </div>
+                <div class="col-md-3 address">
+                    @include('partials.reusable.credit-card-view')
 
-                <!-- TODO agiungere metodo di pagamento-->
+                </div>
             </div>
         </div>
     @endcomponent

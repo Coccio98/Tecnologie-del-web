@@ -39,4 +39,21 @@ class Order extends Model
 
         }
     }
+    public static function trackMyOrder($ordersId)
+    {
+        return Order::join('shippings', 'orders.shipping_id', '=', 'shippings.id')
+            ->join('addresses', 'orders.address_id', '=', 'addresses.id')
+            ->join('payment_methods', 'orders.payment_method_id', '=', 'payment_methods.id')
+            ->where('orders.id', $ordersId)
+            ->select('orders.*', 'shippings.status', 'addresses.*', 'payment_methods.*')
+            ->first();
+    }
+    public static function orderDetails($ordersId)
+    {
+        return Order::join('shippings', 'orders.shipping_id', '=', 'shippings.id')
+            ->join('payment_methods', 'orders.payment_method_id', '=', 'payment_methods.id')
+            ->where('orders.id', $ordersId)
+            ->select('orders.*', 'shippings.status', 'payment_methods.cardNumber')
+            ->first();
+    }
 }

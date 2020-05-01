@@ -111,4 +111,19 @@ class AccountController extends Controller
         }
         return view($path)->with('orders',$orders)->with('products',$products);
     }
+    public static function trackMyOrder(Request $request, $id)
+    {
+        $path = 'pages.trackMyOrder';
+        $order = Order::trackMyOrder($id);
+        $address = Address::addressesWhereOrder($id);
+        return view($path)->with('path', $request->path())->with('order', $order)->with('address', $address);
+    }
+    public static function orderDetails(Request $request, $id)
+    {
+        $path = 'pages.order-details';
+        $order = Order::orderDetails($id);
+        $product = Product::orderProductWhere($id);
+        $address = Address::addressesWhereOrder($id);
+        return view($path)->with('path', $request->path())->with('order', $order)->with('products', $product)->with('address', $address);
+    }
 }

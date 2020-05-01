@@ -1,6 +1,6 @@
 <div class="product-wishlist">
     <div class="product-img">
-        <img src="{{$slot}}" alt="">
+        {{$image}}
     </div>
     <div class="product-body">
         <p class="product-category">{{$category}}</p>

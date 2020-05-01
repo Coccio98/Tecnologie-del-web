@@ -40,7 +40,7 @@
             </div>
 
             <div class="del-to-cart">
-                <a href="{{route('order-details')}}"><button class="del-to-cart-btn"> Order Details</button></a>
+                <a href="{{route('order-details',['id'=>$orders[$i]->id])}}"><button class="del-to-cart-btn"> Order Details</button></a>
             </div>
         </div>
     </div>

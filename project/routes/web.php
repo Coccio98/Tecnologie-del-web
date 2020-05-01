@@ -40,7 +40,7 @@ Route::get('/paymentOptions', 'HomeController@page')-> name('paymentOptions');
 
 Route::get('/security', 'HomeController@page')-> name('security');
 
-Route::get('/order-details', 'HomeController@page')-> name('order-details');
+Route::get('/order-details/{id}', 'HomeController@page')-> name('order-details');
 
 Route::get('/hotDeal-shop/{id}', 'FrontEndController@hotDeal')-> name('hotDeal-shop');
 
