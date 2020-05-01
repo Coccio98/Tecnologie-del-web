@@ -46,7 +46,12 @@ class RedeemTableSeeder extends Seeder
                 'used' => true,
                 'coupon_id' => '7',
                 'user_id' => '3'
-            ]
+            ],
+            [
+                'used' => false,
+                'coupon_id' => '1',
+                'user_id' => '2'
+            ],
         ]);
     }
 }

@@ -14,7 +14,6 @@
                     </ul>
                 </div>
             </div>
-{{--            TODO inteqrare con status--}}
             <div class="products-tabs">
                 <div id="tab1" class="tab-pane active">
                     @for($i = 0; $i< sizeof($orders); $i++)
@@ -23,14 +22,16 @@
                 </div>
                 <div id="tab2" class="tab-pane">
                     @for($i = 0; $i< sizeof($orders); $i++)
-                        test 1
-                        @include('partials.reusable.order-product')
+                        @if($orders[$i]->shipping_id != 6 && $orders[$i]->shipping_id != 5)
+                            @include('partials.reusable.order-product')
+                        @endif
                     @endfor
                 </div>
                 <div id="tab3" class="tab-pane">
                     @for($i = 0; $i< sizeof($orders); $i++)
-                        test 2
-                        @include('partials.reusable.order-product')
+                        @if($orders[$i]->shipping_id == 6)
+                            @include('partials.reusable.order-product')
+                        @endif
                     @endfor
                 </div>
             </div>

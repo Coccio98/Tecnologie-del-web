@@ -562,6 +562,7 @@ textarea.input {
 }
 
 .order-product {
+    width: 90%;
     position: relative;
     border: solid #B9BABC 1px;
     border-radius: 5px;
@@ -3231,3 +3232,7 @@ ol.progtrckr li.progtrckr-todo:before {
 }
 
 .pointer {cursor: pointer;}
+
+.d-block {
+    display: block !important;
+}

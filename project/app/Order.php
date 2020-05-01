@@ -20,7 +20,7 @@ class Order extends Model
             $id=Order::insertGetId(
                 ['user_id'=> (Auth::user()->id),
                     'number'=>'129',
-                    'total'=>((new Product)->subtotal()),
+                    'total'=>$request->total,
                     'payment_method_id'=>$request->payment,
                     'address_id'=>$request->address]);
 
@@ -35,6 +35,16 @@ class Order extends Model
                 Product::where('id',$product->id)
                     ->update(['selling_number'=>($product->selling_number + $product->quantity)]);
             }
+
+            $coupons= Coupon::couponsUserWhere($request->user()->id);
+            foreach ($coupons as $coupon) {
+                DB::table('redeem')->where('coupon_id', $coupon->id)
+                    ->where('user_id',$request->user()->id)
+                    ->update(['used'=>true]);
+            }
+
+            DB::table('cart')->where('user_id',$request->user()->id)->delete();
+
         }   catch (Exception $e){
 
         }

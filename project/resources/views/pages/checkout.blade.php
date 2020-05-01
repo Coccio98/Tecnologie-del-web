@@ -17,6 +17,7 @@
             <input type="submit" value="Apply" class="btn btn-default">
         </form>
         <form id="addOrder" action="{{route('addOrder')}}" method="post">
+            @csrf
             <div class="col-md-7">
                 <!-- Billing Details -->
 
@@ -33,9 +34,9 @@
                         </label>
                     @endforeach
                     @error('address')
-                    <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                     @enderror
                 </div>
                 <!-- /Billing Details -->
@@ -98,22 +99,23 @@
                     </div>
                     <div class="order-col">
                         <div><strong>Subtotal</strong></div>
-                        <div><strong class="order-total">${{$cart[0]->subtotal()}}</strong></div>
+                        <div><strong class="order-total">$@if(sizeof($cart)!=0){{$cart[0]->subtotal()}} @else 0 @endif</strong></div>
                     </div>
                     <div class="order-col">
                         <div><strong>Coupon discount</strong></div>
-                        <div><strong>-$0.00</strong></div>
+                        <div><strong>-$@if(sizeof($cart)!=0){{$cart[0]->subtotal()-$total}} @else 0 @endif</strong></div>
                     </div>
                     <div class="order-col">
                         <div><strong>TOTAL</strong></div>
-                        <div><strong class="order-total">${{$cart[0]->subtotal()}}</strong></div>
+                        <div><strong class="order-total">${{$total}}</strong></div>
                     </div>
+                    <input type="hidden" name="total" value="{{$total}}">
                 </div>
                 <div class="input-checkbox">
-                    <input type="checkbox" id="terms">
+                    <input type="checkbox" id="terms" name="privacy" required>
                     <label for="terms">
                         <span></span>
-                        I've read and accept the <a href="#">terms & conditions</a>
+                        I've read and accept the <a href="{{route('information')}}#privacy">terms & conditions</a>
                     </label>
                 </div>
 

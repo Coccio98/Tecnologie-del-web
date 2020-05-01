@@ -8,7 +8,7 @@
                     <h5>{{$orders[$i]->delivery_date}}</h5>
                 </div>
                 <div class="col-sm-3">
-                    <h4>Total:</h4>
+                    <h4>Total + Coupon:</h4>
                     <h5>${{$orders[$i]->total}}</h5>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="product-body">
-                        <p class="product-category">Category</p>
+                        <p class="product-category"><br/></p>
                         <h3 class="product-name"><a href="{{ route('product',['id' => $product->id]) }}">{{$product->name}}</a></h3>
                         @component('partials.reusable.stars')
                             @slot('s')

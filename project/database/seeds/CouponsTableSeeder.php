@@ -19,7 +19,7 @@ class CouponsTableSeeder extends Seeder
             ],[
                 'code'=>'89C5T148',
                 'amount'=>'20',
-                'expiry_date'=>'2020-12-31'
+                'expiry_date'=>'2020-04-30'
             ],[
                 'code'=>'65S1L482',
                 'amount'=>'20',

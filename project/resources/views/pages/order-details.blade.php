@@ -37,7 +37,7 @@
                         <h5>{{$order->delivery_date}}</h5>
                     </div>
                     <div class="col-sm-3">
-                        <h4>Total:</h4>
+                        <h4>Total + Coupon:</h4>
                         <h5>${{$order->total}}</h5>
                     </div>
                 </div>
@@ -57,10 +57,10 @@
                         {{$product->id}}
                     @endslot
                     @slot('price')
-                        ${{$product->price_stamp}}
+                        {{$product->price_stamp}}
                     @endslot
-                    @slot('old_price')
-                        ${{$product->price}}
+                    @slot('quantity')
+                        {{$product->quantity}}
                     @endslot
                     @slot('s')
                         {{$product->score}}

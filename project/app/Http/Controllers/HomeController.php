@@ -7,8 +7,6 @@ use App\Coupon;
 use App\Order;
 use App\PaymentMethod;
 use App\Product;
-use App\User;
-use ArrayObject;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -84,6 +82,8 @@ class HomeController extends Controller
         $request->validate([
             'address' => ['required'],
             'payment' => ['required'],
+            'total' => ['required'],
+            'privacy' => ['required'],
         ]);
         Order::orderUpdateOrInsert($request);
         return redirect('myorder');
@@ -93,8 +93,13 @@ class HomeController extends Controller
         $path = 'pages.checkout';
         $address = Address::addressesWhere($request->user()->id);
         $payment = PaymentMethod::paymentMethodsWhere($request->user()->id);
-        $data = $request->all();
-        return view($path)->with('addresses',$address)->with('payments',$payment)->with($data);
+        $coupons = Coupon::couponsUserWhere($request->user()->id);
+        $subtotal = (new Product())->subtotal();
+        foreach ($coupons as $coupon){
+            $subtotal *= ((100-$coupon->amount)/100);
+        }
+        return view($path)->with('addresses',$address)->with('payments',$payment)
+            ->with('coupons',$coupons)->with('total',$subtotal);
     }
 
     public function updateCartQuantity($productId,$quantity){
@@ -103,33 +108,32 @@ class HomeController extends Controller
     }
 
     public function applyCoupon(Request $request){
-        $data = $request->all();
-
-        $couponCount = Coupon::where('code',$data['coupon_code'])->count();
-        if($couponCount == 0){
+        $couponDetails = Coupon::couponWhere($request);
+        if(empty($couponDetails)){
             return redirect()->back()->with('error','This coupon does not exist!');
-        }else {
-            $couponDetails = Coupon::where('code',$data['coupon_code'])->first();
-
-            //coupon inactive
-            if($couponDetails->status == 0){
-                return redirect()->back()->with('error','This coupon is not active');
-            }
-
-            //coupon expired
-             $expiry_date = $couponDetails->expiry_date;
-             $current_date = date('Y-m-d');
-             if($expiry_date < $current_date){
-                 return redirect()->back()->with('error','This coupon is expired!');
-             }
-
-             //get cart total
-            $total_amount = ((new Product)->subtotal());
-
-             //coupon is valid for discount
-             $couponAmount = $total_amount *($couponDetails->amount/100);
         }
-                return redirect()->back()->with('success','Coupon code successfully applied');
+
+        //coupon inactive
+        if(!$couponDetails->status){
+            return redirect()->back()->with('error','This coupon is not active');
+        }
+
+        //coupon expired
+         $expiry_date = $couponDetails->expiry_date;
+         $current_date = date('Y-m-d');
+         if($expiry_date < $current_date){
+             return redirect()->back()->with('error','This coupon is expired!');
+         }
+
+         $couponUser= Coupon::couponUserWhere($request);
+
+         if(!empty($couponUser)){
+             return redirect()->back()->with('error','This coupon is already redeemed!');
+         }
+
+         Coupon::redeem($request->user()->id,$couponDetails->id);
+
+         return redirect()->back()->with('success','Coupon code successfully applied');
     }
 
 }

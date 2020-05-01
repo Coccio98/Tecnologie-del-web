@@ -34,13 +34,13 @@ Route::get('/address', 'HomeController@page')-> name('address');
 
 Route::get('/cart', 'HomeController@page')-> name('cart');
 
-Route::get('/trackMyOrder/{id}', 'HomeController@page')-> name('trackMyOrder');
+Route::get('/trackMyOrder/{id}', 'AccountController@trackMyOrder')-> name('trackMyOrder');
 
 Route::get('/paymentOptions', 'HomeController@page')-> name('paymentOptions');
 
 Route::get('/security', 'HomeController@page')-> name('security');
 
-Route::get('/order-details/{id}', 'HomeController@page')-> name('order-details');
+Route::get('/order-details/{id}', 'AccountController@orderDetails')-> name('order-details');
 
 Route::get('/hotDeal-shop/{id}', 'FrontEndController@hotDeal')-> name('hotDeal-shop');
 

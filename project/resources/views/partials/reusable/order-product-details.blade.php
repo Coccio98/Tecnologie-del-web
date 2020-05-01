@@ -10,6 +10,6 @@
                 {{$s}}
             @endslot
         @endcomponent
-        <h4 class="product-price">{{$price}} <del class="product-old-price">{{$old_price}}</del></h4>
+        <h4 class="product-price">{{$quantity}}x ${{$price}}</h4>
     </div>
 </div>
