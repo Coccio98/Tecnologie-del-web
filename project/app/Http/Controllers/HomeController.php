@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Coupon;
 use App\Order;
 use App\PaymentMethod;
 use App\Product;
 use App\User;
 use ArrayObject;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -91,12 +93,43 @@ class HomeController extends Controller
         $path = 'pages.checkout';
         $address = Address::addressesWhere($request->user()->id);
         $payment = PaymentMethod::paymentMethodsWhere($request->user()->id);
-        return view($path)->with('addresses',$address)->with('payments',$payment);
+        $data = $request->all();
+        return view($path)->with('addresses',$address)->with('payments',$payment)->with($data);
     }
 
     public function updateCartQuantity($productId,$quantity){
         DB::table('cart')->where('product_id',$productId)->increment('quantity',$quantity);
-        return redirect('cart')->with('flash_message_success','Quantity update');
+        return redirect('cart')->with('success','Quantity updated');
+    }
+
+    public function applyCoupon(Request $request){
+        $data = $request->all();
+
+        $couponCount = Coupon::where('code',$data['coupon_code'])->count();
+        if($couponCount == 0){
+            return redirect()->back()->with('error','This coupon does not exist!');
+        }else {
+            $couponDetails = Coupon::where('code',$data['coupon_code'])->first();
+
+            //coupon inactive
+            if($couponDetails->status == 0){
+                return redirect()->back()->with('error','This coupon is not active');
+            }
+
+            //coupon expired
+             $expiry_date = $couponDetails->expiry_date;
+             $current_date = date('Y-m-d');
+             if($expiry_date < $current_date){
+                 return redirect()->back()->with('error','This coupon is expired!');
+             }
+
+             //get cart total
+            $total_amount = ((new Product)->subtotal());
+
+             //coupon is valid for discount
+             $couponAmount = $total_amount *($couponDetails->amount/100);
+        }
+                return redirect()->back()->with('success','Coupon code successfully applied');
     }
 
 }

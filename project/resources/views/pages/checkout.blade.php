@@ -9,6 +9,13 @@
     @endcomponent
 
     @component('partials.reusable.section')
+        @include('flash-message')
+        <label>Coupon Code</label>
+        <form action="{{url('checkout/apply-coupon')}}" method="post">
+            {{csrf_field()}}
+            <input type="text" name="coupon_code">
+            <input type="submit" value="Apply" class="btn btn-default">
+        </form>
         <form id="addOrder" action="{{route('addOrder')}}" method="post">
             <div class="col-md-7">
                 <!-- Billing Details -->
@@ -90,19 +97,12 @@
                         <div><strong>FREE</strong></div>
                     </div>
                     <div class="order-col">
-                        <div>Have a coupon?</div>
-                        <div><strong><a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                    Click here to enter your code
-                                </a></strong></div>
+                        <div><strong>Subtotal</strong></div>
+                        <div><strong class="order-total">${{$cart[0]->subtotal()}}</strong></div>
                     </div>
-                    <div class="collapse" id="collapseExample">
-                        <div class="form-group">
-                            <form id="addCoupon" action="" method="post">
-                                @csrf
-                                <input type="text" name="coupon_code" placeholder="Coupon code">
-                                <input type="submit" value="Apply" class="btn btn-default" form="addCoupon">
-                            </form>
-                        </div>
+                    <div class="order-col">
+                        <div><strong>Coupon discount</strong></div>
+                        <div><strong>-$0.00</strong></div>
                     </div>
                     <div class="order-col">
                         <div><strong>TOTAL</strong></div>

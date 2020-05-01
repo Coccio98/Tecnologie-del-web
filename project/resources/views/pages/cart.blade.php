@@ -3,7 +3,7 @@
 @section('content')
 
     @component('partials.reusable.section')
-
+        @include('flash-message')
         <div class="col-md-7">
             <h3>Your Cart</h3>
             @foreach($cart as $product)

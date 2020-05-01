@@ -37,6 +37,7 @@
 
 @include('partials.default.footer')
 
+
 <!-- jQuery Plugins -->
 <script src="{{mix('/js/app.js')}}"></script>
 
