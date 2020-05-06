@@ -89,7 +89,7 @@
                         <div class="order-products">
                             <div class="order-col">
                                 <div>{{$product->quantity}}x {{$product->name}}</div>
-                                <div>${{$product->price*(100-$product->sale)/100}}</div>
+                                <div>${{number_format($product->price*(100-$product->sale)/100, 2, '.', ',')}}</div>
                             </div>
                         </div>
                     @endforeach
@@ -99,15 +99,15 @@
                     </div>
                     <div class="order-col">
                         <div><strong>Subtotal</strong></div>
-                        <div><strong class="order-total">$@if(sizeof($cart)!=0){{$cart[0]->subtotal()}} @else 0 @endif</strong></div>
+                        <div><strong class="order-total">$@if(sizeof($cart)!=0){{number_format($cart[0]->subtotal(), 2, '.', ',')}} @else 0 @endif</strong></div>
                     </div>
                     <div class="order-col">
                         <div><strong>Coupon discount</strong></div>
-                        <div><strong>-$@if(sizeof($cart)!=0){{$cart[0]->subtotal()-$total}} @else 0 @endif</strong></div>
+                        <div><strong>-$@if(sizeof($cart)!=0){{number_format(($cart[0]->subtotal()-$total), 2, '.', ',')}} @else 0 @endif</strong></div>
                     </div>
                     <div class="order-col">
                         <div><strong>TOTAL</strong></div>
-                        <div><strong class="order-total">${{$total}}</strong></div>
+                        <div><strong class="order-total">${{number_format($total, 2, '.', ',')}}</strong></div>
                     </div>
                     <input type="hidden" name="total" value="{{$total}}">
                 </div>

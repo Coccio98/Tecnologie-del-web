@@ -18,10 +18,10 @@ class CreateCartTable extends Migration
             $table->integer('quantity')->default(1);
             $table->decimal('total',10,2)->default(0);
             $table->timestamps();
-            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('stock_id');
             $table->unsignedBigInteger('user_id');
 
-            $table->foreign('product_id')->references('id')->on('products')
+            $table->foreign('stock_id')->references('id')->on('stocks')
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');

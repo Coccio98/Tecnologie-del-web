@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Exception;
 
@@ -18,13 +17,13 @@ class Order extends Model
     public static function orderUpdateOrInsert($request){
         try{
             $id=Order::insertGetId(
-                ['user_id'=> (Auth::user()->id),
+                ['user_id'=> ($request->user()->id),
                     'number'=>'129',
                     'total'=>$request->total,
                     'payment_method_id'=>$request->payment,
                     'address_id'=>$request->address]);
 
-            $cart= Product::productsCartWhere(Auth::user()->id);
+            $cart= Product::productsCartWhere($request->user()->id);
             foreach ($cart as $product) {
                 DB::table('compose')->updateOrInsert([
                     'price_stamp' => $product->price*(100-$product->sale)/100,

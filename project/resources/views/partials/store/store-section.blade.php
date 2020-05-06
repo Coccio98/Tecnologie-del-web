@@ -26,10 +26,10 @@
                     {{$products[$i]->id}}
                 @endslot
                 @slot('price')
-                    ${{$products[$i]->price*(100-$products[$i]->sale)/100}}
+                    ${{number_format(($products[$i]->price*(100-$products[$i]->sale)/100), 2, '.', ',')}}
                 @endslot
                 @slot('old_price')
-                    ${{$products[$i]->price}}
+                    ${{number_format($products[$i]->price, 2, '.', ',')}}
                 @endslot
                 @slot('s')
                     {{$products[$i]->score}}

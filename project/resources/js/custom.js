@@ -96,7 +96,7 @@ $(document).ready(function() {
     });
 });
 
-function test(){
+function sizeColor(){
     $.ajax({
         url : "/sizeColor?s=".concat($('#size-select option:selected').val()).concat('&p=').concat($('#product_id').val()),
         success : function (data) {
@@ -105,7 +105,19 @@ function test(){
     });
 }
 
-window.test=function(){test()};
+window.sizeColor=function(){sizeColor()};
+
+function sizeColorWishlist(id){
+    $.ajax({
+        url : "/sizeColor?s=".concat($('#'.concat(id).concat(' option:selected')).val())
+            .concat('&p=').concat($('#product_id_'.concat(id)).val()),
+        success : function (data) {
+            $("#color-select-".concat(id)).html(data);
+        }
+    });
+}
+
+window.sizeColorWishlist=function(id){sizeColorWishlist(id)};
 
 window.uncheckCategory=function(){uncheckCategory()};
 

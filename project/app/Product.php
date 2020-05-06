@@ -90,26 +90,15 @@ class Product extends Model
     }
 
     public static function productsCartWhere($userId){
-        return Product::join('cart', 'cart.product_id', '=', 'products.id')
+        return Product::join('stocks', 'products.id','=','stocks.product_id')
+            ->join('cart', 'cart.stock_id', '=', 'stocks.id')
             ->join('users','users.id','=','cart.user_id')->where('users.id',$userId)
             ->leftJoin('images','images.product_id','=','products.id')
             ->where(function ($query) {
                 $query->where('images.main', true)
                     ->orWhereNull('images.image');})
-            ->select('products.*', 'images.image','cart.quantity')->orderBy('cart.id')->get();
+            ->select('products.*', 'images.image','cart.quantity','cart.stock_id')->orderBy('cart.id')->get();
     }
-
-    public static function productsCartDelete($userId,$productId){
-        return DB::table('cart')->where('user_id',$userId)
-            ->where('product_id',$productId)->delete();
-    }
-
-    public static function productCartUpdateOrInsert($productId,$userId){
-        return DB::table('cart')->updateOrInsert(
-            ['user_id'=> $userId, 'product_id' =>$productId]
-        );
-    }
-
 
     public static function orderProductWhere($orderId){
         return Product::leftJoin('images','images.product_id','=','products.id')
@@ -138,6 +127,7 @@ class Product extends Model
             ->take(6)
             ->get();
     }
+
     public static function newProducts($category){
         $products= Product::join('belong', 'belong.product_id', '=', 'products.id')
             ->join('categories', 'categories.id', '=', 'belong.category_id')

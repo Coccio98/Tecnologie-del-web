@@ -12,7 +12,7 @@
             <div class="section-title">
                 <h3 class="title">Your Wishlist</h3>
             </div>
-            @foreach($data as $product)
+            @foreach($wishlist as $key=>$product)
                 @include('partials.reusable.wishlist-product')
             @endforeach
         </div>

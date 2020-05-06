@@ -7,6 +7,8 @@ use App\Coupon;
 use App\Order;
 use App\PaymentMethod;
 use App\Product;
+use App\Stock;
+use ArrayObject;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -41,8 +43,6 @@ class HomeController extends Controller
             $data =  $this->address($request);
         } elseif($request->path() === 'paymentOptions'){
             $data =  $this->payment($request);
-        } elseif($request->path() === 'wishlist'){
-            $data =  $this->wishlist($request);
         }
         return view($path)->with('path', $request->path())->with('data', $data);
     }
@@ -54,8 +54,24 @@ class HomeController extends Controller
     private function payment($request){
         return $payment = PaymentMethod::paymentMethodsWhere($request->user()->id);
     }
-    private function wishlist($request){
-        return $wishlist = Product::productsWishlistWhere($request->user()->id);
+
+    public function wishlist(Request $request){
+        $path = 'pages.'.($request->path());
+        $wishlist = Product::productsWishlistWhere($request->user()->id);
+
+        $productsSizes = new ArrayObject();
+        $colors = new ArrayObject();
+        foreach ($wishlist as $key=>$product) {
+            $productsSizes->append(Stock::sizeStockWhere($product->id));
+            if (!empty($productsSizes[$key][0])) {
+                $colors->append(Stock::colorStockWhere($product->id, $productsSizes[$key][0]->size));
+            } else {
+                $colors->append(null);
+            }
+        }
+
+        return view($path)->with('path', $request->path())->with('wishlist', $wishlist)
+            ->with('productsSizes', $productsSizes)->with('colors', $colors);
     }
 
     public function addWishlist(Request $request, $id){
@@ -69,12 +85,18 @@ class HomeController extends Controller
     }
 
     public function addToCart(Request $request, $id){
-        Product::productCartUpdateOrInsert($id, $request->user()->id);
+        $request->validate([
+            'size' => ['required'],
+            'color' => ['required'],
+            'quantity' => ['required']
+        ]);
+        $stock=Stock::stockWhere($id,$request->size,$request->color);
+        Stock::productCartUpdateOrInsert($stock->id, $request->user()->id,$request->quantity);
         return redirect(url()->previous());
     }
 
     public function deleteCart(Request $request, $id){
-        Product::productsCartDelete($request->user()->id, $id);
+        Stock::productsCartDelete($request->user()->id, $id);
         return redirect('cart');
     }
 
@@ -102,8 +124,8 @@ class HomeController extends Controller
             ->with('coupons',$coupons)->with('total',$subtotal);
     }
 
-    public function updateCartQuantity($productId,$quantity){
-        DB::table('cart')->where('product_id',$productId)->increment('quantity',$quantity);
+    public function updateCartQuantity($stockId,$quantity){
+        Stock::updateCartQuantity($stockId,$quantity);
         return redirect('cart')->with('success','Quantity updated');
     }
 

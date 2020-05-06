@@ -14,7 +14,7 @@
             <div>
                 <div class="row text-center">
                     <div class="col-md-4"><h3>Order No: {{$order -> number}}</h3> </div>
-                    <div class="col-md-4"><h3>Total: {{$order -> total}}</h3> </div>
+                    <div class="col-md-4"><h3>Total: ${{number_format($order -> total, 2, '.', ',')}}</h3> </div>
                     <div class="col-md-4"><h3> Status: {{$order -> status}}</h3></div>
                 </div>
 

@@ -65,16 +65,16 @@
                                                 <img src="@if(!empty($product->image)){{asset($product->image)}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
                                             </div>
                                             <div class="product-body">
-                                                <h3 class="product-name"><a href="{{ route('product',['id' => 1]) }}">{{$product->name}}</a></h3>
-                                                <h4 class="product-price"><span class="qty">{{$product->quantity}}x</span>${{$product->price*(100-$product->sale)/100}}</h4>
+                                                <h3 class="product-name"><a href="{{ route('product',['id' => $product->id]) }}">{{$product->name}}</a></h3>
+                                                <h4 class="product-price"><span class="qty">{{$product->quantity}}x</span>${{number_format($product->price*(100-$product->sale)/100, 2, '.', ',')}}</h4>
                                             </div>
-                                            <a href="{{route('deleteCart',['id' => ($product->id)])}}"><button class="delete"><i class="fa fa-close"></i></button></a>
+                                            <a href="{{route('deleteCart',['id' => ($product->stock_id)])}}"><button class="delete"><i class="fa fa-close"></i></button></a>
                                         </div>
                                     @endforeach
                                 </div>
                                 <div class="cart-summary">
                                     <small>{{$cartCount}} Item(s) selected</small>
-                                    <h5>SUBTOTAL: $@if(sizeof($cart)!=0){{$cart[0]->subtotal()}} @else 0 @endif</h5>
+                                    <h5>SUBTOTAL: $@if(sizeof($cart)!=0){{number_format($cart[0]->subtotal(), 2, '.', ',')}} @else 0 @endif</h5>
                                 </div>
                             @endif
                             <div class="cart-btns">

@@ -17,7 +17,7 @@ class CreateStocksTable extends Migration
             $table->id();
             $table->string('color', 100);
             $table->string('size', 100);
-            $table->integer('quantity')->default(0);
+            $table->integer('number')->default(0);
             $table->timestamps();
             $table->unsignedBigInteger('product_id');
 

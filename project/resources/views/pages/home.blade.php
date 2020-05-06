@@ -68,10 +68,10 @@
                                     {{$product->id}}
                                 @endslot
                                 @slot('price')
-                                    ${{$product->price*(100-$product->sale)/100}}
+                                    ${{number_format(($product->price*(100-$product->sale)/100), 2, '.', ',')}}
                                 @endslot
                                 @slot('old_price')
-                                    ${{$product->price}}
+                                    ${{number_format($product->price, 2, '.', ',')}}
                                 @endslot
                                 @slot('s')
                                     {{$product->score}}
@@ -104,10 +104,10 @@
                                     {{$product->id}}
                                 @endslot
                                 @slot('price')
-                                    ${{$product->price*(100-$product->sale)/100}}
+                                    ${{number_format(($product->price*(100-$product->sale)/100), 2, '.', ',')}}
                                 @endslot
                                 @slot('old_price')
-                                    ${{$product->price}}
+                                    ${{number_format($product->price, 2, '.', ',')}}
                                 @endslot
                                 @slot('s')
                                     {{$product->score}}
@@ -140,10 +140,10 @@
                                     {{$product->id}}
                                 @endslot
                                 @slot('price')
-                                    ${{$product->price*(100-$product->sale)/100}}
+                                    ${{number_format(($product->price*(100-$product->sale)/100), 2, '.', ',')}}
                                 @endslot
                                 @slot('old_price')
-                                    ${{$product->price}}
+                                    ${{number_format($product->price, 2, '.', ',')}}
                                 @endslot
                                 @slot('s')
                                     {{$product->score}}
@@ -176,10 +176,10 @@
                                     {{$product->id}}
                                 @endslot
                                 @slot('price')
-                                    ${{$product->price*(100-$product->sale)/100}}
+                                    ${{number_format(($product->price*(100-$product->sale)/100), 2, '.', ',')}}
                                 @endslot
                                 @slot('old_price')
-                                    ${{$product->price}}
+                                    ${{number_format($product->price, 2, '.', ',')}}
                                 @endslot
                                 @slot('s')
                                     {{$product->score}}
@@ -242,10 +242,10 @@
                                     {{$product->id}}
                                 @endslot
                                 @slot('price')
-                                    ${{$product->price*(100-$product->sale)/100}}
+                                    ${{number_format(($product->price*(100-$product->sale)/100), 2, '.', ',')}}
                                 @endslot
                                 @slot('old_price')
-                                    ${{$product->price}}
+                                    ${{number_format($product->price, 2, '.', ',')}}
                                 @endslot
                                 @slot('s')
                                     {{$product->score}}
@@ -278,10 +278,10 @@
                                     {{$product->id}}
                                 @endslot
                                 @slot('price')
-                                    ${{$product->price*(100-$product->sale)/100}}
+                                    ${{number_format(($product->price*(100-$product->sale)/100), 2, '.', ',')}}
                                 @endslot
                                 @slot('old_price')
-                                    ${{$product->price}}
+                                    ${{number_format($product->price, 2, '.', ',')}}
                                 @endslot
                                 @slot('s')
                                     {{$product->score}}
@@ -314,10 +314,10 @@
                                     {{$product->id}}
                                 @endslot
                                 @slot('price')
-                                    ${{$product->price*(100-$product->sale)/100}}
+                                    ${{number_format(($product->price*(100-$product->sale)/100), 2, '.', ',')}}
                                 @endslot
                                 @slot('old_price')
-                                    ${{$product->price}}
+                                    ${{number_format($product->price, 2, '.', ',')}}
                                 @endslot
                                 @slot('s')
                                     {{$product->score}}
@@ -350,10 +350,10 @@
                                     {{$product->id}}
                                 @endslot
                                 @slot('price')
-                                    ${{$product->price*(100-$product->sale)/100}}
+                                    ${{number_format(($product->price*(100-$product->sale)/100), 2, '.', ',')}}
                                 @endslot
                                 @slot('old_price')
-                                    ${{$product->price}}
+                                    ${{number_format($product->price, 2, '.', ',')}}
                                 @endslot
                                 @slot('s')
                                     {{$product->score}}
@@ -388,10 +388,10 @@
                                 {{$newProducts[0][$i]->id}}
                             @endslot
                             @slot('price')
-                                ${{$newProducts[0][$i]->price*(100-$newProducts[0][$i]->sale)/100}}
+                                ${{number_format(($newProducts[0][$i]->price*(100-$newProducts[0][$i]->sale)/100), 2, '.', ',')}}
                             @endslot
                             @slot('old_price')
-                                ${{$newProducts[0][$i]-> price}}
+                                ${{number_format($newProducts[0][$i]-> price, 2, '.', ',')}}
                             @endslot
                         @endcomponent
                         @if($i+1 == 3)
@@ -413,7 +413,7 @@
                         @component('partials.reusable.widget')
                             @if(!empty($topSelling[0][$i]->image)){{$topSelling[0][$i]->image}}@else {{asset('images/no_image.jpg')}} @endif
                             @slot('category')
-                                {{$topSelling[0][$i]->category}}
+                                <br/>
                             @endslot
                             @slot('name')
                                 {{$topSelling[0][$i]-> name}}
@@ -422,10 +422,10 @@
                                 {{$topSelling[0][$i]->id}}
                             @endslot
                             @slot('price')
-                                ${{$topSelling[0][$i]->price*(100-$topSelling[0][$i]->sale)/100}}
+                                ${{number_format(($topSelling[0][$i]->price*(100-$topSelling[0][$i]->sale)/100), 2, '.', ',')}}
                             @endslot
                             @slot('old_price')
-                                ${{$topSelling[0][$i]-> price}}
+                                ${{number_format($topSelling[0][$i]-> price, 2, '.', ',')}}
                             @endslot
                         @endcomponent
                         @if($i+1 == 3)

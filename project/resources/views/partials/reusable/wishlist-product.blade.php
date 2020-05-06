@@ -13,12 +13,41 @@
             @endslot
         @endcomponent
 
-        <h4 class="product-price">${{$product->price*(100-$product->sale)/100}} <del class="product-old-price">{{$product->price}}</del></h4>
+        <h4 class="product-price">${{number_format($product->price*(100-$product->sale)/100, 2, '.', ',')}} <del class="product-old-price">{{number_format($product->price, 2, '.', ',')}}</del></h4>
 
-        <div class="add-to-cart">
-            <a href="{{route('addToCart',['id' => ($product->id)])}}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button></a>
-        </div>
+        <form id="addCart" action="{{route('addToCart',['id' => ($product->id)])}}" method="post">
+            @csrf
+            <div class="product-options">
+                <input id="product_id_{{$key}}" type="hidden" value="{{$product->id}}">
+                <label>
+                    Size
+                    <select id='{{$key}}' class="input-select" name="size" onchange="sizeColorWishlist(this.id)">
+                        @foreach($productsSizes[$key] as $size)
+                            <option value="{{$size->size}}">{{$size->size}}</option>
+                        @endforeach
+                    </select>
+                </label>
+                <label>
+                    Color
+                    <select id='color-select-{{$key}}' class="input-select" name="color">
+                        @include('partials.wishlist.colorWishlist')
+                    </select>
+                </label>
+                <label class="qty-label">
+                    Qty
+                    <div class="input-number" >
+                        <input type="number" name="quantity" value="1">
+                        <span class="qty-up">+</span>
+                        <span class="qty-down">-</span>
+                    </div>
+                </label>
+            </div>
 
+            <div class="add-to-cart">
+
+                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+            </div>
+        </form>
         <div class="del-to-cart">
             <a href="{{route('deleteWishlist',['id' => ($product->id)])}}"><button class="del-to-cart-btn"><i class="fa fa-trash"></i> Delete</button></a>
         </div>

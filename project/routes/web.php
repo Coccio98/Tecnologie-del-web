@@ -22,7 +22,7 @@ Route::get('/store', 'FrontEndController@store')-> name('store');
 
 Route::get('/checkout', 'HomeController@checkout')-> name('checkout');
 
-Route::get('/wishlist', 'HomeController@page')-> name('wishlist');
+Route::get('/wishlist', 'HomeController@wishlist')-> name('wishlist');
 
 Route::get('/information', 'FrontEndController@page')-> name('information');
 
@@ -61,7 +61,7 @@ Route::get('wishlist/delete/{id}', 'HomeController@deleteWishlist')->name('delet
 Route::get('wishlist/add/{id}', 'HomeController@addWishlist')->name('addWishlist');
 
 Route::get('cart/delete/{id}', 'HomeController@deleteCart')->name('deleteCart');
-Route::get('cart/add/{id}', 'HomeController@addToCart')->name('addToCart');
+Route::post('cart/add/{id}', 'HomeController@addToCart')->name('addToCart');
 
 Route::post('/addReview', 'FrontEndController@addReview')-> name('addReview');
 Route::post('/addQuestion', 'FrontEndController@addQuestion')-> name('addQuestion');

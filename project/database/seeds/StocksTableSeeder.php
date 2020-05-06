@@ -15,49 +15,49 @@ class StocksTableSeeder extends Seeder
             [
                 'color'=>'red',
                 'size'=>'small',
-                'quantity'=>'2',
+                'number'=>'2',
                 'product_id'=>'1'
             ],
             [
                 'color'=>'blue',
                 'size'=>'large',
-                'quantity'=>'99',
+                'number'=>'99',
                 'product_id'=>'4'
             ],
             [
                 'color'=>'green',
                 'size'=>'medium',
-                'quantity'=>'51',
+                'number'=>'51',
                 'product_id'=>'2'
             ],
             [
                 'color'=>'grey',
                 'size'=>'small',
-                'quantity'=>'62',
+                'number'=>'62',
                 'product_id'=>'5'
             ],
             [
                 'color'=>'black',
                 'size'=>'large',
-                'quantity'=>'23',
+                'number'=>'23',
                 'product_id'=>'3'
             ],
             [
                 'color'=>'blue',
                 'size'=>'small',
-                'quantity'=>'4',
+                'number'=>'4',
                 'product_id'=>'1'
             ],
             [
                 'color'=>'green',
                 'size'=>'small',
-                'quantity'=>'7',
+                'number'=>'7',
                 'product_id'=>'1'
             ],
             [
                 'color'=>'green',
                 'size'=>'big',
-                'quantity'=>'7',
+                'number'=>'7',
                 'product_id'=>'1'
             ],
         ]);

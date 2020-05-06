@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-3">
                     <h4>Total + Coupon:</h4>
-                    <h5>${{$orders[$i]->total}}</h5>
+                    <h5>${{number_format($orders[$i]->total, 2, '.', ',')}}</h5>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                                 {{$product->score}}
                             @endslot
                         @endcomponent
-                        <h4 class="product-price"> {{$product->quantity}}x ${{$product->price_stamp}}</h4>
+                        <h4 class="product-price"> {{$product->quantity}}x ${{number_format($product->price_stamp, 2, '.', ',')}}</h4>
                     </div>
                 </div>
             @endforeach

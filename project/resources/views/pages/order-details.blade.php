@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-sm-3">
                         <h4>Total + Coupon:</h4>
-                        <h5>${{$order->total}}</h5>
+                        <h5>${{number_format($order->total, 2, '.', ',')}}</h5>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                         {{$product->id}}
                     @endslot
                     @slot('price')
-                        {{$product->price_stamp}}
+                        {{number_format($product->price_stamp, 2, '.', ',')}}
                     @endslot
                     @slot('quantity')
                         {{$product->quantity}}

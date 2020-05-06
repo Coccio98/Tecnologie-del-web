@@ -1933,6 +1933,22 @@ textarea.input {
     -webkit-transition: 0.2s all;
     transition: 0.2s all;
 }
+.product-wishlist .product-body .product-options {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.product-wishlist .product-body .product-options label {
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-right: 15px;
+    margin-bottom: 0px;
+}
+
+.product-wishlist .product-body .product-options .input-select {
+    width: 90px;
+}
 
 .product-wishlist .product-body .product-btns>button:hover {
     background-color: #E4E7ED;
@@ -2007,6 +2023,7 @@ textarea.input {
     -webkit-transition: 0.2s all;
     transition: 0.2s all;
     z-index: 2;
+    margin-left: 70%;
 }
 
 .product-wishlist .del-to-cart .del-to-cart-btn {
@@ -2416,7 +2433,7 @@ textarea.input {
   visibility: visible;
 }
 
-.product-details .add-to-cart .qty-label {
+.product-details .add-to-cart .qty-label,.product-options .qty-label {
   display: inline-block;
   font-weight: 500;
   font-size: 12px;
@@ -2425,7 +2442,7 @@ textarea.input {
   margin-bottom: 0px;
 }
 
-.product-details .add-to-cart .qty-label .input-number {
+.product-details .add-to-cart .qty-label .input-number,.product-options .qty-label .input-number {
   width: 90px;
   display: inline-block;
 }

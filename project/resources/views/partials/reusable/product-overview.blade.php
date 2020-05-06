@@ -13,12 +13,9 @@
             @endslot
         @endcomponent
         <div class="product-btns">
-            <a href="{{ route('addWishlist',['id' => $id]) }}"><button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button></a>
-            <a href="{{ route('product',['id' => $id]) }}"><button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button></a>
+            <a href="{{ route('addWishlist',['id' => $id]) }}"><button class="add-to-wishlist" type="button"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button></a>
+            <a href="{{ route('product',['id' => $id]) }}"><button class="quick-view" type="button"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button></a>
         </div>
-    </div>
-    <div class="add-to-cart">
-        <a href="{{route('addToCart',['id' => ($id)])}}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button></a>
     </div>
 </div>
 <!-- /product -->

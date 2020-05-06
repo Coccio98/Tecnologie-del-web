@@ -51,10 +51,10 @@
                         {{$related[$i]->id}}
                     @endslot
                     @slot('price')
-                        ${{$related[$i]->price*(100-$related[$i]->sale)/100}}
+                        ${{number_format($related[$i]->price*(100-$related[$i]->sale)/100, 2, '.', ',')}}
                     @endslot
                     @slot('old_price')
-                        ${{$related[$i]->price}}
+                        ${{number_format($related[$i]->price, 2, '.', ',')}}
                     @endslot
                     @slot('s')
                         {{$related[$i]->score}}
