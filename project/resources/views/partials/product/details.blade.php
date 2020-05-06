@@ -58,15 +58,6 @@
                 <li><a href="{{ route('store') }}?category={{$productCategory->id}}">{{$productCategory->name}}</a></li>
             @endforeach
         </ul>
-
-        <ul class="product-links">
-            <li>Share:</li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-envelope"></i></a></li>
-        </ul>
-
     </div>
 </div>
 <!-- /Product details -->

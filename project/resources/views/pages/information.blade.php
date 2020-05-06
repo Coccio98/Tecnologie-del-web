@@ -22,7 +22,7 @@
                 <h3 id="about">About Us</h3>
 
                 <p>We are an e-commerce platform specialised on selling Computer, Smartphone and other Informatic and Electronic stuff. <br/>
-                    Our physical address is 1734 Stonecoal Road.
+                    Our physical address is Via Camponeschi, 19 Piazza Santa Margherita, 2 Palazzo Camponeschi, 67100 L'Aquila AQ.
                 </p>
                 <h4>Who are we</h4>
                 <p>
@@ -46,11 +46,11 @@
 
                 <p>Do you have questions? Contact us! </p>
                 <h4>Our Number</h4>
-                <p>+021-95-51-84</p>
+                <p>+390123456789</p>
                 <h4>Our Address</h4>
-                <p>1734 Stonecoal Road</p>
+                <p>Via Camponeschi, 19 Piazza Santa Margherita, 2 Palazzo Camponeschi, 67100 L'Aquila AQ</p>
                 <h4>Our E-mail</h4>
-                <p>email@email.com</p>
+                <p>info-electro@example.com</p>
             </div>
             <div class="info">
                 <h3 id="privacy">Privacy Policy</h3>
