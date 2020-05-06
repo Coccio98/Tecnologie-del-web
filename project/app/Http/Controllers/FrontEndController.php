@@ -47,12 +47,25 @@ class FrontEndController extends Controller
         $product = Product::productWhere($id);
         $images = Image::imagesWhere($id);
         $reviews = Review::reviewsWhere($id)->paginate(3,['*'], 'reviewPag');
-        $productCategories= Category::categoryProductWhere($product->id);
-        $productSizes= Stock::sizeStockWhere($product->id);
+        $productCategories = Category::categoryProductWhere($product->id);
+        $productSizes = Stock::sizeStockWhere($product->id);
+        $availability = true;
+
         if(!empty($productSizes[0])) {
             $colors = Stock::colorStockWhere($product->id, $productSizes[0]->size);
         } else {
             $colors = null;
+        }
+
+        if(empty($productSizes[0]) || $colors == null){
+            $availability = false;
+
+        } else{
+            $firststock=Stock::stockWhere($product->id, $productSizes[0]->size,$colors[0]->color);
+
+            if($firststock->number == 0) {
+                $availability = false;
+            }
         }
         $questions = Question::questionsWhere($id);
         $answers = new ArrayObject();
@@ -101,7 +114,7 @@ class FrontEndController extends Controller
         return view($path)->with('path', $request->path())->with('product', $product)->with('productCategories',$productCategories)
             ->with('images', $images)->with(compact('reviews'))->with('related', $related)->with('now',$now)
             ->with('questions',$questions)->with('answers',$answers)->with('n',$n)->with('totRating', sizeof($ratings))
-            ->with('productSizes', $productSizes)->with('colors',$colors)
+            ->with('productSizes', $productSizes)->with('colors',$colors)->with('availability',$availability)
             ->render();
     }
 
@@ -109,8 +122,16 @@ class FrontEndController extends Controller
         $colors=Stock::colorStockWhere($request->p,$request->s);
         return view('partials.product.color')->with('colors', $colors);
     }
+    public static function availability(Request $request){
+        $firststock=Stock::stockWhere($request->p, $request->s,$request->c);
 
-
+        if($firststock->number == 0) {
+            $availability = false;
+        } else {
+            $availability = true;
+        }
+        return $availability;
+    }
     public static function store(Request $request){
         $path = 'pages.store';
         $brands=Brand::all();

@@ -68,6 +68,7 @@ Route::post('/addQuestion', 'FrontEndController@addQuestion')-> name('addQuestio
 Route::post('/addAnswer', 'FrontEndController@addAnswer')-> name('addAnswer');
 
 Route::get('/sizeColor', 'FrontEndController@sizeColor')-> name('sizeColor');
+Route::get('/availability', 'FrontEndController@availability')-> name('availability');
 
 Route::get('/cart/update-quantity/{id}/{quantity}','HomeController@updateCartQuantity');
 

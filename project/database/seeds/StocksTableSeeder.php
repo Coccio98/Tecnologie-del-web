@@ -45,7 +45,7 @@ class StocksTableSeeder extends Seeder
             [
                 'color'=>'blue',
                 'size'=>'small',
-                'number'=>'4',
+                'number'=>'0',
                 'product_id'=>'1'
             ],
             [

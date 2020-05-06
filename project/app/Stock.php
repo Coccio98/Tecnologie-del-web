@@ -22,7 +22,7 @@ class Stock extends Model
     public static function stockWhere($productId,$sizeName,$colorName){
         return Stock::where('stocks.product_id', $productId)
             ->where('stocks.size', $sizeName)
-            ->where('stocks.color', $colorName)->select('stocks.id')->first();
+            ->where('stocks.color', $colorName)->select('stocks.id','stocks.number')->first();
     }
 
     public static function productsCartDelete($userId,$stockId){

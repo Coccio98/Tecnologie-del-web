@@ -46265,6 +46265,7 @@ function sizeColor() {
     url: "/sizeColor?s=".concat($('#size-select option:selected').val()).concat('&p=').concat($('#product_id').val()),
     success: function success(data) {
       $("#color-select").html(data);
+      availability();
     }
   });
 }
@@ -46278,6 +46279,7 @@ function sizeColorWishlist(id) {
     url: "/sizeColor?s=".concat($('#'.concat(id).concat(' option:selected')).val()).concat('&p=').concat($('#product_id_'.concat(id)).val()),
     success: function success(data) {
       $("#color-select-".concat(id)).html(data);
+      availabilityWishlist(id);
     }
   });
 }
@@ -46313,6 +46315,45 @@ function uncheckBrand() {
 
   $('#myForm').submit();
 }
+
+function availability() {
+  $.ajax({
+    url: "/availability?s=".concat($('#size-select option:selected').val()).concat('&c=').concat($('#color-select option:selected').val()).concat('&p=').concat($('#product_id').val()),
+    success: function success(data) {
+      if (data) {
+        $("#product-available").html('In Stock');
+        $("#add-btn").prop('disabled', false);
+      } else {
+        $("#product-available").html('Out of Stock');
+        $("#add-btn").prop('disabled', true);
+      }
+    }
+  });
+}
+
+window.availability = function () {
+  availability();
+};
+
+function availabilityWishlist(id) {
+  var key = id.replace('color-select-', '');
+  $.ajax({
+    url: "/availability?s=".concat($('#'.concat(key).concat(' option:selected')).val()).concat('&c=').concat($('#color-select-'.concat(key).concat(' option:selected')).val()).concat('&p=').concat($('#product_id_'.concat(key)).val()),
+    success: function success(data) {
+      if (data) {
+        $("#product-available-".concat(key)).html('In Stock');
+        $("#add-btn-".concat(key)).prop('disabled', false);
+      } else {
+        $("#product-available-".concat(key)).html('Out of Stock');
+        $("#add-btn-".concat(key)).prop('disabled', true);
+      }
+    }
+  });
+}
+
+window.availabilityWishlist = function (id) {
+  availabilityWishlist(id);
+};
 
 /***/ }),
 

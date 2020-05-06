@@ -12,7 +12,7 @@
         </div>
         <div>
             <h3 class="product-price"> ${{number_format(($product->price*(100-$product->sale)/100), 2, '.', ',')}} <del class="product-old-price">${{number_format($product->price, 2, '.', ',')}}</del></h3>
-            <span class="product-available">In Stock</span>
+            <span id="product-available" class="product-available">@if($availability)In Stock @else Out of Stock @endif</span>
         </div>
         <p>{{$product->summary}}</p>
 
@@ -30,7 +30,7 @@
                 </label>
                 <label>
                     Color
-                    <select id='color-select' class="input-select" name="color">
+                    <select id='color-select' class="input-select" name="color" onchange="availability()">
                         @include('partials.product.color')
                     </select>
                 </label>
@@ -45,7 +45,7 @@
                         <span class="qty-down">-</span>
                     </div>
                 </div>
-                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                <button id="add-btn" class="add-to-cart-btn" @if(!$availability) disabled @endif><i class="fa fa-shopping-cart"></i> add to cart</button>
             </div>
         </form>
         <ul class="product-btns">

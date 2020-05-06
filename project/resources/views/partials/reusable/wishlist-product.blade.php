@@ -4,7 +4,11 @@
         <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
     </div>
     <div class="product-body">
-        <p class="product-category">Category</p>
+        <p class="product-category">
+            @foreach($productsCategories[$key] as $productsCategory)
+                {{$productsCategory->name}}
+            @endforeach
+        </p>
         <h3 class="product-name"><a href="{{route('product',['id' => ($product->id)])}}">{{$product->name}}</a></h3>
 
         @component('partials.reusable.stars')
@@ -29,7 +33,7 @@
                 </label>
                 <label>
                     Color
-                    <select id='color-select-{{$key}}' class="input-select" name="color">
+                    <select id='color-select-{{$key}}' class="input-select" name="color" onchange="availabilityWishlist(this.id)">
                         @include('partials.wishlist.colorWishlist')
                     </select>
                 </label>
@@ -44,8 +48,8 @@
             </div>
 
             <div class="add-to-cart">
-
-                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                <span id="product-available-{{$key}}" class="product-available">@if($availability[$key])In Stock @else Out of Stock @endif</span>
+                <button id="add-btn-{{$key}}" class="add-to-cart-btn" @if(!$availability[$key]) disabled @endif><i class="fa fa-shopping-cart"></i> add to cart</button>
             </div>
         </form>
         <div class="del-to-cart">

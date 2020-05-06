@@ -42,36 +42,41 @@
                     </div>
                 </div>
             </div>
-            @for($i=0; $i<sizeof($products); $i++)
-                @component('partials.reusable.order-product-details')
-                    @slot('image')
-                        <img src="@if(!empty($products[$i]->image)){{asset($products[$i]->image)}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
-                    @endslot
-                        @slot('category')
-                            @foreach($productsCategories[$i] as $productsCategory)
-                                {{$productsCategory->name}}
-                            @endforeach
+            <div class="row">
+                @for($i=0; $i<sizeof($products); $i++)
+                    @component('partials.reusable.order-product-details')
+                        @slot('image')
+                            <img src="@if(!empty($products[$i]->image)){{asset($products[$i]->image)}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
                         @endslot
-                    @slot('name')
-                        {{$products[$i]->name}}
-                    @endslot
-                    @slot('id')
-                        {{$products[$i]->id}}
-                    @endslot
-                    @slot('price')
-                        {{number_format($products[$i]->price_stamp, 2, '.', ',')}}
-                    @endslot
-                    @slot('quantity')
-                        {{$products[$i]->quantity}}
-                    @endslot
-                    @slot('s')
-                        {{$products[$i]->score}}
-                    @endslot
-                @endcomponent
-            @endfor
-            <div class="add-to-cart">
-                <a href="{{route('trackMyOrder',['id'=>$order->id])}}"><button class="add-to-cart-btn"><i class="fa fa-truck"></i>Track my order</button></a>
+                            @slot('category')
+                                @foreach($productsCategories[$i] as $productsCategory)
+                                    {{$productsCategory->name}}
+                                @endforeach
+                            @endslot
+                        @slot('name')
+                            {{$products[$i]->name}}
+                        @endslot
+                        @slot('id')
+                            {{$products[$i]->id}}
+                        @endslot
+                        @slot('price')
+                            {{number_format($products[$i]->price_stamp, 2, '.', ',')}}
+                        @endslot
+                        @slot('quantity')
+                            {{$products[$i]->quantity}}
+                        @endslot
+                        @slot('s')
+                            {{$products[$i]->score}}
+                        @endslot
+                    @endcomponent
+                @endfor
+                <div class="col-md-4">
+                    <div class="add-to-cart">
+                        <a href="{{route('trackMyOrder',['id'=>$order->id])}}"><button class="add-to-cart-btn"><i class="fa fa-truck"></i>Track my order</button></a>
+                    </div>
+                </div>
             </div>
             @endcomponent
+
         </div>
 @endsection

@@ -1,4 +1,4 @@
-<div class="product-wishlist">
+<div class="product-wishlist col-md-8">
     <div class="product-img">
         {{$image}}
     </div>

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Exception;
+use Carbon\Carbon;
 
 class Order extends Model
 {
@@ -16,12 +17,15 @@ class Order extends Model
 
     public static function orderUpdateOrInsert($request){
         try{
+            $latestOrder=Order::orderBy('created_at', 'desc')->orderBy('id', 'desc')->first();
+
             $id=Order::insertGetId(
                 ['user_id'=> ($request->user()->id),
-                    'number'=>'129',
+                    'number'=>'#'.str_pad($latestOrder->id + 1, 10, "0", STR_PAD_LEFT),
                     'total'=>$request->total,
                     'payment_method_id'=>$request->payment,
-                    'address_id'=>$request->address]);
+                    'address_id'=>$request->address,
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s')]);
 
             $cart= Product::productsCartWhere($request->user()->id);
             foreach ($cart as $product) {

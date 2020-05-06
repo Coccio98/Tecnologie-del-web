@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Category;
 use App\Coupon;
 use App\Order;
 use App\PaymentMethod;
@@ -61,6 +62,7 @@ class HomeController extends Controller
 
         $productsSizes = new ArrayObject();
         $colors = new ArrayObject();
+        $availability = new ArrayObject();
         foreach ($wishlist as $key=>$product) {
             $productsSizes->append(Stock::sizeStockWhere($product->id));
             if (!empty($productsSizes[$key][0])) {
@@ -68,10 +70,26 @@ class HomeController extends Controller
             } else {
                 $colors->append(null);
             }
+            if(empty($productsSizes[$key][0])|| $colors[$key]==null){
+                $availability->append(false);
+            } else {
+                $firststock=Stock::stockWhere($product->id, $productsSizes[$key][0]->size,$colors[$key][0]->color);
+                if($firststock->number == 0) {
+                    $availability->append(false);
+                } else {
+                    $availability->append(true);
+                }
+            }
+        }
+
+        $productsCategories = new ArrayObject();
+        foreach ($wishlist as $product){
+            $productsCategories->append( Category::categoryProductWhere($product->id));
         }
 
         return view($path)->with('path', $request->path())->with('wishlist', $wishlist)
-            ->with('productsSizes', $productsSizes)->with('colors', $colors);
+            ->with('productsSizes', $productsSizes)->with('colors', $colors)
+            ->with(compact('productsCategories'))->with('availability',$availability);
     }
 
     public function addWishlist(Request $request, $id){

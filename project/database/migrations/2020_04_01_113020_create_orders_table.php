@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('number', 100)->unique();
+            $table->string('number', 11)->unique();
             $table->string('total', 100);
             $table->date('delivery_date')->default('2030-12-31');
             $table->timestamps();
