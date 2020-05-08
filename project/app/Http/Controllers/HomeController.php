@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
-use App\Category;
+use App\ProductCategory;
 use App\Coupon;
 use App\Order;
 use App\PaymentMethod;
@@ -84,7 +84,7 @@ class HomeController extends Controller
 
         $productsCategories = new ArrayObject();
         foreach ($wishlist as $product){
-            $productsCategories->append( Category::categoryProductWhere($product->id));
+            $productsCategories->append( ProductCategory::categoryProductWhere($product->id));
         }
 
         return view($path)->with('path', $request->path())->with('wishlist', $wishlist)

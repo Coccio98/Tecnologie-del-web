@@ -113,7 +113,7 @@ class Product extends Model
     public static function topSelling($category)
     {
         $products= Product::join('belong', 'belong.product_id', '=', 'products.id')
-            ->join('categories', 'categories.id', '=', 'belong.category_id')
+            ->join('product_categories', 'product_categories.id', '=', 'belong.category_id')
             ->leftJoin('images', 'images.product_id', '=', 'products.id')
             ->where(function ($query) {
                 $query->where('images.main', true)
@@ -121,7 +121,7 @@ class Product extends Model
             })
             ->orderByDesc('products.selling_number');
         if(!empty($category) && $category !=0) {
-            $products->where('categories.id', $category);
+            $products->where('product_categories.id', $category);
         }
         return $products->select('products.*', 'images.image')
             ->take(6)
@@ -130,13 +130,13 @@ class Product extends Model
 
     public static function newProducts($category){
         $products= Product::join('belong', 'belong.product_id', '=', 'products.id')
-            ->join('categories', 'categories.id', '=', 'belong.category_id')
+            ->join('product_categories', 'product_categories.id', '=', 'belong.category_id')
             ->leftJoin('images','images.product_id','=','products.id')
             ->where(function ($query) {
                 $query->where('images.main', true)
                     ->orWhereNull('images.image');});
             if(!empty($category) && $category !=0) {
-                $products->where('categories.id', $category);
+                $products->where('product_categories.id', $category);
             }
            return $products->orderByDesc('products.created_at')->orderByDesc('products.id')
             ->select('products.*', 'images.image')

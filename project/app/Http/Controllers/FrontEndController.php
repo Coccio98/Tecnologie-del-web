@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\Brand;
-use App\Category;
+use App\ProductCategory;
 use App\Image;
 use App\Question;
 use App\Showcase;
@@ -47,7 +47,7 @@ class FrontEndController extends Controller
         $product = Product::productWhere($id);
         $images = Image::imagesWhere($id);
         $reviews = Review::reviewsWhere($id)->paginate(3,['*'], 'reviewPag');
-        $productCategories = Category::categoryProductWhere($product->id);
+        $productCategories = ProductCategory::categoryProductWhere($product->id);
         $productSizes = Stock::sizeStockWhere($product->id);
         $availability = true;
 
@@ -138,7 +138,7 @@ class FrontEndController extends Controller
         $products=Product::productsWhere($request);
         $productsCategories = new ArrayObject();
         foreach ($products as $product){
-            $productsCategories->append( Category::categoryProductWhere($product->id));
+            $productsCategories->append( ProductCategory::categoryProductWhere($product->id));
         }
         $now=Carbon::now();
         if ($request->ajax()) {
@@ -158,7 +158,7 @@ class FrontEndController extends Controller
         $productsCategories = new ArrayObject();
         $showcase = Showcase::showcaseWhere($id);
         foreach ($products as $product){
-            $productsCategories->append( Category::categoryProductWhere($product->id));
+            $productsCategories->append( ProductCategory::categoryProductWhere($product->id));
         }
         $now=Carbon::now();
         if ($request->ajax()) {

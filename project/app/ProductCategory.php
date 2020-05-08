@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class ProductCategory extends Model
 {
     public $timestamps = true;
 
     public static function categoryProductWhere($productId){
-        return Category::join('belong', 'belong.category_id', '=', 'categories.id')
+        return ProductCategory::join('belong', 'belong.category_id', '=', 'product_categories.id')
             ->where('belong.product_id',$productId)
-            ->select('categories.*')->get();
+            ->select('product_categories.*')->get();
     }
 
     public function countByCategory($request){

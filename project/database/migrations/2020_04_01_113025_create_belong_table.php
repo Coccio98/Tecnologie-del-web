@@ -21,7 +21,7 @@ class CreateBelongTable extends Migration
 
             $table->foreign('product_id')->references('id')->on('products')
                 ->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')
+            $table->foreign('category_id')->references('id')->on('product_categories')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }
