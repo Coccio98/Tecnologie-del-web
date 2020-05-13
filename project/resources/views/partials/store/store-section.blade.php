@@ -4,7 +4,7 @@
         <div class="col-md-4 col-xs-6">
             @component('partials.reusable.product-overview')
                 @slot('image')
-                    <img src="@if(!empty($products[$i]->image)){{asset($products[$i]->image)}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                    <img src="@if(!empty($products[$i]->image)){{asset('storage/'.$products[$i]->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                     <div class="product-label">
                         @if($products[$i]->sale != 0)
                             <span class="sale">-{{$products[$i]->sale}}%</span>

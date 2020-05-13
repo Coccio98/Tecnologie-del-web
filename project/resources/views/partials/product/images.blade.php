@@ -2,11 +2,11 @@
 <div class="col-md-5 col-md-push-2">
     <div id="product-main-img">
         @if(sizeof($images)==0)
-            <img src="{{ asset('images/no_image.jpg')}}" alt="">
+            <img src="{{ asset('storage/images/no_image.jpg')}}" alt="">
         @endif
         @foreach($images as $image)
             <div class="product-preview">
-                <img src="{{ asset($image->image)}}" alt="">
+                <img src="{{ asset('storage/'.$image->image)}}" alt="">
             </div>
         @endforeach
     </div>
@@ -19,7 +19,7 @@
 
         @foreach($images as $image)
             <div class="product-preview">
-                <img src="{{ asset($image->image)}}" alt="">
+                <img src="{{ asset('storage/'.$image->image)}}" alt="">
             </div>
         @endforeach
     </div>

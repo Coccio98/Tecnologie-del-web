@@ -1,5 +1,5 @@
 <!-- HOT DEAL SECTION -->
-<div id="hot-deal" class="section d-block" style="background-image: url({{asset($showcase->banner)}})">
+<div id="hot-deal" class="section d-block" style="background-image: url({{asset('storage/'.$showcase->banner)}})">
     <input id="hot-deal-date-{{$key}}" type="hidden" value="{{$showcase->expire}}">
     <!-- container -->
     <div class="container">
