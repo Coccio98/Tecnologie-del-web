@@ -8,6 +8,13 @@ class Address extends Model
 {
     public $timestamps = true;
 
+    public $additional_attributes = ['full_address'];
+
+    public function getFullAddressAttribute()
+    {
+        return "{$this->name};\n{$this->address};\n{$this->city};\n{$this->country}";
+    }
+
     public static function addressesWhere($id){
         return Address::where('user_id', $id)->get();
     }

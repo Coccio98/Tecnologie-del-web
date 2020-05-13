@@ -6,7 +6,7 @@
 
         @component('partials.home.collection')
             @slot('image')
-                {{ asset('images/shop01.png')}}
+                {{ asset('storage/images/shop01.png')}}
             @endslot
             @slot('category')
                 1
@@ -16,7 +16,7 @@
 
         @component('partials.home.collection')
             @slot('image')
-                {{ asset('images/shop03.png')}}
+                {{ asset('storage/images/shop03.png')}}
             @endslot
             @slot('category')
                 6
@@ -26,7 +26,7 @@
 
         @component('partials.home.collection')
             @slot('image')
-                {{ asset('images/shop02.png')}}
+                {{ asset('storage/images/shop02.png')}}
             @endslot
             @slot('category')
                 5
@@ -50,7 +50,7 @@
                         @foreach($newProducts[1] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
-                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -86,7 +86,7 @@
                         @foreach($newProducts[2] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
-                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -122,7 +122,7 @@
                         @foreach($newProducts[3] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
-                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -158,7 +158,7 @@
                         @foreach($newProducts[4] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
-                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -224,7 +224,7 @@
                         @foreach($topSelling[1] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
-                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -260,7 +260,7 @@
                         @foreach($topSelling[2] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
-                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -296,7 +296,7 @@
                         @foreach($topSelling[3] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
-                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -332,7 +332,7 @@
                         @foreach($topSelling[4] as $product)
                             @component('partials.reusable.product-overview')
                                 @slot('image')
-                                    <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+                                    <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -377,7 +377,7 @@
                 <div>
                     @for($i = 0; $i < sizeof($newProducts[0]); $i++)
                         @component('partials.reusable.widget')
-                            @if(!empty($newProducts[0][$i]->image)){{$newProducts[0][$i]->image}}@else {{asset('images/no_image.jpg')}} @endif
+                            @if(!empty($newProducts[0][$i]->image)){{asset('storage/'.$newProducts[0][$i]->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif
                             @slot('category')
                                 Laptop
                             @endslot
@@ -411,7 +411,7 @@
                 <div>
                     @for($i = 0; $i < sizeof($topSelling[0]); $i++)
                         @component('partials.reusable.widget')
-                            @if(!empty($topSelling[0][$i]->image)){{$topSelling[0][$i]->image}}@else {{asset('images/no_image.jpg')}} @endif
+                            @if(!empty($topSelling[0][$i]->image)){{asset('storage/'.$topSelling[0][$i]->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif
                             @slot('category')
                                 <br/>
                             @endslot

@@ -9,6 +9,13 @@ class PaymentMethod extends Model
 {
     public $timestamps = true;
 
+    public $additional_attributes = ['full_payment'];
+
+    public function getFullPaymentAttribute()
+    {
+        return "{$this->cardHolder};\n{$this->cardNumber};";
+    }
+
     public static function paymentMethodsWhere($id){
         return PaymentMethod::where('payment_methods.user_id', $id)
             ->join('billing_address', 'payment_methods.id', '=', "billing_address.payment_methods_id")

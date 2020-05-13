@@ -33,7 +33,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DisplayTableSeeder::class);
         $this->call(OrdersTableSeeder::class);
         $this->call(ComposeTableSeeder::class);
-        $this->call(TakeUpTableSeeder::class);
         $this->call(WishlistTableSeeder::class);
     }
 }

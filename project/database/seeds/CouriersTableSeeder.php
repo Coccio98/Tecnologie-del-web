@@ -14,6 +14,9 @@ class CouriersTableSeeder extends Seeder
     {
         DB::table('couriers')->insert([
             [
+                'name'=>'Not Chosen'
+            ],
+            [
                 'name'=>'BRT'
             ],
             [
