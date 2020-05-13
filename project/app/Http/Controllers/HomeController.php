@@ -125,6 +125,12 @@ class HomeController extends Controller
             'total' => ['required'],
             'privacy' => ['required'],
         ]);
+        $cart= Product::productsCartWhere($request->user()->id);
+        foreach ($cart as $product) {
+            if ($product->number < $product->quantity){
+                return redirect()->back()->with('error','Not enough product '.$product->name.' for this size and color');
+            }
+        }
         Order::orderUpdateOrInsert($request);
         return redirect('myorder');
     }

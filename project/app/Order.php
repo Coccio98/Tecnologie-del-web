@@ -37,6 +37,8 @@ class Order extends Model
                 ]);
                 Product::where('id',$product->id)
                     ->update(['selling_number'=>($product->selling_number + $product->quantity)]);
+                Stock::where('id', $product->stock_id)
+                    ->update(['number'=>($product->number - $product->quantity)]);
             }
 
             $coupons= Coupon::couponsUserWhere($request->user()->id);

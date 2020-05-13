@@ -97,7 +97,7 @@ class Product extends Model
             ->where(function ($query) {
                 $query->where('images.main', true)
                     ->orWhereNull('images.image');})
-            ->select('products.*', 'images.image','cart.quantity','cart.stock_id')->orderBy('cart.id')->get();
+            ->select('products.*', 'images.image','cart.quantity','cart.stock_id', 'stocks.number')->orderBy('cart.id')->get();
     }
 
     public static function orderProductWhere($orderId){
