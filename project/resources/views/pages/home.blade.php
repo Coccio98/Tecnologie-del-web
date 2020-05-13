@@ -87,6 +87,7 @@
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
+
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -123,6 +124,7 @@
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
+
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -159,6 +161,7 @@
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
+
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -225,6 +228,7 @@
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
+
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -261,6 +265,7 @@
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
+
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -297,6 +302,7 @@
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
+
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -333,6 +339,7 @@
                             @component('partials.reusable.product-overview')
                                 @slot('image')
                                     <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
+
                                     <div class="product-label">
                                         @if($product->sale != 0)
                                             <span class="sale">-{{$product->sale}}%</span>
@@ -378,6 +385,7 @@
                     @for($i = 0; $i < sizeof($newProducts[0]); $i++)
                         @component('partials.reusable.widget')
                             @if(!empty($newProducts[0][$i]->image)){{asset('storage/'.$newProducts[0][$i]->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif
+
                             @slot('category')
                                 Laptop
                             @endslot
@@ -412,6 +420,7 @@
                     @for($i = 0; $i < sizeof($topSelling[0]); $i++)
                         @component('partials.reusable.widget')
                             @if(!empty($topSelling[0][$i]->image)){{asset('storage/'.$topSelling[0][$i]->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif
+
                             @slot('category')
                                 <br/>
                             @endslot

@@ -14,7 +14,7 @@
                 {{route('myorder')}}
             @endslot
             @slot('image')
-                {{ asset('images/box.png')}}
+                {{ asset('storage/images/box.png')}}
             @endslot
             Your Order
         @endcomponent
@@ -24,7 +24,7 @@
                 {{route('address')}}
             @endslot
             @slot('image')
-                {{ asset('images/address.png')}}
+                {{ asset('storage/images/address.png')}}
             @endslot
             Address
         @endcomponent
@@ -34,7 +34,7 @@
                 {{route('paymentOptions')}}
             @endslot
             @slot('image')
-                {{ asset('images/payment.png')}}
+                {{ asset('storage/images/payment.png')}}
             @endslot
             Payment Options
         @endcomponent
@@ -44,7 +44,7 @@
                 {{route('security')}}
             @endslot
             @slot('image')
-                {{ asset('images/lock.png')}}
+                {{ asset('storage/images/lock.png')}}
             @endslot
             Access and security
         @endcomponent

@@ -1,7 +1,7 @@
 <!-- wishlist product  -->
 <div class="product-wishlist">
     <div class="product-img">
-        <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('images/no_image.jpg')}} @endif" alt="">
+        <img src="@if(!empty($product->image)){{$product->image}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
     </div>
     <div class="product-body">
         <p class="product-category">
