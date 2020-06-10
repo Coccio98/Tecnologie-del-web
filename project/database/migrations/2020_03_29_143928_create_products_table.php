@@ -23,10 +23,13 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('sale')->default(0);
             $table->timestamps();
             $table->unsignedBigInteger('brand_id');
+            $table->unsignedBigInteger('subcategory_id');
             $table->tinyInteger('score')->default(0);
             $table->unsignedBigInteger('selling_number')->default(0);
 
             $table->foreign('brand_id')->references('id')->on('brands')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }

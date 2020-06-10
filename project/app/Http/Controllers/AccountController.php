@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\ProductCategory;
 use App\Order;
 use App\PaymentMethod;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
 use App\User;
 use App\Address;
 use App\Product;
@@ -125,10 +123,6 @@ class AccountController extends Controller
         $order = Order::orderDetails($id);
         $products = Product::orderProductWhere($id);
         $address = Address::addressesWhereOrder($id);
-        $productsCategories = new ArrayObject();
-        foreach ($products as $product){
-            $productsCategories->append( ProductCategory::categoryProductWhere($product->id));
-        }
-        return view($path)->with('path', $request->path())->with('order', $order)->with(compact('products'))->with('address', $address)->with(compact('productsCategories'));
+        return view($path)->with('path', $request->path())->with('order', $order)->with(compact('products'))->with('address', $address);
     }
 }

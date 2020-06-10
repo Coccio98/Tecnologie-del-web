@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Address;
-use App\ProductCategory;
 use App\Coupon;
 use App\Order;
 use App\PaymentMethod;
 use App\Product;
 use App\Stock;
 use ArrayObject;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -82,14 +79,9 @@ class HomeController extends Controller
             }
         }
 
-        $productsCategories = new ArrayObject();
-        foreach ($wishlist as $product){
-            $productsCategories->append( ProductCategory::categoryProductWhere($product->id));
-        }
-
         return view($path)->with('path', $request->path())->with('wishlist', $wishlist)
             ->with('productsSizes', $productsSizes)->with('colors', $colors)
-            ->with(compact('productsCategories'))->with('availability',$availability);
+            ->with('availability',$availability);
     }
 
     public function addWishlist(Request $request, $id){

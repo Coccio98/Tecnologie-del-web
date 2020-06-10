@@ -49,9 +49,7 @@
                             <img src="@if(!empty($products[$i]->image)){{asset('storage/'.$products[$i]->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                         @endslot
                             @slot('category')
-                                @foreach($productsCategories[$i] as $productsCategory)
-                                    {{$productsCategory->name}}
-                                @endforeach
+                                {{$products->category}}
                             @endslot
                         @slot('name')
                             {{$products[$i]->name}}

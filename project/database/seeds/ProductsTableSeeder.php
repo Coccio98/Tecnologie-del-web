@@ -13,20 +13,22 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert([[
-            'name'=>'Sony MDR-ZX310 Cuffie On-Ear',
-            'price' => '25.00',
-            'summary' =>'Sony MDR-ZX310 Cuffie, Blu',
-            'description'=>'Le cuffie hanno un design leggero e pieghevole per la ottima portabilità per la tua musica.
-                                I padiglioni auricolari sono imbottiti per la ottima comodità di ascolto. Il cavo ha la lunghezza di 1.2 m.',
-            'details'=>'Peso articolo	127 g
-                            Dimensioni prodotto	15 x 5 x 20 cm',
-            'sale'=>'10',
-            'brand_id' => '1',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'score'=>'4',
-            'selling_number'=> '5'
-        ],
+        DB::table('products')->insert([
+            [
+                'name'=>'Sony MDR-ZX310 Cuffie On-Ear',
+                'price' => '25.00',
+                'summary' =>'Sony MDR-ZX310 Cuffie, Blu',
+                'description'=>'Le cuffie hanno un design leggero e pieghevole per la ottima portabilità per la tua musica.
+                                    I padiglioni auricolari sono imbottiti per la ottima comodità di ascolto. Il cavo ha la lunghezza di 1.2 m.',
+                'details'=>'Peso articolo	127 g
+                                Dimensioni prodotto	15 x 5 x 20 cm',
+                'sale'=>'10',
+                'brand_id' => '1',
+                'subcategory_id' =>'13',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'score'=>'4',
+                'selling_number'=> '5'
+            ],
             [
                 'name'=>'Samsung Auricolari',
                 'price' => '5.99',
@@ -42,6 +44,7 @@ class ProductsTableSeeder extends Seeder
                             Numero modello articolo: EHS64AVFWE',
                 'sale'=>'0',
                 'brand_id' => '2',
+                'subcategory_id' =>'14',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'score'=>'5',
                 'selling_number'=> '12'
@@ -60,6 +63,7 @@ class ProductsTableSeeder extends Seeder
                             Dimensioni del collo	47,2 x 27,8 x 7 cm',
                 'sale'=>'30',
                 'brand_id' => '3',
+                'subcategory_id' =>'4',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'score'=>'5',
                 'selling_number'=> '23'
@@ -76,6 +80,7 @@ class ProductsTableSeeder extends Seeder
                             Dimensioni del collo	49,8 x 31,8 x 6,6 cm',
                 'sale'=>'6',
                 'brand_id' => '4',
+                'subcategory_id' =>'4',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'score'=>'0',
                 'selling_number'=> '12'
@@ -91,6 +96,7 @@ class ProductsTableSeeder extends Seeder
                             Dimensioni del collo	17,2 x 9 x 5,4 cm',
                 'sale'=>'5',
                 'brand_id' => '5',
+                'subcategory_id' =>'1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'score'=>'3.5',
                 'selling_number'=> '7'
@@ -108,6 +114,7 @@ class ProductsTableSeeder extends Seeder
                             Dimensioni del collo	49,8 x 31,8 x 6,6 cm',
                 'sale'=>'6',
                 'brand_id' => '3',
+                'subcategory_id' =>'4',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'score'=>'3',
                 'selling_number'=> '24'
@@ -123,6 +130,7 @@ class ProductsTableSeeder extends Seeder
                             Dimensioni del collo	49,8 x 31,8 x 6,6 cm',
                 'sale'=>'6',
                 'brand_id' => '3',
+                'subcategory_id' =>'4',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'score'=>'1',
                 'selling_number'=> '1'
@@ -138,6 +146,7 @@ class ProductsTableSeeder extends Seeder
                             Dimensioni del collo	49,8 x 31,8 x 6,6 cm',
                 'sale'=>'6',
                 'brand_id' => '3',
+                'subcategory_id' =>'4',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'score'=>'0',
                 'selling_number'=> '1'
@@ -153,6 +162,7 @@ class ProductsTableSeeder extends Seeder
                             Dimensioni del collo	49,8 x 31,8 x 6,6 cm',
                 'sale'=>'6',
                 'brand_id' => '3',
+                'subcategory_id' =>'4',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'score'=>'0',
                 'selling_number'=> '54'

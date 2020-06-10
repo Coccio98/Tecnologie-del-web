@@ -15,9 +15,7 @@
                     </div>
                 @endslot
                 @slot('category')
-                    @foreach($productsCategories[$i] as $productsCategory)
-                        {{$productsCategory->name}}
-                    @endforeach
+                    {{$products[$i]->category}}
                 @endslot
                 @slot('name')
                     {{$products[$i]->name}}

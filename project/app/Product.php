@@ -2,8 +2,7 @@
 
 namespace App;
 
-use ArrayObject;
-use http\Client\Request;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,11 +14,11 @@ class Product extends Model
     public static function productsWhere($request){
         $products = Product::productsWhereStandard($request);
         if(empty($request->show) || $request->show == 0) {
-            return $products->select('products.*', 'images.image')->paginate(9);
+            return $products->select('products.*', 'subcategories.name as category', 'images.image')->paginate(9);
         } elseif ($request->show == 1){
-            return $products->select('products.*', 'images.image')->paginate(18);
+            return $products->select('products.*', 'subcategories.name as category', 'images.image')->paginate(18);
         } else{
-            return $products->select('products.*', 'images.image')->paginate(27);
+            return $products->select('products.*', 'subcategories.name as category', 'images.image')->paginate(27);
         }
     }
     public static function productsWhereHotDeal($request, $id){
@@ -28,11 +27,11 @@ class Product extends Model
             ->join('showcases','display.showcase_id','=','showcases.id')
             ->where('showcases.id',$id);
         if(empty($request->show) || $request->show == 0) {
-            return $products->select('products.*', 'images.image')->paginate(9);
+            return $products->select('products.*', 'subcategories.name as category', 'images.image')->paginate(9);
         } elseif ($request->show == 1){
-            return $products->select('products.*', 'images.image')->paginate(18);
+            return $products->select('products.*', 'subcategories.name as category', 'images.image')->paginate(18);
         } else{
-            return $products->select('products.*', 'images.image')->paginate(27);
+            return $products->select('products.*', 'subcategories.name as category', 'images.image')->paginate(27);
         }
     }
 
@@ -41,10 +40,10 @@ class Product extends Model
             ->where(function ($query) {
                 $query->where('images.main', true)
                     ->orWhereNull('images.image');})
-            ->where('products.name','like','%'.$request->search.'%');
+            ->where('products.name','like','%'.$request->search.'%')
+            ->join('subcategories', 'products.subcategory_id', '=', 'subcategories.id');
         if(!empty($request->category) && $request->category != 0){
-            $products->join('belong', 'belong.product_id', '=', 'products.id')
-                ->where('belong.category_id',$request->category);
+            $products->where('subcategories.category_id',$request->category);
 
         }
         if(!empty($request->brand) && $request->brand != 0){
@@ -65,17 +64,21 @@ class Product extends Model
     }
 
     public static function productWhere($productId){
-        return Product::where('products.id', $productId)->first();
+        return Product::where('products.id', $productId)
+            ->join('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
+            ->join('categories', 'subcategories.category_id', '=', 'categories.id')
+            ->select('products.*', 'subcategories.name as category','categories.name as macrocategory','categories.id as macroid')->first();
     }
 
     public static function productsWishlistWhere($userId){
         return Product::join('wishlist', 'wishlist.product_id', '=', 'products.id')
             ->join('users','users.id','=','wishlist.user_id')->where('users.id',$userId)
             ->leftJoin('images','images.product_id','=','products.id')
+            ->join('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
             ->where(function ($query) {
                 $query->where('images.main', true)
                     ->orWhereNull('images.image');})
-            ->select('products.*', 'images.image')->orderBy('wishlist.id')->get();
+            ->select('products.*','subcategories.name as category', 'images.image')->orderBy('wishlist.id')->get();
     }
 
     public static function productsWishlistDelete($userId,$productId){
@@ -94,6 +97,7 @@ class Product extends Model
             ->join('cart', 'cart.stock_id', '=', 'stocks.id')
             ->join('users','users.id','=','cart.user_id')->where('users.id',$userId)
             ->leftJoin('images','images.product_id','=','products.id')
+            ->join('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
             ->where(function ($query) {
                 $query->where('images.main', true)
                     ->orWhereNull('images.image');})
@@ -106,41 +110,33 @@ class Product extends Model
                 $query->where('images.main', true)
                     ->orWhereNull('images.image');})
             ->join('compose', 'products.id', '=', "compose.product_id")
+            ->join('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
             ->where("compose.order_id",$orderId)
-            ->select('products.*','images.image','compose.price_stamp', 'compose.quantity')->get();
+            ->select('products.*', 'subcategories.name as category', 'images.image','compose.price_stamp', 'compose.quantity')->get();
     }
 
-    public static function topSelling($category)
-    {
-        $products= Product::join('belong', 'belong.product_id', '=', 'products.id')
-            ->join('product_categories', 'product_categories.id', '=', 'belong.category_id')
-            ->leftJoin('images', 'images.product_id', '=', 'products.id')
+    public static function topSelling(){
+        return Product::leftJoin('images', 'images.product_id', '=', 'products.id')
             ->where(function ($query) {
                 $query->where('images.main', true)
                     ->orWhereNull('images.image');
             })
-            ->orderByDesc('products.selling_number');
-        if(!empty($category) && $category !=0) {
-            $products->where('product_categories.id', $category);
-        }
-        return $products->select('products.*', 'images.image')
-            ->take(6)
+            ->join('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
+            ->orderByDesc('products.selling_number')
+            ->select('products.*', 'subcategories.name as category', 'images.image')
+            ->take(15)
             ->get();
     }
 
-    public static function newProducts($category){
-        $products= Product::join('belong', 'belong.product_id', '=', 'products.id')
-            ->join('product_categories', 'product_categories.id', '=', 'belong.category_id')
-            ->leftJoin('images','images.product_id','=','products.id')
+    public static function bestProducts(){
+        return Product::leftJoin('images','images.product_id','=','products.id')
             ->where(function ($query) {
                 $query->where('images.main', true)
-                    ->orWhereNull('images.image');});
-            if(!empty($category) && $category !=0) {
-                $products->where('product_categories.id', $category);
-            }
-           return $products->orderByDesc('products.created_at')->orderByDesc('products.id')
-            ->select('products.*', 'images.image')
-            ->take(6)
+                    ->orWhereNull('images.image');})
+            ->join('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
+            ->orderByDesc('products.sale')->orderByDesc('products.id')
+            ->select('products.*','subcategories.name as category', 'images.image')
+            ->take(15)
             ->get();
     }
 

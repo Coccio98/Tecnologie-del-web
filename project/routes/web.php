@@ -76,7 +76,3 @@ Route::post('checkout/addOrder', 'HomeController@addOrder')->name('addOrder');
 
 Route::post('/checkout/apply-coupon','HomeController@applyCoupon');
 
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});

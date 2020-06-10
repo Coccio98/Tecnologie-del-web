@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ProductCategory;
+use App\Category;
 use App\Product;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -32,7 +32,7 @@ class Controller extends BaseController
                 }
                 $wishlistCount = sizeof(Product::productsWishlistWhere(Auth::user()->id));
             }
-            $view->with('categories', ProductCategory::all())->with('cart',$cart)->with('wishlistCount', $wishlistCount)->with('cartCount', $cartCount);
+            $view->with('categories', Category::all())->with('cart',$cart)->with('wishlistCount', $wishlistCount)->with('cartCount', $cartCount);
         });
     }
 }

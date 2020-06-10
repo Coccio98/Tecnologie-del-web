@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\Brand;
-use App\ProductCategory;
 use App\Image;
 use App\Question;
 use App\Showcase;
@@ -19,22 +18,13 @@ class FrontEndController extends Controller
 {
 
     public function home(){
-        $newProducts = new ArrayObject();
-        $newProducts->append(Product::newProducts(0));
-        $newProducts->append(Product::newProducts(1));
-        $newProducts->append(Product::newProducts(2));
-        $newProducts->append(Product::newProducts(5));
-        $newProducts->append(Product::newProducts(6));
-        $topSelling = new ArrayObject();
-        $topSelling->append(Product::topSelling(0));
-        $topSelling->append(Product::topSelling(1));
-        $topSelling->append(Product::topSelling(2));
-        $topSelling->append(Product::topSelling(5));
-        $topSelling->append(Product::topSelling(6));
+        $bestProducts = Product::bestProducts();
+        $topSelling = Product::topSelling();
         $showcases = Showcase::all();
+        $now=Carbon::now();
         return view('pages.home')->with('path', 'home')
-            ->with('newProducts', $newProducts)->with('topSelling', $topSelling)
-            ->with('showcases', $showcases);
+            ->with('bestProducts', $bestProducts)->with('topSelling', $topSelling)
+            ->with('showcases', $showcases)->with('now',$now);
     }
 
     public function page(Request $request){
@@ -47,7 +37,6 @@ class FrontEndController extends Controller
         $product = Product::productWhere($id);
         $images = Image::imagesWhere($id);
         $reviews = Review::reviewsWhere($id)->paginate(3,['*'], 'reviewPag');
-        $productCategories = ProductCategory::categoryProductWhere($product->id);
         $productSizes = Stock::sizeStockWhere($product->id);
         $availability = true;
 
@@ -109,10 +98,9 @@ class FrontEndController extends Controller
 
         }
         $now=Carbon::now();
-        $related = Product::topSelling($productCategories[0]->id);
 
-        return view($path)->with('path', $request->path())->with('product', $product)->with('productCategories',$productCategories)
-            ->with('images', $images)->with(compact('reviews'))->with('related', $related)->with('now',$now)
+        return view($path)->with('path', $request->path())->with('product', $product)
+            ->with('images', $images)->with(compact('reviews'))->with('now',$now)
             ->with('questions',$questions)->with('answers',$answers)->with('n',$n)->with('totRating', sizeof($ratings))
             ->with('productSizes', $productSizes)->with('colors',$colors)->with('availability',$availability)
             ->render();
@@ -136,18 +124,14 @@ class FrontEndController extends Controller
         $path = 'pages.store';
         $brands=Brand::all();
         $products=Product::productsWhere($request);
-        $productsCategories = new ArrayObject();
-        foreach ($products as $product){
-            $productsCategories->append( ProductCategory::categoryProductWhere($product->id));
-        }
         $now=Carbon::now();
         if ($request->ajax()) {
             return[
                 'store'=> view('partials.store.store-section')->with(compact('products'))
-                    ->with(compact('productsCategories'))->with('now',$now)->render(),
+                    ->with('now',$now)->render(),
             ];
         }
-        return view($path)->with('brands', $brands)->with(compact('productsCategories'))
+        return view($path)->with('brands', $brands)
             ->with(compact('products'))->with('path', $request->path())->with('now',$now)->render();
     }
 
@@ -155,19 +139,15 @@ class FrontEndController extends Controller
         $path = 'pages.hotDeal-shop';
         $brands=Brand::all();
         $products=Product::productsWhereHotDeal($request,$id);
-        $productsCategories = new ArrayObject();
         $showcase = Showcase::showcaseWhere($id);
-        foreach ($products as $product){
-            $productsCategories->append( ProductCategory::categoryProductWhere($product->id));
-        }
         $now=Carbon::now();
         if ($request->ajax()) {
             return[
                 'store'=> view('partials.store.store-section')->with(compact('products'))
-                    ->with(compact('productsCategories'))->with('now',$now)->render(),
+                    ->with('now',$now)->render(),
             ];
         }
-        return view($path)->with('brands', $brands)->with(compact('productsCategories'))
+        return view($path)->with('brands', $brands)
             ->with(compact('products'))->with('path', 'hotDeal-shop')->with('showcase',$showcase)
             ->with('key',0)->with('now',$now)->render();
     }
