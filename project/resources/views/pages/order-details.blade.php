@@ -48,9 +48,9 @@
                         @slot('image')
                             <img src="@if(!empty($products[$i]->image)){{asset('storage/'.$products[$i]->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                         @endslot
-                            @slot('category')
-                                {{$products->category}}
-                            @endslot
+                        @slot('category')
+                            {{$products[$i]->category}}
+                        @endslot
                         @slot('name')
                             {{$products[$i]->name}}
                         @endslot
