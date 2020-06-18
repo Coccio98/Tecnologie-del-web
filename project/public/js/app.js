@@ -46253,6 +46253,15 @@ $(document).ready(function () {
     });
   });
   $('#aside').on('click', '.category', function () {
+    var subcategory = $('input[name ="subcategory"]');
+
+    for (var i = 0; i < subcategory.length; i++) {
+      subcategory[i].checked = false;
+    }
+
+    $('#myForm').submit();
+  });
+  $('#aside').on('click', '.subcategory', function () {
     $('#myForm').submit();
   });
   $('#store').on('change', '.input-select', function () {

@@ -20,7 +20,7 @@
                 <div class="aside">
                     <h3 class="aside-title">Categories</h3>
                     <div class="checkbox-filter">
-                        @foreach($categories as $category)
+                        @foreach($categories as $key=>$category)
                             <div class="input-radio radio-div">
                                 <input type="radio" id="category-{{$category->id}}" name="category" value="{{$category->id}}" class="category"
                                        @if(request()->get('category') == $category->id) checked @endif>
@@ -29,7 +29,18 @@
                                     {{$category->name}}
                                     <small>({{$category->countByCategory(request())}})</small>
                                 </label>
-                                @if(request()->get('category') == $category->id)<i class="fa fa-times pointer" onclick="uncheckCategory()"></i> @endif
+                                @if(request()->get('category') == $category->id)<i class="fa fa-times pointer" onclick="uncheckCategory()"></i>
+                                    @foreach($subcategories[$key] as $subcategory)
+                                        <div class="input-radio radio-div subcategory-div">
+                                            <input type="radio" id="subcategory-{{$subcategory->id}}" name="subcategory" value="{{$subcategory->id}}" class="subcategory"
+                                            @if(request()->get('subcategory') == $subcategory->id) checked @endif>
+                                            <label for="subcategory-{{$subcategory->id}}">
+                                                <span></span>
+                                                {{$subcategory->name}}
+                                            </label>
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                         @endforeach
                     </div>

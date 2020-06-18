@@ -44,7 +44,9 @@ class Product extends Model
             ->join('subcategories', 'products.subcategory_id', '=', 'subcategories.id');
         if(!empty($request->category) && $request->category != 0){
             $products->where('subcategories.category_id',$request->category);
-
+        }
+        if(!empty($request->subcategory) && $request->subcategory != 0){
+            $products->where('subcategories.id',$request->subcategory);
         }
         if(!empty($request->brand) && $request->brand != 0){
             $products->where('products.brand_id',$request->brand);
