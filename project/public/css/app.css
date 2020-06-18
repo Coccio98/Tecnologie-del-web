@@ -264,7 +264,7 @@ td, th {
     font-family: 'Glyphicons Halflings';
 
     src: url(/fonts/glyphicons-halflings-regular.eot?f4769f9bdb7466be65088239c12046d1);
-    src: url(/fonts/glyphicons-halflings-regular.eot?f4769f9bdb7466be65088239c12046d1?#iefix) format('embedded-opentype'), url(/fonts/glyphicons-halflings-regular.woff2?448c34a56d699c29117adc64c43affeb) format('woff2'), url(/fonts/glyphicons-halflings-regular.woff?fa2772327f55d8198301fdb8bcfc8158) format('woff'), url(/fonts/glyphicons-halflings-regular.ttf?e18bbf611f2a2e43afc071aa2f4e1512) format('truetype'), url(/fonts/glyphicons-halflings-regular.svg?89889688147bd7575d6327160d64e760#glyphicons_halflingsregular) format('svg')
+    src: url(/fonts/glyphicons-halflings-regular.eot?f4769f9bdb7466be65088239c12046d1?#iefix) format('embedded-opentype'), url(/fonts/glyphicons-halflings-regular.woff2?448c34a56d699c29117adc64c43affeb) format('woff2'), url(/fonts/glyphicons-halflings-regular.woff?fa2772327f55d8198301fdb8bcfc8158) format('woff'), url(/fonts/glyphicons-halflings-regular.ttf?e18bbf611f2a2e43afc071aa2f4e1512) format('truetype'), url(/fonts/glyphicons-halflings-regular.svg?f721466883998665b87923b92dea655b#glyphicons_halflingsregular) format('svg')
 
 }
 
@@ -11811,18 +11811,23 @@ textarea.input {
   margin-left: 30px;
 }
 
-.main-nav > li > a {
+.main-nav > li > a,
+.main-nav > li > div > a {
   padding: 20px 0px;
 }
 
 .main-nav > li > a:hover,
 .main-nav > li > a:focus,
-.main-nav > li.active > a {
+.main-nav > li.active > a,
+.main-nav > li > div > a:hover,
+.main-nav > li > div > a:focus,
+.main-nav > li.active > div > a {
   color: #D10024;
   background-color: transparent;
 }
 
-.main-nav > li > a:after {
+.main-nav > li > a:after,
+.main-nav > li > div > a:after {
   content: "";
   display: block;
   width: 0%;
@@ -11833,7 +11838,10 @@ textarea.input {
 
 .main-nav > li > a:hover:after,
 .main-nav > li > a:focus:after,
-.main-nav > li.active > a:after {
+.main-nav > li.active > a:after,
+.main-nav > li > div > a:hover:after,
+.main-nav > li > div > a:focus:after,
+.main-nav > li.active > div > a:after {
   width: 100%;
 }
 
@@ -11884,7 +11892,8 @@ textarea.input {
     margin-left: 0px;
   }
 
-  .main-nav > li > a {
+  .main-nav > li > a,
+  .main-nav > li > div > a {
     padding: 15px;
     color: #FFF;
   }
@@ -13858,5 +13867,13 @@ ol.progtrckr li.progtrckr-todo:before {
 
 .d-block {
   display: block !important;
+}
+
+.dropdown:hover .dropdown-menu-category {
+  display: block;
+}
+
+.padding-top {
+  padding-top: 10px;
 }
 

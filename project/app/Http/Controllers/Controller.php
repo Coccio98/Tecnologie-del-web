@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\Subcategory;
+use ArrayObject;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -32,7 +34,15 @@ class Controller extends BaseController
                 }
                 $wishlistCount = sizeof(Product::productsWishlistWhere(Auth::user()->id));
             }
-            $view->with('categories', Category::all())->with('cart',$cart)->with('wishlistCount', $wishlistCount)->with('cartCount', $cartCount);
+
+            $categories = Category::all();
+            $subcategories = new ArrayObject();
+            foreach ($categories as $category){
+                $subcategories->append(Subcategory::subcategoriesWhere($category->id));
+            }
+
+            $view->with('categories', $categories)->with('subcategories', $subcategories)
+                ->with('cart',$cart)->with('wishlistCount', $wishlistCount)->with('cartCount', $cartCount);
         });
     }
 }

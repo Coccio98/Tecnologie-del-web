@@ -1234,16 +1234,16 @@ textarea.input {
   margin-left: 30px
 }
 
-.main-nav>li>a {
+.main-nav>li>a, .main-nav>li>div>a {
   padding: 20px 0px;
 }
 
-.main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
+.main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a , .main-nav>li>div>a:hover, .main-nav>li>div>a:focus, .main-nav>li.active>div>a{
   color: #D10024;
   background-color: transparent;
 }
 
-.main-nav>li>a:after {
+.main-nav>li>a:after , .main-nav>li>div>a:after{
   content: "";
   display: block;
   width: 0%;
@@ -1253,7 +1253,7 @@ textarea.input {
   transition: 0.2s all;
 }
 
-.main-nav>li>a:hover:after, .main-nav>li>a:focus:after, .main-nav>li.active>a:after {
+.main-nav>li>a:hover:after, .main-nav>li>a:focus:after, .main-nav>li.active>a:after , .main-nav>li>div>a:hover:after, .main-nav>li>div>a:focus:after, .main-nav>li.active>div>a:after{
   width: 100%;
 }
 
@@ -1303,7 +1303,7 @@ textarea.input {
   .main-nav>li+li {
     margin-left: 0px;
   }
-  .main-nav>li>a {
+  .main-nav>li>a , .main-nav>li>div>a{
     padding: 15px;
     color: #FFF;
   }
@@ -3270,3 +3270,10 @@ ol.progtrckr li.progtrckr-todo:before {
     display: block !important;
 }
 
+.dropdown:hover .dropdown-menu-category {
+    display: block
+}
+
+.padding-top{
+    padding-top: 10px;
+}
