@@ -18,13 +18,13 @@
         </a>
       </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
-          <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
-          <p>{{ __('Laravel Examples') }}
+        <a class="nav-link collapsed" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
+            <i class="material-icons-outlined">person</i>
+          <p> User
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse show" id="laravelExample">
+        <div class="collapse" id="laravelExample">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('profile.edit') }}">
@@ -41,6 +41,60 @@
           </ul>
         </div>
       </li>
+        <li class="nav-item{{ $activePage == 'brand-management' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ route('brand.index') }}">
+                <i class="material-icons-outlined">branding_watermark</i>
+                <span class="sidebar-normal"> Brand Management </span>
+            </a>
+        </li>
+        <li class="nav-item {{ ($activePage == 'category' || $activePage == 'subcategory') ? ' active' : '' }}">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#category" aria-expanded="false">
+                <i class="material-icons-outlined">category</i>
+                <p> Category
+                    <b class="caret"></b>
+                </p>
+            </a>
+            <div class="collapse" id="category">
+                <ul class="nav">
+                    <li class="nav-item{{ $activePage == 'category-management' ? ' active' : '' }}">
+                        <a class="nav-link" href="{{ route('category.index') }}">
+                            <i class="material-icons-outlined">category</i>
+                            <span class="sidebar-normal"> Category Management </span>
+                        </a>
+                    </li>
+                    <li class="nav-item{{ $activePage == 'subcategory-management' ? ' active' : '' }}">
+                        <a class="nav-link" href="{{ route('subcategory.index') }}">
+                            <i class="material-icons-outlined">subdirectory_arrow_right</i>
+                            <span class="sidebar-normal"> Subcategory Management </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item{{ $activePage == 'coupon-management' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ route('coupon.index') }}">
+                <i class="material-icons-outlined"> redeem </i>
+                <span class="sidebar-normal"> Coupon Management </span>
+            </a>
+        </li>
+        <li class="nav-item{{ $activePage == 'courier-management' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ route('courier.index') }}">
+                <i class="material-icons-outlined"> local_shipping </i>
+                <span class="sidebar-normal"> Courier Management </span>
+            </a>
+        </li>
+        <li class="nav-item{{ $activePage == 'image-management' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ route('image.index') }}">
+                <i class="material-icons-outlined"> photo_library </i>
+                <span class="sidebar-normal"> Image Management </span>
+            </a>
+        </li>
+        <li class="nav-item{{ $activePage == 'order-management' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ route('order.index') }}">
+                <i class="material-icons-outlined"> shopping_bag </i>
+                <span class="sidebar-normal"> Order Management </span>
+            </a>
+        </li>
       <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('table') }}">
           <i class="material-icons">content_paste</i>
@@ -69,12 +123,6 @@
         <a class="nav-link" href="{{ route('notifications') }}">
           <i class="material-icons">notifications</i>
           <p>{{ __('Notifications') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('language') }}">
-          <i class="material-icons">language</i>
-          <p>{{ __('RTL Support') }}</p>
         </a>
       </li>
     </ul>

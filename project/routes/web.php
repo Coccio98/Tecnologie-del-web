@@ -103,15 +103,21 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('pages.notifications');
 	})->name('notifications');
 
-	Route::get('rtl-support', function () {
-		return view('pages.language');
-	})->name('language');
 });
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+	Route::resource('user', 'Dashboard\UserController', ['except' => ['show']]);
+	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'Dashboard\ProfileController@edit']);
+	Route::put('profile', ['as' => 'profile.update', 'uses' => 'Dashboard\ProfileController@update']);
+	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'Dashboard\ProfileController@password']);
+	Route::resource('brand', 'Dashboard\BrandController', ['except' => ['show']]);
+    Route::resource('category', 'Dashboard\CategoryController', ['except' => ['show']]);
+    Route::resource('subcategory', 'Dashboard\SubcategoryController', ['except' => ['show']]);
+    Route::resource('coupon', 'Dashboard\CouponController', ['except' => ['show']]);
+    Route::resource('courier', 'Dashboard\CourierController', ['except' => ['show']]);
+    Route::resource('image', 'Dashboard\ImageController', ['except' => ['show']]);
+    Route::resource('order', 'Dashboard\OrderController', ['except' => ['show']]);
+
 });
+
 
