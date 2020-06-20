@@ -7,6 +7,9 @@
         @slot('type_s')
             category
         @endslot
+        @slot('href')
+            {{route('category.edit',['id'=>0])}}
+        @endslot
         @slot('t_head')
             <th>
                 Name
@@ -22,14 +25,22 @@
                         {{$category -> name}}
                     </td>
                     <td class="td-actions text-right">
-                        <a rel="tooltip" class="btn btn-success btn-link" href="#"
+                        <a rel="tooltip" class="btn btn-success btn-link" href="{{route('category.edit',['id'=>$category->id])}}"
                            data-original-title="" title="">
                             <i class="material-icons">edit</i>
+                            <div class="ripple-container"></div>
+                        </a>
+                        <a rel="tooltip" class="btn btn-danger btn-link" href="#"
+                           data-original-title="" title="">
+                            <i class="material-icons">delete</i>
                             <div class="ripple-container"></div>
                         </a>
                     </td>
                 </tr>
             @endforeach
+            <tr>
+                {!!  $dashcategories->render()  !!}
+            </tr>
         @endslot
     @endcomponent
 @endsection

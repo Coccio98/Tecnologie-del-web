@@ -110,12 +110,24 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'Dashboard\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'Dashboard\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'Dashboard\ProfileController@password']);
+
 	Route::resource('brand', 'Dashboard\BrandController', ['except' => ['show']]);
-    Route::resource('category', 'Dashboard\CategoryController', ['except' => ['show']]);
+    Route::get('edit-brand/{id}', ['as' => 'brand.edit', 'uses' => 'Dashboard\BrandController@edit']);
+
+	Route::resource('category', 'Dashboard\CategoryController', ['except' => ['show']]);
+    Route::get('edit-category/{id}', ['as' => 'category.edit', 'uses' => 'Dashboard\CategoryController@edit']);
+
     Route::resource('subcategory', 'Dashboard\SubcategoryController', ['except' => ['show']]);
+    Route::get('edit-subcategory/{id}', ['as' => 'subcategory.edit', 'uses' => 'Dashboard\SubcategoryController@edit']);
+
     Route::resource('coupon', 'Dashboard\CouponController', ['except' => ['show']]);
+    Route::get('edit-coupon/{id}', ['as' => 'coupon.edit', 'uses' => 'Dashboard\CouponController@edit']);
+
     Route::resource('courier', 'Dashboard\CourierController', ['except' => ['show']]);
+    Route::get('edit-courier/{id}', ['as' => 'courier.edit', 'uses' => 'Dashboard\CourierController@edit']);
+
     Route::resource('image', 'Dashboard\ImageController', ['except' => ['show']]);
+    Route::get('edit-image/{id}', ['as' => 'image.edit', 'uses' => 'Dashboard\ImageController@edit']);
     Route::resource('order', 'Dashboard\OrderController', ['except' => ['show']]);
     Route::resource('product', 'Dashboard\ProductController', ['except' => ['show']]);
     Route::resource('showcase', 'Dashboard\ShowcaseController', ['except' => ['show']]);

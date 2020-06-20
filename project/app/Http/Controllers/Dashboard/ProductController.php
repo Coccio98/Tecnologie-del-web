@@ -15,6 +15,9 @@ class ProductController extends Controller
      */
     public function index(Product $model)
     {
-        return view('dashboard.product', ['products' => $model->paginate(15)]);
+        return view('dashboard.product', ['products' => $model->join('brands', 'brands.id', '=','products.brand_id')
+            ->join('subcategories','subcategories.id','=','products.subcategory_id')
+            ->select('products.*','subcategories.name as subcategory','brands.name as brand')
+            ->paginate(15)]);
     }
 }

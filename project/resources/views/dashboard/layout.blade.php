@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12 text-right">
-                                <a href="#" class="btn btn-sm btn-primary">Add {{$type_s}}</a>
+                                <a href="{{$href}}" class="btn btn-sm btn-primary">Add {{$type_s}}</a>
                             </div>
                         </div>
                         <div class="table-responsive">

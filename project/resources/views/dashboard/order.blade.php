@@ -20,6 +20,12 @@
                                         <th>
                                             Delivery Date
                                         </th>
+                                        <th>
+                                            Shipping
+                                        </th>
+                                        <th>
+                                            Courier
+                                        </th>
                                         <th class="text-right">
                                             Actions
                                         </th>
@@ -34,6 +40,12 @@
                                             <td>
                                                 {{$order -> delivery_date}}
                                             </td>
+                                            <td>
+                                                {{$order -> status}}
+                                            </td>
+                                            <td>
+                                                {{$order -> name}}
+                                            </td>
                                             <td class="td-actions text-right">
                                                 <a rel="tooltip" class="btn btn-success btn-link" href="#"
                                                    data-original-title="" title="">
@@ -43,6 +55,9 @@
                                             </td>
                                         </tr>
                                     @endforeach
+                                    <tr>
+                                        {!!  $orders->render()  !!}
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

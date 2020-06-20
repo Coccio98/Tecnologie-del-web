@@ -16,6 +16,22 @@ class SubcategoryController extends Controller
      */
     public function index(Subcategory $model)
     {
-        return view('dashboard.subcategory', ['dashsubcategories' => $model->paginate(15)]);
+        return view('dashboard.subcategory', ['dashsubcategories' => $model->join('categories','categories.id','=','subcategories.category_id')
+            ->select('subcategories.*','categories.name as category')
+            ->paginate(15)]);
+    }
+
+    /**
+     * Show the form for editing the profile.
+     *
+     * @param  \App\Subcategory  $model
+     * @return \Illuminate\View\View
+     */
+    public function edit($id,Subcategory $model)
+    {
+        if($id != 0){
+            return view('dashboard.edit.edit-subcategory')->with('subcategory', $model->where('id',$id)->first());
+        }
+        return view('dashboard.edit.edit-subcategory');
     }
 }

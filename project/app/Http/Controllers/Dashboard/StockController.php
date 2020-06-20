@@ -16,6 +16,8 @@ class StockController extends Controller
      */
     public function index(Stock $model)
     {
-        return view('dashboard.stock', ['stocks' => $model->paginate(15)]);
+        return view('dashboard.stock', ['stocks' => $model->join('products','products.id','=','stocks.product_id')
+            ->select('stocks.*','products.name')
+            ->paginate(15)]);
     }
 }

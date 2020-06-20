@@ -16,6 +16,9 @@ class OrderController extends Controller
      */
     public function index(Order $model)
     {
-        return view('dashboard.order', ['orders' => $model->paginate(15)]);
+        return view('dashboard.order', ['orders' => $model->join('couriers','couriers.id','=','orders.courier_id')
+            ->join('shippings','shippings.id','=','orders.shipping_id')
+            ->select('orders.*','shippings.status','couriers.name')
+            ->paginate(15)]);
     }
 }

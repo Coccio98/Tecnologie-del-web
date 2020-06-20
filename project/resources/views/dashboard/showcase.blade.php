@@ -7,6 +7,9 @@
         @slot('type_s')
             showcase
         @endslot
+        @slot('href')
+
+        @endslot
         @slot('t_head')
             <th>
                 Title
@@ -45,9 +48,17 @@
                             <i class="material-icons">edit</i>
                             <div class="ripple-container"></div>
                         </a>
+                        <a rel="tooltip" class="btn btn-danger btn-link" href="#"
+                           data-original-title="" title="">
+                            <i class="material-icons">delete</i>
+                            <div class="ripple-container"></div>
+                        </a>
                     </td>
                 </tr>
             @endforeach
+            <tr>
+                {!!  $showcases->render()  !!}
+            </tr>
         @endslot
     @endcomponent
 @endsection

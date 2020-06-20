@@ -7,7 +7,13 @@
         @slot('type_s')
             stock
         @endslot
+        @slot('href')
+
+        @endslot
         @slot('t_head')
+            <th>
+                Product
+            </th>
             <th>
                 Color
             </th>
@@ -25,6 +31,9 @@
             @foreach($stocks as $stock)
                 <tr>
                     <td>
+                        {{$stock -> name}}
+                    </td>
+                    <td>
                         {{$stock -> color}}
                     </td>
                     <td>
@@ -39,9 +48,17 @@
                             <i class="material-icons">edit</i>
                             <div class="ripple-container"></div>
                         </a>
+                        <a rel="tooltip" class="btn btn-danger btn-link" href="#"
+                           data-original-title="" title="">
+                            <i class="material-icons">delete</i>
+                            <div class="ripple-container"></div>
+                        </a>
                     </td>
                 </tr>
             @endforeach
+            <tr>
+                {!!  $stocks->render()  !!}
+            </tr>
         @endslot
     @endcomponent
 @endsection

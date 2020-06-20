@@ -7,6 +7,9 @@
         @slot('type_s')
             user
         @endslot
+        @slot('href')
+
+        @endslot
         @slot('t_head')
             <th>
                 Name
@@ -48,6 +51,9 @@
                     </td>
                 </tr>
             @endforeach
+            <tr>
+                {!!  $users->render()  !!}
+            </tr>
         @endslot
     @endcomponent
 @endsection

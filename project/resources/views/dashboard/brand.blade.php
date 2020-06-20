@@ -7,6 +7,9 @@
         @slot('type_s')
             brand
         @endslot
+        @slot('href')
+            {{route('brand.edit',['id'=>0])}}
+        @endslot
         @slot('t_head')
             <th>
                 Name
@@ -22,14 +25,22 @@
                         {{$brand -> name}}
                     </td>
                     <td class="td-actions text-right">
-                        <a rel="tooltip" class="btn btn-success btn-link" href="#"
+                        <a rel="tooltip" class="btn btn-success btn-link" href="{{route('brand.edit',['id'=>$brand->id])}}"
                            data-original-title="" title="">
                             <i class="material-icons">edit</i>
+                            <div class="ripple-container"></div>
+                        </a>
+                        <a rel="tooltip" class="btn btn-danger btn-link" href="#"
+                           data-original-title="" title="">
+                            <i class="material-icons">delete</i>
                             <div class="ripple-container"></div>
                         </a>
                     </td>
                 </tr>
             @endforeach
+            <tr>
+                {!!  $brands->render()  !!}
+            </tr>
         @endslot
     @endcomponent
 @endsection

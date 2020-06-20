@@ -16,6 +16,22 @@ class ImageController extends Controller
      */
     public function index(Image $model)
     {
-        return view('dashboard.image', ['images' => $model->paginate(15)]);
+        return view('dashboard.image', ['images' => $model->join('products','products.id','=','images.product_id')
+            ->select('images.*','products.name')
+            ->paginate(15)]);
+    }
+
+    /**
+     * Show the form for editing the profile.
+     *
+     * @param  \App\Image  $model
+     * @return \Illuminate\View\View
+     */
+    public function edit($id,Image $model)
+    {
+        if($id != 0){
+            return view('dashboard.edit.edit-image')->with('image', $model->where('id',$id)->first());
+        }
+        return view('dashboard.edit.edit-image');
     }
 }

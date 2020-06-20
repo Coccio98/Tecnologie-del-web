@@ -7,6 +7,9 @@
         @slot('type_s')
             coupon
         @endslot
+        @slot('href')
+            {{route('coupon.edit',['id'=>0])}}
+        @endslot
         @slot('t_head')
             <th>
                 Code
@@ -44,14 +47,22 @@
                         @endif
                     </td>
                     <td class="td-actions text-right">
-                        <a rel="tooltip" class="btn btn-success btn-link" href="#"
+                        <a rel="tooltip" class="btn btn-success btn-link" href="{{route('coupon.edit',['id'=>$coupon->id])}}"
                            data-original-title="" title="">
                             <i class="material-icons">edit</i>
+                            <div class="ripple-container"></div>
+                        </a>
+                        <a rel="tooltip" class="btn btn-danger btn-link" href="#"
+                           data-original-title="" title="">
+                            <i class="material-icons">delete</i>
                             <div class="ripple-container"></div>
                         </a>
                     </td>
                 </tr>
             @endforeach
+            <tr>
+                {!!  $coupons->render()  !!}
+            </tr>
         @endslot
     @endcomponent
 @endsection
