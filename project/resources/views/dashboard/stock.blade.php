@@ -1,35 +1,37 @@
-@extends('layouts.app', ['activePage' => 'image-management', 'titlePage'=>'Image Management'])
+@extends('layouts.app', ['activePage' => 'stock-management', 'titlePage'=>'Stock Management'])
 @section('content')
     @component('dashboard.layout')
         @slot('type_p')
-            Images
+            Stocks
         @endslot
         @slot('type_s')
-            image
+            stock
         @endslot
         @slot('t_head')
             <th>
-                Image
+                Color
             </th>
             <th>
-                Main
+                Size
+            </th>
+            <th>
+                Number
             </th>
             <th class="text-right">
                 Actions
             </th>
         @endslot
         @slot('t_body')
-            @foreach($images as $image)
+            @foreach($stocks as $stock)
                 <tr>
                     <td>
-                        <img src="{{ asset('storage/'.$image->image)}}" alt="" style="width: 100px">
+                        {{$stock -> color}}
                     </td>
                     <td>
-                        @if($image -> main)
-                            <p class="text-primary font-weight-bold"> Main Image </p>
-                        @else
-                            Minor Image
-                        @endif
+                        {{$stock -> size}}
+                    </td>
+                    <td>
+                        {{$stock -> number}}
                     </td>
                     <td class="td-actions text-right">
                         <a rel="tooltip" class="btn btn-success btn-link" href="#"

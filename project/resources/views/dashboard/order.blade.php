@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'order', 'titlePage'=>'Order Management'])
+@extends('layouts.app', ['activePage' => 'order-management', 'titlePage'=>'Order Management'])
 @section('content')
     <div class="content">
         <div class="container-fluid">

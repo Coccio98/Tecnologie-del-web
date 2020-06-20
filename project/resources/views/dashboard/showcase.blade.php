@@ -1,35 +1,43 @@
-@extends('layouts.app', ['activePage' => 'image-management', 'titlePage'=>'Image Management'])
+@extends('layouts.app', ['activePage' => 'showcase-management', 'titlePage'=>'Showcase Management'])
 @section('content')
     @component('dashboard.layout')
         @slot('type_p')
-            Images
+            Showcases
         @endslot
         @slot('type_s')
-            image
+            showcase
         @endslot
         @slot('t_head')
             <th>
-                Image
+                Title
             </th>
             <th>
-                Main
+                Subtitle
+            </th>
+            <th>
+                Banner
+            </th>
+            <th>
+                Expire
             </th>
             <th class="text-right">
                 Actions
             </th>
         @endslot
         @slot('t_body')
-            @foreach($images as $image)
+            @foreach($showcases as $showcase)
                 <tr>
                     <td>
-                        <img src="{{ asset('storage/'.$image->image)}}" alt="" style="width: 100px">
+                        {{$showcase -> title}}
                     </td>
                     <td>
-                        @if($image -> main)
-                            <p class="text-primary font-weight-bold"> Main Image </p>
-                        @else
-                            Minor Image
-                        @endif
+                        {{$showcase -> subtitle}}
+                    </td>
+                    <td>
+                        <img src="{{ asset('storage/'.$showcase -> banner)}}" alt="" style="width: 100px">
+                    </td>
+                    <td>
+                        {{$showcase -> expire}}
                     </td>
                     <td class="td-actions text-right">
                         <a rel="tooltip" class="btn btn-success btn-link" href="#"

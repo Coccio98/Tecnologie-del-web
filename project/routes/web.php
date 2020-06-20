@@ -117,7 +117,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('courier', 'Dashboard\CourierController', ['except' => ['show']]);
     Route::resource('image', 'Dashboard\ImageController', ['except' => ['show']]);
     Route::resource('order', 'Dashboard\OrderController', ['except' => ['show']]);
-
+    Route::resource('product', 'Dashboard\ProductController', ['except' => ['show']]);
+    Route::resource('showcase', 'Dashboard\ShowcaseController', ['except' => ['show']]);
+    Route::resource('stock', 'Dashboard\StockController', ['except' => ['show']]);
 });
 
 
