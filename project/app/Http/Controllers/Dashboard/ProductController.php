@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Brand;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Subcategory;
 
 class ProductController extends Controller
 {
@@ -19,5 +21,20 @@ class ProductController extends Controller
             ->join('subcategories','subcategories.id','=','products.subcategory_id')
             ->select('products.*','subcategories.name as subcategory','brands.name as brand')
             ->paginate(15)]);
+    }
+
+    /**
+     * Show the form for editing the profile.
+     *
+     * @param  \App\Product  $model
+     * @return \Illuminate\View\View
+     */
+    public function edit($id,Product $model)
+    {
+        if($id != 0){
+            return view('dashboard.edit.edit-product')->with('product', $model->where('id',$id)->first())
+                ->with('dashsubcategories', Subcategory::all())->with('brands', Brand::all());
+        }
+        return view('dashboard.edit.edit-product')->with('dashsubcategories', Subcategory::all())->with('brands', Brand::all());
     }
 }

@@ -8,7 +8,7 @@
             product
         @endslot
         @slot('href')
-
+            {{route('product.edit',['id'=>0])}}
         @endslot
         @slot('t_head')
             <th style="width: 10%">
@@ -55,7 +55,7 @@
                         {{$product -> subcategory}}
                     </td>
                     <td class="td-actions text-right">
-                        <a rel="tooltip" class="btn btn-success btn-link" href="#"
+                        <a rel="tooltip" class="btn btn-success btn-link" href="{{route('product.edit',['id'=>$product->id])}}"
                            data-original-title="" title="">
                             <i class="material-icons">edit</i>
                             <div class="ripple-container"></div>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Courier;
 use App\Http\Controllers\Controller;
 use App\Order;
+use App\Shipping;
 
 
 class OrderController extends Controller
@@ -20,5 +22,20 @@ class OrderController extends Controller
             ->join('shippings','shippings.id','=','orders.shipping_id')
             ->select('orders.*','shippings.status','couriers.name')
             ->paginate(15)]);
+    }
+
+    /**
+     * Show the form for editing the profile.
+     *
+     * @param  \App\Order $model
+     * @return \Illuminate\View\View
+     */
+    public function edit($id,Order $model)
+    {
+        if($id != 0){
+            return view('dashboard.edit.edit-order')->with('order', $model->where('id',$id)->first())
+                ->with('couriers',Courier::all())->with('shippings',Shipping::all());
+        }
+        return abort(404);
     }
 }

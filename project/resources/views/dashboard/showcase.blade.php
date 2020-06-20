@@ -8,7 +8,7 @@
             showcase
         @endslot
         @slot('href')
-
+            {{route('showcase.edit',['id'=>0])}}
         @endslot
         @slot('t_head')
             <th>
@@ -43,7 +43,7 @@
                         {{$showcase -> expire}}
                     </td>
                     <td class="td-actions text-right">
-                        <a rel="tooltip" class="btn btn-success btn-link" href="#"
+                        <a rel="tooltip" class="btn btn-success btn-link" href="{{route('showcase.edit',['id'=>$showcase->id])}}"
                            data-original-title="" title="">
                             <i class="material-icons">edit</i>
                             <div class="ripple-container"></div>

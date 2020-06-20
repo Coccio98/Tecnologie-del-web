@@ -8,7 +8,7 @@
             stock
         @endslot
         @slot('href')
-
+            {{route('stock.edit',['id'=>0])}}
         @endslot
         @slot('t_head')
             <th>
@@ -43,7 +43,7 @@
                         {{$stock -> number}}
                     </td>
                     <td class="td-actions text-right">
-                        <a rel="tooltip" class="btn btn-success btn-link" href="#"
+                        <a rel="tooltip" class="btn btn-success btn-link" href="{{route('stock.edit',['id'=>$stock->id])}}"
                            data-original-title="" title="">
                             <i class="material-icons">edit</i>
                             <div class="ripple-container"></div>

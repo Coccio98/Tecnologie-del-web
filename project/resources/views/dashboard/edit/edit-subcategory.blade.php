@@ -43,7 +43,7 @@
                                         <div class="form-group{{ $errors->has('category') ? ' has-danger' : '' }}">
                                             <select class="custom-select{{ $errors->has('category') ? ' is-invalid' : '' }}" name="category" id="input-category" required="true" aria-required="true">
                                                 @foreach($categories as $category)
-                                                    <option @if(!empty($subcategory) && ($category->id == $subcategory->category_id)) selected @endif value="category_id">
+                                                    <option @if(!empty($subcategory) && ($category->id == $subcategory->category_id)) selected @endif value="{{$category->id}}">
                                                         {{$category->name}}
                                                     </option>
                                                 @endforeach

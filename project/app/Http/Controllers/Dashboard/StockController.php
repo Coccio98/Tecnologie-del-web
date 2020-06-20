@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Product;
 use App\Stock;
 
 
@@ -19,5 +20,20 @@ class StockController extends Controller
         return view('dashboard.stock', ['stocks' => $model->join('products','products.id','=','stocks.product_id')
             ->select('stocks.*','products.name')
             ->paginate(15)]);
+    }
+
+    /**
+     * Show the form for editing the profile.
+     *
+     * @param  \App\Stock  $model
+     * @return \Illuminate\View\View
+     */
+    public function edit($id,Stock $model)
+    {
+        if($id != 0){
+            return view('dashboard.edit.edit-stock')->with('stock', $model->where('id',$id)->first())
+                ->with('products', Product::all());
+        }
+        return view('dashboard.edit.edit-image')->with('products', Product::all());
     }
 }

@@ -47,7 +47,7 @@
                                                 {{$order -> name}}
                                             </td>
                                             <td class="td-actions text-right">
-                                                <a rel="tooltip" class="btn btn-success btn-link" href="#"
+                                                <a rel="tooltip" class="btn btn-success btn-link" href="{{route('order.edit',['id'=>$order->id])}}"
                                                    data-original-title="" title="">
                                                     <i class="material-icons">edit</i>
                                                     <div class="ripple-container"></div>

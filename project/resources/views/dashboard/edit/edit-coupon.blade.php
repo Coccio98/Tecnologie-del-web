@@ -64,16 +64,15 @@
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('status') ? ' has-danger' : '' }} form-check">
                                             <label class="form-check-label">
-                                                <input class="form-control{{ $errors->has('status') ? ' is-invalid' : '' }} form-check-input" name="status" id="input-status" type="checkbox" placeholder="Status" value="1" @if(!empty($coupon) && $coupon->status) checked @endif required="true" aria-required="true"/>
+                                                <input class="form-control{{ $errors->has('status') ? ' is-invalid' : '' }} form-check-input" name="status" id="input-status" type="checkbox" value="1" @if(!empty($coupon) && $coupon->status) checked @endif required="true" aria-required="true"/>
                                                 <span class="form-check-sign">
                                                     <span class="check"></span>
                                                 </span>
                                             </label>
                                             @if ($errors->has('status'))
-                                                <span id="expiry-date-error" class="error text-danger" for="input-status">{{ $errors->first('status') }}</span>
+                                                <span id="status-error" class="error text-danger" for="input-status">{{ $errors->first('status') }}</span>
                                             @endif
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

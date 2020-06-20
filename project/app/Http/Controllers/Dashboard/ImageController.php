@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Image;
+use App\Product;
 
 
 class ImageController extends Controller
@@ -30,8 +31,9 @@ class ImageController extends Controller
     public function edit($id,Image $model)
     {
         if($id != 0){
-            return view('dashboard.edit.edit-image')->with('image', $model->where('id',$id)->first());
+            return view('dashboard.edit.edit-image')->with('image', $model->where('id',$id)->first())
+                ->with('products', Product::all());
         }
-        return view('dashboard.edit.edit-image');
+        return view('dashboard.edit.edit-image')->with('products', Product::all());
     }
 }

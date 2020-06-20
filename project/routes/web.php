@@ -128,10 +128,18 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('image', 'Dashboard\ImageController', ['except' => ['show']]);
     Route::get('edit-image/{id}', ['as' => 'image.edit', 'uses' => 'Dashboard\ImageController@edit']);
+
     Route::resource('order', 'Dashboard\OrderController', ['except' => ['show']]);
+    Route::get('edit-order/{id}', ['as' => 'order.edit', 'uses' => 'Dashboard\OrderController@edit']);
+
     Route::resource('product', 'Dashboard\ProductController', ['except' => ['show']]);
+    Route::get('edit-product/{id}', ['as' => 'product.edit', 'uses' => 'Dashboard\ProductController@edit']);
+
     Route::resource('showcase', 'Dashboard\ShowcaseController', ['except' => ['show']]);
+    Route::get('edit-showcase/{id}', ['as' => 'showcase.edit', 'uses' => 'Dashboard\ShowcaseController@edit']);
+
     Route::resource('stock', 'Dashboard\StockController', ['except' => ['show']]);
+    Route::get('edit-stock/{id}', ['as' => 'stock.edit', 'uses' => 'Dashboard\StockController@edit']);
 });
 
 
