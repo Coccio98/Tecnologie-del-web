@@ -39,4 +39,10 @@ class BrandController extends Controller
 
         return back()->withStatus(__('Brand successfully updated.'));
     }
+
+    public function delete($id){
+        Brand::brandDelete($id);
+
+        return back()->withStatus(__('Brand successfully deleted.'));
+    }
 }

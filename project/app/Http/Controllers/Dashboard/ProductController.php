@@ -44,4 +44,9 @@ class ProductController extends Controller
 
         return back()->withStatus(__('Product successfully updated.'));
     }
+    public function delete($id){
+        Product::productDelete($id);
+
+        return back()->withStatus(__('Product successfully deleted.'));
+    }
 }

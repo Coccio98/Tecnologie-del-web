@@ -51,4 +51,7 @@ class Stock extends Model
         );
     }
 
+    public static function stockDelete( $id){
+        return Stock::where('id', $id)->delete();
+    }
 }

@@ -168,4 +168,8 @@ class Product extends Model
         );
     }
 
+    public static function productDelete( $id){
+        return Product::where('id', $id)->delete();
+    }
+
 }

@@ -31,4 +31,7 @@ class Category extends Model
             ['name'=> $request->name]
         );
     }
+    public static function categoryDelete( $id){
+        return Category::where('id', $id)->delete();
+    }
 }

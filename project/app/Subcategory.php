@@ -17,4 +17,8 @@ class Subcategory extends Model
                 'category_id'=>$request->category]
         );
     }
+
+    public static function subcategoryDelete( $id){
+        return Subcategory::where('id', $id)->delete();
+    }
 }

@@ -16,7 +16,7 @@ Auth::routes();
 
 Route::get('/', 'FrontEndController@home')->name('home');
 
-Route::get('/product/{id}', 'FrontEndController@product')-> name('product');
+Route::get('/product-page/{id}', 'FrontEndController@product')-> name('product');
 
 Route::get('/store', 'FrontEndController@store')-> name('store');
 
@@ -114,22 +114,27 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('brand', 'Dashboard\BrandController', ['except' => ['show']]);
     Route::get('edit-brand/{id}', ['as' => 'brand.edit', 'uses' => 'Dashboard\BrandController@edit']);
     Route::put('edit-brand/{id}', ['as' => 'brand.update', 'uses' => 'Dashboard\BrandController@update']);
+    Route::get('brand/{id}', ['as' => 'brand.delete', 'uses' => 'Dashboard\BrandController@delete']);
 
 	Route::resource('category', 'Dashboard\CategoryController', ['except' => ['show']]);
     Route::get('edit-category/{id}', ['as' => 'category.edit', 'uses' => 'Dashboard\CategoryController@edit']);
     Route::put('edit-category/{id}', ['as' => 'category.update', 'uses' => 'Dashboard\CategoryController@update']);
+    Route::get('category/{id}', ['as' => 'category.delete', 'uses' => 'Dashboard\CategoryController@delete']);
 
     Route::resource('subcategory', 'Dashboard\SubcategoryController', ['except' => ['show']]);
     Route::get('edit-subcategory/{id}', ['as' => 'subcategory.edit', 'uses' => 'Dashboard\SubcategoryController@edit']);
     Route::put('edit-subcategory/{id}', ['as' => 'subcategory.update', 'uses' => 'Dashboard\SubcategoryController@update']);
+    Route::get('subcategory/{id}', ['as' => 'subcategory.delete', 'uses' => 'Dashboard\SubcategoryController@delete']);
 
     Route::resource('coupon', 'Dashboard\CouponController', ['except' => ['show']]);
     Route::get('edit-coupon/{id}', ['as' => 'coupon.edit', 'uses' => 'Dashboard\CouponController@edit']);
     Route::put('edit-coupon/{id}', ['as' => 'coupon.update', 'uses' => 'Dashboard\CouponController@update']);
+    Route::get('coupon/{id}', ['as' => 'coupon.delete', 'uses' => 'Dashboard\CouponController@delete']);
 
     Route::resource('courier', 'Dashboard\CourierController', ['except' => ['show']]);
     Route::get('edit-courier/{id}', ['as' => 'courier.edit', 'uses' => 'Dashboard\CourierController@edit']);
     Route::put('edit-courier/{id}', ['as' => 'courier.update', 'uses' => 'Dashboard\CourierController@update']);
+    Route::get('courier/{id}', ['as' => 'courier.delete', 'uses' => 'Dashboard\CourierController@delete']);
 
     Route::resource('image', 'Dashboard\ImageController', ['except' => ['show']]);
     Route::get('edit-image/{id}', ['as' => 'image.edit', 'uses' => 'Dashboard\ImageController@edit']);
@@ -139,10 +144,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('order', 'Dashboard\OrderController', ['except' => ['show']]);
     Route::get('edit-order/{id}', ['as' => 'order.edit', 'uses' => 'Dashboard\OrderController@edit']);
     Route::put('edit-order/{id}', ['as' => 'order.update', 'uses' => 'Dashboard\OrderController@update']);
+    Route::get('order/{id}', ['as' => 'order.delete', 'uses' => 'Dashboard\OrderController@delete']);
 
     Route::resource('product', 'Dashboard\ProductController', ['except' => ['show']]);
     Route::get('edit-product/{id}', ['as' => 'product.edit', 'uses' => 'Dashboard\ProductController@edit']);
     Route::put('edit-product/{id}', ['as' => 'product.update', 'uses' => 'Dashboard\ProductController@update']);
+    Route::get('product/{id}', ['as' => 'product.delete', 'uses' => 'Dashboard\ProductController@delete']);
 
     Route::resource('showcase', 'Dashboard\ShowcaseController', ['except' => ['show']]);
     Route::get('edit-showcase/{id}', ['as' => 'showcase.edit', 'uses' => 'Dashboard\ShowcaseController@edit']);
@@ -152,6 +159,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('stock', 'Dashboard\StockController', ['except' => ['show']]);
     Route::get('edit-stock/{id}', ['as' => 'stock.edit', 'uses' => 'Dashboard\StockController@edit']);
     Route::put('edit-stock/{id}', ['as' => 'stock.update', 'uses' => 'Dashboard\StockController@update']);
+    Route::get('stock/{id}', ['as' => 'stock.delete', 'uses' => 'Dashboard\StockController@delete']);
 
 });
 

@@ -43,4 +43,9 @@ class StockController extends Controller
 
         return back()->withStatus(__('Stock successfully updated.'));
     }
+    public function delete($id){
+        Stock::stockDelete($id);
+
+        return back()->withStatus(__('Stock successfully deleted.'));
+    }
 }

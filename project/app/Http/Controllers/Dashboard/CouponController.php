@@ -40,4 +40,9 @@ class CouponController extends Controller
         return back()->withStatus(__('Coupon successfully updated.'));
     }
 
+    public function delete($id){
+       Coupon::couponDelete($id);
+
+        return back()->withStatus(__('Coupon successfully deleted.'));
+    }
 }

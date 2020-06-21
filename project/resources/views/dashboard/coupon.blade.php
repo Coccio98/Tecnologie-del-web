@@ -52,7 +52,7 @@
                             <i class="material-icons">edit</i>
                             <div class="ripple-container"></div>
                         </a>
-                        <a rel="tooltip" class="btn btn-danger btn-link" href="#"
+                        <a rel="tooltip" class="btn btn-danger btn-link" href="{{route('coupon.delete',['id'=>$coupon->id])}}"
                            data-original-title="" title="">
                             <i class="material-icons">delete</i>
                             <div class="ripple-container"></div>

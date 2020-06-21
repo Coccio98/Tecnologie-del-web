@@ -39,4 +39,9 @@ class CourierController extends Controller
 
         return back()->withStatus(__('Courier successfully updated.'));
     }
+    public function delete($id){
+        Courier::courierDelete($id);
+
+        return back()->withStatus(__('Courier successfully deleted.'));
+    }
 }

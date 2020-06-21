@@ -14,4 +14,9 @@ class Courier extends Model
             ['name'=> $request->name]
         );
     }
+
+    public static function courierDelete( $id){
+        Order::where('courier_id',$id)->update(['courier_id'=> 1]);
+        return Courier::where('id', $id)->delete();
+    }
 }

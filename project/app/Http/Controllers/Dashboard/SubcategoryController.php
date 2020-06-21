@@ -40,4 +40,11 @@ class SubcategoryController extends Controller
         Subcategory::subcategoryUpdateOrInsert($request, $id);
 
         return back()->withStatus(__('Subcategory successfully updated.'));
-    }}
+    }
+
+    public function delete($id){
+        Subcategory::subcategoryDelete($id);
+
+        return back()->withStatus(__('Subcategory successfully deleted.'));
+    }
+}

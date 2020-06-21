@@ -26,4 +26,8 @@ class Brand extends Model
             ['name'=> $request->name]
         );
     }
+
+    public static function brandDelete( $id){
+        return Brand::where('id', $id)->delete();
+    }
 }

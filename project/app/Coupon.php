@@ -39,4 +39,7 @@ class Coupon extends Model
                 'status'=>$status]
         );
     }
+    public static function couponDelete( $id){
+        return Coupon::where('id', $id)->delete();
+    }
 }

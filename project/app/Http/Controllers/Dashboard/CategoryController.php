@@ -39,4 +39,10 @@ class CategoryController extends Controller
 
         return back()->withStatus(__('Category successfully updated.'));
     }
+
+    public function delete($id){
+        Category::categoryDelete($id);
+
+        return back()->withStatus(__('Category successfully deleted.'));
+    }
 }
