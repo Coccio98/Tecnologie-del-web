@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Brand;
+use Illuminate\Http\Request;
 
 
 class BrandController extends Controller
@@ -33,5 +34,9 @@ class BrandController extends Controller
         return view('dashboard.edit.edit-brand');
     }
 
+    public function update(Request $request, $id){
+        Brand::brandUpdateOrInsert($request, $id);
 
+        return back()->withStatus(__('Brand successfully updated.'));
+    }
 }

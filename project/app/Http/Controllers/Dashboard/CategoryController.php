@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Category;
+use Illuminate\Http\Request;
 
 
 class CategoryController extends Controller
@@ -31,5 +32,11 @@ class CategoryController extends Controller
             return view('dashboard.edit.edit-category')->with('category', $model->where('id',$id)->first());
         }
         return view('dashboard.edit.edit-category');
+    }
+
+    public function update(Request $request, $id){
+        Category::categoryUpdateOrInsert($request, $id);
+
+        return back()->withStatus(__('Category successfully updated.'));
     }
 }

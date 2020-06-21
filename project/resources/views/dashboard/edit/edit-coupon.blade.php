@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" action="" autocomplete="off" class="form-horizontal">
+                    <form method="post" action="@if(!empty($coupon)){{route('coupon.update', ['id'=> $coupon->id])}}@else{{route('coupon.update', ['id'=> 0])}}@endif" autocomplete="off" class="form-horizontal">
                         @csrf
                         @method('put')
 
@@ -51,10 +51,10 @@
                                 <div class="row">
                                     <label class="col-sm-2 col-form-label">Expiry date</label>
                                     <div class="col-sm-7">
-                                        <div class="form-group{{ $errors->has('expiry-date') ? ' has-danger' : '' }}">
-                                            <input class="form-control{{ $errors->has('expiry-date') ? ' is-invalid' : '' }}" name="expiry-date" id="input-expiry-date" type="date" placeholder="Expiry Date" value="{{ old('expiry-date', !empty($coupon) ? $coupon->expiry_date:'' )}}" required="true" aria-required="true"/>
-                                            @if ($errors->has('expiry-date'))
-                                                <span id="expiry-date-error" class="error text-danger" for="input-expiry-date">{{ $errors->first('expiry-date') }}</span>
+                                        <div class="form-group{{ $errors->has('expiry_date') ? ' has-danger' : '' }}">
+                                            <input class="form-control{{ $errors->has('expiry_date') ? ' is-invalid' : '' }}" name="expiry_date" id="input-expiry_date" type="date" placeholder="Expiry Date" value="{{ old('expiry_date', !empty($coupon) ? $coupon->expiry_date:'' )}}" required="true" aria-required="true"/>
+                                            @if ($errors->has('expiry_date'))
+                                                <span id="expiry_date-error" class="error text-danger" for="input-expiry_date">{{ $errors->first('expiry_date') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -64,7 +64,7 @@
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('status') ? ' has-danger' : '' }} form-check">
                                             <label class="form-check-label">
-                                                <input class="form-control{{ $errors->has('status') ? ' is-invalid' : '' }} form-check-input" name="status" id="input-status" type="checkbox" value="1" @if(!empty($coupon) && $coupon->status) checked @endif required="true" aria-required="true"/>
+                                                <input class="form-control{{ $errors->has('status') ? ' is-invalid' : '' }} form-check-input" name="status" id="input-status" type="checkbox" value="1" @if(!empty($coupon) && $coupon->status) checked @endif/>
                                                 <span class="form-check-sign">
                                                     <span class="check"></span>
                                                 </span>

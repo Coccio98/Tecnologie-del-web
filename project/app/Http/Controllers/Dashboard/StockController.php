@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Stock;
+use Illuminate\Http\Request;
 
 
 class StockController extends Controller
@@ -34,6 +35,12 @@ class StockController extends Controller
             return view('dashboard.edit.edit-stock')->with('stock', $model->where('id',$id)->first())
                 ->with('products', Product::all());
         }
-        return view('dashboard.edit.edit-image')->with('products', Product::all());
+        return view('dashboard.edit.edit-stock')->with('products', Product::all());
+    }
+
+    public function update(Request $request, $id){
+        Stock::stockUpdateOrInsert($request, $id);
+
+        return back()->withStatus(__('Stock successfully updated.'));
     }
 }

@@ -151,4 +151,21 @@ class Product extends Model
         return $total;
     }
 
+    public static function productUpdateOrInsert($request, $id){
+        $summary = (!empty($request->summary) ? $request->summary : '');
+        $description = (!empty($request->description) ? $request->description : '');
+        $details = (!empty($request->details) ? $request->details : '');
+        return Product::updateOrInsert(
+            ['id'=> $id],
+            ['name'=> $request->name,
+                'price'=> $request->price,
+                'summary'=> $summary,
+                'description'=> $description,
+                'details'=> $details,
+                'sale'=> $request->sale,
+                'subcategory_id'=> $request->subcategory,
+                'brand_id'=> $request->brand]
+        );
+    }
+
 }

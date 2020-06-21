@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" action="" autocomplete="off" class="form-horizontal">
+                    <form method="post" action="@if(!empty($courier)){{route('courier.update', ['id'=> $courier->id])}}@else{{route('courier.update', ['id'=> 0])}}@endif" autocomplete="off" class="form-horizontal">
                         @csrf
                         @method('put')
 

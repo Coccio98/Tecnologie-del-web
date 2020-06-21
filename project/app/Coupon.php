@@ -29,4 +29,14 @@ class Coupon extends Model
         return Coupon::join('redeem', 'redeem.coupon_id', "=", "coupons.id")
             ->where('redeem.user_id',$userId)->where('redeem.used', false)->select('coupons.*')->get();
     }
+    public static function couponUpdateOrInsert($request, $id){
+        $status = (!empty($request->status) ? 1 : 0);
+        return Coupon::updateOrInsert(
+            ['id'=> $id],
+            ['code'=> $request->code,
+                'amount'=> $request->amount,
+                'expiry_date'=>$request->expiry_date,
+                'status'=>$status]
+        );
+    }
 }

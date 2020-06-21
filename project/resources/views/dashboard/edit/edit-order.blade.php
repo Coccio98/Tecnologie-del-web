@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" action="" autocomplete="off" class="form-horizontal">
+                    <form method="post" action="@if(!empty($order)){{route('order.update', ['id'=> $order->id])}}@else{{route('order.update', ['id'=> 0])}}@endif" autocomplete="off" class="form-horizontal">
                         @csrf
                         @method('put')
 
@@ -32,10 +32,10 @@
                                 <div class="row">
                                     <label class="col-sm-2 col-form-label">{{ __('Delivery date') }}</label>
                                     <div class="col-sm-7">
-                                        <div class="form-group{{ $errors->has('delivery-date') ? ' has-danger' : '' }}">
-                                            <input class="form-control{{ $errors->has('delivery-date') ? ' is-invalid' : '' }}" name="delivery-date" id="input-delivery-date" type="date" placeholder="{{ __('Delivery Date') }}" value="{{ old('delivery-date', !empty($order) ? $order->delivery_date:'') }}" required="true" aria-required="true"/>
-                                            @if ($errors->has('delivery-date'))
-                                                <span id="delivery-date-error" class="error text-danger" for="input-delivery-date">{{ $errors->first('delivery-date') }}</span>
+                                        <div class="form-group{{ $errors->has('delivery_date') ? ' has-danger' : '' }}">
+                                            <input class="form-control{{ $errors->has('delivery_date') ? ' is-invalid' : '' }}" name="delivery_date" id="input-delivery_date" type="date" placeholder="{{ __('Delivery Date') }}" value="{{ old('delivery_date', !empty($order) ? $order->delivery_date:'') }}" required="true" aria-required="true"/>
+                                            @if ($errors->has('delivery_date'))
+                                                <span id="delivery_date-error" class="error text-danger" for="input-delivery_date">{{ $errors->first('delivery_date') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@
                                         <div class="form-group{{ $errors->has('courier') ? ' has-danger' : '' }}">
                                             <select class="custom-select{{ $errors->has('courier') ? ' is-invalid' : '' }}" name="courier" id="input-courier" required="true" aria-required="true">
                                                 @foreach($couriers as $courier)
-                                                    <option @if(!empty($oreder) && ($courier->id == $order->curier_id)) selected @endif value="{{$courier->id}}">
+                                                    <option @if(!empty($order) && ($courier->id == $order->courier_id)) selected @endif value="{{$courier->id}}">
                                                         {{$courier->name}}
                                                     </option>
                                                 @endforeach

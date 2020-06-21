@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" action="" autocomplete="off" class="form-horizontal">
+                    <form method="post" action="@if(!empty($product)){{route('product.update', ['id'=> $product->id])}}@else{{route('product.update', ['id'=> 0])}}@endif" autocomplete="off" class="form-horizontal">
                         @csrf
                         @method('put')
 
@@ -74,7 +74,7 @@
                                     <label class="col-sm-2 col-form-label">{{ __('Details') }}</label>
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('details') ? ' has-danger' : '' }}">
-                                            <textarea class="{{ $errors->has('details') ? ' is-invalid' : '' }}" name="details" id="input-details" placeholder="{{ __('details') }}" style="width: 100%" rows="5">{{ old('details', !empty($product) ? $product->details:'') }}</textarea>
+                                            <textarea class="{{ $errors->has('details') ? ' is-invalid' : '' }}" name="details" id="input-details" placeholder="{{ __('Details') }}" style="width: 100%" rows="5">{{ old('details', !empty($product) ? $product->details:'') }}</textarea>
                                             @if ($errors->has('details'))
                                                 <span id="details-error" class="error text-danger" for="input-details">{{ $errors->first('details') }}</span>
                                             @endif

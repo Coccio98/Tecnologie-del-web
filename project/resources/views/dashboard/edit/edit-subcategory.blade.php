@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" action="" autocomplete="off" class="form-horizontal">
+                    <form method="post" action="@if(!empty($subcategory)){{route('subcategory.update', ['id'=> $subcategory->id])}}@else{{route('subcategory.update', ['id'=> 0])}}@endif" autocomplete="off" class="form-horizontal">
                         @csrf
                         @method('put')
 

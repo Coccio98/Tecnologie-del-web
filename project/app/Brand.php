@@ -19,4 +19,11 @@ class Brand extends Model
             ->where('showcases.id',$id);
         return $products->where('products.brand_id',$this->id)->select('products.id')->distinct()->count();
     }
+
+    public static function brandUpdateOrInsert($request, $id){
+        return Brand::updateOrInsert(
+            ['id'=> $id],
+            ['name'=> $request->name]
+        );
+    }
 }

@@ -24,4 +24,11 @@ class Category extends Model
         return $products->where('subcategories.category_id',$this->id)
             ->select('products.id')->distinct()->count();
     }
+
+    public static function categoryUpdateOrInsert($request, $id){
+        return Category::updateOrInsert(
+            ['id'=> $id],
+            ['name'=> $request->name]
+        );
+    }
 }

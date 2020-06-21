@@ -6,6 +6,7 @@ use App\Courier;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\Shipping;
+use Illuminate\Http\Request;
 
 
 class OrderController extends Controller
@@ -38,4 +39,11 @@ class OrderController extends Controller
         }
         return abort(404);
     }
+
+    public function update(Request $request, $id){
+        Order::orderUpdate($request, $id);
+
+        return back()->withStatus(__('Order successfully updated.'));
+    }
+
 }

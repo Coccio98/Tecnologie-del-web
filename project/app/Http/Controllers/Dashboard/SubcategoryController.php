@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Subcategory;
+use Illuminate\Http\Request;
 
 
 class SubcategoryController extends Controller
@@ -34,4 +35,9 @@ class SubcategoryController extends Controller
         }
         return view('dashboard.edit.edit-subcategory');
     }
-}
+
+    public function update(Request $request, $id){
+        Subcategory::subcategoryUpdateOrInsert($request, $id);
+
+        return back()->withStatus(__('Subcategory successfully updated.'));
+    }}

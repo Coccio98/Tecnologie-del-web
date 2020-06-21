@@ -71,4 +71,13 @@ class Order extends Model
             ->select('orders.*', 'shippings.status', 'payment_methods.cardNumber')
             ->first();
     }
+
+    public static function orderUpdate($request, $id){
+
+        return Order::where('id', $id)->update(
+            ['delivery_date'=> $request->delivery_date,
+                'courier_id'=>$request->courier,
+                'shipping_id'=>$request->shipping]
+        );
+    }
 }

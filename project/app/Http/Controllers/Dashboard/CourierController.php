@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Courier;
+use Illuminate\Http\Request;
 
 
 class CourierController extends Controller
@@ -31,5 +32,11 @@ class CourierController extends Controller
             return view('dashboard.edit.edit-courier')->with('courier', $model->where('id',$id)->first());
         }
         return view('dashboard.edit.edit-courier');
+    }
+
+    public function update(Request $request, $id){
+        Courier::courierUpdateOrInsert($request, $id);
+
+        return back()->withStatus(__('Courier successfully updated.'));
     }
 }

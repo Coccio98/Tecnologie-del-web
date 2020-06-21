@@ -40,4 +40,15 @@ class Stock extends Model
     public static function updateCartQuantity($stockId,$quantity){
         return DB::table('cart')->where('stock_id',$stockId)->increment('quantity',$quantity);
     }
+
+    public static function stockUpdateOrInsert($request, $id){
+        return Stock::updateOrInsert(
+            ['id'=> $id],
+            ['color'=> $request->color,
+                'size'=> $request->size,
+                'number'=> $request->number,
+                'product_id'=> $request->product]
+        );
+    }
+
 }

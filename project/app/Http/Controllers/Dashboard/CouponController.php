@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Coupon;
+use Illuminate\Http\Request;
 
 
 class CouponController extends Controller
@@ -32,4 +33,11 @@ class CouponController extends Controller
         }
         return view('dashboard.edit.edit-coupon');
     }
+
+    public function update(Request $request, $id){
+        Coupon::couponUpdateOrInsert($request, $id);
+
+        return back()->withStatus(__('Coupon successfully updated.'));
+    }
+
 }

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" action="" autocomplete="off" class="form-horizontal">
+                    <form method="post" action="@if(!empty($showcase)){{route('showcase.update', ['id'=> $showcase->id])}}@else{{route('showcase.update', ['id'=> 0])}}@endif" autocomplete="off" class="form-horizontal" enctype="multipart/form-data">
                         @csrf
                         @method('put')
 
@@ -59,20 +59,32 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <label class="col-sm-2 col-form-label">Banner</label>
-                                    <div class="col-sm-7">
-                                        <div class="{{ $errors->has('banner') ? ' has-danger' : '' }}">
-                                            <input class="form-control {{ $errors->has('banner') ? ' is-invalid' : '' }}" name="banner" id="input-banner" type="file" required="true" aria-required="true"/>
-                                            @if ($errors->has('banner'))
-                                                <span id="banner-error" class="error text-danger" for="input-banner">{{ $errors->first('name') }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
                                 @if(!empty($showcase))
                                     <div class="row">
+                                        <label class="col-sm-2 col-form-label">Banner</label>
+                                        <div class="col-sm-7">
+                                            <div class="{{ $errors->has('banner') ? ' has-danger' : '' }}">
+                                                <input class="form-control {{ $errors->has('banner') ? ' is-invalid' : '' }}" name="banner" id="input-banner" type="file"/>
+                                                @if ($errors->has('banner'))
+                                                    <span id="banner-error" class="error text-danger" for="input-banner">{{ $errors->first('name') }}</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <img src="{{ asset('storage/'.$showcase->banner)}}" alt="" style="width: 200px">
+                                    </div>
+                                @else
+                                    <div class="row">
+                                        <label class="col-sm-2 col-form-label">Banner</label>
+                                        <div class="col-sm-7">
+                                            <div class="{{ $errors->has('banner') ? ' has-danger' : '' }}">
+                                                <input class="form-control {{ $errors->has('banner') ? ' is-invalid' : '' }}" name="banner" id="input-banner" type="file" required="true" aria-required="true"/>
+                                                @if ($errors->has('banner'))
+                                                    <span id="banner-error" class="error text-danger" for="input-banner">{{ $errors->first('banner') }}</span>
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
                                 @endif
                             </div>

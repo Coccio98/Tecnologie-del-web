@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Image;
 use App\Product;
+use Illuminate\Http\Request;
 
 
 class ImageController extends Controller
@@ -36,4 +37,36 @@ class ImageController extends Controller
         }
         return view('dashboard.edit.edit-image')->with('products', Product::all());
     }
+
+    public function update(Request $request, $id){
+
+        if($id != 0){
+            $this->validate($request, [
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            ]);
+        } else {
+            $this->validate($request, [
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            ]);
+        }
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('storage/images');
+            $image->move($destinationPath,$name);
+            Image::imageUpdateOrInsert($request, $id, $name);
+        } else {
+            Image::imageUpdateOrInsertNoImage($request, $id);
+        }
+
+        return back()->withStatus(__('Image successfully updated.'));
+    }
+
+    public function delete($id){
+        Image::imageDelete($id);
+
+        return back()->withStatus(__('Image successfully deleted.'));
+    }
+
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Showcase;
+use Illuminate\Http\Request;
 
 
 class ShowcaseController extends Controller
@@ -31,5 +32,36 @@ class ShowcaseController extends Controller
             return view('dashboard.edit.edit-showcase')->with('showcase', $model->where('id',$id)->first());
         }
         return view('dashboard.edit.edit-showcase');
+    }
+
+    public function update(Request $request, $id){
+
+        if($id != 0){
+            $this->validate($request, [
+                'banner' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            ]);
+        } else {
+            $this->validate($request, [
+                'banner' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            ]);
+        }
+
+        if ($request->hasFile('banner')) {
+            $image = $request->file('banner');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('storage/images');
+            $image->move($destinationPath,$name);
+            Showcase::showcaseUpdateOrInsert($request, $id, $name);
+        } else {
+            Showcase::showcaseUpdateOrInsertNoBanner($request, $id);
+        }
+
+        return back()->withStatus(__('Showcase successfully updated.'));
+    }
+
+    public function delete($id){
+        Showcase::showcaseDelete($id);
+
+        return back()->withStatus(__('Showcase successfully deleted.'));
     }
 }

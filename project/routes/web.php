@@ -113,33 +113,46 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::resource('brand', 'Dashboard\BrandController', ['except' => ['show']]);
     Route::get('edit-brand/{id}', ['as' => 'brand.edit', 'uses' => 'Dashboard\BrandController@edit']);
+    Route::put('edit-brand/{id}', ['as' => 'brand.update', 'uses' => 'Dashboard\BrandController@update']);
 
 	Route::resource('category', 'Dashboard\CategoryController', ['except' => ['show']]);
     Route::get('edit-category/{id}', ['as' => 'category.edit', 'uses' => 'Dashboard\CategoryController@edit']);
+    Route::put('edit-category/{id}', ['as' => 'category.update', 'uses' => 'Dashboard\CategoryController@update']);
 
     Route::resource('subcategory', 'Dashboard\SubcategoryController', ['except' => ['show']]);
     Route::get('edit-subcategory/{id}', ['as' => 'subcategory.edit', 'uses' => 'Dashboard\SubcategoryController@edit']);
+    Route::put('edit-subcategory/{id}', ['as' => 'subcategory.update', 'uses' => 'Dashboard\SubcategoryController@update']);
 
     Route::resource('coupon', 'Dashboard\CouponController', ['except' => ['show']]);
     Route::get('edit-coupon/{id}', ['as' => 'coupon.edit', 'uses' => 'Dashboard\CouponController@edit']);
+    Route::put('edit-coupon/{id}', ['as' => 'coupon.update', 'uses' => 'Dashboard\CouponController@update']);
 
     Route::resource('courier', 'Dashboard\CourierController', ['except' => ['show']]);
     Route::get('edit-courier/{id}', ['as' => 'courier.edit', 'uses' => 'Dashboard\CourierController@edit']);
+    Route::put('edit-courier/{id}', ['as' => 'courier.update', 'uses' => 'Dashboard\CourierController@update']);
 
     Route::resource('image', 'Dashboard\ImageController', ['except' => ['show']]);
     Route::get('edit-image/{id}', ['as' => 'image.edit', 'uses' => 'Dashboard\ImageController@edit']);
+    Route::put('edit-image/{id}', ['as' => 'image.update', 'uses' => 'Dashboard\ImageController@update']);
+    Route::get('image/{id}', ['as' => 'image.delete', 'uses' => 'Dashboard\ImageController@delete']);
 
     Route::resource('order', 'Dashboard\OrderController', ['except' => ['show']]);
     Route::get('edit-order/{id}', ['as' => 'order.edit', 'uses' => 'Dashboard\OrderController@edit']);
+    Route::put('edit-order/{id}', ['as' => 'order.update', 'uses' => 'Dashboard\OrderController@update']);
 
     Route::resource('product', 'Dashboard\ProductController', ['except' => ['show']]);
     Route::get('edit-product/{id}', ['as' => 'product.edit', 'uses' => 'Dashboard\ProductController@edit']);
+    Route::put('edit-product/{id}', ['as' => 'product.update', 'uses' => 'Dashboard\ProductController@update']);
 
     Route::resource('showcase', 'Dashboard\ShowcaseController', ['except' => ['show']]);
     Route::get('edit-showcase/{id}', ['as' => 'showcase.edit', 'uses' => 'Dashboard\ShowcaseController@edit']);
+    Route::put('edit-showcase/{id}', ['as' => 'showcase.update', 'uses' => 'Dashboard\ShowcaseController@update']);
+    Route::get('showcase/{id}', ['as' => 'showcase.delete', 'uses' => 'Dashboard\ShowcaseController@delete']);
 
     Route::resource('stock', 'Dashboard\StockController', ['except' => ['show']]);
     Route::get('edit-stock/{id}', ['as' => 'stock.edit', 'uses' => 'Dashboard\StockController@edit']);
+    Route::put('edit-stock/{id}', ['as' => 'stock.update', 'uses' => 'Dashboard\StockController@update']);
+
 });
 
 

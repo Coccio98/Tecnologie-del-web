@@ -6,6 +6,7 @@ use App\Brand;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Subcategory;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -36,5 +37,11 @@ class ProductController extends Controller
                 ->with('dashsubcategories', Subcategory::all())->with('brands', Brand::all());
         }
         return view('dashboard.edit.edit-product')->with('dashsubcategories', Subcategory::all())->with('brands', Brand::all());
+    }
+
+    public function update(Request $request, $id){
+        Product::productUpdateOrInsert($request, $id);
+
+        return back()->withStatus(__('Product successfully updated.'));
     }
 }
