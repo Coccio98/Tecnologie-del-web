@@ -4,36 +4,17 @@
 
     @component('partials.reusable.section')
 
-        @component('partials.home.collection')
-            @slot('image')
-                {{ asset('storage/images/shop01.png')}}
-            @endslot
-            @slot('category')
-                2
-            @endslot
-            Computer
-        @endcomponent
-
-        @component('partials.home.collection')
-            @slot('image')
-                {{ asset('storage/images/shop03.png')}}
-            @endslot
-            @slot('category')
-                5
-            @endslot
-            Accessories
-        @endcomponent
-
-        @component('partials.home.collection')
-            @slot('image')
-                {{ asset('storage/images/shop02.png')}}
-            @endslot
-            @slot('category')
-                3
-            @endslot
-            Photo
-        @endcomponent
-
+        @foreach($boxes as $box)
+            @component('partials.home.collection')
+                @slot('image')
+                    {{ asset('storage/'.$box->image)}}
+                @endslot
+                @slot('category')
+                    {{$box->category_id}}
+                @endslot
+                {{$box->name}}
+            @endcomponent
+        @endforeach
     @endcomponent
 
 

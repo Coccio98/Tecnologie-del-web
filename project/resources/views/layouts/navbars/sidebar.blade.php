@@ -126,6 +126,18 @@
                     <span class="sidebar-normal"> Order Management </span>
                 </a>
             </li>
+            <li class="nav-item{{ $activePage == 'box-management' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('box.index') }}">
+                    <i class="material-icons-outlined"> crop_5_4 </i>
+                    <span class="sidebar-normal"> Box Management </span>
+                </a>
+            </li>
+            <li class="nav-item{{ $activePage == 'information-management' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('information.index') }}">
+                    <i class="material-icons-outlined"> info </i>
+                    <span class="sidebar-normal"> Information Management </span>
+                </a>
+            </li>
             <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
                 <a class="nav-link" href="{{ route('table') }}">
                     <i class="material-icons">content_paste</i>

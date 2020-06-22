@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
+use App\Box;
 use App\Brand;
 use App\Image;
+use App\Information;
 use App\Question;
 use App\Showcase;
 use App\Stock;
@@ -24,7 +26,7 @@ class FrontEndController extends Controller
         $now=Carbon::now();
         return view('pages.home')->with('path', 'home')
             ->with('bestProducts', $bestProducts)->with('topSelling', $topSelling)
-            ->with('showcases', $showcases)->with('now',$now);
+            ->with('showcases', $showcases)->with('now',$now)->with('boxes',Box::boxesWhere());
     }
 
     public function page(Request $request){
@@ -175,5 +177,10 @@ class FrontEndController extends Controller
         ]);
         Answer::answerInsert($request);
         return redirect(url()->previous());
+    }
+
+    public static function information(){
+        $path = 'pages.information';
+        return view($path)->with('informations', Information::all());
     }
 }

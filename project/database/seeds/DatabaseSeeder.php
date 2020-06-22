@@ -34,5 +34,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OrdersTableSeeder::class);
         $this->call(ComposeTableSeeder::class);
         $this->call(WishlistTableSeeder::class);
+        $this->call(BoxesTableSeeder::class);
+        $this->call(InformationTableSeeder::class);
     }
 }

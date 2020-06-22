@@ -24,7 +24,7 @@ Route::get('/checkout', 'HomeController@checkout')-> name('checkout');
 
 Route::get('/wishlist', 'HomeController@wishlist')-> name('wishlist');
 
-Route::get('/information', 'FrontEndController@page')-> name('information');
+Route::get('/information-page', 'FrontEndController@information')-> name('information');
 
 Route::get('/myaccount', 'HomeController@page')-> name('myaccount');
 
@@ -144,7 +144,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('order', 'Dashboard\OrderController', ['except' => ['show']]);
     Route::get('edit-order/{id}', ['as' => 'order.edit', 'uses' => 'Dashboard\OrderController@edit']);
     Route::put('edit-order/{id}', ['as' => 'order.update', 'uses' => 'Dashboard\OrderController@update']);
-    Route::get('order/{id}', ['as' => 'order.delete', 'uses' => 'Dashboard\OrderController@delete']);
 
     Route::resource('product', 'Dashboard\ProductController', ['except' => ['show']]);
     Route::get('edit-product/{id}', ['as' => 'product.edit', 'uses' => 'Dashboard\ProductController@edit']);
@@ -161,6 +160,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('edit-stock/{id}', ['as' => 'stock.update', 'uses' => 'Dashboard\StockController@update']);
     Route::get('stock/{id}', ['as' => 'stock.delete', 'uses' => 'Dashboard\StockController@delete']);
 
+    Route::resource('box', 'Dashboard\BoxController', ['except' => ['show']]);
+    Route::get('edit-box/{id}', ['as' => 'box.edit', 'uses' => 'Dashboard\BoxController@edit']);
+    Route::put('edit-box/{id}', ['as' => 'box.update', 'uses' => 'Dashboard\BoxController@update']);
+
+    Route::resource('information', 'Dashboard\InformationController', ['except' => ['show']]);
+    Route::get('edit-information/{id}', ['as' => 'information.edit', 'uses' => 'Dashboard\InformationController@edit']);
+    Route::put('edit-information/{id}', ['as' => 'information.update', 'uses' => 'Dashboard\InformationController@update']);
 });
 
 
