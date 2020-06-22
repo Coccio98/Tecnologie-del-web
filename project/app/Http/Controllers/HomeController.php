@@ -3,11 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Box;
+use App\Brand;
+use App\Category;
 use App\Coupon;
+use App\Courier;
+use App\Image;
+use App\Information;
 use App\Order;
 use App\PaymentMethod;
 use App\Product;
+use App\Showcase;
 use App\Stock;
+use App\Subcategory;
+use App\User;
 use ArrayObject;
 use Illuminate\Http\Request;
 
@@ -31,7 +40,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        return view('dashboard')
+            ->with('nUsers', User::all()->count())
+            ->with('nProducts', Product::all()->count())
+            ->with('nStocks', Stock::all()->count())
+            ->with('nImages', Image::all()->count())
+            ->with('nBrands',  Brand::all()->count())
+            ->with('nCategories', Category::all()->count())
+            ->with('nSubcategories', Subcategory::all()->count())
+            ->with('nCoupons', Coupon::all()->count())
+            ->with('nShowcases', Showcase::all()->count())
+            ->with('nCouriers', Courier::all()->count())
+            ->with('nOrders', Order::all()->count())
+            ->with('boxes', Box::join('categories', 'boxes.category_id', '=', 'categories.id')
+            ->select('categories.name')
+            ->get());
     }
 
     public function page(Request $request){

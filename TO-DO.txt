@@ -1,19 +1,9 @@
-﻿Dare la possibilità di modificare la pagina informazioni
+﻿Cercare tra i vari campi (foreign key) nelle modifiche 
 
-Dare la possibilità di modifiare i box nel template
-
-Scegliere i prodotti da mettere in showcase
-
-Modificare la dashboard
-
-Cercare tra i vari campi (foreign key) nelle modifiche 
-
-Sistemare Header Dashboard
-
-Sistemare la sidebar (Eliminare Creative Tim)
+Sistemare la sidebar
 
 Eliminare le immagini che non si usano 
 
-Accesso solo all'admi alla dashboard 
+Accesso solo all'admin alla dashboard (Se c'è tempo mettere bottone in admin)
 
 (Wishlist non elimina una volta fatto add-to-cart)

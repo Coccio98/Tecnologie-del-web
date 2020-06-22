@@ -6,8 +6,8 @@
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo">
-        <a href="https://creative-tim.com/" class="simple-text logo-normal">
-            {{ __('Creative Tim') }}
+        <a class="simple-text logo-normal">
+            {{ __('Admin Dashboard') }}
         </a>
     </div>
     <div class="sidebar-wrapper">
@@ -18,29 +18,11 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
-            <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
-                <a class="nav-link collapsed" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
-                    <i class="material-icons-outlined">person</i>
-                    <p> User
-                        <b class="caret"></b>
-                    </p>
+            <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('user.index') }}">
+                    <i class="material-icons-outlined"> person </i>
+                    <span class="sidebar-normal"> {{ __('User Management') }} </span>
                 </a>
-                <div class="collapse" id="laravelExample">
-                    <ul class="nav">
-                        <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
-                            <a class="nav-link" href="{{ route('profile.edit') }}">
-                                <span class="sidebar-mini"> UP </span>
-                                <span class="sidebar-normal">{{ __('User profile') }} </span>
-                            </a>
-                        </li>
-                        <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
-                            <a class="nav-link" href="{{ route('user.index') }}">
-                                <span class="sidebar-mini"> UM </span>
-                                <span class="sidebar-normal"> {{ __('User Management') }} </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
             </li>
             <li class="nav-item {{ ($activePage == 'product-management' || $activePage == 'stock-management' || $activePage == 'stock-management') ? ' active' : '' }}">
             <a class="nav-link collapsed" data-toggle="collapse" href="#product" aria-expanded="false">

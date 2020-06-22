@@ -109,7 +109,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'Dashboard\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'Dashboard\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'Dashboard\ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'Dashboard\ProfileController@password']);
 
 	Route::resource('brand', 'Dashboard\BrandController', ['except' => ['show']]);
     Route::get('edit-brand/{id}', ['as' => 'brand.edit', 'uses' => 'Dashboard\BrandController@edit']);
@@ -153,7 +152,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('showcase', 'Dashboard\ShowcaseController', ['except' => ['show']]);
     Route::get('edit-showcase/{id}', ['as' => 'showcase.edit', 'uses' => 'Dashboard\ShowcaseController@edit']);
     Route::put('edit-showcase/{id}', ['as' => 'showcase.update', 'uses' => 'Dashboard\ShowcaseController@update']);
+    Route::put('add-product-showcase/{id}', ['as' => 'showcase.addProduct', 'uses' => 'Dashboard\ShowcaseController@addProduct']);
     Route::get('showcase/{id}', ['as' => 'showcase.delete', 'uses' => 'Dashboard\ShowcaseController@delete']);
+    Route::get('delete-product-showcase/{id}/{productId}', ['as' => 'showcase.deleteProduct', 'uses' => 'Dashboard\ShowcaseController@deleteProduct']);
 
     Route::resource('stock', 'Dashboard\StockController', ['except' => ['show']]);
     Route::get('edit-stock/{id}', ['as' => 'stock.edit', 'uses' => 'Dashboard\StockController@edit']);

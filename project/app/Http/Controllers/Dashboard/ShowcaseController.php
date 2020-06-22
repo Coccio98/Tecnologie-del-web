@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Product;
 use App\Showcase;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,9 @@ class ShowcaseController extends Controller
     public function edit($id,Showcase $model)
     {
         if($id != 0){
-            return view('dashboard.edit.edit-showcase')->with('showcase', $model->where('id',$id)->first());
+            return view('dashboard.edit.edit-showcase')->with('showcase', $model->where('id',$id)->first())
+                ->with('products', Product::all())
+                ->with('productsShowcase', Product::productShowcaseWhere($id));
         }
         return view('dashboard.edit.edit-showcase');
     }
@@ -63,5 +66,15 @@ class ShowcaseController extends Controller
         Showcase::showcaseDelete($id);
 
         return back()->withStatus(__('Showcase successfully deleted.'));
+    }
+
+    public function addProduct(Request $request, $id){
+        Showcase::addProductShowcase($request, $id);
+        return back()->withStatus(__('Product successfully added.'));
+    }
+
+    public function deleteProduct($id, $productId){
+        Showcase::deleteProductShowcase($id, $productId);
+        return back()-> withStatus(__('Product successfully deleted.'));
     }
 }

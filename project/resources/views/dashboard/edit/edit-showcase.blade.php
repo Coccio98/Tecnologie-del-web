@@ -95,6 +95,59 @@
                     </form>
                 </div>
             </div>
+            @if (!empty($showcase))
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="post" action="{{route('showcase.addProduct', ['id'=> $showcase->id])}}" autocomplete="off" class="form-horizontal" enctype="multipart/form-data">
+                            @csrf
+                            @method('put')
+
+                            <div class="card ">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title">{{ __('Edit Showcase') }}</h4>
+                                </div>
+                                <div class="card-body ">
+                                    <div class="row">
+                                        <label class="col-sm-2 col-form-label">Product</label>
+                                        <div class="col-sm-7">
+                                            <div class="form-group{{ $errors->has('product') ? ' has-danger' : '' }}">
+                                                <select class="custom-select{{ $errors->has('product') ? ' is-invalid' : '' }}" name="product" id="input-product" required="true" aria-required="true">
+                                                    @foreach($products as $product)
+                                                        <option value="{{$product->id}}">
+                                                            {{$product->name}}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @if ($errors->has('product'))
+                                                    <span id="product-error" class="error text-danger" for="input-product">{{ $errors->first('category') }}</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <ul>
+                                                @foreach($productsShowcase as $product)
+                                                    <li> {{$product->name}}
+                                                        <a rel="tooltip" class="btn btn-danger btn-link" href="{{route('showcase.deleteProduct',['id'=>$showcase->id, 'productId'=>$product->id])}}"
+                                                           data-original-title="" title="">
+                                                            <i class="material-icons">clear</i>
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer ml-auto mr-auto">
+                                    <button type="submit" class="btn btn-primary">{{ __('Add') }}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 @endsection

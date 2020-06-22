@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Table;
 
 class Showcase extends Model
 {
@@ -31,5 +33,18 @@ class Showcase extends Model
     }
     public static function showcaseDelete( $id){
         return Showcase::where('id', $id)->delete();
+    }
+
+    public static function addProductShowcase($request, $id){
+        return DB::table('display')->updateOrInsert([
+            'showcase_id' => $id,
+            'product_id' => $request -> product
+        ]);
+    }
+
+    public static function deleteProductShowcase($id, $productId){
+        return DB::table('display')->where('showcase_id', $id)
+            ->where('product_id', $productId)
+            ->delete();
     }
 }

@@ -172,4 +172,12 @@ class Product extends Model
         return Product::where('id', $id)->delete();
     }
 
+    public static function productShowcaseWhere($id){
+        return Product::join('display', 'display.product_id', '=', 'products.id')
+            ->join('showcases', 'showcases.id', '=', 'display.showcase_id')
+            ->where('showcases.id', $id)
+            ->select('products.name', 'products.id')
+            ->get();
+    }
+
 }
