@@ -81,6 +81,8 @@ Route::get('/home', 'HomeController@index')->name('dashboard');
 
 Route::get('/home', 'HomeController@index')->name('dashboard')->middleware(['App\Http\Middleware\AdminMiddleware']);
 
+Route::resource('editor', 'CKEditorController');
+
 Route::group(['middleware' => ['App\Http\Middleware\AdminMiddleware']], function () {
 	Route::get('table-list', function () {
 		return view('pages.table_list');

@@ -36,7 +36,7 @@
                                     <label class="col-sm-2 col-form-label">{{ __('Content') }}</label>
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('content') ? ' has-danger' : '' }}">
-                                            <textarea class="{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" id="input-content" placeholder="{{ __('Content') }}" style="width: 100%" rows="15">{{ old('content', !empty($information) ? $information->content:'') }}</textarea>
+                                            <textarea class="{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" id="input-content" placeholder="{{ __('Content') }}" style="width: 100%" rows="20">{{ old('content', !empty($information) ? $information->content:'') }}</textarea>
                                             @if ($errors->has('content'))
                                                 <span id="content-error" class="error text-danger" for="input-content">{{ $errors->first('content') }}</span>
                                             @endif
