@@ -67,6 +67,83 @@ class ImagesTableSeeder extends Seeder
                 'image'=>'images/AcerLaptop.jpg',
                 'product_id' => '6',
                 'main' => true,
+            ],
+
+            [
+                'image'=>'images/31GApRrUpKL._AC_.jpg
+',
+                'product_id' => '13',
+                'main' => false,
+            ],
+            [
+                'image'=>'images/51rnrQAX9fL._AC_SL1000_.jpg',
+                'product_id' => '13',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/61NCF56lnfL._AC_SL1000_.jpg',
+                'product_id' => '12',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/91F4dCgu-LL._AC_SL1500_.jpg',
+                'product_id' => '19',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/Iphone SE main.jpg',
+                'product_id' => '10',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/Iphone SE.jpg',
+                'product_id' => '10',
+                'main' => false,
+            ],
+            [
+                'image'=>'images/Iphone.jpg',
+                'product_id' => '11',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/Iphone2.jpg',
+                'product_id' => '11',
+                'main' => false,
+            ],
+            [
+                'image'=>'images/Iphone3.jpg',
+                'product_id' => '11',
+                'main' => false,
+            ],
+            [
+                'image'=>'images/Mac.jpg',
+                'product_id' => '20',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/PowerBank.jpg',
+                'product_id' => '17',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/PowerBank2.jpg',
+                'product_id' => '17',
+                'main' => false,
+            ],
+            [
+                'image'=>'images/Videocamera.jpg',
+                'product_id' => '15',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/81CYTA56Q6L._AC_SL1500_.jpg',
+                'product_id' => '16',
+                'main' => true,
+            ],
+            [
+                'image'=>'images/smart_tv.jpg',
+                'product_id' => '14',
+                'main' => true,
             ]
         ]);
     }
