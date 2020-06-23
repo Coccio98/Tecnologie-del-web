@@ -83,7 +83,7 @@
               <div class="sidebar-wrapper">
                 <ul class="nav">
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
+                    <a class="nav-link" href="{{ route('dashboard') }}">
                       <i class="material-icons">dashboard</i>
                         <p>{{ __('Dashboard') }}</p>
                     </a>
@@ -177,7 +177,7 @@
     </form>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('home') }}">
+        <a class="nav-link" href="{{ route('dashboard') }}">
           <i class="material-icons">dashboard</i>
           <p class="d-lg-none d-md-block">
             Stats

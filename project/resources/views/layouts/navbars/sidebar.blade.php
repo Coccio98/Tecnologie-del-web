@@ -13,7 +13,7 @@
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('home') }}">
+                <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="material-icons">dashboard</i>
                     <p>{{ __('Dashboard') }}</p>
                 </a>
@@ -118,6 +118,12 @@
                 <a class="nav-link" href="{{ route('information.index') }}">
                     <i class="material-icons-outlined"> info </i>
                     <span class="sidebar-normal"> Information Management </span>
+                </a>
+            </li>
+            <li class="nav-item{{ $activePage == 'media-management' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('media.index') }}">
+                    <i class="material-icons-outlined"> perm_media </i>
+                    <span class="sidebar-normal"> Media Management </span>
                 </a>
             </li>
             <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">

@@ -77,12 +77,11 @@ Route::post('checkout/addOrder', 'HomeController@addOrder')->name('addOrder');
 Route::post('/checkout/apply-coupon','HomeController@applyCoupon');
 
 
+Route::get('/home', 'HomeController@index')->name('dashboard');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('dashboard')->middleware(['App\Http\Middleware\AdminMiddleware']);
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
-
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['App\Http\Middleware\AdminMiddleware']], function () {
 	Route::get('table-list', function () {
 		return view('pages.table_list');
 	})->name('table');
@@ -105,7 +104,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['App\Http\Middleware\AdminMiddleware']], function () {
 	Route::resource('user', 'Dashboard\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'Dashboard\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'Dashboard\ProfileController@update']);
@@ -168,6 +167,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('information', 'Dashboard\InformationController', ['except' => ['show']]);
     Route::get('edit-information/{id}', ['as' => 'information.edit', 'uses' => 'Dashboard\InformationController@edit']);
     Route::put('edit-information/{id}', ['as' => 'information.update', 'uses' => 'Dashboard\InformationController@update']);
-});
 
+    Route::resource('media', 'Dashboard\MediaController', ['except' => ['show']]);
+    Route::get('media/{path}', ['as' => 'media.delete', 'uses' => 'Dashboard\MediaController@delete']);
+});
 

@@ -2,8 +2,4 @@
 
 Sistemare la sidebar
 
-Eliminare le immagini che non si usano 
-
-Accesso solo all'admin alla dashboard (Se c'è tempo mettere bottone in admin)
-
 (Wishlist non elimina una volta fatto add-to-cart)

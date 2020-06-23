@@ -19,6 +19,7 @@ use App\Subcategory;
 use App\User;
 use ArrayObject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class HomeController extends Controller
 {
@@ -40,6 +41,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $path = 'storage/images/';
+        $images = collect(File::allFiles($path));
         return view('dashboard')
             ->with('nUsers', User::all()->count())
             ->with('nProducts', Product::all()->count())
@@ -54,7 +57,8 @@ class HomeController extends Controller
             ->with('nOrders', Order::all()->count())
             ->with('boxes', Box::join('categories', 'boxes.category_id', '=', 'categories.id')
             ->select('categories.name')
-            ->get());
+            ->get())
+            ->with('nMedia', $images->count());
     }
 
     public function page(Request $request){

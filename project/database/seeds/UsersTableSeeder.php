@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Alessia',
                 'surname' => 'Rossi',
+                'role'=> false,
                 'email' => 'alessiarossi@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('alessia1234'),
@@ -25,6 +26,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Francesco',
                 'surname' => 'Di Giuseppe',
+                'role'=> false,
                 'email' => 'francesco@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('francesco555'),
@@ -34,6 +36,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Giulia',
                 'surname' => 'Bianchi',
+                'role'=> false,
                 'email' => 'giuliabianchi@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('giulia1234'),
@@ -43,6 +46,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Marta',
                 'surname' => 'Di renzo',
+                'role'=> false,
                 'email' => 'marta@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('marta789'),
@@ -52,6 +56,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Alessio',
                 'surname' => 'Franchi',
+                'role'=> false,
                 'email' => 'alessio@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('ale43785'),
@@ -61,6 +66,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Giovanni',
                 'surname' => 'Di Marco',
+                'role'=> false,
                 'email' => 'giovanni@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('giovanni1234'),
@@ -70,6 +76,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'surname' => 'Admin',
+                'role'=> true,
                 'email' => 'admin@material.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('secret'),

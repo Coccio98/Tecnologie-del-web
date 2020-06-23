@@ -109,6 +109,12 @@
                                         My Account
                                     </a>
                                     <br/>
+                                    @if(Auth::user()->role)
+                                        <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                            Dashboard
+                                        </a>
+                                        <br/>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
