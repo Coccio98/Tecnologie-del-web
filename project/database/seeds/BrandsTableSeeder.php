@@ -27,6 +27,24 @@ class BrandsTableSeeder extends Seeder
             ],
             [
                 'name'=>'Xiaomi'
+            ],
+            [
+                'name'=>'Apple'
+            ],
+            [
+                'name'=>'Airo'
+            ],
+            [
+                'name'=>'Canon'
+            ],
+            [
+                'name'=>'Nikon'
+            ],
+            [
+                'name'=>'Majestic'
+            ],
+            [
+                'name'=>'LG'
             ]
         ]);
     }

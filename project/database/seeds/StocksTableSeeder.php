@@ -60,6 +60,90 @@ class StocksTableSeeder extends Seeder
                 'number'=>'7',
                 'product_id'=>'1'
             ],
+            [
+                'color'=>'red',
+                'size'=>'64 GB',
+                'number'=>'15',
+                'product_id'=>'10'
+            ],
+            [
+                'color'=>'white',
+                'size'=>'128 GB',
+                'number'=>'12',
+                'product_id'=>'10'
+            ],
+            [
+                'color'=>'red',
+                'size'=>'64 GB',
+                'number'=>'15',
+                'product_id'=>'11'
+            ],
+            [
+                'color'=>'white',
+                'size'=>'128 GB',
+                'number'=>'12',
+                'product_id'=>'11'
+            ],
+            [
+                'color'=>'black',
+                'size'=>'256 GB',
+                'number'=>'15',
+                'product_id'=>'12'
+            ],
+            [
+                'color'=>'gray',
+                'size'=>'256 GB',
+                'number'=>'12',
+                'product_id'=>'12'
+            ],
+            [
+                'color'=>'black',
+                'size'=>'1 TB',
+                'number'=>'10',
+                'product_id'=>'13'
+            ],
+            [
+                'color'=>'black',
+                'size'=>'42\'\' ',
+                'number'=>'24',
+                'product_id'=>'14'
+            ],
+            [
+                'color'=>'black',
+                'size'=>'2.7\'\'',
+                'number'=>'15',
+                'product_id'=>'15'
+            ],
+            [
+                'color'=>'black',
+                'size'=>'16 MP',
+                'number'=>'15',
+                'product_id'=>'16'
+            ],
+            [
+                'color'=>'silver',
+                'size'=>'10000 mAh',
+                'number'=>'12',
+                'product_id'=>'17'
+            ],
+            [
+                'color'=>'black',
+                'size'=>'large',
+                'number'=>'15',
+                'product_id'=>'18'
+            ],
+            [
+                'color'=>'black',
+                'size'=>'43\'\'',
+                'number'=>'12',
+                'product_id'=>'19'
+            ],
+            [
+                'color'=>'silver',
+                'size'=>'256 GB',
+                'number'=>'12',
+                'product_id'=>'20'
+            ]
         ]);
     }
 }
