@@ -17,13 +17,13 @@ class ShowcasesTableSeeder extends Seeder
                 'title'=>'HOT DEAL THIS WEEK',
                 'subtitle' =>'NEW COLLECTION UP TO 50% OFF',
                 'banner'=>'images/hotdeal.png',
-                'expire' => '2020-05-30 00:00:00'
+                'expire' => '2020-06-30 00:00:00'
             ],
             [
                 'title'=>'MANY COMPUTERS',
                 'subtitle' =>'MANY PRODUCTS UP TO 30% OFF',
                 'banner'=>'images/Banner-1.jpg',
-                'expire' => '2020-04-18 00:00:00'
+                'expire' => '2020-07-18 00:00:00'
             ],
             [
                 'title'=>'ACCESSORY',
