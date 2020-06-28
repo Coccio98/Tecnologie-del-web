@@ -73,19 +73,44 @@
                 <div class="aside">
                     <h3 class="aside-title">Brand</h3>
                     <div class="checkbox-filter">
-                        @foreach($brands as $brand)
-                            <div class="input-radio">
-                                <input type="radio" id="brand-{{$brand->id}}" name="brand" value="{{$brand->id}}" class="category"
-                                       @if(request()->get('brand') == $brand->id) checked @endif>
-                                <label for="brand-{{$brand->id}}">
-                                    <span></span>
-                                    {{$brand->name}}
-                                    <small>({{$brand->countByBrand(request())}})</small>
-                                </label>
-                                @if(request()->get('brand') == $brand->id)<i class="fa fa-times pointer" onclick="uncheckBrand()"></i> @endif
-                            </div>
-                        @endforeach
+                        @php($k = 0)
+                        @for($i =0; $k < 5 && $i<sizeof($brands); $i++)
+                            @if($brands[$i]->countByBrand(request()) != 0)
+                                @php($k++)
+                                <div class="input-radio">
+                                    <input type="radio" id="brand-{{$brands[$i]->id}}" name="brand" value="{{$brands[$i]->id}}" class="category"
+                                           @if(request()->get('brand') == $brands[$i]->id) checked @endif>
+                                    <label for="brand-{{$brands[$i]->id}}">
+                                        <span></span>
+                                        {{$brands[$i]->name}}
+                                        <small>({{$brands[$i]->countByBrand(request())}})</small>
+                                    </label>
+                                    @if(request()->get('brand') == $brands[$i]->id)<i class="fa fa-times pointer" onclick="uncheckBrand()"></i> @endif
+                                </div>
+                            @endif
+                        @endfor
                     </div>
+                    @if($k == 5 && sizeof($brands)>5)
+                        <div class="details" style="display:none">
+                            <div class="checkbox-filter" style="margin-top: 6px">
+                                @for($i = 5; $i<sizeof($brands); $i++)
+                                    @if($brands[$i]->countByBrand(request()) != 0)
+                                        <div class="input-radio">
+                                            <input type="radio" id="brand-{{$brands[$i]->id}}" name="brand" value="{{$brands[$i]->id}}" class="category"
+                                                   @if(request()->get('brand') == $brands[$i]->id) checked @endif>
+                                            <label for="brand-{{$brands[$i]->id}}">
+                                                <span></span>
+                                                {{$brands[$i]->name}}
+                                                <small>({{$brands[$i]->countByBrand(request())}})</small>
+                                            </label>
+                                            @if(request()->get('brand') == $brands[$i]->id)<i class="fa fa-times pointer" onclick="uncheckBrand()"></i> @endif
+                                        </div>
+                                    @endif
+                                @endfor
+                            </div>
+                        </div>
+                        <a class="pointer" id="more" onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'See Less':'See More');});">See More</a>
+                    @endif
                 </div>
                 <!-- /aside Widget -->
             </div>
