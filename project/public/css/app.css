@@ -12401,7 +12401,8 @@ textarea.input {
 }
 
 .product-wishlist .product-img > img {
-  width: 100%;
+  width: 110px;
+  height: 110px;
 }
 
 .product-wishlist .product-body {

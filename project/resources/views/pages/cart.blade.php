@@ -11,7 +11,7 @@
                 <div class="col-md-7">
                     <div class="product-wishlist">
                         <div class="product-img">
-                            <img src="@if(!empty($product->image)){{'storage/'.$product->image}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
+                            <img src="@if(!empty($product->image)){{asset('storage/'.$product->image)}}@else {{asset('storage/images/no_image.jpg')}} @endif" alt="">
                         </div>
                         <div class="product-body">
                             <p class="product-category">{{$product->category}}</p>

@@ -39,6 +39,8 @@ class Order extends Model
                     ->update(['selling_number'=>($product->selling_number + $product->quantity)]);
                 Stock::where('id', $product->stock_id)
                     ->update(['number'=>($product->number - $product->quantity)]);
+                DB::table('wishlist')->where('product_id',$product->id)
+                    ->where('user_id',$request->user()->id)->delete();
             }
 
             $coupons= Coupon::couponsUserWhere($request->user()->id);

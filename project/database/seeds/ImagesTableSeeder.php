@@ -15,17 +15,17 @@ class ImagesTableSeeder extends Seeder
         DB::table('images')->insert([
             [
                 'image'=>'images/product01.png',
-                'product_id' => '1',
-                'main' => true,
-            ],
-            [
-                'image' =>'images/product02.png',
                 'product_id' => '4',
                 'main' => true,
             ],
             [
+                'image' =>'images/product02.png',
+                'product_id' => '2',
+                'main' => true,
+            ],
+            [
                 'image'=>'images/product03.png',
-                'product_id' => '1',
+                'product_id' => '4',
                 'main' => false,
             ],
             [
@@ -35,17 +35,17 @@ class ImagesTableSeeder extends Seeder
             ],
             [
                 'image'=>'images/product05.png',
-                'product_id' => '2',
+                'product_id' => '1',
                 'main' => true,
             ],
             [
                 'image'=>'images/product06.png',
-                'product_id' => '1',
+                'product_id' => '4',
                 'main' => false,
             ],
             [
                 'image'=>'images/product07.png',
-                'product_id' => '2',
+                'product_id' => '1',
                 'main' => false,
             ],
             [

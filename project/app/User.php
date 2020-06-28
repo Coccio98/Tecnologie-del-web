@@ -2,6 +2,7 @@
 
 namespace App;
 
+use http\Env\Request;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -44,5 +45,11 @@ class User extends Authenticatable
             ->update(['name' => $request->name,
                 'surname' => $request->surname,
                 'phone' => $request->phone]);
+    }
+
+    public static function roleUpdate($request, $id){
+        $role = (!empty($request->role) ? 1 : 0);
+        return User::where('id', $id)
+            ->update(['role' => $role]);
     }
 }

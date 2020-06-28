@@ -1,5 +1,1 @@
 ﻿Cercare tra i vari campi (foreign key) nelle modifiche 
-
-Sistemare la sidebar
-
-(Wishlist non elimina una volta fatto add-to-cart)

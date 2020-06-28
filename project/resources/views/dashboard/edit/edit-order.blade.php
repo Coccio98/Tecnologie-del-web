@@ -27,7 +27,7 @@
                                     </div>
                                 @endif
                                 <div class="row">
-                                    <label class="col-sm-2 col-form-label">{{ __('Order Number: ') }}@if(!empty($order)){{ $order-> number }} @endif</label>
+                                    <label class="col-sm-6 col-form-label">{{ __('Order Number: ') }}@if(!empty($order)){{ $order-> number }} @endif</label>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-2 col-form-label">{{ __('Delivery date') }}</label>

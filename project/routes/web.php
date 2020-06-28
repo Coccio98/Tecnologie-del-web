@@ -108,8 +108,8 @@ Route::group(['middleware' => ['App\Http\Middleware\AdminMiddleware']], function
 
 Route::group(['middleware' => ['App\Http\Middleware\AdminMiddleware']], function () {
 	Route::resource('user', 'Dashboard\UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'Dashboard\ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'Dashboard\ProfileController@update']);
+	Route::get('profile/{id}', ['as' => 'profile.edit', 'uses' => 'Dashboard\ProfileController@edit']);
+	Route::put('profile/{id}', ['as' => 'profile.update', 'uses' => 'Dashboard\ProfileController@update']);
 
 	Route::resource('brand', 'Dashboard\BrandController', ['except' => ['show']]);
     Route::get('edit-brand/{id}', ['as' => 'brand.edit', 'uses' => 'Dashboard\BrandController@edit']);
